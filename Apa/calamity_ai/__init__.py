@@ -1,0 +1,1 @@
+"""Calamity monitoring package."""

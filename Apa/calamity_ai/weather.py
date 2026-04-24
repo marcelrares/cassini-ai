@@ -1,0 +1,177 @@
+from __future__ import annotations
+
+import json
+from dataclasses import asdict
+from pathlib import Path
+from statistics import mean
+from urllib.error import HTTPError
+from urllib.parse import urlencode
+from urllib.request import urlopen
+
+from .config import MonitorConfig
+from .scoring import WeatherFeatures
+
+
+def demo_weather_features() -> WeatherFeatures:
+    return WeatherFeatures(
+        precip_24h_m=0.026,
+        temp_mean_24h_c=28.4,
+        temp_max_24h_c=34.2,
+        wind_gust_max_ms=14.5,
+        cape_max_jkg=1100,
+        soil_moisture_proxy=0.31,
+        relative_humidity_mean_percent=36.0,
+        evapotranspiration_24h_mm=4.8,
+        vapor_pressure_deficit_kpa=1.9,
+    )
+
+
+def get_local_weather_features(path: str | Path) -> WeatherFeatures:
+    raw = json.loads(Path(path).read_text(encoding="utf-8"))
+    return WeatherFeatures(
+        precip_24h_m=float(raw["precip_24h_m"]),
+        temp_mean_24h_c=float(raw["temp_mean_24h_c"]),
+        temp_max_24h_c=float(raw["temp_max_24h_c"]),
+        wind_gust_max_ms=float(raw["wind_gust_max_ms"]),
+        cape_max_jkg=float(raw.get("cape_max_jkg", 0)),
+        soil_moisture_proxy=None
+        if raw.get("soil_moisture_proxy") is None
+        else float(raw["soil_moisture_proxy"]),
+        relative_humidity_mean_percent=None
+        if raw.get("relative_humidity_mean_percent") is None
+        else float(raw["relative_humidity_mean_percent"]),
+        evapotranspiration_24h_mm=None
+        if raw.get("evapotranspiration_24h_mm") is None
+        else float(raw["evapotranspiration_24h_mm"]),
+        vapor_pressure_deficit_kpa=None
+        if raw.get("vapor_pressure_deficit_kpa") is None
+        else float(raw["vapor_pressure_deficit_kpa"]),
+    )
+
+
+def get_open_meteo_weather_features(config: MonitorConfig) -> WeatherFeatures:
+    longitude = mean(point[0] for point in config.polygon)
+    latitude = mean(point[1] for point in config.polygon)
+    hourly_variables = [
+        "temperature_2m",
+        "precipitation",
+        "wind_gusts_10m",
+        "relative_humidity_2m",
+        "evapotranspiration",
+        "vapor_pressure_deficit",
+        "soil_moisture_0_to_1cm",
+    ]
+    payload = _fetch_open_meteo(latitude, longitude, hourly_variables)
+    hourly = payload["hourly"]
+    hours = max(1, min(config.forecast_window_hours, len(hourly["time"])))
+
+    temperatures = _first_numbers(hourly["temperature_2m"], hours)
+    precipitation_mm = _first_numbers(hourly["precipitation"], hours)
+    wind_gusts = _first_numbers(hourly["wind_gusts_10m"], hours)
+    humidity = _optional_first_numbers(hourly.get("relative_humidity_2m", []), hours)
+    evapotranspiration = _optional_first_numbers(hourly.get("evapotranspiration", []), hours)
+    vapor_pressure_deficit = _optional_first_numbers(hourly.get("vapor_pressure_deficit", []), hours)
+    soil_values = _optional_first_numbers(hourly.get("soil_moisture_0_to_1cm", []), hours)
+
+    soil_proxy = None
+    if soil_values:
+        soil_proxy = max(0.0, min(1.0, mean(soil_values) / 0.5))
+
+    return WeatherFeatures(
+        precip_24h_m=sum(precipitation_mm) / 1000,
+        temp_mean_24h_c=mean(temperatures),
+        temp_max_24h_c=max(temperatures),
+        wind_gust_max_ms=max(wind_gusts) / 3.6,
+        cape_max_jkg=0,
+        soil_moisture_proxy=soil_proxy,
+        relative_humidity_mean_percent=None if not humidity else mean(humidity),
+        evapotranspiration_24h_mm=None if not evapotranspiration else sum(evapotranspiration),
+        vapor_pressure_deficit_kpa=None if not vapor_pressure_deficit else mean(vapor_pressure_deficit),
+    )
+
+
+def _fetch_open_meteo(latitude: float, longitude: float, hourly_variables: list[str]) -> dict[str, object]:
+    params = {
+        "latitude": latitude,
+        "longitude": longitude,
+        "hourly": ",".join(hourly_variables),
+        "forecast_days": 2,
+        "timezone": "UTC",
+    }
+    url = "https://api.open-meteo.com/v1/forecast?" + urlencode(params)
+    try:
+        with urlopen(url, timeout=30) as response:
+            return json.loads(response.read().decode("utf-8"))
+    except HTTPError as exc:
+        if exc.code == 400:
+            for optional in [
+                "soil_moisture_0_to_1cm",
+                "vapor_pressure_deficit",
+                "evapotranspiration",
+                "relative_humidity_2m",
+            ]:
+                if optional in hourly_variables:
+                    return _fetch_open_meteo(
+                        latitude,
+                        longitude,
+                        [item for item in hourly_variables if item != optional],
+                    )
+        raise
+
+
+def _first_numbers(values: list[float | int | None], count: int) -> list[float]:
+    numbers = [float(value) for value in values[:count] if value is not None]
+    if not numbers:
+        raise RuntimeError("Weather provider returned no usable hourly values.")
+    return numbers
+
+
+def _optional_first_numbers(values: list[float | int | None], count: int) -> list[float]:
+    return [float(value) for value in values[:count] if value is not None]
+
+
+def get_earth_engine_weather_features(config: MonitorConfig) -> WeatherFeatures:
+    import ee
+
+    if config.project_id and config.project_id != "PROJECT_ID":
+        ee.Initialize(project=config.project_id)
+    else:
+        raise RuntimeError(
+            "Earth Engine needs a Google Cloud project id. Set it in "
+            "config/monitor_config.json, pass --project YOUR_PROJECT_ID, or set "
+            "EE_PROJECT_ID. You can also run: earthengine set_project YOUR_PROJECT_ID"
+        )
+    area = ee.Geometry.Polygon([[point for point in config.polygon]])
+    collection = ee.ImageCollection(config.dataset).sort("creation_time", False)
+    latest_creation = ee.Image(collection.first()).get("creation_time")
+    forecast = (
+        collection.filter(ee.Filter.eq("creation_time", latest_creation))
+        .filter(ee.Filter.lte("forecast_hours", config.forecast_window_hours))
+    )
+
+    precip_img = forecast.select("total_precipitation_sfc").max()
+    temp_mean_img = forecast.select("temperature_2m_sfc").mean()
+    temp_max_img = forecast.select("max_2m_temperature_last_3h_sfc").max()
+    gust_img = forecast.select("max_10m_wind_gust_since_last_post_processing_sfc").max()
+    cape_img = forecast.select("most_unstable_convective_available_potential_energy_sfc").max()
+
+    def area_mean(image: object, band: str) -> float:
+        value = image.select(band).reduceRegion(
+            reducer=ee.Reducer.mean(),
+            geometry=area,
+            scale=config.scale_m,
+            maxPixels=1e9,
+        ).get(band)
+        return float(ee.Number(value).getInfo())
+
+    return WeatherFeatures(
+        precip_24h_m=area_mean(precip_img, "total_precipitation_sfc"),
+        temp_mean_24h_c=area_mean(temp_mean_img, "temperature_2m_sfc"),
+        temp_max_24h_c=area_mean(temp_max_img, "max_2m_temperature_last_3h_sfc"),
+        wind_gust_max_ms=area_mean(gust_img, "max_10m_wind_gust_since_last_post_processing_sfc"),
+        cape_max_jkg=area_mean(cape_img, "most_unstable_convective_available_potential_energy_sfc"),
+    )
+
+
+def features_to_dict(features: WeatherFeatures) -> dict[str, float | None]:
+    return asdict(features)
