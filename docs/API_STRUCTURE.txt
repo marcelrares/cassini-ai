@@ -1,0 +1,270 @@
+# Cassini AI API Structure
+
+This project does not expose an HTTP REST API yet. The current public interface is a
+Python CLI plus JSON-compatible data contracts produced by the monitoring package.
+This file documents those contracts so a future web API can wrap them consistently.
+
+## Runtime Entry Point
+
+Command:
+
+```text
+python hourly_monitor.py [options]
+```
+
+Main functions:
+
+- `hourly_monitor.parse_args()`: parses CLI options.
+- `hourly_monitor.build_report(args)`: builds the in-memory report dictionary.
+- `hourly_monitor.main()`: runs the monitor and writes outputs.
+
+Important CLI options:
+
+- `--config`: path to monitor configuration JSON. Default: `config/monitor_config.json`.
+- `--sensors`: path to sensor CSV. Default: `data/sensors.csv`.
+- `--provider`: weather provider, one of `openmeteo`, `local`, `earthengine`.
+- `--weather`: local weather JSON path when `--provider local` is used.
+- `--demo`: use bundled demo weather values.
+- `--no-context`: skip historical weather and elevation context.
+- `--no-copernicus`: skip Copernicus satellite catalogue checks.
+- `--no-zones`: skip zone exposure ranking.
+- `--no-predictions`: skip multi-day predictions.
+- `--prediction-days`: number of Open-Meteo daily prediction rows.
+- `--update-resources`: refresh cached OSM/Nominatim resource files.
+- `--print-json`: print the generated report to stdout.
+
+## Core Python Modules
+
+```text
+calamity_ai/config.py
+  load_config(path) -> MonitorConfig
+  MonitorConfig.with_project_id(project_id) -> MonitorConfig
+
+calamity_ai/weather.py
+  demo_weather_features() -> WeatherFeatures
+  get_local_weather_features(path) -> WeatherFeatures
+  get_open_meteo_weather_features(config) -> WeatherFeatures
+  get_earth_engine_weather_features(config) -> WeatherFeatures
+  features_to_dict(features) -> dict
+
+calamity_ai/scoring.py
+  score_calamities(features, thresholds, context=None) -> dict
+
+calamity_ai/context.py
+  get_environmental_context(config, now) -> EnvironmentalContext
+  environmental_context_to_dict(context) -> dict
+
+calamity_ai/zones.py
+  get_zone_analysis(config, features, calamities, context) -> ZoneAnalysis
+  zone_analysis_to_dict(analysis) -> dict
+
+calamity_ai/forecast.py
+  get_open_meteo_predictions(config, context, days=5) -> MultiDayPrediction
+  predictions_to_dict(predictions) -> dict
+
+calamity_ai/sensors.py
+  summarize_sensors(path, now, min_online_ratio, stale_after_minutes) -> SensorSummary
+
+calamity_ai/copernicus.py
+  get_copernicus_summary(config, now) -> CopernicusSummary
+  copernicus_to_dict(summary) -> dict
+
+calamity_ai/resources.py
+  ensure_resources(config, update=False) -> ResourceSummary
+  resource_summary_to_dict(summary) -> dict
+
+calamity_ai/exporters.py
+  append_jsonl(path, report)
+  append_csv(path, report)
+```
+
+## Configuration Contract
+
+File: `config/monitor_config.json`
+
+Top-level fields:
+
+```text
+project_id: string
+area:
+  name: string
+  polygon: list[[longitude, latitude]]
+earth_engine:
+  dataset: string
+  scale_m: integer
+  forecast_window_hours: integer
+thresholds:
+  flood_precip_high_m: number
+  drought_precip_low_m: number
+  drought_temp_hot_c: number
+  storm_wind_high_ms: number
+  heat_high_c: number
+  wildfire_temp_hot_c: number
+  wildfire_wind_high_ms: number
+sensor_health:
+  min_online_ratio: number
+  stale_after_minutes: number
+context: object
+zones: object
+copernicus: object
+```
+
+## Input Data Contracts
+
+Sensor CSV: `data/sensors.csv`
+
+```csv
+sensor_id,type,latitude,longitude,status,last_seen_utc
+```
+
+Local weather JSON: `data/weather_features.json`
+
+```json
+{
+  "precip_24h_m": 0.026,
+  "temp_mean_24h_c": 28.4,
+  "temp_max_24h_c": 34.2,
+  "wind_gust_max_ms": 14.5,
+  "cape_max_jkg": 1100,
+  "soil_moisture_proxy": 0.31,
+  "relative_humidity_mean_percent": 36.0,
+  "evapotranspiration_24h_mm": 4.8,
+  "vapor_pressure_deficit_kpa": 1.9
+}
+```
+
+Nullable local weather fields:
+
+- `soil_moisture_proxy`
+- `relative_humidity_mean_percent`
+- `evapotranspiration_24h_mm`
+- `vapor_pressure_deficit_kpa`
+
+## Report Output Contract
+
+`build_report(args)` returns a dictionary shaped like this:
+
+```json
+{
+  "timestamp": "2026-04-25T00:00:00Z",
+  "area": "Iasi",
+  "weather": {},
+  "calamities": {},
+  "sensors": {
+    "total": 0,
+    "online": 0,
+    "offline": 0,
+    "stale": 0,
+    "working": false
+  },
+  "working": false,
+  "notes": "text",
+  "copernicus": {},
+  "context": {},
+  "zone_analysis": {},
+  "predictions": {},
+  "resources": {}
+}
+```
+
+Always present:
+
+- `timestamp`
+- `area`
+- `weather`
+- `calamities`
+- `sensors`
+- `working`
+- `notes`
+
+Conditionally present:
+
+- `copernicus`: omitted when `--no-copernicus` is used or the check is skipped.
+- `context`: omitted when `--no-context` is used.
+- `zone_analysis`: omitted when context is unavailable or `--no-zones` is used.
+- `predictions`: omitted unless provider is `openmeteo`, context is enabled, and predictions are enabled.
+- `resources`: omitted when `--no-resources` is used.
+
+## Calamity Score Contract
+
+`calamities` contains one object per hazard:
+
+```text
+flood
+drought
+storm
+heatwave
+wildfire
+```
+
+Each hazard object includes:
+
+```json
+{
+  "score": 0.0,
+  "risk_percent": 0.0,
+  "risk_index_percent": 0.0,
+  "is_probability": false,
+  "risk": "low",
+  "title": "Flood",
+  "explanation": "text",
+  "input_values": {},
+  "normal_limits": {},
+  "formula": "text",
+  "risk_scale": {
+    "low": "0-39.9%: low risk",
+    "medium": "40-69.9%: medium risk",
+    "high": "70-100%: high risk"
+  }
+}
+```
+
+Risk labels:
+
+- `low`: score below 0.4.
+- `medium`: score from 0.4 to below 0.7.
+- `high`: score from 0.7 to 1.0.
+
+Important note: `risk_index_percent` is a normalized warning index, not an
+official alert and not an event probability.
+
+## Persistence Outputs
+
+Default file outputs:
+
+```text
+out/reports.jsonl  append-only full JSON report per line
+out/reports.csv    flattened spreadsheet-friendly rows
+out/monitor.log    compact human-readable log line
+```
+
+## Suggested Future HTTP API Wrapper
+
+A minimal REST wrapper can map the current contracts as:
+
+```text
+GET  /health
+  Returns service status and dependency availability.
+
+GET  /config
+  Returns sanitized monitor configuration.
+
+POST /reports
+  Body: optional provider and runtime flags.
+  Runs build_report(...) and returns the generated report.
+
+GET  /reports/latest
+  Returns the latest row from out/reports.jsonl.
+
+GET  /reports/history
+  Query: limit, since, hazard.
+  Returns previous JSONL reports.
+
+POST /weather/score
+  Body: WeatherFeatures JSON.
+  Returns calamity scores without writing files.
+```
+
+For the first implementation, `POST /reports` should call the same
+`build_report(args)` path used by the CLI to avoid maintaining two separate
+calculation flows.
