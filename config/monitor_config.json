@@ -1,0 +1,75 @@
+{
+  "project_id": "PROJECT_ID",
+  "area": {
+    "name": "Iasi_monitoring_zone",
+    "polygon": [
+      [27.43, 47.17],
+      [27.48, 47.23],
+      [27.61, 47.24],
+      [27.72, 47.20],
+      [27.75, 47.14],
+      [27.70, 47.08],
+      [27.60, 47.05],
+      [27.50, 47.07],
+      [27.43, 47.12],
+      [27.43, 47.17]
+    ]
+  },
+  "earth_engine": {
+    "dataset": "ECMWF/NRT_FORECAST/IFS/OPER",
+    "scale_m": 25000,
+    "forecast_window_hours": 24
+  },
+  "thresholds": {
+    "flood_precip_high_m": 0.05,
+    "storm_wind_high_ms": 25,
+    "heat_high_c": 38,
+    "drought_precip_low_m": 0.005,
+    "drought_temp_hot_c": 30,
+    "wildfire_temp_hot_c": 32,
+    "wildfire_wind_high_ms": 12
+  },
+  "sensor_health": {
+    "min_online_ratio": 0.8,
+    "stale_after_minutes": 90
+  },
+  "context": {
+    "recent_lookback_days": 90,
+    "baseline_years": 10
+  },
+  "zones": {
+    "rows": 3,
+    "cols": 3,
+    "labels": [
+      "Rediu-Breazu / Copou hill sector",
+      "Copou-Pacurari-Canta sector",
+      "Tatarasi-Aeroport northern ridge sector",
+      "Valea Lupului-Miroslava west sector",
+      "Bahlui low corridor / city center sector",
+      "Tatarasi-Socola-Holboca east sector",
+      "Galata-Miroslava south-west sector",
+      "Nicolina-CUG-Frumoasa south sector",
+      "Bucium-Tomesti south-east hill sector"
+    ]
+  },
+  "copernicus": {
+    "stac_url": "https://stac.dataspace.copernicus.eu/v1/search",
+    "lookback_days": 14,
+    "limit_per_collection": 5,
+    "sentinel2_max_cloud": 60,
+    "auxiliary_collections": [
+      "sentinel-3-sl-2-lst-nrt",
+      "sentinel-3-sl-2-frp-nrt",
+      "sentinel-5p-l2-aer-ai-nrti",
+      "sentinel-5p-l2-co-nrti",
+      "clms_swi_europe_1km_daily_v2_cog",
+      "clms_ssm_europe_1km_daily_v1_cog",
+      "clms_ndvi_global_300m_10daily_v3_cog",
+      "clms_ba_global_300m_daily_v4_cog",
+      "clms_wb_global_100m_monthly_v1_cog",
+      "modis-terra-mod14a1",
+      "modis-terraaqua-mcd64a1",
+      "cop-dem-glo-30-dged-cog"
+    ]
+  }
+}

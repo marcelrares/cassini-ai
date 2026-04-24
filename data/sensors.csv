@@ -1,0 +1,6 @@
+sensor_id,type,status,last_seen_utc,value
+S-001,water_level,online,NOW,1.2
+S-002,rain_gauge,online,NOW,3.5
+S-003,soil_moisture,online,NOW,0.31
+S-004,weather_station,offline,2026-04-24T07:15:00Z,
+S-005,river_flow,online,NOW,42.0
