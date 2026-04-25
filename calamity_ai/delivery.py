@@ -203,6 +203,7 @@ def _dashboard_json(
         "terrain": _terrain_summary(report.get("context")),
         "resources": _resource_summary(report.get("resources")),
         "satellite_signals": _satellite_signals(weather),
+        "environment": _environment_summary(weather),
     }
 
 
@@ -552,6 +553,39 @@ def _satellite_signals(weather: object) -> dict[str, object]:
         if weather.get(key) is not None
     ]
     return {"available": bool(signals), "signals": signals}
+
+
+def _environment_summary(weather: object) -> dict[str, object]:
+    if not isinstance(weather, dict):
+        return {"available": False}
+    return {
+        "available": True,
+        "soil": {
+            "moisture_proxy": weather.get("soil_moisture_proxy"),
+            "status": _soil_status(weather.get("soil_moisture_proxy")),
+        },
+        "water_balance": {
+            "precipitation_next_24h_mm": _meters_to_mm(weather.get("precip_24h_m")),
+            "evapotranspiration_24h_mm": weather.get("evapotranspiration_24h_mm"),
+            "vapor_pressure_deficit_kpa": weather.get("vapor_pressure_deficit_kpa"),
+            "relative_humidity_percent": weather.get("relative_humidity_mean_percent"),
+        },
+        "storm_conditions": {
+            "wind_gust_max_ms": weather.get("wind_gust_max_ms"),
+            "cape_max_jkg": weather.get("cape_max_jkg"),
+        },
+    }
+
+
+def _soil_status(value: object) -> str | None:
+    if value is None:
+        return None
+    moisture = float(value)
+    if moisture < 0.25:
+        return "dry"
+    if moisture < 0.55:
+        return "moderate"
+    return "wet"
 
 
 def _sensor_summary(sensors: object) -> dict[str, object]:

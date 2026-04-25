@@ -133,24 +133,9 @@
       },
       {
         "collection": "sentinel-5p-l2-co-nrti",
-        "count": 2,
-        "latest_datetime": "2026-04-25T11:38:09Z",
-        "products": [
-          {
-            "id": "S5P_NRTI_L2__CO_____20260425T113814_20260425T114314_44209_03_020901_20260425T121456",
-            "collection": "sentinel-5p-l2-co-nrti",
-            "datetime": "2026-04-25T11:38:09Z",
-            "platform": "sentinel-5p",
-            "cloud_cover": null
-          },
-          {
-            "id": "S5P_NRTI_L2__CO_____20260425T095814_20260425T100314_44208_03_020901_20260425T120103",
-            "collection": "sentinel-5p-l2-co-nrti",
-            "datetime": "2026-04-25T09:58:09Z",
-            "platform": "sentinel-5p",
-            "cloud_cover": null
-          }
-        ]
+        "count": 0,
+        "latest_datetime": null,
+        "products": []
       },
       {
         "collection": "clms_swi_europe_1km_daily_v2_cog",
@@ -222,6 +207,6 @@
     },
     "flood_observation_ready": true,
     "optical_observation_ready": true,
-    "evidence_explanation": "Sentinel-1 radar products found: 5; Sentinel-2 optical products found: 2; additional evidence collections found: sentinel-3-sl-2-lst-nrt, sentinel-3-sl-2-frp-nrt, sentinel-5p-l2-aer-ai-nrti, sentinel-5p-l2-co-nrti, modis-terra-mod14a1"
+    "evidence_explanation": "Sentinel-1 radar products found: 5; Sentinel-2 optical products found: 2; additional evidence collections found: sentinel-3-sl-2-lst-nrt, sentinel-3-sl-2-frp-nrt, sentinel-5p-l2-aer-ai-nrti, modis-terra-mod14a1"
   }
 }

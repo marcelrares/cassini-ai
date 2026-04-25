@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-25T17:33:31.105264+00:00",
+  "generated_at": "2026-04-25T17:36:53.069556+00:00",
   "title": "Calamity Intelligence Dashboard",
   "subtitle": "Iasi_monitoring_zone risk monitoring",
   "area": {
@@ -240,5 +240,22 @@
   "satellite_signals": {
     "available": false,
     "signals": []
+  },
+  "environment": {
+    "available": true,
+    "soil": {
+      "moisture_proxy": 0.4855652173913043,
+      "status": "moderate"
+    },
+    "water_balance": {
+      "precipitation_next_24h_mm": 0.0,
+      "evapotranspiration_24h_mm": 2.06,
+      "vapor_pressure_deficit_kpa": 0.7417391304347827,
+      "relative_humidity_percent": 53.78260869565217
+    },
+    "storm_conditions": {
+      "wind_gust_max_ms": 21.38888888888889,
+      "cape_max_jkg": 0
+    }
   }
 }
