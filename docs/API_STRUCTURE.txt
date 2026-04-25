@@ -22,7 +22,7 @@ Important CLI options:
 
 - `--config`: path to monitor configuration JSON. Default: `config/monitor_config.json`.
 - `--sensors`: path to sensor CSV. Default: `data/sensors.csv`.
-- `--provider`: weather provider, one of `openmeteo`, `local`, `earthengine`.
+- `--provider`: weather provider, one of `openmeteo`, `local`.
 - `--weather`: local weather JSON path when `--provider local` is used.
 - `--demo`: use bundled demo weather values.
 - `--no-context`: skip historical weather and elevation context.
@@ -38,13 +38,12 @@ Important CLI options:
 ```text
 calamity_ai/config.py
   load_config(path) -> MonitorConfig
-  MonitorConfig.with_project_id(project_id) -> MonitorConfig
+  MonitorConfig.with_area(area_name, polygon) -> MonitorConfig
 
 calamity_ai/weather.py
   demo_weather_features() -> WeatherFeatures
   get_local_weather_features(path) -> WeatherFeatures
   get_open_meteo_weather_features(config) -> WeatherFeatures
-  get_earth_engine_weather_features(config) -> WeatherFeatures
   features_to_dict(features) -> dict
 
 calamity_ai/scoring.py
@@ -85,13 +84,10 @@ File: `config/monitor_config.json`
 Top-level fields:
 
 ```text
-project_id: string
 area:
   name: string
   polygon: list[[longitude, latitude]]
-earth_engine:
-  dataset: string
-  scale_m: integer
+weather:
   forecast_window_hours: integer
 thresholds:
   flood_precip_high_m: number
@@ -210,7 +206,6 @@ Each hazard object includes:
   "explanation": "text",
   "input_values": {},
   "normal_limits": {},
-  "formula": "text",
   "risk_scale": {
     "low": "0-39.9%: low risk",
     "medium": "40-69.9%: medium risk",

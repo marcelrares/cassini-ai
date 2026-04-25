@@ -1,32 +1,32 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-25T10:32:29.372203Z",
+  "generated_at": "2026-04-25T13:07:56.497323Z",
   "title": "Calamity Intelligence Dashboard",
-  "subtitle": "da risk monitoring",
+  "subtitle": "sofia risk monitoring",
   "area": {
-    "name": "da",
+    "name": "sofia",
     "bbox": [
-      27.4,
-      47.1,
-      27.6,
-      47.2
+      23.2,
+      42.62,
+      23.45,
+      42.78
     ],
-    "total_monitored_hectares": 16738.6
+    "total_monitored_hectares": 36173.9
   },
   "stats": [
     {
       "id": "max-risk",
       "label": "Max risk",
-      "value": 58.8,
+      "value": 34.2,
       "unit": "%",
-      "status": "storm:medium"
+      "status": "drought:low"
     },
     {
       "id": "active-alerts",
       "label": "Active alerts",
-      "value": 1,
+      "value": 0,
       "unit": "",
-      "status": "active"
+      "status": "clear"
     },
     {
       "id": "sensors-online",
@@ -44,81 +44,72 @@
     }
   ],
   "weather": {
-    "temperature_current_c": 17.9,
-    "temperature_max_last_24h_c": 17.9,
-    "temperature_forecast_max_next_24h_c": 20.4,
+    "temperature_current_c": 19.8,
+    "temperature_max_last_24h_c": 19.8,
+    "temperature_forecast_max_next_24h_c": 22.5,
     "precipitation_next_24h_mm": 0.0,
-    "wind_gust_max_ms": 22.61111111111111,
-    "relative_humidity_percent": 57.78260869565217,
-    "soil_moisture_proxy": 0.4789565217391304,
-    "vapor_pressure_deficit_kpa": 0.7965217391304348
+    "wind_gust_max_ms": 12.0,
+    "relative_humidity_percent": 45.34782608695652,
+    "soil_moisture_proxy": 0.5480869565217392,
+    "vapor_pressure_deficit_kpa": 1.0004347826086957
   },
-  "alerts": [
-    {
-      "id": "risk-storm",
-      "type": "risk",
-      "severity": "medium",
-      "title": "Storm / strong wind",
-      "message": "Storm risk is 58.8% (medium) because maximum forecast gusts are 22.6 m/s and CAPE is 0 J/kg. The high-risk wind reference is 25.0 m/s; CAPE above 2500 J/kg indicates strong convective instability.",
-      "risk_index_percent": 58.8
-    }
-  ],
+  "alerts": [],
   "predictions": {
     "type": "zone_grid",
     "zone_count": 144,
     "indices_are_probabilities": false,
     "top_zones": [
       {
-        "id": "Z12",
-        "name": "row 1-column 12 sector",
-        "max_risk_index": 25.9,
-        "flood_exposure_index": 19.7,
-        "drought_exposure_index": 25.9,
-        "wildfire_exposure_index": 8.4,
+        "id": "Z1",
+        "name": "row 1-column 1 sector",
+        "max_risk_index": 28.5,
+        "flood_exposure_index": 6.7,
+        "drought_exposure_index": 28.5,
+        "wildfire_exposure_index": 13.9,
         "most_relevant_risks": [
           "drought"
         ]
       },
       {
-        "id": "Z126",
-        "name": "row 11-column 6 sector",
-        "max_risk_index": 25.9,
-        "flood_exposure_index": 21.5,
-        "drought_exposure_index": 25.9,
-        "wildfire_exposure_index": 8.2,
+        "id": "Z2",
+        "name": "row 1-column 2 sector",
+        "max_risk_index": 28.5,
+        "flood_exposure_index": 6.7,
+        "drought_exposure_index": 28.5,
+        "wildfire_exposure_index": 13.9,
         "most_relevant_risks": [
           "drought"
         ]
       },
       {
-        "id": "Z21",
-        "name": "row 2-column 9 sector",
-        "max_risk_index": 25.8,
-        "flood_exposure_index": 19.3,
-        "drought_exposure_index": 25.8,
-        "wildfire_exposure_index": 7.5,
+        "id": "Z3",
+        "name": "row 1-column 3 sector",
+        "max_risk_index": 28.5,
+        "flood_exposure_index": 6.7,
+        "drought_exposure_index": 28.5,
+        "wildfire_exposure_index": 13.9,
         "most_relevant_risks": [
           "drought"
         ]
       },
       {
-        "id": "Z65",
-        "name": "row 6-column 5 sector",
-        "max_risk_index": 25.8,
-        "flood_exposure_index": 18.9,
-        "drought_exposure_index": 25.8,
-        "wildfire_exposure_index": 8.4,
+        "id": "Z4",
+        "name": "row 1-column 4 sector",
+        "max_risk_index": 28.5,
+        "flood_exposure_index": 6.7,
+        "drought_exposure_index": 28.5,
+        "wildfire_exposure_index": 13.9,
         "most_relevant_risks": [
           "drought"
         ]
       },
       {
-        "id": "Z100",
-        "name": "row 9-column 4 sector",
-        "max_risk_index": 25.8,
-        "flood_exposure_index": 17.5,
-        "drought_exposure_index": 25.8,
-        "wildfire_exposure_index": 7.5,
+        "id": "Z5",
+        "name": "row 1-column 5 sector",
+        "max_risk_index": 28.5,
+        "flood_exposure_index": 6.7,
+        "drought_exposure_index": 28.5,
+        "wildfire_exposure_index": 13.9,
         "most_relevant_risks": [
           "drought"
         ]
@@ -128,14 +119,14 @@
   },
   "map": {
     "center": [
-      27.48,
-      47.160000000000004
+      23.3,
+      42.716
     ],
     "bbox": [
-      27.4,
-      47.1,
-      27.6,
-      47.2
+      23.2,
+      42.62,
+      23.45,
+      42.78
     ],
     "layers": {
       "predictions": "processing/predictions.geojson",
@@ -151,38 +142,38 @@
       "name": "row 1-column 1 sector",
       "area": null,
       "center": [
-        27.40833,
-        47.19583
+        23.21042,
+        42.77333
       ],
       "risk": {
-        "flood": 18.7,
-        "drought": 24.3,
-        "wildfire": 7.1,
-        "max": 24.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.4,
-              47.2
+              23.2,
+              42.78
             ],
             [
-              27.416667,
-              47.2
+              23.220833,
+              42.78
             ],
             [
-              27.416667,
-              47.191667
+              23.220833,
+              42.766667
             ],
             [
-              27.4,
-              47.191667
+              23.2,
+              42.766667
             ],
             [
-              27.4,
-              47.2
+              23.2,
+              42.78
             ]
           ]
         ]
@@ -193,38 +184,38 @@
       "name": "row 1-column 2 sector",
       "area": null,
       "center": [
-        27.425,
-        47.19583
+        23.23125,
+        42.77333
       ],
       "risk": {
-        "flood": 18.0,
-        "drought": 23.9,
-        "wildfire": 7.2,
-        "max": 23.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.416667,
-              47.2
+              23.220833,
+              42.78
             ],
             [
-              27.433333,
-              47.2
+              23.241667,
+              42.78
             ],
             [
-              27.433333,
-              47.191667
+              23.241667,
+              42.766667
             ],
             [
-              27.416667,
-              47.191667
+              23.220833,
+              42.766667
             ],
             [
-              27.416667,
-              47.2
+              23.220833,
+              42.78
             ]
           ]
         ]
@@ -235,38 +226,38 @@
       "name": "row 1-column 3 sector",
       "area": null,
       "center": [
-        27.44167,
-        47.19583
+        23.25208,
+        42.77333
       ],
       "risk": {
-        "flood": 18.6,
-        "drought": 24.8,
-        "wildfire": 7.3,
-        "max": 24.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.433333,
-              47.2
+              23.241667,
+              42.78
             ],
             [
-              27.45,
-              47.2
+              23.2625,
+              42.78
             ],
             [
-              27.45,
-              47.191667
+              23.2625,
+              42.766667
             ],
             [
-              27.433333,
-              47.191667
+              23.241667,
+              42.766667
             ],
             [
-              27.433333,
-              47.2
+              23.241667,
+              42.78
             ]
           ]
         ]
@@ -277,38 +268,38 @@
       "name": "row 1-column 4 sector",
       "area": null,
       "center": [
-        27.45833,
-        47.19583
+        23.27292,
+        42.77333
       ],
       "risk": {
-        "flood": 20.0,
-        "drought": 25.5,
-        "wildfire": 8.0,
-        "max": 25.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.45,
-              47.2
+              23.2625,
+              42.78
             ],
             [
-              27.466667,
-              47.2
+              23.283333,
+              42.78
             ],
             [
-              27.466667,
-              47.191667
+              23.283333,
+              42.766667
             ],
             [
-              27.45,
-              47.191667
+              23.2625,
+              42.766667
             ],
             [
-              27.45,
-              47.2
+              23.2625,
+              42.78
             ]
           ]
         ]
@@ -319,38 +310,38 @@
       "name": "row 1-column 5 sector",
       "area": null,
       "center": [
-        27.475,
-        47.19583
+        23.29375,
+        42.77333
       ],
       "risk": {
-        "flood": 18.5,
-        "drought": 24.6,
-        "wildfire": 7.6,
-        "max": 24.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.466667,
-              47.2
+              23.283333,
+              42.78
             ],
             [
-              27.483333,
-              47.2
+              23.304167,
+              42.78
             ],
             [
-              27.483333,
-              47.191667
+              23.304167,
+              42.766667
             ],
             [
-              27.466667,
-              47.191667
+              23.283333,
+              42.766667
             ],
             [
-              27.466667,
-              47.2
+              23.283333,
+              42.78
             ]
           ]
         ]
@@ -361,38 +352,38 @@
       "name": "row 1-column 6 sector",
       "area": null,
       "center": [
-        27.49167,
-        47.19583
+        23.31458,
+        42.77333
       ],
       "risk": {
-        "flood": 19.6,
-        "drought": 25.2,
-        "wildfire": 8.5,
-        "max": 25.2
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.483333,
-              47.2
+              23.304167,
+              42.78
             ],
             [
-              27.5,
-              47.2
+              23.325,
+              42.78
             ],
             [
-              27.5,
-              47.191667
+              23.325,
+              42.766667
             ],
             [
-              27.483333,
-              47.191667
+              23.304167,
+              42.766667
             ],
             [
-              27.483333,
-              47.2
+              23.304167,
+              42.78
             ]
           ]
         ]
@@ -403,38 +394,38 @@
       "name": "row 1-column 7 sector",
       "area": null,
       "center": [
-        27.50833,
-        47.19583
+        23.33542,
+        42.77333
       ],
       "risk": {
-        "flood": 18.3,
-        "drought": 24.7,
-        "wildfire": 7.7,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.5,
-              47.2
+              23.325,
+              42.78
             ],
             [
-              27.516667,
-              47.2
+              23.345833,
+              42.78
             ],
             [
-              27.516667,
-              47.191667
+              23.345833,
+              42.766667
             ],
             [
-              27.5,
-              47.191667
+              23.325,
+              42.766667
             ],
             [
-              27.5,
-              47.2
+              23.325,
+              42.78
             ]
           ]
         ]
@@ -445,38 +436,38 @@
       "name": "row 1-column 8 sector",
       "area": null,
       "center": [
-        27.525,
-        47.19583
+        23.35625,
+        42.77333
       ],
       "risk": {
-        "flood": 20.8,
-        "drought": 24.5,
-        "wildfire": 8.4,
-        "max": 24.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.516667,
-              47.2
+              23.345833,
+              42.78
             ],
             [
-              27.533333,
-              47.2
+              23.366667,
+              42.78
             ],
             [
-              27.533333,
-              47.191667
+              23.366667,
+              42.766667
             ],
             [
-              27.516667,
-              47.191667
+              23.345833,
+              42.766667
             ],
             [
-              27.516667,
-              47.2
+              23.345833,
+              42.78
             ]
           ]
         ]
@@ -487,38 +478,38 @@
       "name": "row 1-column 9 sector",
       "area": null,
       "center": [
-        27.54167,
-        47.19583
+        23.37708,
+        42.77333
       ],
       "risk": {
-        "flood": 18.4,
-        "drought": 24.7,
-        "wildfire": 7.6,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.533333,
-              47.2
+              23.366667,
+              42.78
             ],
             [
-              27.55,
-              47.2
+              23.3875,
+              42.78
             ],
             [
-              27.55,
-              47.191667
+              23.3875,
+              42.766667
             ],
             [
-              27.533333,
-              47.191667
+              23.366667,
+              42.766667
             ],
             [
-              27.533333,
-              47.2
+              23.366667,
+              42.78
             ]
           ]
         ]
@@ -529,38 +520,38 @@
       "name": "row 1-column 10 sector",
       "area": null,
       "center": [
-        27.55833,
-        47.19583
+        23.39792,
+        42.77333
       ],
       "risk": {
-        "flood": 19.5,
-        "drought": 24.1,
-        "wildfire": 8.3,
-        "max": 24.1
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.55,
-              47.2
+              23.3875,
+              42.78
             ],
             [
-              27.566667,
-              47.2
+              23.408333,
+              42.78
             ],
             [
-              27.566667,
-              47.191667
+              23.408333,
+              42.766667
             ],
             [
-              27.55,
-              47.191667
+              23.3875,
+              42.766667
             ],
             [
-              27.55,
-              47.2
+              23.3875,
+              42.78
             ]
           ]
         ]
@@ -571,38 +562,38 @@
       "name": "row 1-column 11 sector",
       "area": null,
       "center": [
-        27.575,
-        47.19583
+        23.41875,
+        42.77333
       ],
       "risk": {
-        "flood": 19.5,
-        "drought": 25.3,
-        "wildfire": 8.5,
-        "max": 25.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.566667,
-              47.2
+              23.408333,
+              42.78
             ],
             [
-              27.583333,
-              47.2
+              23.429167,
+              42.78
             ],
             [
-              27.583333,
-              47.191667
+              23.429167,
+              42.766667
             ],
             [
-              27.566667,
-              47.191667
+              23.408333,
+              42.766667
             ],
             [
-              27.566667,
-              47.2
+              23.408333,
+              42.78
             ]
           ]
         ]
@@ -613,38 +604,38 @@
       "name": "row 1-column 12 sector",
       "area": null,
       "center": [
-        27.59167,
-        47.19583
+        23.43958,
+        42.77333
       ],
       "risk": {
-        "flood": 19.7,
-        "drought": 25.9,
-        "wildfire": 8.4,
-        "max": 25.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.583333,
-              47.2
+              23.429167,
+              42.78
             ],
             [
-              27.6,
-              47.2
+              23.45,
+              42.78
             ],
             [
-              27.6,
-              47.191667
+              23.45,
+              42.766667
             ],
             [
-              27.583333,
-              47.191667
+              23.429167,
+              42.766667
             ],
             [
-              27.583333,
-              47.2
+              23.429167,
+              42.78
             ]
           ]
         ]
@@ -655,38 +646,38 @@
       "name": "row 2-column 1 sector",
       "area": null,
       "center": [
-        27.40833,
-        47.1875
+        23.21042,
+        42.76
       ],
       "risk": {
-        "flood": 17.4,
-        "drought": 25.4,
-        "wildfire": 7.4,
-        "max": 25.4
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.4,
-              47.191667
+              23.2,
+              42.766667
             ],
             [
-              27.416667,
-              47.191667
+              23.220833,
+              42.766667
             ],
             [
-              27.416667,
-              47.183333
+              23.220833,
+              42.753333
             ],
             [
-              27.4,
-              47.183333
+              23.2,
+              42.753333
             ],
             [
-              27.4,
-              47.191667
+              23.2,
+              42.766667
             ]
           ]
         ]
@@ -697,38 +688,38 @@
       "name": "row 2-column 2 sector",
       "area": null,
       "center": [
-        27.425,
-        47.1875
+        23.23125,
+        42.76
       ],
       "risk": {
-        "flood": 19.3,
-        "drought": 24.7,
-        "wildfire": 7.2,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.416667,
-              47.191667
+              23.220833,
+              42.766667
             ],
             [
-              27.433333,
-              47.191667
+              23.241667,
+              42.766667
             ],
             [
-              27.433333,
-              47.183333
+              23.241667,
+              42.753333
             ],
             [
-              27.416667,
-              47.183333
+              23.220833,
+              42.753333
             ],
             [
-              27.416667,
-              47.191667
+              23.220833,
+              42.766667
             ]
           ]
         ]
@@ -739,38 +730,38 @@
       "name": "row 2-column 3 sector",
       "area": null,
       "center": [
-        27.44167,
-        47.1875
+        23.25208,
+        42.76
       ],
       "risk": {
-        "flood": 20.8,
-        "drought": 25.0,
-        "wildfire": 8.0,
-        "max": 25.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.433333,
-              47.191667
+              23.241667,
+              42.766667
             ],
             [
-              27.45,
-              47.191667
+              23.2625,
+              42.766667
             ],
             [
-              27.45,
-              47.183333
+              23.2625,
+              42.753333
             ],
             [
-              27.433333,
-              47.183333
+              23.241667,
+              42.753333
             ],
             [
-              27.433333,
-              47.191667
+              23.241667,
+              42.766667
             ]
           ]
         ]
@@ -781,38 +772,38 @@
       "name": "row 2-column 4 sector",
       "area": null,
       "center": [
-        27.45833,
-        47.1875
+        23.27292,
+        42.76
       ],
       "risk": {
-        "flood": 21.4,
-        "drought": 24.8,
-        "wildfire": 8.0,
-        "max": 24.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.45,
-              47.191667
+              23.2625,
+              42.766667
             ],
             [
-              27.466667,
-              47.191667
+              23.283333,
+              42.766667
             ],
             [
-              27.466667,
-              47.183333
+              23.283333,
+              42.753333
             ],
             [
-              27.45,
-              47.183333
+              23.2625,
+              42.753333
             ],
             [
-              27.45,
-              47.191667
+              23.2625,
+              42.766667
             ]
           ]
         ]
@@ -823,38 +814,38 @@
       "name": "row 2-column 5 sector",
       "area": null,
       "center": [
-        27.475,
-        47.1875
+        23.29375,
+        42.76
       ],
       "risk": {
-        "flood": 19.6,
-        "drought": 25.3,
-        "wildfire": 7.7,
-        "max": 25.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.466667,
-              47.191667
+              23.283333,
+              42.766667
             ],
             [
-              27.483333,
-              47.191667
+              23.304167,
+              42.766667
             ],
             [
-              27.483333,
-              47.183333
+              23.304167,
+              42.753333
             ],
             [
-              27.466667,
-              47.183333
+              23.283333,
+              42.753333
             ],
             [
-              27.466667,
-              47.191667
+              23.283333,
+              42.766667
             ]
           ]
         ]
@@ -865,38 +856,38 @@
       "name": "row 2-column 6 sector",
       "area": null,
       "center": [
-        27.49167,
-        47.1875
+        23.31458,
+        42.76
       ],
       "risk": {
-        "flood": 19.8,
-        "drought": 25.3,
-        "wildfire": 8.5,
-        "max": 25.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.483333,
-              47.191667
+              23.304167,
+              42.766667
             ],
             [
-              27.5,
-              47.191667
+              23.325,
+              42.766667
             ],
             [
-              27.5,
-              47.183333
+              23.325,
+              42.753333
             ],
             [
-              27.483333,
-              47.183333
+              23.304167,
+              42.753333
             ],
             [
-              27.483333,
-              47.191667
+              23.304167,
+              42.766667
             ]
           ]
         ]
@@ -907,38 +898,38 @@
       "name": "row 2-column 7 sector",
       "area": null,
       "center": [
-        27.50833,
-        47.1875
+        23.33542,
+        42.76
       ],
       "risk": {
-        "flood": 18.7,
-        "drought": 24.7,
-        "wildfire": 7.4,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.5,
-              47.191667
+              23.325,
+              42.766667
             ],
             [
-              27.516667,
-              47.191667
+              23.345833,
+              42.766667
             ],
             [
-              27.516667,
-              47.183333
+              23.345833,
+              42.753333
             ],
             [
-              27.5,
-              47.183333
+              23.325,
+              42.753333
             ],
             [
-              27.5,
-              47.191667
+              23.325,
+              42.766667
             ]
           ]
         ]
@@ -949,38 +940,38 @@
       "name": "row 2-column 8 sector",
       "area": null,
       "center": [
-        27.525,
-        47.1875
+        23.35625,
+        42.76
       ],
       "risk": {
-        "flood": 20.6,
-        "drought": 25.3,
-        "wildfire": 8.0,
-        "max": 25.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.516667,
-              47.191667
+              23.345833,
+              42.766667
             ],
             [
-              27.533333,
-              47.191667
+              23.366667,
+              42.766667
             ],
             [
-              27.533333,
-              47.183333
+              23.366667,
+              42.753333
             ],
             [
-              27.516667,
-              47.183333
+              23.345833,
+              42.753333
             ],
             [
-              27.516667,
-              47.191667
+              23.345833,
+              42.766667
             ]
           ]
         ]
@@ -991,38 +982,38 @@
       "name": "row 2-column 9 sector",
       "area": null,
       "center": [
-        27.54167,
-        47.1875
+        23.37708,
+        42.76
       ],
       "risk": {
-        "flood": 19.3,
-        "drought": 25.8,
-        "wildfire": 7.5,
-        "max": 25.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.533333,
-              47.191667
+              23.366667,
+              42.766667
             ],
             [
-              27.55,
-              47.191667
+              23.3875,
+              42.766667
             ],
             [
-              27.55,
-              47.183333
+              23.3875,
+              42.753333
             ],
             [
-              27.533333,
-              47.183333
+              23.366667,
+              42.753333
             ],
             [
-              27.533333,
-              47.191667
+              23.366667,
+              42.766667
             ]
           ]
         ]
@@ -1033,38 +1024,38 @@
       "name": "row 2-column 10 sector",
       "area": null,
       "center": [
-        27.55833,
-        47.1875
+        23.39792,
+        42.76
       ],
       "risk": {
-        "flood": 20.8,
-        "drought": 24.4,
-        "wildfire": 7.6,
-        "max": 24.4
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.55,
-              47.191667
+              23.3875,
+              42.766667
             ],
             [
-              27.566667,
-              47.191667
+              23.408333,
+              42.766667
             ],
             [
-              27.566667,
-              47.183333
+              23.408333,
+              42.753333
             ],
             [
-              27.55,
-              47.183333
+              23.3875,
+              42.753333
             ],
             [
-              27.55,
-              47.191667
+              23.3875,
+              42.766667
             ]
           ]
         ]
@@ -1075,38 +1066,38 @@
       "name": "row 2-column 11 sector",
       "area": null,
       "center": [
-        27.575,
-        47.1875
+        23.41875,
+        42.76
       ],
       "risk": {
-        "flood": 18.9,
-        "drought": 24.4,
-        "wildfire": 8.4,
-        "max": 24.4
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.566667,
-              47.191667
+              23.408333,
+              42.766667
             ],
             [
-              27.583333,
-              47.191667
+              23.429167,
+              42.766667
             ],
             [
-              27.583333,
-              47.183333
+              23.429167,
+              42.753333
             ],
             [
-              27.566667,
-              47.183333
+              23.408333,
+              42.753333
             ],
             [
-              27.566667,
-              47.191667
+              23.408333,
+              42.766667
             ]
           ]
         ]
@@ -1117,38 +1108,38 @@
       "name": "row 2-column 12 sector",
       "area": null,
       "center": [
-        27.59167,
-        47.1875
+        23.43958,
+        42.76
       ],
       "risk": {
-        "flood": 19.9,
-        "drought": 25.0,
-        "wildfire": 8.2,
-        "max": 25.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.583333,
-              47.191667
+              23.429167,
+              42.766667
             ],
             [
-              27.6,
-              47.191667
+              23.45,
+              42.766667
             ],
             [
-              27.6,
-              47.183333
+              23.45,
+              42.753333
             ],
             [
-              27.583333,
-              47.183333
+              23.429167,
+              42.753333
             ],
             [
-              27.583333,
-              47.191667
+              23.429167,
+              42.766667
             ]
           ]
         ]
@@ -1159,38 +1150,38 @@
       "name": "row 3-column 1 sector",
       "area": null,
       "center": [
-        27.40833,
-        47.17917
+        23.21042,
+        42.74667
       ],
       "risk": {
-        "flood": 17.4,
-        "drought": 25.3,
-        "wildfire": 7.4,
-        "max": 25.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.4,
-              47.183333
+              23.2,
+              42.753333
             ],
             [
-              27.416667,
-              47.183333
+              23.220833,
+              42.753333
             ],
             [
-              27.416667,
-              47.175
+              23.220833,
+              42.74
             ],
             [
-              27.4,
-              47.175
+              23.2,
+              42.74
             ],
             [
-              27.4,
-              47.183333
+              23.2,
+              42.753333
             ]
           ]
         ]
@@ -1201,38 +1192,38 @@
       "name": "row 3-column 2 sector",
       "area": null,
       "center": [
-        27.425,
-        47.17917
+        23.23125,
+        42.74667
       ],
       "risk": {
-        "flood": 17.8,
-        "drought": 24.9,
-        "wildfire": 7.4,
-        "max": 24.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.416667,
-              47.183333
+              23.220833,
+              42.753333
             ],
             [
-              27.433333,
-              47.183333
+              23.241667,
+              42.753333
             ],
             [
-              27.433333,
-              47.175
+              23.241667,
+              42.74
             ],
             [
-              27.416667,
-              47.175
+              23.220833,
+              42.74
             ],
             [
-              27.416667,
-              47.183333
+              23.220833,
+              42.753333
             ]
           ]
         ]
@@ -1243,38 +1234,38 @@
       "name": "row 3-column 3 sector",
       "area": null,
       "center": [
-        27.44167,
-        47.17917
+        23.25208,
+        42.74667
       ],
       "risk": {
-        "flood": 20.8,
-        "drought": 25.3,
-        "wildfire": 8.0,
-        "max": 25.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.433333,
-              47.183333
+              23.241667,
+              42.753333
             ],
             [
-              27.45,
-              47.183333
+              23.2625,
+              42.753333
             ],
             [
-              27.45,
-              47.175
+              23.2625,
+              42.74
             ],
             [
-              27.433333,
-              47.175
+              23.241667,
+              42.74
             ],
             [
-              27.433333,
-              47.183333
+              23.241667,
+              42.753333
             ]
           ]
         ]
@@ -1285,38 +1276,38 @@
       "name": "row 3-column 4 sector",
       "area": null,
       "center": [
-        27.45833,
-        47.17917
+        23.27292,
+        42.74667
       ],
       "risk": {
-        "flood": 20.3,
-        "drought": 24.7,
-        "wildfire": 7.8,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.45,
-              47.183333
+              23.2625,
+              42.753333
             ],
             [
-              27.466667,
-              47.183333
+              23.283333,
+              42.753333
             ],
             [
-              27.466667,
-              47.175
+              23.283333,
+              42.74
             ],
             [
-              27.45,
-              47.175
+              23.2625,
+              42.74
             ],
             [
-              27.45,
-              47.183333
+              23.2625,
+              42.753333
             ]
           ]
         ]
@@ -1327,38 +1318,38 @@
       "name": "row 3-column 5 sector",
       "area": null,
       "center": [
-        27.475,
-        47.17917
+        23.29375,
+        42.74667
       ],
       "risk": {
-        "flood": 20.2,
-        "drought": 25.1,
-        "wildfire": 7.8,
-        "max": 25.1
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.466667,
-              47.183333
+              23.283333,
+              42.753333
             ],
             [
-              27.483333,
-              47.183333
+              23.304167,
+              42.753333
             ],
             [
-              27.483333,
-              47.175
+              23.304167,
+              42.74
             ],
             [
-              27.466667,
-              47.175
+              23.283333,
+              42.74
             ],
             [
-              27.466667,
-              47.183333
+              23.283333,
+              42.753333
             ]
           ]
         ]
@@ -1369,38 +1360,38 @@
       "name": "row 3-column 6 sector",
       "area": null,
       "center": [
-        27.49167,
-        47.17917
+        23.31458,
+        42.74667
       ],
       "risk": {
-        "flood": 21.0,
-        "drought": 24.3,
-        "wildfire": 8.3,
-        "max": 24.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.483333,
-              47.183333
+              23.304167,
+              42.753333
             ],
             [
-              27.5,
-              47.183333
+              23.325,
+              42.753333
             ],
             [
-              27.5,
-              47.175
+              23.325,
+              42.74
             ],
             [
-              27.483333,
-              47.175
+              23.304167,
+              42.74
             ],
             [
-              27.483333,
-              47.183333
+              23.304167,
+              42.753333
             ]
           ]
         ]
@@ -1411,38 +1402,38 @@
       "name": "row 3-column 7 sector",
       "area": null,
       "center": [
-        27.50833,
-        47.17917
+        23.33542,
+        42.74667
       ],
       "risk": {
-        "flood": 19.5,
-        "drought": 24.0,
-        "wildfire": 7.8,
-        "max": 24.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.5,
-              47.183333
+              23.325,
+              42.753333
             ],
             [
-              27.516667,
-              47.183333
+              23.345833,
+              42.753333
             ],
             [
-              27.516667,
-              47.175
+              23.345833,
+              42.74
             ],
             [
-              27.5,
-              47.175
+              23.325,
+              42.74
             ],
             [
-              27.5,
-              47.183333
+              23.325,
+              42.753333
             ]
           ]
         ]
@@ -1453,38 +1444,38 @@
       "name": "row 3-column 8 sector",
       "area": null,
       "center": [
-        27.525,
-        47.17917
+        23.35625,
+        42.74667
       ],
       "risk": {
-        "flood": 20.3,
-        "drought": 24.8,
-        "wildfire": 8.2,
-        "max": 24.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.516667,
-              47.183333
+              23.345833,
+              42.753333
             ],
             [
-              27.533333,
-              47.183333
+              23.366667,
+              42.753333
             ],
             [
-              27.533333,
-              47.175
+              23.366667,
+              42.74
             ],
             [
-              27.516667,
-              47.175
+              23.345833,
+              42.74
             ],
             [
-              27.516667,
-              47.183333
+              23.345833,
+              42.753333
             ]
           ]
         ]
@@ -1495,38 +1486,38 @@
       "name": "row 3-column 9 sector",
       "area": null,
       "center": [
-        27.54167,
-        47.17917
+        23.37708,
+        42.74667
       ],
       "risk": {
-        "flood": 20.5,
-        "drought": 24.9,
-        "wildfire": 7.9,
-        "max": 24.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.533333,
-              47.183333
+              23.366667,
+              42.753333
             ],
             [
-              27.55,
-              47.183333
+              23.3875,
+              42.753333
             ],
             [
-              27.55,
-              47.175
+              23.3875,
+              42.74
             ],
             [
-              27.533333,
-              47.175
+              23.366667,
+              42.74
             ],
             [
-              27.533333,
-              47.183333
+              23.366667,
+              42.753333
             ]
           ]
         ]
@@ -1537,38 +1528,38 @@
       "name": "row 3-column 10 sector",
       "area": null,
       "center": [
-        27.55833,
-        47.17917
+        23.39792,
+        42.74667
       ],
       "risk": {
-        "flood": 20.5,
-        "drought": 24.2,
-        "wildfire": 7.5,
-        "max": 24.2
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.55,
-              47.183333
+              23.3875,
+              42.753333
             ],
             [
-              27.566667,
-              47.183333
+              23.408333,
+              42.753333
             ],
             [
-              27.566667,
-              47.175
+              23.408333,
+              42.74
             ],
             [
-              27.55,
-              47.175
+              23.3875,
+              42.74
             ],
             [
-              27.55,
-              47.183333
+              23.3875,
+              42.753333
             ]
           ]
         ]
@@ -1579,38 +1570,38 @@
       "name": "row 3-column 11 sector",
       "area": null,
       "center": [
-        27.575,
-        47.17917
+        23.41875,
+        42.74667
       ],
       "risk": {
-        "flood": 20.7,
-        "drought": 23.6,
-        "wildfire": 8.1,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.566667,
-              47.183333
+              23.408333,
+              42.753333
             ],
             [
-              27.583333,
-              47.183333
+              23.429167,
+              42.753333
             ],
             [
-              27.583333,
-              47.175
+              23.429167,
+              42.74
             ],
             [
-              27.566667,
-              47.175
+              23.408333,
+              42.74
             ],
             [
-              27.566667,
-              47.183333
+              23.408333,
+              42.753333
             ]
           ]
         ]
@@ -1621,38 +1612,38 @@
       "name": "row 3-column 12 sector",
       "area": null,
       "center": [
-        27.59167,
-        47.17917
+        23.43958,
+        42.74667
       ],
       "risk": {
-        "flood": 19.7,
-        "drought": 23.9,
-        "wildfire": 8.1,
-        "max": 23.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.583333,
-              47.183333
+              23.429167,
+              42.753333
             ],
             [
-              27.6,
-              47.183333
+              23.45,
+              42.753333
             ],
             [
-              27.6,
-              47.175
+              23.45,
+              42.74
             ],
             [
-              27.583333,
-              47.175
+              23.429167,
+              42.74
             ],
             [
-              27.583333,
-              47.183333
+              23.429167,
+              42.753333
             ]
           ]
         ]
@@ -1663,38 +1654,38 @@
       "name": "row 4-column 1 sector",
       "area": null,
       "center": [
-        27.40833,
-        47.17083
+        23.21042,
+        42.73333
       ],
       "risk": {
-        "flood": 17.4,
-        "drought": 24.2,
-        "wildfire": 7.2,
-        "max": 24.2
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.4,
-              47.175
+              23.2,
+              42.74
             ],
             [
-              27.416667,
-              47.175
+              23.220833,
+              42.74
             ],
             [
-              27.416667,
-              47.166667
+              23.220833,
+              42.726667
             ],
             [
-              27.4,
-              47.166667
+              23.2,
+              42.726667
             ],
             [
-              27.4,
-              47.175
+              23.2,
+              42.74
             ]
           ]
         ]
@@ -1705,38 +1696,38 @@
       "name": "row 4-column 2 sector",
       "area": null,
       "center": [
-        27.425,
-        47.17083
+        23.23125,
+        42.73333
       ],
       "risk": {
-        "flood": 17.9,
-        "drought": 25.3,
-        "wildfire": 8.3,
-        "max": 25.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.416667,
-              47.175
+              23.220833,
+              42.74
             ],
             [
-              27.433333,
-              47.175
+              23.241667,
+              42.74
             ],
             [
-              27.433333,
-              47.166667
+              23.241667,
+              42.726667
             ],
             [
-              27.416667,
-              47.166667
+              23.220833,
+              42.726667
             ],
             [
-              27.416667,
-              47.175
+              23.220833,
+              42.74
             ]
           ]
         ]
@@ -1747,38 +1738,38 @@
       "name": "row 4-column 3 sector",
       "area": null,
       "center": [
-        27.44167,
-        47.17083
+        23.25208,
+        42.73333
       ],
       "risk": {
-        "flood": 19.7,
-        "drought": 25.1,
-        "wildfire": 7.5,
-        "max": 25.1
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.433333,
-              47.175
+              23.241667,
+              42.74
             ],
             [
-              27.45,
-              47.175
+              23.2625,
+              42.74
             ],
             [
-              27.45,
-              47.166667
+              23.2625,
+              42.726667
             ],
             [
-              27.433333,
-              47.166667
+              23.241667,
+              42.726667
             ],
             [
-              27.433333,
-              47.175
+              23.241667,
+              42.74
             ]
           ]
         ]
@@ -1789,38 +1780,38 @@
       "name": "row 4-column 4 sector",
       "area": null,
       "center": [
-        27.45833,
-        47.17083
+        23.27292,
+        42.73333
       ],
       "risk": {
-        "flood": 21.8,
-        "drought": 24.7,
-        "wildfire": 7.2,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.45,
-              47.175
+              23.2625,
+              42.74
             ],
             [
-              27.466667,
-              47.175
+              23.283333,
+              42.74
             ],
             [
-              27.466667,
-              47.166667
+              23.283333,
+              42.726667
             ],
             [
-              27.45,
-              47.166667
+              23.2625,
+              42.726667
             ],
             [
-              27.45,
-              47.175
+              23.2625,
+              42.74
             ]
           ]
         ]
@@ -1831,38 +1822,38 @@
       "name": "row 4-column 5 sector",
       "area": null,
       "center": [
-        27.475,
-        47.17083
+        23.29375,
+        42.73333
       ],
       "risk": {
-        "flood": 20.4,
-        "drought": 25.5,
-        "wildfire": 7.8,
-        "max": 25.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.466667,
-              47.175
+              23.283333,
+              42.74
             ],
             [
-              27.483333,
-              47.175
+              23.304167,
+              42.74
             ],
             [
-              27.483333,
-              47.166667
+              23.304167,
+              42.726667
             ],
             [
-              27.466667,
-              47.166667
+              23.283333,
+              42.726667
             ],
             [
-              27.466667,
-              47.175
+              23.283333,
+              42.74
             ]
           ]
         ]
@@ -1873,38 +1864,38 @@
       "name": "row 4-column 6 sector",
       "area": null,
       "center": [
-        27.49167,
-        47.17083
+        23.31458,
+        42.73333
       ],
       "risk": {
-        "flood": 21.1,
-        "drought": 24.4,
-        "wildfire": 8.0,
-        "max": 24.4
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.483333,
-              47.175
+              23.304167,
+              42.74
             ],
             [
-              27.5,
-              47.175
+              23.325,
+              42.74
             ],
             [
-              27.5,
-              47.166667
+              23.325,
+              42.726667
             ],
             [
-              27.483333,
-              47.166667
+              23.304167,
+              42.726667
             ],
             [
-              27.483333,
-              47.175
+              23.304167,
+              42.74
             ]
           ]
         ]
@@ -1915,38 +1906,38 @@
       "name": "row 4-column 7 sector",
       "area": null,
       "center": [
-        27.50833,
-        47.17083
+        23.33542,
+        42.73333
       ],
       "risk": {
-        "flood": 20.8,
-        "drought": 24.2,
-        "wildfire": 8.3,
-        "max": 24.2
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.5,
-              47.175
+              23.325,
+              42.74
             ],
             [
-              27.516667,
-              47.175
+              23.345833,
+              42.74
             ],
             [
-              27.516667,
-              47.166667
+              23.345833,
+              42.726667
             ],
             [
-              27.5,
-              47.166667
+              23.325,
+              42.726667
             ],
             [
-              27.5,
-              47.175
+              23.325,
+              42.74
             ]
           ]
         ]
@@ -1957,38 +1948,38 @@
       "name": "row 4-column 8 sector",
       "area": null,
       "center": [
-        27.525,
-        47.17083
+        23.35625,
+        42.73333
       ],
       "risk": {
-        "flood": 20.1,
-        "drought": 24.2,
-        "wildfire": 8.0,
-        "max": 24.2
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.516667,
-              47.175
+              23.345833,
+              42.74
             ],
             [
-              27.533333,
-              47.175
+              23.366667,
+              42.74
             ],
             [
-              27.533333,
-              47.166667
+              23.366667,
+              42.726667
             ],
             [
-              27.516667,
-              47.166667
+              23.345833,
+              42.726667
             ],
             [
-              27.516667,
-              47.175
+              23.345833,
+              42.74
             ]
           ]
         ]
@@ -1999,38 +1990,38 @@
       "name": "row 4-column 9 sector",
       "area": null,
       "center": [
-        27.54167,
-        47.17083
+        23.37708,
+        42.73333
       ],
       "risk": {
-        "flood": 21.4,
-        "drought": 23.9,
-        "wildfire": 8.1,
-        "max": 23.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.533333,
-              47.175
+              23.366667,
+              42.74
             ],
             [
-              27.55,
-              47.175
+              23.3875,
+              42.74
             ],
             [
-              27.55,
-              47.166667
+              23.3875,
+              42.726667
             ],
             [
-              27.533333,
-              47.166667
+              23.366667,
+              42.726667
             ],
             [
-              27.533333,
-              47.175
+              23.366667,
+              42.74
             ]
           ]
         ]
@@ -2041,38 +2032,38 @@
       "name": "row 4-column 10 sector",
       "area": null,
       "center": [
-        27.55833,
-        47.17083
+        23.39792,
+        42.73333
       ],
       "risk": {
-        "flood": 19.5,
-        "drought": 23.6,
-        "wildfire": 8.1,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.55,
-              47.175
+              23.3875,
+              42.74
             ],
             [
-              27.566667,
-              47.175
+              23.408333,
+              42.74
             ],
             [
-              27.566667,
-              47.166667
+              23.408333,
+              42.726667
             ],
             [
-              27.55,
-              47.166667
+              23.3875,
+              42.726667
             ],
             [
-              27.55,
-              47.175
+              23.3875,
+              42.74
             ]
           ]
         ]
@@ -2083,38 +2074,38 @@
       "name": "row 4-column 11 sector",
       "area": null,
       "center": [
-        27.575,
-        47.17083
+        23.41875,
+        42.73333
       ],
       "risk": {
-        "flood": 19.4,
-        "drought": 23.6,
-        "wildfire": 8.2,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.566667,
-              47.175
+              23.408333,
+              42.74
             ],
             [
-              27.583333,
-              47.175
+              23.429167,
+              42.74
             ],
             [
-              27.583333,
-              47.166667
+              23.429167,
+              42.726667
             ],
             [
-              27.566667,
-              47.166667
+              23.408333,
+              42.726667
             ],
             [
-              27.566667,
-              47.175
+              23.408333,
+              42.74
             ]
           ]
         ]
@@ -2125,38 +2116,38 @@
       "name": "row 4-column 12 sector",
       "area": null,
       "center": [
-        27.59167,
-        47.17083
+        23.43958,
+        42.73333
       ],
       "risk": {
-        "flood": 20.7,
-        "drought": 23.6,
-        "wildfire": 7.8,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.583333,
-              47.175
+              23.429167,
+              42.74
             ],
             [
-              27.6,
-              47.175
+              23.45,
+              42.74
             ],
             [
-              27.6,
-              47.166667
+              23.45,
+              42.726667
             ],
             [
-              27.583333,
-              47.166667
+              23.429167,
+              42.726667
             ],
             [
-              27.583333,
-              47.175
+              23.429167,
+              42.74
             ]
           ]
         ]
@@ -2167,38 +2158,38 @@
       "name": "row 5-column 1 sector",
       "area": null,
       "center": [
-        27.40833,
-        47.1625
+        23.21042,
+        42.72
       ],
       "risk": {
-        "flood": 17.4,
-        "drought": 24.2,
-        "wildfire": 7.2,
-        "max": 24.2
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.4,
-              47.166667
+              23.2,
+              42.726667
             ],
             [
-              27.416667,
-              47.166667
+              23.220833,
+              42.726667
             ],
             [
-              27.416667,
-              47.158333
+              23.220833,
+              42.713333
             ],
             [
-              27.4,
-              47.158333
+              23.2,
+              42.713333
             ],
             [
-              27.4,
-              47.166667
+              23.2,
+              42.726667
             ]
           ]
         ]
@@ -2209,38 +2200,38 @@
       "name": "row 5-column 2 sector",
       "area": null,
       "center": [
-        27.425,
-        47.1625
+        23.23125,
+        42.72
       ],
       "risk": {
-        "flood": 19.4,
-        "drought": 25.6,
-        "wildfire": 8.5,
-        "max": 25.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.416667,
-              47.166667
+              23.220833,
+              42.726667
             ],
             [
-              27.433333,
-              47.166667
+              23.241667,
+              42.726667
             ],
             [
-              27.433333,
-              47.158333
+              23.241667,
+              42.713333
             ],
             [
-              27.416667,
-              47.158333
+              23.220833,
+              42.713333
             ],
             [
-              27.416667,
-              47.166667
+              23.220833,
+              42.726667
             ]
           ]
         ]
@@ -2251,38 +2242,38 @@
       "name": "row 5-column 3 sector",
       "area": null,
       "center": [
-        27.44167,
-        47.1625
+        23.25208,
+        42.72
       ],
       "risk": {
-        "flood": 18.9,
-        "drought": 25.7,
-        "wildfire": 7.7,
-        "max": 25.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.433333,
-              47.166667
+              23.241667,
+              42.726667
             ],
             [
-              27.45,
-              47.166667
+              23.2625,
+              42.726667
             ],
             [
-              27.45,
-              47.158333
+              23.2625,
+              42.713333
             ],
             [
-              27.433333,
-              47.158333
+              23.241667,
+              42.713333
             ],
             [
-              27.433333,
-              47.166667
+              23.241667,
+              42.726667
             ]
           ]
         ]
@@ -2293,38 +2284,38 @@
       "name": "row 5-column 4 sector",
       "area": null,
       "center": [
-        27.45833,
-        47.1625
+        23.27292,
+        42.72
       ],
       "risk": {
-        "flood": 20.4,
-        "drought": 25.4,
-        "wildfire": 7.8,
-        "max": 25.4
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.45,
-              47.166667
+              23.2625,
+              42.726667
             ],
             [
-              27.466667,
-              47.166667
+              23.283333,
+              42.726667
             ],
             [
-              27.466667,
-              47.158333
+              23.283333,
+              42.713333
             ],
             [
-              27.45,
-              47.158333
+              23.2625,
+              42.713333
             ],
             [
-              27.45,
-              47.166667
+              23.2625,
+              42.726667
             ]
           ]
         ]
@@ -2335,38 +2326,38 @@
       "name": "row 5-column 5 sector",
       "area": null,
       "center": [
-        27.475,
-        47.1625
+        23.29375,
+        42.72
       ],
       "risk": {
-        "flood": 19.0,
-        "drought": 25.3,
-        "wildfire": 8.3,
-        "max": 25.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.466667,
-              47.166667
+              23.283333,
+              42.726667
             ],
             [
-              27.483333,
-              47.166667
+              23.304167,
+              42.726667
             ],
             [
-              27.483333,
-              47.158333
+              23.304167,
+              42.713333
             ],
             [
-              27.466667,
-              47.158333
+              23.283333,
+              42.713333
             ],
             [
-              27.466667,
-              47.166667
+              23.283333,
+              42.726667
             ]
           ]
         ]
@@ -2377,38 +2368,38 @@
       "name": "row 5-column 6 sector",
       "area": null,
       "center": [
-        27.49167,
-        47.1625
+        23.31458,
+        42.72
       ],
       "risk": {
-        "flood": 20.3,
-        "drought": 25.1,
-        "wildfire": 8.3,
-        "max": 25.1
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.483333,
-              47.166667
+              23.304167,
+              42.726667
             ],
             [
-              27.5,
-              47.166667
+              23.325,
+              42.726667
             ],
             [
-              27.5,
-              47.158333
+              23.325,
+              42.713333
             ],
             [
-              27.483333,
-              47.158333
+              23.304167,
+              42.713333
             ],
             [
-              27.483333,
-              47.166667
+              23.304167,
+              42.726667
             ]
           ]
         ]
@@ -2419,38 +2410,38 @@
       "name": "row 5-column 7 sector",
       "area": null,
       "center": [
-        27.50833,
-        47.1625
+        23.33542,
+        42.72
       ],
       "risk": {
-        "flood": 19.6,
-        "drought": 25.0,
-        "wildfire": 8.3,
-        "max": 25.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.5,
-              47.166667
+              23.325,
+              42.726667
             ],
             [
-              27.516667,
-              47.166667
+              23.345833,
+              42.726667
             ],
             [
-              27.516667,
-              47.158333
+              23.345833,
+              42.713333
             ],
             [
-              27.5,
-              47.158333
+              23.325,
+              42.713333
             ],
             [
-              27.5,
-              47.166667
+              23.325,
+              42.726667
             ]
           ]
         ]
@@ -2461,38 +2452,38 @@
       "name": "row 5-column 8 sector",
       "area": null,
       "center": [
-        27.525,
-        47.1625
+        23.35625,
+        42.72
       ],
       "risk": {
-        "flood": 20.2,
-        "drought": 25.1,
-        "wildfire": 7.9,
-        "max": 25.1
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.516667,
-              47.166667
+              23.345833,
+              42.726667
             ],
             [
-              27.533333,
-              47.166667
+              23.366667,
+              42.726667
             ],
             [
-              27.533333,
-              47.158333
+              23.366667,
+              42.713333
             ],
             [
-              27.516667,
-              47.158333
+              23.345833,
+              42.713333
             ],
             [
-              27.516667,
-              47.166667
+              23.345833,
+              42.726667
             ]
           ]
         ]
@@ -2503,38 +2494,38 @@
       "name": "row 5-column 9 sector",
       "area": null,
       "center": [
-        27.54167,
-        47.1625
+        23.37708,
+        42.72
       ],
       "risk": {
-        "flood": 19.5,
-        "drought": 24.7,
-        "wildfire": 8.2,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.533333,
-              47.166667
+              23.366667,
+              42.726667
             ],
             [
-              27.55,
-              47.166667
+              23.3875,
+              42.726667
             ],
             [
-              27.55,
-              47.158333
+              23.3875,
+              42.713333
             ],
             [
-              27.533333,
-              47.158333
+              23.366667,
+              42.713333
             ],
             [
-              27.533333,
-              47.166667
+              23.366667,
+              42.726667
             ]
           ]
         ]
@@ -2545,38 +2536,38 @@
       "name": "row 5-column 10 sector",
       "area": null,
       "center": [
-        27.55833,
-        47.1625
+        23.39792,
+        42.72
       ],
       "risk": {
-        "flood": 21.7,
-        "drought": 24.3,
-        "wildfire": 7.9,
-        "max": 24.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.55,
-              47.166667
+              23.3875,
+              42.726667
             ],
             [
-              27.566667,
-              47.166667
+              23.408333,
+              42.726667
             ],
             [
-              27.566667,
-              47.158333
+              23.408333,
+              42.713333
             ],
             [
-              27.55,
-              47.158333
+              23.3875,
+              42.713333
             ],
             [
-              27.55,
-              47.166667
+              23.3875,
+              42.726667
             ]
           ]
         ]
@@ -2587,38 +2578,38 @@
       "name": "row 5-column 11 sector",
       "area": null,
       "center": [
-        27.575,
-        47.1625
+        23.41875,
+        42.72
       ],
       "risk": {
-        "flood": 18.8,
-        "drought": 23.6,
-        "wildfire": 8.2,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.566667,
-              47.166667
+              23.408333,
+              42.726667
             ],
             [
-              27.583333,
-              47.166667
+              23.429167,
+              42.726667
             ],
             [
-              27.583333,
-              47.158333
+              23.429167,
+              42.713333
             ],
             [
-              27.566667,
-              47.158333
+              23.408333,
+              42.713333
             ],
             [
-              27.566667,
-              47.166667
+              23.408333,
+              42.726667
             ]
           ]
         ]
@@ -2629,38 +2620,38 @@
       "name": "row 5-column 12 sector",
       "area": null,
       "center": [
-        27.59167,
-        47.1625
+        23.43958,
+        42.72
       ],
       "risk": {
-        "flood": 18.5,
-        "drought": 23.6,
-        "wildfire": 8.2,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.583333,
-              47.166667
+              23.429167,
+              42.726667
             ],
             [
-              27.6,
-              47.166667
+              23.45,
+              42.726667
             ],
             [
-              27.6,
-              47.158333
+              23.45,
+              42.713333
             ],
             [
-              27.583333,
-              47.158333
+              23.429167,
+              42.713333
             ],
             [
-              27.583333,
-              47.166667
+              23.429167,
+              42.726667
             ]
           ]
         ]
@@ -2671,38 +2662,38 @@
       "name": "row 6-column 1 sector",
       "area": null,
       "center": [
-        27.40833,
-        47.15417
+        23.21042,
+        42.70667
       ],
       "risk": {
-        "flood": 17.4,
-        "drought": 23.8,
-        "wildfire": 7.0,
-        "max": 23.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.4,
-              47.158333
+              23.2,
+              42.713333
             ],
             [
-              27.416667,
-              47.158333
+              23.220833,
+              42.713333
             ],
             [
-              27.416667,
-              47.15
+              23.220833,
+              42.7
             ],
             [
-              27.4,
-              47.15
+              23.2,
+              42.7
             ],
             [
-              27.4,
-              47.158333
+              23.2,
+              42.713333
             ]
           ]
         ]
@@ -2713,38 +2704,38 @@
       "name": "row 6-column 2 sector",
       "area": null,
       "center": [
-        27.425,
-        47.15417
+        23.23125,
+        42.70667
       ],
       "risk": {
-        "flood": 18.5,
-        "drought": 24.7,
-        "wildfire": 7.4,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.416667,
-              47.158333
+              23.220833,
+              42.713333
             ],
             [
-              27.433333,
-              47.158333
+              23.241667,
+              42.713333
             ],
             [
-              27.433333,
-              47.15
+              23.241667,
+              42.7
             ],
             [
-              27.416667,
-              47.15
+              23.220833,
+              42.7
             ],
             [
-              27.416667,
-              47.158333
+              23.220833,
+              42.713333
             ]
           ]
         ]
@@ -2755,38 +2746,38 @@
       "name": "row 6-column 3 sector",
       "area": null,
       "center": [
-        27.44167,
-        47.15417
+        23.25208,
+        42.70667
       ],
       "risk": {
-        "flood": 19.9,
-        "drought": 24.7,
-        "wildfire": 7.5,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.433333,
-              47.158333
+              23.241667,
+              42.713333
             ],
             [
-              27.45,
-              47.158333
+              23.2625,
+              42.713333
             ],
             [
-              27.45,
-              47.15
+              23.2625,
+              42.7
             ],
             [
-              27.433333,
-              47.15
+              23.241667,
+              42.7
             ],
             [
-              27.433333,
-              47.158333
+              23.241667,
+              42.713333
             ]
           ]
         ]
@@ -2797,38 +2788,38 @@
       "name": "row 6-column 4 sector",
       "area": null,
       "center": [
-        27.45833,
-        47.15417
+        23.27292,
+        42.70667
       ],
       "risk": {
-        "flood": 20.3,
-        "drought": 25.6,
-        "wildfire": 7.8,
-        "max": 25.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.45,
-              47.158333
+              23.2625,
+              42.713333
             ],
             [
-              27.466667,
-              47.158333
+              23.283333,
+              42.713333
             ],
             [
-              27.466667,
-              47.15
+              23.283333,
+              42.7
             ],
             [
-              27.45,
-              47.15
+              23.2625,
+              42.7
             ],
             [
-              27.45,
-              47.158333
+              23.2625,
+              42.713333
             ]
           ]
         ]
@@ -2839,38 +2830,38 @@
       "name": "row 6-column 5 sector",
       "area": null,
       "center": [
-        27.475,
-        47.15417
+        23.29375,
+        42.70667
       ],
       "risk": {
-        "flood": 18.9,
-        "drought": 25.8,
-        "wildfire": 8.4,
-        "max": 25.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.466667,
-              47.158333
+              23.283333,
+              42.713333
             ],
             [
-              27.483333,
-              47.158333
+              23.304167,
+              42.713333
             ],
             [
-              27.483333,
-              47.15
+              23.304167,
+              42.7
             ],
             [
-              27.466667,
-              47.15
+              23.283333,
+              42.7
             ],
             [
-              27.466667,
-              47.158333
+              23.283333,
+              42.713333
             ]
           ]
         ]
@@ -2881,38 +2872,38 @@
       "name": "row 6-column 6 sector",
       "area": null,
       "center": [
-        27.49167,
-        47.15417
+        23.31458,
+        42.70667
       ],
       "risk": {
-        "flood": 20.8,
-        "drought": 25.0,
-        "wildfire": 8.6,
-        "max": 25.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.483333,
-              47.158333
+              23.304167,
+              42.713333
             ],
             [
-              27.5,
-              47.158333
+              23.325,
+              42.713333
             ],
             [
-              27.5,
-              47.15
+              23.325,
+              42.7
             ],
             [
-              27.483333,
-              47.15
+              23.304167,
+              42.7
             ],
             [
-              27.483333,
-              47.158333
+              23.304167,
+              42.713333
             ]
           ]
         ]
@@ -2923,38 +2914,38 @@
       "name": "row 6-column 7 sector",
       "area": null,
       "center": [
-        27.50833,
-        47.15417
+        23.33542,
+        42.70667
       ],
       "risk": {
-        "flood": 21.2,
-        "drought": 25.5,
-        "wildfire": 7.9,
-        "max": 25.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.5,
-              47.158333
+              23.325,
+              42.713333
             ],
             [
-              27.516667,
-              47.158333
+              23.345833,
+              42.713333
             ],
             [
-              27.516667,
-              47.15
+              23.345833,
+              42.7
             ],
             [
-              27.5,
-              47.15
+              23.325,
+              42.7
             ],
             [
-              27.5,
-              47.158333
+              23.325,
+              42.713333
             ]
           ]
         ]
@@ -2965,38 +2956,38 @@
       "name": "row 6-column 8 sector",
       "area": null,
       "center": [
-        27.525,
-        47.15417
+        23.35625,
+        42.70667
       ],
       "risk": {
-        "flood": 18.7,
-        "drought": 25.4,
-        "wildfire": 8.7,
-        "max": 25.4
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.516667,
-              47.158333
+              23.345833,
+              42.713333
             ],
             [
-              27.533333,
-              47.158333
+              23.366667,
+              42.713333
             ],
             [
-              27.533333,
-              47.15
+              23.366667,
+              42.7
             ],
             [
-              27.516667,
-              47.15
+              23.345833,
+              42.7
             ],
             [
-              27.516667,
-              47.158333
+              23.345833,
+              42.713333
             ]
           ]
         ]
@@ -3007,38 +2998,38 @@
       "name": "row 6-column 9 sector",
       "area": null,
       "center": [
-        27.54167,
-        47.15417
+        23.37708,
+        42.70667
       ],
       "risk": {
-        "flood": 19.2,
-        "drought": 25.6,
-        "wildfire": 8.3,
-        "max": 25.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.533333,
-              47.158333
+              23.366667,
+              42.713333
             ],
             [
-              27.55,
-              47.158333
+              23.3875,
+              42.713333
             ],
             [
-              27.55,
-              47.15
+              23.3875,
+              42.7
             ],
             [
-              27.533333,
-              47.15
+              23.366667,
+              42.7
             ],
             [
-              27.533333,
-              47.158333
+              23.366667,
+              42.713333
             ]
           ]
         ]
@@ -3049,38 +3040,38 @@
       "name": "row 6-column 10 sector",
       "area": null,
       "center": [
-        27.55833,
-        47.15417
+        23.39792,
+        42.70667
       ],
       "risk": {
-        "flood": 19.5,
-        "drought": 24.8,
-        "wildfire": 7.6,
-        "max": 24.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.55,
-              47.158333
+              23.3875,
+              42.713333
             ],
             [
-              27.566667,
-              47.158333
+              23.408333,
+              42.713333
             ],
             [
-              27.566667,
-              47.15
+              23.408333,
+              42.7
             ],
             [
-              27.55,
-              47.15
+              23.3875,
+              42.7
             ],
             [
-              27.55,
-              47.158333
+              23.3875,
+              42.713333
             ]
           ]
         ]
@@ -3091,38 +3082,38 @@
       "name": "row 6-column 11 sector",
       "area": null,
       "center": [
-        27.575,
-        47.15417
+        23.41875,
+        42.70667
       ],
       "risk": {
-        "flood": 20.0,
-        "drought": 23.6,
-        "wildfire": 8.1,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.566667,
-              47.158333
+              23.408333,
+              42.713333
             ],
             [
-              27.583333,
-              47.158333
+              23.429167,
+              42.713333
             ],
             [
-              27.583333,
-              47.15
+              23.429167,
+              42.7
             ],
             [
-              27.566667,
-              47.15
+              23.408333,
+              42.7
             ],
             [
-              27.566667,
-              47.158333
+              23.408333,
+              42.713333
             ]
           ]
         ]
@@ -3133,38 +3124,38 @@
       "name": "row 6-column 12 sector",
       "area": null,
       "center": [
-        27.59167,
-        47.15417
+        23.43958,
+        42.70667
       ],
       "risk": {
-        "flood": 18.8,
-        "drought": 23.6,
-        "wildfire": 8.3,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.583333,
-              47.158333
+              23.429167,
+              42.713333
             ],
             [
-              27.6,
-              47.158333
+              23.45,
+              42.713333
             ],
             [
-              27.6,
-              47.15
+              23.45,
+              42.7
             ],
             [
-              27.583333,
-              47.15
+              23.429167,
+              42.7
             ],
             [
-              27.583333,
-              47.158333
+              23.429167,
+              42.713333
             ]
           ]
         ]
@@ -3175,38 +3166,38 @@
       "name": "row 7-column 1 sector",
       "area": null,
       "center": [
-        27.40833,
-        47.14583
+        23.21042,
+        42.69333
       ],
       "risk": {
-        "flood": 17.4,
-        "drought": 23.7,
-        "wildfire": 7.0,
-        "max": 23.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.4,
-              47.15
+              23.2,
+              42.7
             ],
             [
-              27.416667,
-              47.15
+              23.220833,
+              42.7
             ],
             [
-              27.416667,
-              47.141667
+              23.220833,
+              42.686667
             ],
             [
-              27.4,
-              47.141667
+              23.2,
+              42.686667
             ],
             [
-              27.4,
-              47.15
+              23.2,
+              42.7
             ]
           ]
         ]
@@ -3217,38 +3208,38 @@
       "name": "row 7-column 2 sector",
       "area": null,
       "center": [
-        27.425,
-        47.14583
+        23.23125,
+        42.69333
       ],
       "risk": {
-        "flood": 17.9,
-        "drought": 24.7,
-        "wildfire": 7.3,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.416667,
-              47.15
+              23.220833,
+              42.7
             ],
             [
-              27.433333,
-              47.15
+              23.241667,
+              42.7
             ],
             [
-              27.433333,
-              47.141667
+              23.241667,
+              42.686667
             ],
             [
-              27.416667,
-              47.141667
+              23.220833,
+              42.686667
             ],
             [
-              27.416667,
-              47.15
+              23.220833,
+              42.7
             ]
           ]
         ]
@@ -3259,38 +3250,38 @@
       "name": "row 7-column 3 sector",
       "area": null,
       "center": [
-        27.44167,
-        47.14583
+        23.25208,
+        42.69333
       ],
       "risk": {
-        "flood": 20.0,
-        "drought": 24.8,
-        "wildfire": 8.3,
-        "max": 24.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.433333,
-              47.15
+              23.241667,
+              42.7
             ],
             [
-              27.45,
-              47.15
+              23.2625,
+              42.7
             ],
             [
-              27.45,
-              47.141667
+              23.2625,
+              42.686667
             ],
             [
-              27.433333,
-              47.141667
+              23.241667,
+              42.686667
             ],
             [
-              27.433333,
-              47.15
+              23.241667,
+              42.7
             ]
           ]
         ]
@@ -3301,38 +3292,38 @@
       "name": "row 7-column 4 sector",
       "area": null,
       "center": [
-        27.45833,
-        47.14583
+        23.27292,
+        42.69333
       ],
       "risk": {
-        "flood": 19.3,
-        "drought": 24.8,
-        "wildfire": 7.6,
-        "max": 24.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.45,
-              47.15
+              23.2625,
+              42.7
             ],
             [
-              27.466667,
-              47.15
+              23.283333,
+              42.7
             ],
             [
-              27.466667,
-              47.141667
+              23.283333,
+              42.686667
             ],
             [
-              27.45,
-              47.141667
+              23.2625,
+              42.686667
             ],
             [
-              27.45,
-              47.15
+              23.2625,
+              42.7
             ]
           ]
         ]
@@ -3343,38 +3334,38 @@
       "name": "row 7-column 5 sector",
       "area": null,
       "center": [
-        27.475,
-        47.14583
+        23.29375,
+        42.69333
       ],
       "risk": {
-        "flood": 18.8,
-        "drought": 25.4,
-        "wildfire": 8.5,
-        "max": 25.4
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.466667,
-              47.15
+              23.283333,
+              42.7
             ],
             [
-              27.483333,
-              47.15
+              23.304167,
+              42.7
             ],
             [
-              27.483333,
-              47.141667
+              23.304167,
+              42.686667
             ],
             [
-              27.466667,
-              47.141667
+              23.283333,
+              42.686667
             ],
             [
-              27.466667,
-              47.15
+              23.283333,
+              42.7
             ]
           ]
         ]
@@ -3385,38 +3376,38 @@
       "name": "row 7-column 6 sector",
       "area": null,
       "center": [
-        27.49167,
-        47.14583
+        23.31458,
+        42.69333
       ],
       "risk": {
-        "flood": 19.5,
-        "drought": 25.0,
-        "wildfire": 8.4,
-        "max": 25.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.483333,
-              47.15
+              23.304167,
+              42.7
             ],
             [
-              27.5,
-              47.15
+              23.325,
+              42.7
             ],
             [
-              27.5,
-              47.141667
+              23.325,
+              42.686667
             ],
             [
-              27.483333,
-              47.141667
+              23.304167,
+              42.686667
             ],
             [
-              27.483333,
-              47.15
+              23.304167,
+              42.7
             ]
           ]
         ]
@@ -3427,38 +3418,38 @@
       "name": "row 7-column 7 sector",
       "area": null,
       "center": [
-        27.50833,
-        47.14583
+        23.33542,
+        42.69333
       ],
       "risk": {
-        "flood": 20.0,
-        "drought": 25.3,
-        "wildfire": 8.2,
-        "max": 25.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.5,
-              47.15
+              23.325,
+              42.7
             ],
             [
-              27.516667,
-              47.15
+              23.345833,
+              42.7
             ],
             [
-              27.516667,
-              47.141667
+              23.345833,
+              42.686667
             ],
             [
-              27.5,
-              47.141667
+              23.325,
+              42.686667
             ],
             [
-              27.5,
-              47.15
+              23.325,
+              42.7
             ]
           ]
         ]
@@ -3469,38 +3460,38 @@
       "name": "row 7-column 8 sector",
       "area": null,
       "center": [
-        27.525,
-        47.14583
+        23.35625,
+        42.69333
       ],
       "risk": {
-        "flood": 19.1,
-        "drought": 25.3,
-        "wildfire": 8.6,
-        "max": 25.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.516667,
-              47.15
+              23.345833,
+              42.7
             ],
             [
-              27.533333,
-              47.15
+              23.366667,
+              42.7
             ],
             [
-              27.533333,
-              47.141667
+              23.366667,
+              42.686667
             ],
             [
-              27.516667,
-              47.141667
+              23.345833,
+              42.686667
             ],
             [
-              27.516667,
-              47.15
+              23.345833,
+              42.7
             ]
           ]
         ]
@@ -3511,38 +3502,38 @@
       "name": "row 7-column 9 sector",
       "area": null,
       "center": [
-        27.54167,
-        47.14583
+        23.37708,
+        42.69333
       ],
       "risk": {
-        "flood": 17.5,
-        "drought": 25.4,
-        "wildfire": 8.2,
-        "max": 25.4
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.533333,
-              47.15
+              23.366667,
+              42.7
             ],
             [
-              27.55,
-              47.15
+              23.3875,
+              42.7
             ],
             [
-              27.55,
-              47.141667
+              23.3875,
+              42.686667
             ],
             [
-              27.533333,
-              47.141667
+              23.366667,
+              42.686667
             ],
             [
-              27.533333,
-              47.15
+              23.366667,
+              42.7
             ]
           ]
         ]
@@ -3553,38 +3544,38 @@
       "name": "row 7-column 10 sector",
       "area": null,
       "center": [
-        27.55833,
-        47.14583
+        23.39792,
+        42.69333
       ],
       "risk": {
-        "flood": 21.8,
-        "drought": 25.0,
-        "wildfire": 7.5,
-        "max": 25.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.55,
-              47.15
+              23.3875,
+              42.7
             ],
             [
-              27.566667,
-              47.15
+              23.408333,
+              42.7
             ],
             [
-              27.566667,
-              47.141667
+              23.408333,
+              42.686667
             ],
             [
-              27.55,
-              47.141667
+              23.3875,
+              42.686667
             ],
             [
-              27.55,
-              47.15
+              23.3875,
+              42.7
             ]
           ]
         ]
@@ -3595,38 +3586,38 @@
       "name": "row 7-column 11 sector",
       "area": null,
       "center": [
-        27.575,
-        47.14583
+        23.41875,
+        42.69333
       ],
       "risk": {
-        "flood": 21.6,
-        "drought": 24.1,
-        "wildfire": 8.4,
-        "max": 24.1
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.566667,
-              47.15
+              23.408333,
+              42.7
             ],
             [
-              27.583333,
-              47.15
+              23.429167,
+              42.7
             ],
             [
-              27.583333,
-              47.141667
+              23.429167,
+              42.686667
             ],
             [
-              27.566667,
-              47.141667
+              23.408333,
+              42.686667
             ],
             [
-              27.566667,
-              47.15
+              23.408333,
+              42.7
             ]
           ]
         ]
@@ -3637,38 +3628,38 @@
       "name": "row 7-column 12 sector",
       "area": null,
       "center": [
-        27.59167,
-        47.14583
+        23.43958,
+        42.69333
       ],
       "risk": {
-        "flood": 18.9,
-        "drought": 23.9,
-        "wildfire": 8.3,
-        "max": 23.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.583333,
-              47.15
+              23.429167,
+              42.7
             ],
             [
-              27.6,
-              47.15
+              23.45,
+              42.7
             ],
             [
-              27.6,
-              47.141667
+              23.45,
+              42.686667
             ],
             [
-              27.583333,
-              47.141667
+              23.429167,
+              42.686667
             ],
             [
-              27.583333,
-              47.15
+              23.429167,
+              42.7
             ]
           ]
         ]
@@ -3679,38 +3670,38 @@
       "name": "row 8-column 1 sector",
       "area": null,
       "center": [
-        27.40833,
-        47.1375
+        23.21042,
+        42.68
       ],
       "risk": {
-        "flood": 17.4,
-        "drought": 24.2,
-        "wildfire": 7.1,
-        "max": 24.2
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.4,
-              47.141667
+              23.2,
+              42.686667
             ],
             [
-              27.416667,
-              47.141667
+              23.220833,
+              42.686667
             ],
             [
-              27.416667,
-              47.133333
+              23.220833,
+              42.673333
             ],
             [
-              27.4,
-              47.133333
+              23.2,
+              42.673333
             ],
             [
-              27.4,
-              47.141667
+              23.2,
+              42.686667
             ]
           ]
         ]
@@ -3721,38 +3712,38 @@
       "name": "row 8-column 2 sector",
       "area": null,
       "center": [
-        27.425,
-        47.1375
+        23.23125,
+        42.68
       ],
       "risk": {
-        "flood": 18.9,
-        "drought": 25.6,
-        "wildfire": 7.5,
-        "max": 25.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.416667,
-              47.141667
+              23.220833,
+              42.686667
             ],
             [
-              27.433333,
-              47.141667
+              23.241667,
+              42.686667
             ],
             [
-              27.433333,
-              47.133333
+              23.241667,
+              42.673333
             ],
             [
-              27.416667,
-              47.133333
+              23.220833,
+              42.673333
             ],
             [
-              27.416667,
-              47.141667
+              23.220833,
+              42.686667
             ]
           ]
         ]
@@ -3763,38 +3754,38 @@
       "name": "row 8-column 3 sector",
       "area": null,
       "center": [
-        27.44167,
-        47.1375
+        23.25208,
+        42.68
       ],
       "risk": {
-        "flood": 19.8,
-        "drought": 25.3,
-        "wildfire": 8.2,
-        "max": 25.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.433333,
-              47.141667
+              23.241667,
+              42.686667
             ],
             [
-              27.45,
-              47.141667
+              23.2625,
+              42.686667
             ],
             [
-              27.45,
-              47.133333
+              23.2625,
+              42.673333
             ],
             [
-              27.433333,
-              47.133333
+              23.241667,
+              42.673333
             ],
             [
-              27.433333,
-              47.141667
+              23.241667,
+              42.686667
             ]
           ]
         ]
@@ -3805,38 +3796,38 @@
       "name": "row 8-column 4 sector",
       "area": null,
       "center": [
-        27.45833,
-        47.1375
+        23.27292,
+        42.68
       ],
       "risk": {
-        "flood": 18.7,
-        "drought": 24.9,
-        "wildfire": 7.5,
-        "max": 24.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.45,
-              47.141667
+              23.2625,
+              42.686667
             ],
             [
-              27.466667,
-              47.141667
+              23.283333,
+              42.686667
             ],
             [
-              27.466667,
-              47.133333
+              23.283333,
+              42.673333
             ],
             [
-              27.45,
-              47.133333
+              23.2625,
+              42.673333
             ],
             [
-              27.45,
-              47.141667
+              23.2625,
+              42.686667
             ]
           ]
         ]
@@ -3847,38 +3838,38 @@
       "name": "row 8-column 5 sector",
       "area": null,
       "center": [
-        27.475,
-        47.1375
+        23.29375,
+        42.68
       ],
       "risk": {
-        "flood": 18.9,
-        "drought": 25.4,
-        "wildfire": 7.8,
-        "max": 25.4
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.466667,
-              47.141667
+              23.283333,
+              42.686667
             ],
             [
-              27.483333,
-              47.141667
+              23.304167,
+              42.686667
             ],
             [
-              27.483333,
-              47.133333
+              23.304167,
+              42.673333
             ],
             [
-              27.466667,
-              47.133333
+              23.283333,
+              42.673333
             ],
             [
-              27.466667,
-              47.141667
+              23.283333,
+              42.686667
             ]
           ]
         ]
@@ -3889,38 +3880,38 @@
       "name": "row 8-column 6 sector",
       "area": null,
       "center": [
-        27.49167,
-        47.1375
+        23.31458,
+        42.68
       ],
       "risk": {
-        "flood": 19.4,
-        "drought": 25.6,
-        "wildfire": 8.2,
-        "max": 25.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.483333,
-              47.141667
+              23.304167,
+              42.686667
             ],
             [
-              27.5,
-              47.141667
+              23.325,
+              42.686667
             ],
             [
-              27.5,
-              47.133333
+              23.325,
+              42.673333
             ],
             [
-              27.483333,
-              47.133333
+              23.304167,
+              42.673333
             ],
             [
-              27.483333,
-              47.141667
+              23.304167,
+              42.686667
             ]
           ]
         ]
@@ -3931,38 +3922,38 @@
       "name": "row 8-column 7 sector",
       "area": null,
       "center": [
-        27.50833,
-        47.1375
+        23.33542,
+        42.68
       ],
       "risk": {
-        "flood": 19.4,
-        "drought": 24.7,
-        "wildfire": 8.1,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.5,
-              47.141667
+              23.325,
+              42.686667
             ],
             [
-              27.516667,
-              47.141667
+              23.345833,
+              42.686667
             ],
             [
-              27.516667,
-              47.133333
+              23.345833,
+              42.673333
             ],
             [
-              27.5,
-              47.133333
+              23.325,
+              42.673333
             ],
             [
-              27.5,
-              47.141667
+              23.325,
+              42.686667
             ]
           ]
         ]
@@ -3973,38 +3964,38 @@
       "name": "row 8-column 8 sector",
       "area": null,
       "center": [
-        27.525,
-        47.1375
+        23.35625,
+        42.68
       ],
       "risk": {
-        "flood": 20.3,
-        "drought": 24.5,
-        "wildfire": 8.1,
-        "max": 24.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.516667,
-              47.141667
+              23.345833,
+              42.686667
             ],
             [
-              27.533333,
-              47.141667
+              23.366667,
+              42.686667
             ],
             [
-              27.533333,
-              47.133333
+              23.366667,
+              42.673333
             ],
             [
-              27.516667,
-              47.133333
+              23.345833,
+              42.673333
             ],
             [
-              27.516667,
-              47.141667
+              23.345833,
+              42.686667
             ]
           ]
         ]
@@ -4015,38 +4006,38 @@
       "name": "row 8-column 9 sector",
       "area": null,
       "center": [
-        27.54167,
-        47.1375
+        23.37708,
+        42.68
       ],
       "risk": {
-        "flood": 18.4,
-        "drought": 25.6,
-        "wildfire": 8.2,
-        "max": 25.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.533333,
-              47.141667
+              23.366667,
+              42.686667
             ],
             [
-              27.55,
-              47.141667
+              23.3875,
+              42.686667
             ],
             [
-              27.55,
-              47.133333
+              23.3875,
+              42.673333
             ],
             [
-              27.533333,
-              47.133333
+              23.366667,
+              42.673333
             ],
             [
-              27.533333,
-              47.141667
+              23.366667,
+              42.686667
             ]
           ]
         ]
@@ -4057,38 +4048,38 @@
       "name": "row 8-column 10 sector",
       "area": null,
       "center": [
-        27.55833,
-        47.1375
+        23.39792,
+        42.68
       ],
       "risk": {
-        "flood": 18.9,
-        "drought": 25.7,
-        "wildfire": 8.3,
-        "max": 25.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.55,
-              47.141667
+              23.3875,
+              42.686667
             ],
             [
-              27.566667,
-              47.141667
+              23.408333,
+              42.686667
             ],
             [
-              27.566667,
-              47.133333
+              23.408333,
+              42.673333
             ],
             [
-              27.55,
-              47.133333
+              23.3875,
+              42.673333
             ],
             [
-              27.55,
-              47.141667
+              23.3875,
+              42.686667
             ]
           ]
         ]
@@ -4099,38 +4090,38 @@
       "name": "row 8-column 11 sector",
       "area": null,
       "center": [
-        27.575,
-        47.1375
+        23.41875,
+        42.68
       ],
       "risk": {
-        "flood": 19.2,
-        "drought": 24.5,
-        "wildfire": 8.5,
-        "max": 24.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.566667,
-              47.141667
+              23.408333,
+              42.686667
             ],
             [
-              27.583333,
-              47.141667
+              23.429167,
+              42.686667
             ],
             [
-              27.583333,
-              47.133333
+              23.429167,
+              42.673333
             ],
             [
-              27.566667,
-              47.133333
+              23.408333,
+              42.673333
             ],
             [
-              27.566667,
-              47.141667
+              23.408333,
+              42.686667
             ]
           ]
         ]
@@ -4141,38 +4132,38 @@
       "name": "row 8-column 12 sector",
       "area": null,
       "center": [
-        27.59167,
-        47.1375
+        23.43958,
+        42.68
       ],
       "risk": {
-        "flood": 18.9,
-        "drought": 24.9,
-        "wildfire": 8.1,
-        "max": 24.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.583333,
-              47.141667
+              23.429167,
+              42.686667
             ],
             [
-              27.6,
-              47.141667
+              23.45,
+              42.686667
             ],
             [
-              27.6,
-              47.133333
+              23.45,
+              42.673333
             ],
             [
-              27.583333,
-              47.133333
+              23.429167,
+              42.673333
             ],
             [
-              27.583333,
-              47.141667
+              23.429167,
+              42.686667
             ]
           ]
         ]
@@ -4183,38 +4174,38 @@
       "name": "row 9-column 1 sector",
       "area": null,
       "center": [
-        27.40833,
-        47.12917
+        23.21042,
+        42.66667
       ],
       "risk": {
-        "flood": 18.5,
-        "drought": 24.0,
-        "wildfire": 7.1,
-        "max": 24.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.4,
-              47.133333
+              23.2,
+              42.673333
             ],
             [
-              27.416667,
-              47.133333
+              23.220833,
+              42.673333
             ],
             [
-              27.416667,
-              47.125
+              23.220833,
+              42.66
             ],
             [
-              27.4,
-              47.125
+              23.2,
+              42.66
             ],
             [
-              27.4,
-              47.133333
+              23.2,
+              42.673333
             ]
           ]
         ]
@@ -4225,38 +4216,38 @@
       "name": "row 9-column 2 sector",
       "area": null,
       "center": [
-        27.425,
-        47.12917
+        23.23125,
+        42.66667
       ],
       "risk": {
-        "flood": 19.2,
-        "drought": 25.1,
-        "wildfire": 7.3,
-        "max": 25.1
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.416667,
-              47.133333
+              23.220833,
+              42.673333
             ],
             [
-              27.433333,
-              47.133333
+              23.241667,
+              42.673333
             ],
             [
-              27.433333,
-              47.125
+              23.241667,
+              42.66
             ],
             [
-              27.416667,
-              47.125
+              23.220833,
+              42.66
             ],
             [
-              27.416667,
-              47.133333
+              23.220833,
+              42.673333
             ]
           ]
         ]
@@ -4267,38 +4258,38 @@
       "name": "row 9-column 3 sector",
       "area": null,
       "center": [
-        27.44167,
-        47.12917
+        23.25208,
+        42.66667
       ],
       "risk": {
-        "flood": 18.9,
-        "drought": 24.5,
-        "wildfire": 7.2,
-        "max": 24.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.433333,
-              47.133333
+              23.241667,
+              42.673333
             ],
             [
-              27.45,
-              47.133333
+              23.2625,
+              42.673333
             ],
             [
-              27.45,
-              47.125
+              23.2625,
+              42.66
             ],
             [
-              27.433333,
-              47.125
+              23.241667,
+              42.66
             ],
             [
-              27.433333,
-              47.133333
+              23.241667,
+              42.673333
             ]
           ]
         ]
@@ -4309,38 +4300,38 @@
       "name": "row 9-column 4 sector",
       "area": null,
       "center": [
-        27.45833,
-        47.12917
+        23.27292,
+        42.66667
       ],
       "risk": {
-        "flood": 17.5,
-        "drought": 25.8,
-        "wildfire": 7.5,
-        "max": 25.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.45,
-              47.133333
+              23.2625,
+              42.673333
             ],
             [
-              27.466667,
-              47.133333
+              23.283333,
+              42.673333
             ],
             [
-              27.466667,
-              47.125
+              23.283333,
+              42.66
             ],
             [
-              27.45,
-              47.125
+              23.2625,
+              42.66
             ],
             [
-              27.45,
-              47.133333
+              23.2625,
+              42.673333
             ]
           ]
         ]
@@ -4351,38 +4342,38 @@
       "name": "row 9-column 5 sector",
       "area": null,
       "center": [
-        27.475,
-        47.12917
+        23.29375,
+        42.66667
       ],
       "risk": {
-        "flood": 18.9,
-        "drought": 25.4,
-        "wildfire": 7.4,
-        "max": 25.4
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.466667,
-              47.133333
+              23.283333,
+              42.673333
             ],
             [
-              27.483333,
-              47.133333
+              23.304167,
+              42.673333
             ],
             [
-              27.483333,
-              47.125
+              23.304167,
+              42.66
             ],
             [
-              27.466667,
-              47.125
+              23.283333,
+              42.66
             ],
             [
-              27.466667,
-              47.133333
+              23.283333,
+              42.673333
             ]
           ]
         ]
@@ -4393,38 +4384,38 @@
       "name": "row 9-column 6 sector",
       "area": null,
       "center": [
-        27.49167,
-        47.12917
+        23.31458,
+        42.66667
       ],
       "risk": {
-        "flood": 20.0,
-        "drought": 24.9,
-        "wildfire": 7.9,
-        "max": 24.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.483333,
-              47.133333
+              23.304167,
+              42.673333
             ],
             [
-              27.5,
-              47.133333
+              23.325,
+              42.673333
             ],
             [
-              27.5,
-              47.125
+              23.325,
+              42.66
             ],
             [
-              27.483333,
-              47.125
+              23.304167,
+              42.66
             ],
             [
-              27.483333,
-              47.133333
+              23.304167,
+              42.673333
             ]
           ]
         ]
@@ -4435,38 +4426,38 @@
       "name": "row 9-column 7 sector",
       "area": null,
       "center": [
-        27.50833,
-        47.12917
+        23.33542,
+        42.66667
       ],
       "risk": {
-        "flood": 20.7,
-        "drought": 25.0,
-        "wildfire": 8.2,
-        "max": 25.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.5,
-              47.133333
+              23.325,
+              42.673333
             ],
             [
-              27.516667,
-              47.133333
+              23.345833,
+              42.673333
             ],
             [
-              27.516667,
-              47.125
+              23.345833,
+              42.66
             ],
             [
-              27.5,
-              47.125
+              23.325,
+              42.66
             ],
             [
-              27.5,
-              47.133333
+              23.325,
+              42.673333
             ]
           ]
         ]
@@ -4477,38 +4468,38 @@
       "name": "row 9-column 8 sector",
       "area": null,
       "center": [
-        27.525,
-        47.12917
+        23.35625,
+        42.66667
       ],
       "risk": {
-        "flood": 21.0,
-        "drought": 24.5,
-        "wildfire": 7.7,
-        "max": 24.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.516667,
-              47.133333
+              23.345833,
+              42.673333
             ],
             [
-              27.533333,
-              47.133333
+              23.366667,
+              42.673333
             ],
             [
-              27.533333,
-              47.125
+              23.366667,
+              42.66
             ],
             [
-              27.516667,
-              47.125
+              23.345833,
+              42.66
             ],
             [
-              27.516667,
-              47.133333
+              23.345833,
+              42.673333
             ]
           ]
         ]
@@ -4519,38 +4510,38 @@
       "name": "row 9-column 9 sector",
       "area": null,
       "center": [
-        27.54167,
-        47.12917
+        23.37708,
+        42.66667
       ],
       "risk": {
-        "flood": 18.3,
-        "drought": 24.5,
-        "wildfire": 7.7,
-        "max": 24.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.533333,
-              47.133333
+              23.366667,
+              42.673333
             ],
             [
-              27.55,
-              47.133333
+              23.3875,
+              42.673333
             ],
             [
-              27.55,
-              47.125
+              23.3875,
+              42.66
             ],
             [
-              27.533333,
-              47.125
+              23.366667,
+              42.66
             ],
             [
-              27.533333,
-              47.133333
+              23.366667,
+              42.673333
             ]
           ]
         ]
@@ -4561,38 +4552,38 @@
       "name": "row 9-column 10 sector",
       "area": null,
       "center": [
-        27.55833,
-        47.12917
+        23.39792,
+        42.66667
       ],
       "risk": {
-        "flood": 21.4,
-        "drought": 24.7,
-        "wildfire": 8.0,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.55,
-              47.133333
+              23.3875,
+              42.673333
             ],
             [
-              27.566667,
-              47.133333
+              23.408333,
+              42.673333
             ],
             [
-              27.566667,
-              47.125
+              23.408333,
+              42.66
             ],
             [
-              27.55,
-              47.125
+              23.3875,
+              42.66
             ],
             [
-              27.55,
-              47.133333
+              23.3875,
+              42.673333
             ]
           ]
         ]
@@ -4603,38 +4594,38 @@
       "name": "row 9-column 11 sector",
       "area": null,
       "center": [
-        27.575,
-        47.12917
+        23.41875,
+        42.66667
       ],
       "risk": {
-        "flood": 19.3,
-        "drought": 24.9,
-        "wildfire": 8.2,
-        "max": 24.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.566667,
-              47.133333
+              23.408333,
+              42.673333
             ],
             [
-              27.583333,
-              47.133333
+              23.429167,
+              42.673333
             ],
             [
-              27.583333,
-              47.125
+              23.429167,
+              42.66
             ],
             [
-              27.566667,
-              47.125
+              23.408333,
+              42.66
             ],
             [
-              27.566667,
-              47.133333
+              23.408333,
+              42.673333
             ]
           ]
         ]
@@ -4645,38 +4636,38 @@
       "name": "row 9-column 12 sector",
       "area": null,
       "center": [
-        27.59167,
-        47.12917
+        23.43958,
+        42.66667
       ],
       "risk": {
-        "flood": 19.6,
-        "drought": 25.5,
-        "wildfire": 8.3,
-        "max": 25.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.583333,
-              47.133333
+              23.429167,
+              42.673333
             ],
             [
-              27.6,
-              47.133333
+              23.45,
+              42.673333
             ],
             [
-              27.6,
-              47.125
+              23.45,
+              42.66
             ],
             [
-              27.583333,
-              47.125
+              23.429167,
+              42.66
             ],
             [
-              27.583333,
-              47.133333
+              23.429167,
+              42.673333
             ]
           ]
         ]
@@ -4687,38 +4678,38 @@
       "name": "row 10-column 1 sector",
       "area": null,
       "center": [
-        27.40833,
-        47.12083
+        23.21042,
+        42.65333
       ],
       "risk": {
-        "flood": 18.6,
-        "drought": 24.2,
-        "wildfire": 7.1,
-        "max": 24.2
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.4,
-              47.125
+              23.2,
+              42.66
             ],
             [
-              27.416667,
-              47.125
+              23.220833,
+              42.66
             ],
             [
-              27.416667,
-              47.116667
+              23.220833,
+              42.646667
             ],
             [
-              27.4,
-              47.116667
+              23.2,
+              42.646667
             ],
             [
-              27.4,
-              47.125
+              23.2,
+              42.66
             ]
           ]
         ]
@@ -4729,38 +4720,38 @@
       "name": "row 10-column 2 sector",
       "area": null,
       "center": [
-        27.425,
-        47.12083
+        23.23125,
+        42.65333
       ],
       "risk": {
-        "flood": 20.1,
-        "drought": 25.5,
-        "wildfire": 7.5,
-        "max": 25.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.416667,
-              47.125
+              23.220833,
+              42.66
             ],
             [
-              27.433333,
-              47.125
+              23.241667,
+              42.66
             ],
             [
-              27.433333,
-              47.116667
+              23.241667,
+              42.646667
             ],
             [
-              27.416667,
-              47.116667
+              23.220833,
+              42.646667
             ],
             [
-              27.416667,
-              47.125
+              23.220833,
+              42.66
             ]
           ]
         ]
@@ -4771,38 +4762,38 @@
       "name": "row 10-column 3 sector",
       "area": null,
       "center": [
-        27.44167,
-        47.12083
+        23.25208,
+        42.65333
       ],
       "risk": {
-        "flood": 19.8,
-        "drought": 24.6,
-        "wildfire": 7.2,
-        "max": 24.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.433333,
-              47.125
+              23.241667,
+              42.66
             ],
             [
-              27.45,
-              47.125
+              23.2625,
+              42.66
             ],
             [
-              27.45,
-              47.116667
+              23.2625,
+              42.646667
             ],
             [
-              27.433333,
-              47.116667
+              23.241667,
+              42.646667
             ],
             [
-              27.433333,
-              47.125
+              23.241667,
+              42.66
             ]
           ]
         ]
@@ -4813,38 +4804,38 @@
       "name": "row 10-column 4 sector",
       "area": null,
       "center": [
-        27.45833,
-        47.12083
+        23.27292,
+        42.65333
       ],
       "risk": {
-        "flood": 18.8,
-        "drought": 24.7,
-        "wildfire": 7.4,
-        "max": 24.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.45,
-              47.125
+              23.2625,
+              42.66
             ],
             [
-              27.466667,
-              47.125
+              23.283333,
+              42.66
             ],
             [
-              27.466667,
-              47.116667
+              23.283333,
+              42.646667
             ],
             [
-              27.45,
-              47.116667
+              23.2625,
+              42.646667
             ],
             [
-              27.45,
-              47.125
+              23.2625,
+              42.66
             ]
           ]
         ]
@@ -4855,38 +4846,38 @@
       "name": "row 10-column 5 sector",
       "area": null,
       "center": [
-        27.475,
-        47.12083
+        23.29375,
+        42.65333
       ],
       "risk": {
-        "flood": 18.8,
-        "drought": 25.0,
-        "wildfire": 7.9,
-        "max": 25.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.466667,
-              47.125
+              23.283333,
+              42.66
             ],
             [
-              27.483333,
-              47.125
+              23.304167,
+              42.66
             ],
             [
-              27.483333,
-              47.116667
+              23.304167,
+              42.646667
             ],
             [
-              27.466667,
-              47.116667
+              23.283333,
+              42.646667
             ],
             [
-              27.466667,
-              47.125
+              23.283333,
+              42.66
             ]
           ]
         ]
@@ -4897,38 +4888,38 @@
       "name": "row 10-column 6 sector",
       "area": null,
       "center": [
-        27.49167,
-        47.12083
+        23.31458,
+        42.65333
       ],
       "risk": {
-        "flood": 19.0,
-        "drought": 25.2,
-        "wildfire": 8.1,
-        "max": 25.2
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.483333,
-              47.125
+              23.304167,
+              42.66
             ],
             [
-              27.5,
-              47.125
+              23.325,
+              42.66
             ],
             [
-              27.5,
-              47.116667
+              23.325,
+              42.646667
             ],
             [
-              27.483333,
-              47.116667
+              23.304167,
+              42.646667
             ],
             [
-              27.483333,
-              47.125
+              23.304167,
+              42.66
             ]
           ]
         ]
@@ -4939,38 +4930,38 @@
       "name": "row 10-column 7 sector",
       "area": null,
       "center": [
-        27.50833,
-        47.12083
+        23.33542,
+        42.65333
       ],
       "risk": {
-        "flood": 18.6,
-        "drought": 25.5,
-        "wildfire": 8.1,
-        "max": 25.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.5,
-              47.125
+              23.325,
+              42.66
             ],
             [
-              27.516667,
-              47.125
+              23.345833,
+              42.66
             ],
             [
-              27.516667,
-              47.116667
+              23.345833,
+              42.646667
             ],
             [
-              27.5,
-              47.116667
+              23.325,
+              42.646667
             ],
             [
-              27.5,
-              47.125
+              23.325,
+              42.66
             ]
           ]
         ]
@@ -4981,38 +4972,38 @@
       "name": "row 10-column 8 sector",
       "area": null,
       "center": [
-        27.525,
-        47.12083
+        23.35625,
+        42.65333
       ],
       "risk": {
-        "flood": 21.6,
-        "drought": 24.8,
-        "wildfire": 8.5,
-        "max": 24.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.516667,
-              47.125
+              23.345833,
+              42.66
             ],
             [
-              27.533333,
-              47.125
+              23.366667,
+              42.66
             ],
             [
-              27.533333,
-              47.116667
+              23.366667,
+              42.646667
             ],
             [
-              27.516667,
-              47.116667
+              23.345833,
+              42.646667
             ],
             [
-              27.516667,
-              47.125
+              23.345833,
+              42.66
             ]
           ]
         ]
@@ -5023,38 +5014,38 @@
       "name": "row 10-column 9 sector",
       "area": null,
       "center": [
-        27.54167,
-        47.12083
+        23.37708,
+        42.65333
       ],
       "risk": {
-        "flood": 19.8,
-        "drought": 23.6,
-        "wildfire": 7.9,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.533333,
-              47.125
+              23.366667,
+              42.66
             ],
             [
-              27.55,
-              47.125
+              23.3875,
+              42.66
             ],
             [
-              27.55,
-              47.116667
+              23.3875,
+              42.646667
             ],
             [
-              27.533333,
-              47.116667
+              23.366667,
+              42.646667
             ],
             [
-              27.533333,
-              47.125
+              23.366667,
+              42.66
             ]
           ]
         ]
@@ -5065,38 +5056,38 @@
       "name": "row 10-column 10 sector",
       "area": null,
       "center": [
-        27.55833,
-        47.12083
+        23.39792,
+        42.65333
       ],
       "risk": {
-        "flood": 20.4,
-        "drought": 23.6,
-        "wildfire": 8.1,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.55,
-              47.125
+              23.3875,
+              42.66
             ],
             [
-              27.566667,
-              47.125
+              23.408333,
+              42.66
             ],
             [
-              27.566667,
-              47.116667
+              23.408333,
+              42.646667
             ],
             [
-              27.55,
-              47.116667
+              23.3875,
+              42.646667
             ],
             [
-              27.55,
-              47.125
+              23.3875,
+              42.66
             ]
           ]
         ]
@@ -5107,38 +5098,38 @@
       "name": "row 10-column 11 sector",
       "area": null,
       "center": [
-        27.575,
-        47.12083
+        23.41875,
+        42.65333
       ],
       "risk": {
-        "flood": 19.6,
-        "drought": 25.0,
-        "wildfire": 8.1,
-        "max": 25.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.566667,
-              47.125
+              23.408333,
+              42.66
             ],
             [
-              27.583333,
-              47.125
+              23.429167,
+              42.66
             ],
             [
-              27.583333,
-              47.116667
+              23.429167,
+              42.646667
             ],
             [
-              27.566667,
-              47.116667
+              23.408333,
+              42.646667
             ],
             [
-              27.566667,
-              47.125
+              23.408333,
+              42.66
             ]
           ]
         ]
@@ -5149,38 +5140,38 @@
       "name": "row 10-column 12 sector",
       "area": null,
       "center": [
-        27.59167,
-        47.12083
+        23.43958,
+        42.65333
       ],
       "risk": {
-        "flood": 20.7,
-        "drought": 25.8,
-        "wildfire": 7.8,
-        "max": 25.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.583333,
-              47.125
+              23.429167,
+              42.66
             ],
             [
-              27.6,
-              47.125
+              23.45,
+              42.66
             ],
             [
-              27.6,
-              47.116667
+              23.45,
+              42.646667
             ],
             [
-              27.583333,
-              47.116667
+              23.429167,
+              42.646667
             ],
             [
-              27.583333,
-              47.125
+              23.429167,
+              42.66
             ]
           ]
         ]
@@ -5191,38 +5182,38 @@
       "name": "row 11-column 1 sector",
       "area": null,
       "center": [
-        27.40833,
-        47.1125
+        23.21042,
+        42.64
       ],
       "risk": {
-        "flood": 17.4,
-        "drought": 23.7,
-        "wildfire": 7.0,
-        "max": 23.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.4,
-              47.116667
+              23.2,
+              42.646667
             ],
             [
-              27.416667,
-              47.116667
+              23.220833,
+              42.646667
             ],
             [
-              27.416667,
-              47.108333
+              23.220833,
+              42.633333
             ],
             [
-              27.4,
-              47.108333
+              23.2,
+              42.633333
             ],
             [
-              27.4,
-              47.116667
+              23.2,
+              42.646667
             ]
           ]
         ]
@@ -5233,38 +5224,38 @@
       "name": "row 11-column 2 sector",
       "area": null,
       "center": [
-        27.425,
-        47.1125
+        23.23125,
+        42.64
       ],
       "risk": {
-        "flood": 18.8,
-        "drought": 24.5,
-        "wildfire": 7.2,
-        "max": 24.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.416667,
-              47.116667
+              23.220833,
+              42.646667
             ],
             [
-              27.433333,
-              47.116667
+              23.241667,
+              42.646667
             ],
             [
-              27.433333,
-              47.108333
+              23.241667,
+              42.633333
             ],
             [
-              27.416667,
-              47.108333
+              23.220833,
+              42.633333
             ],
             [
-              27.416667,
-              47.116667
+              23.220833,
+              42.646667
             ]
           ]
         ]
@@ -5275,38 +5266,38 @@
       "name": "row 11-column 3 sector",
       "area": null,
       "center": [
-        27.44167,
-        47.1125
+        23.25208,
+        42.64
       ],
       "risk": {
-        "flood": 20.3,
-        "drought": 24.1,
-        "wildfire": 7.1,
-        "max": 24.1
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.433333,
-              47.116667
+              23.241667,
+              42.646667
             ],
             [
-              27.45,
-              47.116667
+              23.2625,
+              42.646667
             ],
             [
-              27.45,
-              47.108333
+              23.2625,
+              42.633333
             ],
             [
-              27.433333,
-              47.108333
+              23.241667,
+              42.633333
             ],
             [
-              27.433333,
-              47.116667
+              23.241667,
+              42.646667
             ]
           ]
         ]
@@ -5317,38 +5308,38 @@
       "name": "row 11-column 4 sector",
       "area": null,
       "center": [
-        27.45833,
-        47.1125
+        23.27292,
+        42.64
       ],
       "risk": {
-        "flood": 18.5,
-        "drought": 25.4,
-        "wildfire": 8.1,
-        "max": 25.4
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.45,
-              47.116667
+              23.2625,
+              42.646667
             ],
             [
-              27.466667,
-              47.116667
+              23.283333,
+              42.646667
             ],
             [
-              27.466667,
-              47.108333
+              23.283333,
+              42.633333
             ],
             [
-              27.45,
-              47.108333
+              23.2625,
+              42.633333
             ],
             [
-              27.45,
-              47.116667
+              23.2625,
+              42.646667
             ]
           ]
         ]
@@ -5359,38 +5350,38 @@
       "name": "row 11-column 5 sector",
       "area": null,
       "center": [
-        27.475,
-        47.1125
+        23.29375,
+        42.64
       ],
       "risk": {
-        "flood": 20.7,
-        "drought": 25.7,
-        "wildfire": 8.8,
-        "max": 25.7
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.466667,
-              47.116667
+              23.283333,
+              42.646667
             ],
             [
-              27.483333,
-              47.116667
+              23.304167,
+              42.646667
             ],
             [
-              27.483333,
-              47.108333
+              23.304167,
+              42.633333
             ],
             [
-              27.466667,
-              47.108333
+              23.283333,
+              42.633333
             ],
             [
-              27.466667,
-              47.116667
+              23.283333,
+              42.646667
             ]
           ]
         ]
@@ -5401,38 +5392,38 @@
       "name": "row 11-column 6 sector",
       "area": null,
       "center": [
-        27.49167,
-        47.1125
+        23.31458,
+        42.64
       ],
       "risk": {
-        "flood": 21.5,
-        "drought": 25.9,
-        "wildfire": 8.2,
-        "max": 25.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.483333,
-              47.116667
+              23.304167,
+              42.646667
             ],
             [
-              27.5,
-              47.116667
+              23.325,
+              42.646667
             ],
             [
-              27.5,
-              47.108333
+              23.325,
+              42.633333
             ],
             [
-              27.483333,
-              47.108333
+              23.304167,
+              42.633333
             ],
             [
-              27.483333,
-              47.116667
+              23.304167,
+              42.646667
             ]
           ]
         ]
@@ -5443,38 +5434,38 @@
       "name": "row 11-column 7 sector",
       "area": null,
       "center": [
-        27.50833,
-        47.1125
+        23.33542,
+        42.64
       ],
       "risk": {
-        "flood": 19.8,
-        "drought": 25.5,
-        "wildfire": 7.6,
-        "max": 25.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.5,
-              47.116667
+              23.325,
+              42.646667
             ],
             [
-              27.516667,
-              47.116667
+              23.345833,
+              42.646667
             ],
             [
-              27.516667,
-              47.108333
+              23.345833,
+              42.633333
             ],
             [
-              27.5,
-              47.108333
+              23.325,
+              42.633333
             ],
             [
-              27.5,
-              47.116667
+              23.325,
+              42.646667
             ]
           ]
         ]
@@ -5485,38 +5476,38 @@
       "name": "row 11-column 8 sector",
       "area": null,
       "center": [
-        27.525,
-        47.1125
+        23.35625,
+        42.64
       ],
       "risk": {
-        "flood": 20.3,
-        "drought": 25.4,
-        "wildfire": 8.4,
-        "max": 25.4
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.516667,
-              47.116667
+              23.345833,
+              42.646667
             ],
             [
-              27.533333,
-              47.116667
+              23.366667,
+              42.646667
             ],
             [
-              27.533333,
-              47.108333
+              23.366667,
+              42.633333
             ],
             [
-              27.516667,
-              47.108333
+              23.345833,
+              42.633333
             ],
             [
-              27.516667,
-              47.116667
+              23.345833,
+              42.646667
             ]
           ]
         ]
@@ -5527,38 +5518,38 @@
       "name": "row 11-column 9 sector",
       "area": null,
       "center": [
-        27.54167,
-        47.1125
+        23.37708,
+        42.64
       ],
       "risk": {
-        "flood": 19.8,
-        "drought": 24.0,
-        "wildfire": 8.1,
-        "max": 24.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.533333,
-              47.116667
+              23.366667,
+              42.646667
             ],
             [
-              27.55,
-              47.116667
+              23.3875,
+              42.646667
             ],
             [
-              27.55,
-              47.108333
+              23.3875,
+              42.633333
             ],
             [
-              27.533333,
-              47.108333
+              23.366667,
+              42.633333
             ],
             [
-              27.533333,
-              47.116667
+              23.366667,
+              42.646667
             ]
           ]
         ]
@@ -5569,38 +5560,38 @@
       "name": "row 11-column 10 sector",
       "area": null,
       "center": [
-        27.55833,
-        47.1125
+        23.39792,
+        42.64
       ],
       "risk": {
-        "flood": 21.0,
-        "drought": 23.6,
-        "wildfire": 7.4,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.55,
-              47.116667
+              23.3875,
+              42.646667
             ],
             [
-              27.566667,
-              47.116667
+              23.408333,
+              42.646667
             ],
             [
-              27.566667,
-              47.108333
+              23.408333,
+              42.633333
             ],
             [
-              27.55,
-              47.108333
+              23.3875,
+              42.633333
             ],
             [
-              27.55,
-              47.116667
+              23.3875,
+              42.646667
             ]
           ]
         ]
@@ -5611,38 +5602,38 @@
       "name": "row 11-column 11 sector",
       "area": null,
       "center": [
-        27.575,
-        47.1125
+        23.41875,
+        42.64
       ],
       "risk": {
-        "flood": 19.0,
-        "drought": 24.2,
-        "wildfire": 7.7,
-        "max": 24.2
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.566667,
-              47.116667
+              23.408333,
+              42.646667
             ],
             [
-              27.583333,
-              47.116667
+              23.429167,
+              42.646667
             ],
             [
-              27.583333,
-              47.108333
+              23.429167,
+              42.633333
             ],
             [
-              27.566667,
-              47.108333
+              23.408333,
+              42.633333
             ],
             [
-              27.566667,
-              47.116667
+              23.408333,
+              42.646667
             ]
           ]
         ]
@@ -5653,38 +5644,38 @@
       "name": "row 11-column 12 sector",
       "area": null,
       "center": [
-        27.59167,
-        47.1125
+        23.43958,
+        42.64
       ],
       "risk": {
-        "flood": 20.4,
-        "drought": 25.1,
-        "wildfire": 7.5,
-        "max": 25.1
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.583333,
-              47.116667
+              23.429167,
+              42.646667
             ],
             [
-              27.6,
-              47.116667
+              23.45,
+              42.646667
             ],
             [
-              27.6,
-              47.108333
+              23.45,
+              42.633333
             ],
             [
-              27.583333,
-              47.108333
+              23.429167,
+              42.633333
             ],
             [
-              27.583333,
-              47.116667
+              23.429167,
+              42.646667
             ]
           ]
         ]
@@ -5695,38 +5686,38 @@
       "name": "row 12-column 1 sector",
       "area": null,
       "center": [
-        27.40833,
-        47.10417
+        23.21042,
+        42.62667
       ],
       "risk": {
-        "flood": 17.4,
-        "drought": 23.6,
-        "wildfire": 7.0,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.4,
-              47.108333
+              23.2,
+              42.633333
             ],
             [
-              27.416667,
-              47.108333
+              23.220833,
+              42.633333
             ],
             [
-              27.416667,
-              47.1
+              23.220833,
+              42.62
             ],
             [
-              27.4,
-              47.1
+              23.2,
+              42.62
             ],
             [
-              27.4,
-              47.108333
+              23.2,
+              42.633333
             ]
           ]
         ]
@@ -5737,38 +5728,38 @@
       "name": "row 12-column 2 sector",
       "area": null,
       "center": [
-        27.425,
-        47.10417
+        23.23125,
+        42.62667
       ],
       "risk": {
-        "flood": 17.4,
-        "drought": 23.6,
-        "wildfire": 7.0,
-        "max": 23.6
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.416667,
-              47.108333
+              23.220833,
+              42.633333
             ],
             [
-              27.433333,
-              47.108333
+              23.241667,
+              42.633333
             ],
             [
-              27.433333,
-              47.1
+              23.241667,
+              42.62
             ],
             [
-              27.416667,
-              47.1
+              23.220833,
+              42.62
             ],
             [
-              27.416667,
-              47.108333
+              23.220833,
+              42.633333
             ]
           ]
         ]
@@ -5779,38 +5770,38 @@
       "name": "row 12-column 3 sector",
       "area": null,
       "center": [
-        27.44167,
-        47.10417
+        23.25208,
+        42.62667
       ],
       "risk": {
-        "flood": 19.0,
-        "drought": 23.9,
-        "wildfire": 7.0,
-        "max": 23.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.433333,
-              47.108333
+              23.241667,
+              42.633333
             ],
             [
-              27.45,
-              47.108333
+              23.2625,
+              42.633333
             ],
             [
-              27.45,
-              47.1
+              23.2625,
+              42.62
             ],
             [
-              27.433333,
-              47.1
+              23.241667,
+              42.62
             ],
             [
-              27.433333,
-              47.108333
+              23.241667,
+              42.633333
             ]
           ]
         ]
@@ -5821,38 +5812,38 @@
       "name": "row 12-column 4 sector",
       "area": null,
       "center": [
-        27.45833,
-        47.10417
+        23.27292,
+        42.62667
       ],
       "risk": {
-        "flood": 19.2,
-        "drought": 25.1,
-        "wildfire": 7.7,
-        "max": 25.1
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.45,
-              47.108333
+              23.2625,
+              42.633333
             ],
             [
-              27.466667,
-              47.108333
+              23.283333,
+              42.633333
             ],
             [
-              27.466667,
-              47.1
+              23.283333,
+              42.62
             ],
             [
-              27.45,
-              47.1
+              23.2625,
+              42.62
             ],
             [
-              27.45,
-              47.108333
+              23.2625,
+              42.633333
             ]
           ]
         ]
@@ -5863,38 +5854,38 @@
       "name": "row 12-column 5 sector",
       "area": null,
       "center": [
-        27.475,
-        47.10417
+        23.29375,
+        42.62667
       ],
       "risk": {
-        "flood": 18.1,
-        "drought": 25.5,
-        "wildfire": 8.2,
-        "max": 25.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.466667,
-              47.108333
+              23.283333,
+              42.633333
             ],
             [
-              27.483333,
-              47.108333
+              23.304167,
+              42.633333
             ],
             [
-              27.483333,
-              47.1
+              23.304167,
+              42.62
             ],
             [
-              27.466667,
-              47.1
+              23.283333,
+              42.62
             ],
             [
-              27.466667,
-              47.108333
+              23.283333,
+              42.633333
             ]
           ]
         ]
@@ -5905,38 +5896,38 @@
       "name": "row 12-column 6 sector",
       "area": null,
       "center": [
-        27.49167,
-        47.10417
+        23.31458,
+        42.62667
       ],
       "risk": {
-        "flood": 20.4,
-        "drought": 24.9,
-        "wildfire": 7.8,
-        "max": 24.9
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.483333,
-              47.108333
+              23.304167,
+              42.633333
             ],
             [
-              27.5,
-              47.108333
+              23.325,
+              42.633333
             ],
             [
-              27.5,
-              47.1
+              23.325,
+              42.62
             ],
             [
-              27.483333,
-              47.1
+              23.304167,
+              42.62
             ],
             [
-              27.483333,
-              47.108333
+              23.304167,
+              42.633333
             ]
           ]
         ]
@@ -5947,38 +5938,38 @@
       "name": "row 12-column 7 sector",
       "area": null,
       "center": [
-        27.50833,
-        47.10417
+        23.33542,
+        42.62667
       ],
       "risk": {
-        "flood": 20.5,
-        "drought": 25.8,
-        "wildfire": 8.3,
-        "max": 25.8
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.5,
-              47.108333
+              23.325,
+              42.633333
             ],
             [
-              27.516667,
-              47.108333
+              23.345833,
+              42.633333
             ],
             [
-              27.516667,
-              47.1
+              23.345833,
+              42.62
             ],
             [
-              27.5,
-              47.1
+              23.325,
+              42.62
             ],
             [
-              27.5,
-              47.108333
+              23.325,
+              42.633333
             ]
           ]
         ]
@@ -5989,38 +5980,38 @@
       "name": "row 12-column 8 sector",
       "area": null,
       "center": [
-        27.525,
-        47.10417
+        23.35625,
+        42.62667
       ],
       "risk": {
-        "flood": 20.7,
-        "drought": 25.0,
-        "wildfire": 8.0,
-        "max": 25.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.516667,
-              47.108333
+              23.345833,
+              42.633333
             ],
             [
-              27.533333,
-              47.108333
+              23.366667,
+              42.633333
             ],
             [
-              27.533333,
-              47.1
+              23.366667,
+              42.62
             ],
             [
-              27.516667,
-              47.1
+              23.345833,
+              42.62
             ],
             [
-              27.516667,
-              47.108333
+              23.345833,
+              42.633333
             ]
           ]
         ]
@@ -6031,38 +6022,38 @@
       "name": "row 12-column 9 sector",
       "area": null,
       "center": [
-        27.54167,
-        47.10417
+        23.37708,
+        42.62667
       ],
       "risk": {
-        "flood": 19.0,
-        "drought": 24.3,
-        "wildfire": 7.5,
-        "max": 24.3
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.533333,
-              47.108333
+              23.366667,
+              42.633333
             ],
             [
-              27.55,
-              47.108333
+              23.3875,
+              42.633333
             ],
             [
-              27.55,
-              47.1
+              23.3875,
+              42.62
             ],
             [
-              27.533333,
-              47.1
+              23.366667,
+              42.62
             ],
             [
-              27.533333,
-              47.108333
+              23.366667,
+              42.633333
             ]
           ]
         ]
@@ -6073,38 +6064,38 @@
       "name": "row 12-column 10 sector",
       "area": null,
       "center": [
-        27.55833,
-        47.10417
+        23.39792,
+        42.62667
       ],
       "risk": {
-        "flood": 20.9,
-        "drought": 24.0,
-        "wildfire": 7.7,
-        "max": 24.0
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.55,
-              47.108333
+              23.3875,
+              42.633333
             ],
             [
-              27.566667,
-              47.108333
+              23.408333,
+              42.633333
             ],
             [
-              27.566667,
-              47.1
+              23.408333,
+              42.62
             ],
             [
-              27.55,
-              47.1
+              23.3875,
+              42.62
             ],
             [
-              27.55,
-              47.108333
+              23.3875,
+              42.633333
             ]
           ]
         ]
@@ -6115,38 +6106,38 @@
       "name": "row 12-column 11 sector",
       "area": null,
       "center": [
-        27.575,
-        47.10417
+        23.41875,
+        42.62667
       ],
       "risk": {
-        "flood": 20.3,
-        "drought": 24.5,
-        "wildfire": 8.4,
-        "max": 24.5
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.566667,
-              47.108333
+              23.408333,
+              42.633333
             ],
             [
-              27.583333,
-              47.108333
+              23.429167,
+              42.633333
             ],
             [
-              27.583333,
-              47.1
+              23.429167,
+              42.62
             ],
             [
-              27.566667,
-              47.1
+              23.408333,
+              42.62
             ],
             [
-              27.566667,
-              47.108333
+              23.408333,
+              42.633333
             ]
           ]
         ]
@@ -6157,38 +6148,38 @@
       "name": "row 12-column 12 sector",
       "area": null,
       "center": [
-        27.59167,
-        47.10417
+        23.43958,
+        42.62667
       ],
       "risk": {
-        "flood": 18.8,
-        "drought": 25.1,
-        "wildfire": 8.3,
-        "max": 25.1
+        "flood": 6.7,
+        "drought": 28.5,
+        "wildfire": 13.9,
+        "max": 28.5
       },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.583333,
-              47.108333
+              23.429167,
+              42.633333
             ],
             [
-              27.6,
-              47.108333
+              23.45,
+              42.633333
             ],
             [
-              27.6,
-              47.1
+              23.45,
+              42.62
             ],
             [
-              27.583333,
-              47.1
+              23.429167,
+              42.62
             ],
             [
-              27.583333,
-              47.108333
+              23.429167,
+              42.633333
             ]
           ]
         ]
@@ -6216,7 +6207,7 @@
       "id": "sentinel-2",
       "label": "Sentinel-2 optical",
       "status": "ready",
-      "products": 2
+      "products": 5
     },
     {
       "id": "sensors",
@@ -6228,6 +6219,6 @@
   ],
   "status": {
     "working": true,
-    "notes": "elevated risks: storm; Historical context: last 30 days rainfall: 93.1 mm; last 90 days rainfall: 144.6 mm; dry days under 1 mm rain: 15/30; reference evapotranspiration: 71.2 mm/30d; max historical gust: 19.8 m/s; Seasonal baseline from previous 10 years: 30-day rainfall normal 46.2 mm, current ratio 2.01; 90-day rainfall normal 115.0 mm, current ratio 1.26; dry-days normal 22.5, current ratio 0.67.; Elevation context: center is about 52.0 m, sampled range is 52.0-169.0 m, terrain class is rolling. Steeper terrain can increase runoff speed and local flood response; flatter terrain can hold standing water longer.; Highest relative flood-exposure sectors, not probabilities: row 4-column 4 sector, row 7-column 10 sector, row 5-column 10 sector; Prediction summary: 2026-04-25: highest forecast indices are drought 28.6 (low), flood 20.1 (low), storm 13.3 (low)."
+    "notes": "water detection: 0.55; soil moisture anomaly: +0.26; FRP signal: 0.50; burned area: 0.0%; LST anomaly: +0.36; vegetation anomaly: -0.10; Historical context: last 30 days rainfall: 44.5 mm; last 90 days rainfall: 123.7 mm; dry days under 1 mm rain: 20/30; reference evapotranspiration: 81.4 mm/30d; max historical gust: 17.1 m/s; Seasonal baseline from previous 10 years: 30-day rainfall normal 51.8 mm, current ratio 0.86; 90-day rainfall normal 149.9 mm, current ratio 0.83; dry-days normal 20.6, current ratio 0.97.; Elevation context: center is about 550.0 m, sampled range is 548.0-958.0 m, terrain class is steep. Steeper terrain can increase runoff speed and local flood response; flatter terrain can hold standing water longer.; Highest relative flood-exposure sectors, not probabilities: row 1-column 1 sector, row 1-column 2 sector, row 1-column 3 sector; Prediction summary: 2026-04-25: highest forecast indices are drought 33.5 (low), storm 28.9 (low), wildfire 8.2 (low)."
   }
 }

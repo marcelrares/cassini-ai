@@ -36,6 +36,14 @@ WILDFIRE_FUEL_IGNITION_WEIGHT = 0.70
 WILDFIRE_WIND_SPREAD_WEIGHT = 0.20
 WILDFIRE_DROUGHT_HEAT_WEIGHT = 0.10
 
+# Satellite data weight modifiers (satellite confidence gates overall impact)
+SATELLITE_WEIGHT_SCALING = 0.25  # Max 25% weight from satellite data, rest from weather/context
+FLOOD_SATELLITE_WEIGHT = 0.15  # Sentinel-1 water detection + CLMS moisture
+DROUGHT_SATELLITE_WEIGHT = 0.12  # CLMS soil moisture anomaly + NDVI
+WILDFIRE_SATELLITE_WEIGHT = 0.20  # FRP + burned area + NDVI
+HEATWAVE_SATELLITE_WEIGHT = 0.10  # Sentinel-3 LST anomaly
+STORM_SATELLITE_WEIGHT = 0.05  # Minimal satellite impact on storm
+
 # Baseline anchors used when a metric starts becoming relevant for the index.
 DROUGHT_HEAT_BASELINE_C = 20.0
 HEATWAVE_BASELINE_C = 30.0
@@ -70,6 +78,15 @@ class WeatherFeatures:
     relative_humidity_mean_percent: float | None = None
     evapotranspiration_24h_mm: float | None = None
     vapor_pressure_deficit_kpa: float | None = None
+    # Satellite-derived features (0-1 normalized indices)
+    satellite_water_index: float | None = None  # Sentinel-1 SAR water mask (0=water, 1=dry)
+    satellite_soil_moisture_anomaly: float | None = None  # CLMS SWI/SSM anomaly (-1=very wet, 0=normal, 1=very dry)
+    satellite_fire_radiative_power: float | None = None  # Sentinel-3 FRP normalized (0=none, 1=max detected)
+    satellite_burned_area_fraction: float | None = None  # MODIS MCD64A1 fraction (0=no burn, 1=fully burned)
+    satellite_land_surface_temp_anomaly: float | None = None  # Sentinel-3 LST anomaly vs normal (-1=cold, 0=normal, 1=hot)
+    satellite_ndvi_anomaly: float | None = None  # CLMS NDVI anomaly vs seasonal (-1=very low veg, 0=normal, 1=very high)
+    satellite_optical_quality: float | None = None  # Sentinel-2 data quality (0=bad/cloudy, 1=excellent)
+    satellite_radar_confidence: float | None = None  # Sentinel-1 data confidence (0=low, 1=high)
 
 
 def clamp01(value: float) -> float:
@@ -96,16 +113,28 @@ def score_calamities(
     elif factors["terrain_class"] == "steep":
         terrain_runoff = STEEP_TERRAIN_RUNOFF
 
+    # FLOOD SCORING: forecast rain + wetness + terrain + satellite water detection
     forecast_flood = clamp01(features.precip_24h_m / thresholds["flood_precip_high_m"])
     recent_wetness = factors["wetness_30d"]
-    # Flood formula: forecast rain is the primary signal, with historical wetness
-    # and terrain used as secondary runoff amplifiers.
+    
+    satellite_flood_boost = 0.0
+    if features.satellite_water_index is not None and features.satellite_radar_confidence is not None:
+        # Low water index + high confidence = detected water = flood risk boost
+        water_detection = 1 - features.satellite_water_index  # Invert: 0=dry, 1=water
+        satellite_flood_boost = water_detection * features.satellite_radar_confidence
+    if features.satellite_soil_moisture_anomaly is not None:
+        # Positive anomaly = wet soil = flood risk boost
+        wet_signal = clamp01(features.satellite_soil_moisture_anomaly * -1)  # Invert for wetness
+        satellite_flood_boost = max(satellite_flood_boost, wet_signal * 0.8)
+    
     flood = clamp01(
         (FLOOD_FORECAST_WEIGHT * forecast_flood)
         + (FLOOD_RECENT_WETNESS_WEIGHT * recent_wetness)
         + (FLOOD_TERRAIN_RUNOFF_WEIGHT * terrain_runoff)
+        + (FLOOD_SATELLITE_WEIGHT * satellite_flood_boost)
     )
 
+    # DROUGHT SCORING: precip deficit + heat + soil dryness + history + satellite moisture
     drought_precip_factor = 1 - clamp01(features.precip_24h_m / thresholds["drought_precip_low_m"])
     drought_heat_factor = clamp01(
         (features.temp_mean_24h_c - DROUGHT_HEAT_BASELINE_C)
@@ -114,31 +143,46 @@ def score_calamities(
     soil_dry_factor = 0.5
     if features.soil_moisture_proxy is not None:
         soil_dry_factor = 1 - clamp01(features.soil_moisture_proxy)
+    
+    satellite_drought_boost = 0.0
+    if features.satellite_soil_moisture_anomaly is not None:
+        # Positive anomaly = dry soil = drought risk
+        satellite_drought_boost += clamp01(features.satellite_soil_moisture_anomaly) * 0.6
+    if features.satellite_ndvi_anomaly is not None:
+        # Negative anomaly = low vegetation = drought stress
+        low_veg_stress = max(0.0, -features.satellite_ndvi_anomaly)
+        satellite_drought_boost = max(satellite_drought_boost, low_veg_stress * 0.5)
+    
     historical_dryness = factors["dryness_30d"]
     evapotranspiration_anomaly = factors["evapotranspiration"]
-    # Drought formula: avoid overreacting to one dry forecast day by making
-    # recent/seasonal dryness and soil condition stronger than next-24h rain.
     drought = clamp01(
         (DROUGHT_PRECIP_WEIGHT * drought_precip_factor)
         + (DROUGHT_HEAT_WEIGHT * drought_heat_factor)
         + (DROUGHT_SOIL_WEIGHT * soil_dry_factor)
         + (DROUGHT_HISTORY_WEIGHT * historical_dryness)
         + (DROUGHT_EVAPOTRANSPIRATION_WEIGHT * evapotranspiration_anomaly)
+        + (DROUGHT_SATELLITE_WEIGHT * satellite_drought_boost)
     )
 
+    # STORM SCORING: wind + CAPE (minimal satellite impact)
     storm_wind = clamp01(features.wind_gust_max_ms / thresholds["storm_wind_high_ms"])
     storm_cape = clamp01(features.cape_max_jkg / STORM_CAPE_HIGH_JKG)
-    # Storm formula: wind is the operational hazard, while CAPE captures
-    # convective instability that can make the forecast more severe.
     storm = clamp01((STORM_WIND_WEIGHT * storm_wind) + (STORM_CAPE_WEIGHT * storm_cape))
 
-    # Heatwave formula: risk starts at a warm-day baseline and reaches 1.0 at
-    # the configured high-heat reference.
-    heatwave = clamp01(
+    # HEATWAVE SCORING: temperature anomaly + satellite LST
+    heatwave_base = clamp01(
         (features.temp_max_24h_c - HEATWAVE_BASELINE_C)
         / (thresholds["heat_high_c"] - HEATWAVE_BASELINE_C)
     )
+    
+    satellite_heat_boost = 0.0
+    if features.satellite_land_surface_temp_anomaly is not None:
+        # Positive anomaly = hot surface = heatwave boost
+        satellite_heat_boost = clamp01(features.satellite_land_surface_temp_anomaly)
+    
+    heatwave = clamp01(heatwave_base + (HEATWAVE_SATELLITE_WEIGHT * satellite_heat_boost))
 
+    # WILDFIRE SCORING: heat + wind + fuel dryness + satellite FRP + burned area + NDVI
     wildfire_heat = clamp01(
         (features.temp_max_24h_c - WILDFIRE_HEAT_BASELINE_C)
         / (thresholds["wildfire_temp_hot_c"] - WILDFIRE_HEAT_BASELINE_C)
@@ -151,19 +195,31 @@ def score_calamities(
     if features.vapor_pressure_deficit_kpa is not None:
         vpd_stress = clamp01(features.vapor_pressure_deficit_kpa / VPD_STRESS_REFERENCE_KPA)
     fuel_dryness = max(historical_dryness, soil_dry_factor * 0.6)
-    # Ignition weather blends heat, low humidity, vapor pressure deficit, and
-    # evapotranspiration; fuel dryness gates the final wildfire score so wind
-    # alone does not create a high spontaneous-fire warning.
+    
+    satellite_wildfire_boost = 0.0
+    if features.satellite_fire_radiative_power is not None:
+        # Direct fire signal from FRP = strong wildfire risk boost
+        satellite_wildfire_boost += features.satellite_fire_radiative_power * 0.8
+    if features.satellite_burned_area_fraction is not None:
+        # Recent burns = residual fire risk
+        satellite_wildfire_boost = max(satellite_wildfire_boost, features.satellite_burned_area_fraction * 0.6)
+    if features.satellite_ndvi_anomaly is not None:
+        # Low vegetation + high temperature = higher wildfire spread potential
+        low_veg_stress = max(0.0, -features.satellite_ndvi_anomaly)
+        satellite_wildfire_boost += low_veg_stress * 0.4
+    
     ignition_weather = clamp01(
         (WILDFIRE_HEAT_WEIGHT * wildfire_heat)
         + (WILDFIRE_HUMIDITY_WEIGHT * humidity_dryness)
         + (WILDFIRE_VPD_WEIGHT * vpd_stress)
         + (WILDFIRE_EVAPOTRANSPIRATION_WEIGHT * evapotranspiration_anomaly)
     )
+    
     wildfire = clamp01(
         (WILDFIRE_FUEL_IGNITION_WEIGHT * fuel_dryness * ignition_weather)
         + (WILDFIRE_WIND_SPREAD_WEIGHT * wildfire_wind * fuel_dryness)
         + (WILDFIRE_DROUGHT_HEAT_WEIGHT * drought * wildfire_heat)
+        + (WILDFIRE_SATELLITE_WEIGHT * satellite_wildfire_boost)
     )
 
     raw_scores = {

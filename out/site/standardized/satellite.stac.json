@@ -5,40 +5,12 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S1A_IW_GRDH_1SDV_20260425T042108_20260425T042133_064231_0815E2_22BD_COG",
+      "id": "S1D_IW_GRDH_1SDV_20260425T042950_20260425T043015_002498_004204_43E2_COG",
       "collection": "sentinel-1-grd",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-25T04:21:08.474478Z",
-        "platform": "sentinel-1a",
-        "eo:cloud_cover": null
-      },
-      "assets": {}
-    },
-    {
-      "type": "Feature",
-      "stac_version": "1.0.0",
-      "id": "S1A_IW_GRDH_1SDV_20260421T160123_20260421T160148_064180_0813FF_C0D5_COG",
-      "collection": "sentinel-1-grd",
-      "geometry": null,
-      "bbox": null,
-      "properties": {
-        "datetime": "2026-04-21T16:01:23.652994Z",
-        "platform": "sentinel-1a",
-        "eo:cloud_cover": null
-      },
-      "assets": {}
-    },
-    {
-      "type": "Feature",
-      "stac_version": "1.0.0",
-      "id": "S1D_IW_GRDH_1SDV_20260420T042006_20260420T042031_002425_003FB0_FF7C_COG",
-      "collection": "sentinel-1-grd",
-      "geometry": null,
-      "bbox": null,
-      "properties": {
-        "datetime": "2026-04-20T04:20:06.201108Z",
+        "datetime": "2026-04-25T04:29:50.856919Z",
         "platform": "sentinel-1d",
         "eo:cloud_cover": null
       },
@@ -47,12 +19,12 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S1A_IW_GRDH_1SDV_20260420T041259_20260420T041324_064158_08132E_5F54_COG",
+      "id": "S1A_IW_GRDH_1SDV_20260424T162506_20260424T162531_064224_081595_10EB_COG",
       "collection": "sentinel-1-grd",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-20T04:12:59.519898Z",
+        "datetime": "2026-04-24T16:25:06.109675Z",
         "platform": "sentinel-1a",
         "eo:cloud_cover": null
       },
@@ -61,12 +33,26 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S1C_IW_GRDH_1SDV_20260419T041956_20260419T042021_007280_00EC24_E4F7_COG",
+      "id": "S1A_IW_GRDH_1SDV_20260424T162441_20260424T162506_064224_081595_5E30_COG",
       "collection": "sentinel-1-grd",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-19T04:19:56.172790Z",
+        "datetime": "2026-04-24T16:24:41.109702Z",
+        "platform": "sentinel-1a",
+        "eo:cloud_cover": null
+      },
+      "assets": {}
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S1C_IW_GRDH_1SDV_20260424T042938_20260424T043003_007353_00EEA9_A9B9_COG",
+      "collection": "sentinel-1-grd",
+      "geometry": null,
+      "bbox": null,
+      "properties": {
+        "datetime": "2026-04-24T04:29:38.780664Z",
         "platform": "sentinel-1c",
         "eo:cloud_cover": null
       },
@@ -75,84 +61,154 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S2C_MSIL2A_20260419T090551_N0512_R050_T35TNN_20260419T130200",
-      "collection": "sentinel-2-l2a",
+      "id": "S1D_IW_GRDH_1SDV_20260419T162403_20260419T162428_002418_003F75_DC16_COG",
+      "collection": "sentinel-1-grd",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-19T09:05:51.025000Z",
-        "platform": "sentinel-2c",
-        "eo:cloud_cover": 29.04
+        "datetime": "2026-04-19T16:24:03.054247Z",
+        "platform": "sentinel-1d",
+        "eo:cloud_cover": null
       },
       "assets": {}
     },
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S2B_MSIL2A_20260414T090549_N0512_R050_T35TNN_20260414T113431",
+      "id": "S2A_MSIL2A_20260424T092051_N0512_R093_T34TGN_20260424T150013",
       "collection": "sentinel-2-l2a",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-14T09:05:49.024000Z",
+        "datetime": "2026-04-24T09:20:51.024000Z",
+        "platform": "sentinel-2a",
+        "eo:cloud_cover": 16.94
+      },
+      "assets": {}
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S2A_MSIL2A_20260424T092051_N0512_R093_T34TFN_20260424T150013",
+      "collection": "sentinel-2-l2a",
+      "geometry": null,
+      "bbox": null,
+      "properties": {
+        "datetime": "2026-04-24T09:20:51.024000Z",
+        "platform": "sentinel-2a",
+        "eo:cloud_cover": 3.17
+      },
+      "assets": {}
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S2B_MSIL2A_20260417T092029_N0512_R093_T34TGN_20260417T114424",
+      "collection": "sentinel-2-l2a",
+      "geometry": null,
+      "bbox": null,
+      "properties": {
+        "datetime": "2026-04-17T09:20:29.025000Z",
         "platform": "sentinel-2b",
-        "eo:cloud_cover": 30.48
+        "eo:cloud_cover": 14.79
       },
       "assets": {}
     },
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S3B_SL_2_LST____20260424T195403_20260424T195703_20260424T223734_0180_119_185_0720_ESA_O_NR_005",
-      "collection": "sentinel-3-sl-2-lst-nrt",
+      "id": "S2B_MSIL2A_20260417T092029_N0512_R093_T34TFN_20260417T114424",
+      "collection": "sentinel-2-l2a",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-24T19:54:03.041501Z",
-        "platform": "sentinel-3b",
-        "eo:cloud_cover": 51.36
+        "datetime": "2026-04-17T09:20:29.025000Z",
+        "platform": "sentinel-2b",
+        "eo:cloud_cover": 9.01
       },
       "assets": {}
     },
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S3A_SL_2_LST____20260424T090948_20260424T091248_20260424T112842_0179_138_321_2160_PS1_O_NR_005",
+      "id": "S2C_MSIL2A_20260412T092031_N0512_R093_T34TGN_20260412T125918",
+      "collection": "sentinel-2-l2a",
+      "geometry": null,
+      "bbox": null,
+      "properties": {
+        "datetime": "2026-04-12T09:20:31.025000Z",
+        "platform": "sentinel-2c",
+        "eo:cloud_cover": 12.84
+      },
+      "assets": {}
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S3A_SL_2_LST____20260425T084337_20260425T084637_20260425T110239_0179_138_335_2160_PS1_O_NR_005",
       "collection": "sentinel-3-sl-2-lst-nrt",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-24T09:09:48.097036Z",
+        "datetime": "2026-04-25T08:43:37.127081Z",
         "platform": "sentinel-3a",
-        "eo:cloud_cover": 27.51
+        "eo:cloud_cover": 28.74
       },
       "assets": {}
     },
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S3B_SL_2_FRP____20260425T080402_20260425T080902_20260425T100936_0299_119_192______MAR_O_NR_003",
-      "collection": "sentinel-3-sl-2-frp-nrt",
+      "id": "S3A_SL_2_LST____20260424T202943_20260424T203243_20260424T230607_0179_138_328_0540_PS1_O_NR_005",
+      "collection": "sentinel-3-sl-2-lst-nrt",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-25T08:04:02.019347Z",
-        "platform": "sentinel-3b",
-        "eo:cloud_cover": 39.94
+        "datetime": "2026-04-24T20:29:42.661193Z",
+        "platform": "sentinel-3a",
+        "eo:cloud_cover": 7.37
       },
       "assets": {}
     },
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S3B_SL_2_FRP____20260424T195517_20260424T200040_20260424T221213_0323_119_185______MAR_O_NR_003",
+      "id": "S3A_SL_2_FRP____20260425T084246_20260425T084746_20260425T105059_0299_138_335______MAR_O_NR_003",
       "collection": "sentinel-3-sl-2-frp-nrt",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-24T19:55:16.732426Z",
-        "platform": "sentinel-3b",
-        "eo:cloud_cover": 42.99
+        "datetime": "2026-04-25T08:42:46.149521Z",
+        "platform": "sentinel-3a",
+        "eo:cloud_cover": 29.31
+      },
+      "assets": {}
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S3A_SL_2_FRP____20260424T202837_20260424T203337_20260424T225159_0299_138_328______MAR_O_NR_003",
+      "collection": "sentinel-3-sl-2-frp-nrt",
+      "geometry": null,
+      "bbox": null,
+      "properties": {
+        "datetime": "2026-04-24T20:28:36.754773Z",
+        "platform": "sentinel-3a",
+        "eo:cloud_cover": 20.04
+      },
+      "assets": {}
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S5P_NRTI_L2__AER_AI_20260425T113814_20260425T114314_44209_03_020901_20260425T121500",
+      "collection": "sentinel-5p-l2-aer-ai-nrti",
+      "geometry": null,
+      "bbox": null,
+      "properties": {
+        "datetime": "2026-04-25T11:38:09Z",
+        "platform": "sentinel-5p",
+        "eo:cloud_cover": null
       },
       "assets": {}
     },
@@ -173,12 +229,12 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S5P_NRTI_L2__AER_AI_20260424T101814_20260424T102314_44194_03_020901_20260424T121958",
-      "collection": "sentinel-5p-l2-aer-ai-nrti",
+      "id": "S5P_NRTI_L2__CO_____20260425T113814_20260425T114314_44209_03_020901_20260425T121456",
+      "collection": "sentinel-5p-l2-co-nrti",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-24T10:18:08Z",
+        "datetime": "2026-04-25T11:38:09Z",
         "platform": "sentinel-5p",
         "eo:cloud_cover": null
       },
@@ -193,20 +249,6 @@
       "bbox": null,
       "properties": {
         "datetime": "2026-04-24T11:58:08Z",
-        "platform": "sentinel-5p",
-        "eo:cloud_cover": null
-      },
-      "assets": {}
-    },
-    {
-      "type": "Feature",
-      "stac_version": "1.0.0",
-      "id": "S5P_NRTI_L2__CO_____20260424T101814_20260424T102314_44194_03_020901_20260424T121957",
-      "collection": "sentinel-5p-l2-co-nrti",
-      "geometry": null,
-      "bbox": null,
-      "properties": {
-        "datetime": "2026-04-24T10:18:08Z",
         "platform": "sentinel-5p",
         "eo:cloud_cover": null
       },

@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -19,7 +18,6 @@ from calamity_ai.sensors import summarize_sensors
 from calamity_ai.weather import (
     demo_weather_features,
     features_to_dict,
-    get_earth_engine_weather_features,
     get_local_weather_features,
     get_open_meteo_weather_features,
 )
@@ -45,8 +43,6 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
         features = get_local_weather_features(args.weather)
     elif args.provider == "openmeteo":
         features = get_open_meteo_weather_features(config)
-    else:
-        features = get_earth_engine_weather_features(config)
 
     sensors = summarize_sensors(
         args.sensors,
@@ -57,6 +53,14 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
     context = None
     if not args.no_context:
         context = get_environmental_context(config, now=now)
+    
+    # Fetch satellite data and enrich weather features
+    copernicus = None
+    if not args.no_copernicus:
+        copernicus = get_copernicus_summary(config, now=now)
+        if copernicus:
+            features = _enrich_features_with_satellite(features, copernicus)
+    
     calamities = score_calamities(features, config.thresholds, context=context)
     zone_analysis = None
     if context and not args.no_zones:
@@ -69,9 +73,6 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
     predictions = None
     if context and not args.no_predictions and args.provider == "openmeteo":
         predictions = get_open_meteo_predictions(config, context=context, days=args.prediction_days)
-    copernicus = None
-    if not args.no_copernicus:
-        copernicus = get_copernicus_summary(config, now=now)
 
     notes = []
     if sensors.offline:
@@ -79,8 +80,10 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
     elevated = [name for name, risk in calamities.items() if risk["risk"] in {"medium", "high"}]
     if elevated:
         notes.append("elevated risks: " + ", ".join(elevated))
-    if copernicus and not copernicus.flood_observation_ready:
-        notes.append("no recent Sentinel-1 products found for flood validation")
+    if copernicus:
+        notes.append(copernicus.satellite_indices.explanation)
+        if not copernicus.flood_observation_ready:
+            notes.append("no recent Sentinel-1 products found for flood validation")
     if context:
         notes.append(context.history.explanation)
         notes.append(context.history.seasonal_baseline.explanation)
@@ -121,8 +124,28 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
     return report
 
 
+def _enrich_features_with_satellite(
+    features: Any, copernicus: Any
+) -> Any:
+    """Merge satellite-derived indices into weather features dataclass."""
+    from dataclasses import replace
+    
+    indices = copernicus.satellite_indices
+    return replace(
+        features,
+        satellite_water_index=indices.water_index,
+        satellite_soil_moisture_anomaly=indices.soil_moisture_anomaly,
+        satellite_fire_radiative_power=indices.fire_radiative_power,
+        satellite_burned_area_fraction=indices.burned_area_fraction,
+        satellite_land_surface_temp_anomaly=indices.land_surface_temp_anomaly,
+        satellite_ndvi_anomaly=indices.ndvi_anomaly,
+        satellite_optical_quality=indices.optical_quality,
+        satellite_radar_confidence=indices.radar_confidence,
+    )
+
+
 def load_runtime_config(args: argparse.Namespace) -> object:
-    config = load_config(args.config).with_project_id(args.project or os.getenv("EE_PROJECT_ID"))
+    config = load_config(args.config)
     if args.bbox:
         config = config.with_area(args.area_name or "custom_selected_region", _bbox_to_polygon(args.bbox))
     return config
@@ -145,7 +168,7 @@ def parse_args() -> argparse.Namespace:
         help="Analyze only the rectangle defined by two coordinate points.",
     )
     parser.add_argument("--area-name", help="Display name for --bbox selected region")
-    parser.add_argument("--provider", choices=["openmeteo", "local", "earthengine"], default="openmeteo")
+    parser.add_argument("--provider", choices=["openmeteo", "local"], default="openmeteo")
     parser.add_argument("--no-copernicus", action="store_true", help="Skip Copernicus satellite catalogue checks")
     parser.add_argument("--no-context", action="store_true", help="Skip historical weather and elevation context")
     parser.add_argument("--no-zones", action="store_true", help="Skip local zone exposure ranking")
@@ -153,20 +176,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--no-resources", action="store_true", help="Skip OSM resource cache loading")
     parser.add_argument("--update-resources", action="store_true", help="Refresh cached OSM boundary and context resources")
     parser.add_argument("--prediction-days", type=int, default=5)
-    parser.add_argument("--project", help="Google Cloud project id for Earth Engine")
-    parser.add_argument("--save-project", action="store_true", help="Save --project into the config file")
-    parser.add_argument("--demo", action="store_true", help="Run without Google Earth Engine")
+    parser.add_argument("--demo", action="store_true", help="Run with bundled demo weather values")
     parser.add_argument("--print-json", action="store_true", help="Print the full JSON report to console")
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    if args.project and args.save_project:
-        config_path = Path(args.config)
-        raw = json.loads(config_path.read_text(encoding="utf-8"))
-        raw["project_id"] = args.project
-        config_path.write_text(json.dumps(raw, indent=2) + "\n", encoding="utf-8")
     report = build_report(args)
     append_jsonl(args.jsonl_out, report)
     append_csv(args.csv_out, report)

@@ -27,6 +27,15 @@ def demo_weather_features() -> WeatherFeatures:
         relative_humidity_mean_percent=36.0,
         evapotranspiration_24h_mm=4.8,
         vapor_pressure_deficit_kpa=1.9,
+        # Satellite fields initialized to None (will be enriched if Copernicus available)
+        satellite_water_index=None,
+        satellite_soil_moisture_anomaly=None,
+        satellite_fire_radiative_power=None,
+        satellite_burned_area_fraction=None,
+        satellite_land_surface_temp_anomaly=None,
+        satellite_ndvi_anomaly=None,
+        satellite_optical_quality=None,
+        satellite_radar_confidence=None,
     )
 
 
@@ -54,6 +63,15 @@ def get_local_weather_features(path: str | Path) -> WeatherFeatures:
         vapor_pressure_deficit_kpa=None
         if raw.get("vapor_pressure_deficit_kpa") is None
         else float(raw["vapor_pressure_deficit_kpa"]),
+        # Satellite fields remain None (enriched later if available)
+        satellite_water_index=None,
+        satellite_soil_moisture_anomaly=None,
+        satellite_fire_radiative_power=None,
+        satellite_burned_area_fraction=None,
+        satellite_land_surface_temp_anomaly=None,
+        satellite_ndvi_anomaly=None,
+        satellite_optical_quality=None,
+        satellite_radar_confidence=None,
     )
 
 
@@ -108,6 +126,15 @@ def get_open_meteo_weather_features(config: MonitorConfig) -> WeatherFeatures:
         relative_humidity_mean_percent=None if not humidity else mean(humidity),
         evapotranspiration_24h_mm=None if not evapotranspiration else sum(evapotranspiration),
         vapor_pressure_deficit_kpa=None if not vapor_pressure_deficit else mean(vapor_pressure_deficit),
+        # Satellite fields remain None (enriched later if available)
+        satellite_water_index=None,
+        satellite_soil_moisture_anomaly=None,
+        satellite_fire_radiative_power=None,
+        satellite_burned_area_fraction=None,
+        satellite_land_surface_temp_anomaly=None,
+        satellite_ndvi_anomaly=None,
+        satellite_optical_quality=None,
+        satellite_radar_confidence=None,
     )
 
 
@@ -199,49 +226,6 @@ def _parse_open_meteo_hour(value: str) -> datetime | None:
         return datetime.fromisoformat(value).replace(minute=0, second=0, microsecond=0)
     except ValueError:
         return None
-
-
-def get_earth_engine_weather_features(config: MonitorConfig) -> WeatherFeatures:
-    import ee
-
-    if config.project_id and config.project_id != "PROJECT_ID":
-        ee.Initialize(project=config.project_id)
-    else:
-        raise RuntimeError(
-            "Earth Engine needs a Google Cloud project id. Set it in "
-            "config/monitor_config.json, pass --project YOUR_PROJECT_ID, or set "
-            "EE_PROJECT_ID. You can also run: earthengine set_project YOUR_PROJECT_ID"
-        )
-    area = ee.Geometry.Polygon([[point for point in config.polygon]])
-    collection = ee.ImageCollection(config.dataset).sort("creation_time", False)
-    latest_creation = ee.Image(collection.first()).get("creation_time")
-    forecast = (
-        collection.filter(ee.Filter.eq("creation_time", latest_creation))
-        .filter(ee.Filter.lte("forecast_hours", config.forecast_window_hours))
-    )
-
-    precip_img = forecast.select("total_precipitation_sfc").max()
-    temp_mean_img = forecast.select("temperature_2m_sfc").mean()
-    temp_max_img = forecast.select("max_2m_temperature_last_3h_sfc").max()
-    gust_img = forecast.select("max_10m_wind_gust_since_last_post_processing_sfc").max()
-    cape_img = forecast.select("most_unstable_convective_available_potential_energy_sfc").max()
-
-    def area_mean(image: object, band: str) -> float:
-        value = image.select(band).reduceRegion(
-            reducer=ee.Reducer.mean(),
-            geometry=area,
-            scale=config.scale_m,
-            maxPixels=1e9,
-        ).get(band)
-        return float(ee.Number(value).getInfo())
-
-    return WeatherFeatures(
-        precip_24h_m=area_mean(precip_img, "total_precipitation_sfc"),
-        temp_mean_24h_c=area_mean(temp_mean_img, "temperature_2m_sfc"),
-        temp_max_24h_c=area_mean(temp_max_img, "max_2m_temperature_last_3h_sfc"),
-        wind_gust_max_ms=area_mean(gust_img, "max_10m_wind_gust_since_last_post_processing_sfc"),
-        cape_max_jkg=area_mean(cape_img, "most_unstable_convective_available_potential_energy_sfc"),
-    )
 
 
 def features_to_dict(features: WeatherFeatures) -> dict[str, float | None]:

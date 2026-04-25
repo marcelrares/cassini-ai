@@ -6,17 +6,17 @@
     "axes": {
       "x": {
         "values": [
-          27.48
+          23.3
         ]
       },
       "y": {
         "values": [
-          47.160000000000004
+          42.716
         ]
       },
       "t": {
         "values": [
-          "2026-04-25T10:32:29.372203Z"
+          "2026-04-25T13:07:56.497323Z"
         ]
       }
     },
@@ -97,6 +97,46 @@
       "type": "Parameter",
       "description": "vapor_pressure_deficit_kpa",
       "unit": "kPa"
+    },
+    "satellite_water_index": {
+      "type": "Parameter",
+      "description": "satellite_water_index",
+      "unit": null
+    },
+    "satellite_soil_moisture_anomaly": {
+      "type": "Parameter",
+      "description": "satellite_soil_moisture_anomaly",
+      "unit": null
+    },
+    "satellite_fire_radiative_power": {
+      "type": "Parameter",
+      "description": "satellite_fire_radiative_power",
+      "unit": null
+    },
+    "satellite_burned_area_fraction": {
+      "type": "Parameter",
+      "description": "satellite_burned_area_fraction",
+      "unit": null
+    },
+    "satellite_land_surface_temp_anomaly": {
+      "type": "Parameter",
+      "description": "satellite_land_surface_temp_anomaly",
+      "unit": null
+    },
+    "satellite_ndvi_anomaly": {
+      "type": "Parameter",
+      "description": "satellite_ndvi_anomaly",
+      "unit": null
+    },
+    "satellite_optical_quality": {
+      "type": "Parameter",
+      "description": "satellite_optical_quality",
+      "unit": null
+    },
+    "satellite_radar_confidence": {
+      "type": "Parameter",
+      "description": "satellite_radar_confidence",
+      "unit": null
     }
   },
   "ranges": {
@@ -131,7 +171,7 @@
         1
       ],
       "values": [
-        11.576
+        13.392
       ]
     },
     "temp_max_24h_c": {
@@ -148,7 +188,7 @@
         1
       ],
       "values": [
-        17.9
+        19.8
       ]
     },
     "wind_gust_max_ms": {
@@ -165,7 +205,7 @@
         1
       ],
       "values": [
-        22.61111111111111
+        12.0
       ]
     },
     "cape_max_jkg": {
@@ -199,7 +239,7 @@
         1
       ],
       "values": [
-        17.9
+        19.8
       ]
     },
     "temp_forecast_max_next_24h_c": {
@@ -216,7 +256,7 @@
         1
       ],
       "values": [
-        20.4
+        22.5
       ]
     },
     "soil_moisture_proxy": {
@@ -233,7 +273,7 @@
         1
       ],
       "values": [
-        0.4789565217391304
+        0.5480869565217392
       ]
     },
     "relative_humidity_mean_percent": {
@@ -250,7 +290,7 @@
         1
       ],
       "values": [
-        57.78260869565217
+        45.34782608695652
       ]
     },
     "evapotranspiration_24h_mm": {
@@ -267,7 +307,7 @@
         1
       ],
       "values": [
-        2.17
+        1.3
       ]
     },
     "vapor_pressure_deficit_kpa": {
@@ -284,7 +324,143 @@
         1
       ],
       "values": [
-        0.7965217391304348
+        1.0004347826086957
+      ]
+    },
+    "satellite_water_index": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        0.55
+      ]
+    },
+    "satellite_soil_moisture_anomaly": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        0.26
+      ]
+    },
+    "satellite_fire_radiative_power": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        0.5
+      ]
+    },
+    "satellite_burned_area_fraction": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        0.0
+      ]
+    },
+    "satellite_land_surface_temp_anomaly": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        0.36
+      ]
+    },
+    "satellite_ndvi_anomaly": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        -0.1
+      ]
+    },
+    "satellite_optical_quality": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        0.8865000000000001
+      ]
+    },
+    "satellite_radar_confidence": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        0.8999999999999999
       ]
     }
   }

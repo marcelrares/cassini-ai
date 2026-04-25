@@ -3,15 +3,23 @@
   "source_type": "weather",
   "data": {
     "precip_24h_m": 0.0,
-    "temp_mean_24h_c": 11.576,
-    "temp_max_24h_c": 17.9,
-    "wind_gust_max_ms": 22.61111111111111,
+    "temp_mean_24h_c": 13.392,
+    "temp_max_24h_c": 19.8,
+    "wind_gust_max_ms": 12.0,
     "cape_max_jkg": 0,
-    "temp_current_c": 17.9,
-    "temp_forecast_max_next_24h_c": 20.4,
-    "soil_moisture_proxy": 0.4789565217391304,
-    "relative_humidity_mean_percent": 57.78260869565217,
-    "evapotranspiration_24h_mm": 2.17,
-    "vapor_pressure_deficit_kpa": 0.7965217391304348
+    "temp_current_c": 19.8,
+    "temp_forecast_max_next_24h_c": 22.5,
+    "soil_moisture_proxy": 0.5480869565217392,
+    "relative_humidity_mean_percent": 45.34782608695652,
+    "evapotranspiration_24h_mm": 1.3,
+    "vapor_pressure_deficit_kpa": 1.0004347826086957,
+    "satellite_water_index": 0.55,
+    "satellite_soil_moisture_anomaly": 0.26,
+    "satellite_fire_radiative_power": 0.5,
+    "satellite_burned_area_fraction": 0.0,
+    "satellite_land_surface_temp_anomaly": 0.36,
+    "satellite_ndvi_anomaly": -0.1,
+    "satellite_optical_quality": 0.8865000000000001,
+    "satellite_radar_confidence": 0.8999999999999999
   }
 }

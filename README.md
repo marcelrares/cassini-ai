@@ -24,7 +24,7 @@ The scores are warning indices, not official alerts and not event probabilities.
 |-- data/sensors.csv               # Example sensor inventory
 |-- data/weather_features.json     # Offline local weather sample
 |-- data/resources/                # Cached OSM/Nominatim context
-|-- requirements.txt               # Optional Earth Engine dependency
+|-- requirements.txt               # Optional Python dependencies
 `-- .gitignore                     # Local Python/output ignores
 ```
 
@@ -33,7 +33,6 @@ The scores are warning indices, not official alerts and not event probabilities.
 - Python 3.10 or newer.
 - Internet access for the normal Open-Meteo, Copernicus, elevation, and resource refresh paths.
 - No Google account is required for the default Open-Meteo run.
-- Google Earth Engine is optional and only needed when using `--provider earthengine`.
 
 Install optional dependencies:
 
@@ -89,28 +88,12 @@ Print the full report to the console:
 python hourly_monitor.py --print-json
 ```
 
-## Earth Engine Mode
-
-Earth Engine is optional. It requires a Google Cloud project id:
-
-```powershell
-python hourly_monitor.py --provider earthengine --project YOUR_PROJECT_ID
-```
-
-To save the project id into `config/monitor_config.json`:
-
-```powershell
-python hourly_monitor.py --provider earthengine --project YOUR_PROJECT_ID --save-project
-```
-
-You can also set `EE_PROJECT_ID` in the environment.
-
 ## Configuration
 
 Edit `config/monitor_config.json` to change:
 
 - `area`: monitored polygon and display name.
-- `earth_engine`: Earth Engine dataset and forecast window.
+- `weather`: forecast window.
 - `thresholds`: risk model reference thresholds.
 - `sensor_health`: minimum online ratio and stale sensor age.
 - `context`: historical lookback and baseline years.
