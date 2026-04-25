@@ -9,32 +9,52 @@
         "coordinates": [
           [
             [
-              -26.1,
-              44.5
+              23.2,
+              42.78
             ],
             [
-              -26.0,
-              44.5
+              23.45,
+              42.78
             ],
             [
-              -26.0,
-              44.4
+              23.45,
+              42.62
             ],
             [
-              -26.1,
-              44.4
+              23.2,
+              42.62
             ],
             [
-              -26.1,
-              44.5
+              23.2,
+              42.78
             ]
           ]
         ]
       },
       "properties": {
-        "name": "custom_selected_region",
+        "name": "sofia",
         "kind": "area_of_interest",
         "crs": "EPSG:4326"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "resource-summary",
+      "geometry": null,
+      "properties": {
+        "kind": "resource_summary",
+        "boundary_source": "OpenStreetMap/Nominatim cached boundary",
+        "osm_source": "OpenStreetMap/Overpass cached extract",
+        "waterway_features": 484,
+        "water_body_features": 125,
+        "urban_landuse_features": 251,
+        "forest_or_green_features": 459,
+        "agriculture_features": 219,
+        "cached_files": [
+          "data\\resources\\iasi_boundary.geojson",
+          "data\\resources\\iasi_osm_context.json"
+        ],
+        "explanation": "Local resource cache adds hydrology, water bodies, urban/impervious proxies, vegetation/forest, and agriculture context. These features refine relative zone exposure; they are not official hazard maps."
       }
     }
   ]

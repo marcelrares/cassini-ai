@@ -1,5 +1,4 @@
 {
-  "project_id": "PROJECT_ID",
   "area": {
     "name": "Iasi_monitoring_zone",
     "polygon": [
@@ -15,9 +14,7 @@
       [27.43, 47.17]
     ]
   },
-  "earth_engine": {
-    "dataset": "ECMWF/NRT_FORECAST/IFS/OPER",
-    "scale_m": 25000,
+  "weather": {
     "forecast_window_hours": 24
   },
   "thresholds": {
