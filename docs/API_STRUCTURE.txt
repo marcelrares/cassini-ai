@@ -195,18 +195,26 @@ Each hazard object includes:
   "input_values": {},
   "normal_limits": {},
   "risk_scale": {
-    "low": "0-39.9%: low risk",
-    "medium": "40-69.9%: medium risk",
-    "high": "70-100%: high risk"
+    "none": "0-4.99%: no meaningful signal",
+    "extremely_low": "5-14.99%: extremely low risk",
+    "very_low": "15-29.99%: very low risk",
+    "low": "30-44.99%: low risk",
+    "moderate": "45-59.99%: moderate risk",
+    "high": "60-79.99%: high risk",
+    "extreme": "80-100%: extreme risk"
   }
 }
 ```
 
 Risk labels:
 
-- `low`: score below 0.4.
-- `medium`: score from 0.4 to below 0.7.
-- `high`: score from 0.7 to 1.0.
+- `none`: score below 0.05.
+- `extremely_low`: score from 0.05 to below 0.15.
+- `very_low`: score from 0.15 to below 0.30.
+- `low`: score from 0.30 to below 0.45.
+- `moderate`: score from 0.45 to below 0.60.
+- `high`: score from 0.60 to below 0.80.
+- `extreme`: score from 0.80 to 1.0.
 
 Important note: `risk_index_percent` is a normalized warning index, not an
 official alert and not an event probability.

@@ -6,9 +6,18 @@ from typing import Any
 from .explanations import explain_score
 
 
-# Risk labels use broad operational bands, not calibrated event probabilities.
-LOW_RISK_MAX = 0.4
-HIGH_RISK_MIN = 0.7
+# Risk labels are operational warning bands, not calibrated event probabilities.
+RISK_LEVELS = [
+    ("none", 0.00, 0.05),
+    ("extremely_low", 0.05, 0.15),
+    ("very_low", 0.15, 0.30),
+    ("low", 0.30, 0.45),
+    ("moderate", 0.45, 0.60),
+    ("high", 0.60, 0.80),
+    ("extreme", 0.80, 1.01),
+]
+
+ACTIVE_RISK_LEVELS = {"moderate", "high", "extreme"}
 
 # Terrain runoff is a small modifier because elevation only approximates how fast
 # rainfall can concentrate locally; observed/forecast precipitation stays dominant.
@@ -94,11 +103,10 @@ def clamp01(value: float) -> float:
 
 
 def label(score: float) -> str:
-    if score >= HIGH_RISK_MIN:
-        return "high"
-    if score >= LOW_RISK_MAX:
-        return "medium"
-    return "low"
+    for name, lower, upper in RISK_LEVELS:
+        if lower <= score < upper:
+            return name
+    return "extreme"
 
 
 def score_calamities(

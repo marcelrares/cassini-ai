@@ -18,7 +18,7 @@ from calamity_ai.delivery import write_site_bundle
 from calamity_ai.forecast import get_open_meteo_predictions, predictions_to_dict
 from calamity_ai.geo import bbox as polygon_bbox, centroid
 from calamity_ai.resources import ensure_resources, resource_summary_to_dict
-from calamity_ai.scoring import score_calamities
+from calamity_ai.scoring import ACTIVE_RISK_LEVELS, score_calamities
 from calamity_ai.sensors import summarize_sensors
 from calamity_ai.weather import (
     demo_weather_features,
@@ -134,11 +134,11 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
     max_risk = max(risk_values) if risk_values else 0.0
     max_risk_name = max(calamities, key=lambda name: get_risk_value(calamities[name])) if calamities else "none"
     max_risk_level = calamities.get(max_risk_name, {}).get("risk", "low") if calamities else "low"
-    active_alerts = len([v for v in risk_values if v > 30])
+    active_alerts = len([v for v in calamities.values() if isinstance(v, dict) and v.get("risk") in ACTIVE_RISK_LEVELS])
     min_lon, min_lat, max_lon, max_lat = polygon_bbox(config.polygon)
     center_lon, center_lat = centroid(config.polygon)
     sensors_payload = _to_plain_dict(sensors)
-    elevated_risks = [k for k, v in calamities.items() if get_risk_value(v) > 40]
+    elevated_risks = [k for k, v in calamities.items() if isinstance(v, dict) and v.get("risk") in ACTIVE_RISK_LEVELS]
     notes = (
         f"Current elevated risks: {', '.join(elevated_risks) if elevated_risks else 'none'}; "
         f"sensors online: {sensors_payload.get('online', 0)}/{sensors_payload.get('total', 0)}"
@@ -199,9 +199,9 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
             {
                 "id": f"risk-{k}",
                 "type": "risk",
-                "severity": "medium" if get_risk_value(v) > 40 else "low",
+                "severity": v.get("risk", "none") if isinstance(v, dict) else "none",
                 "title": k.capitalize(),
-                "message": f"{k.capitalize()} risk is {get_risk_value(v)}% ({'medium' if get_risk_value(v) > 40 else 'low'})",
+                "message": f"{k.capitalize()} risk is {get_risk_value(v)}% ({v.get('risk', 'none') if isinstance(v, dict) else 'none'})",
                 "risk_index_percent": get_risk_value(v),
             }
             for k, v in calamities.items() if get_risk_value(v) > 0

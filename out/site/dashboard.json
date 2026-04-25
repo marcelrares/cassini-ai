@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-25T17:36:53.069556+00:00",
+  "generated_at": "2026-04-25T21:02:14.750249+00:00",
   "title": "Calamity Intelligence Dashboard",
   "subtitle": "Iasi_monitoring_zone risk monitoring",
   "area": {
@@ -17,14 +17,14 @@
     {
       "id": "max-risk",
       "label": "Max risk",
-      "value": 55.6,
+      "value": 54.89,
       "unit": "%",
-      "status": "storm:medium"
+      "status": "storm:moderate"
     },
     {
       "id": "active-alerts",
       "label": "Active alerts",
-      "value": 2,
+      "value": 1,
       "unit": "",
       "status": "active"
     },
@@ -44,33 +44,25 @@
     }
   ],
   "weather": {
-    "temperature_current_c": 16.0,
-    "temperature_max_last_24h_c": 19.4,
-    "temperature_forecast_max_next_24h_c": 20.6,
+    "temperature_current_c": 12.2,
+    "temperature_max_last_24h_c": 19.8,
+    "temperature_forecast_max_next_24h_c": 21.6,
     "precipitation_next_24h_mm": 0.0,
-    "wind_gust_max_ms": 21.38888888888889,
-    "relative_humidity_percent": 53.78260869565217,
-    "soil_moisture_proxy": 0.4855652173913043,
-    "vapor_pressure_deficit_kpa": 0.7417391304347827,
-    "evapotranspiration_24h_mm": 2.06,
+    "wind_gust_max_ms": 21.11111111111111,
+    "relative_humidity_percent": 48.130434782608695,
+    "soil_moisture_proxy": 0.4781739130434783,
+    "vapor_pressure_deficit_kpa": 0.8095652173913044,
+    "evapotranspiration_24h_mm": 2.17,
     "cape_max_jkg": 0
   },
   "alerts": [
     {
       "id": "risk-storm",
       "type": "risk",
-      "severity": "medium",
+      "severity": "moderate",
       "title": "Storm / Strong Wind",
-      "message": "Storm / Strong Wind risk is 55.6% (medium).",
-      "risk_index_percent": 55.6
-    },
-    {
-      "id": "risk-drought",
-      "type": "risk",
-      "severity": "medium",
-      "title": "Drought",
-      "message": "Drought risk is 42.9% (medium).",
-      "risk_index_percent": 42.9
+      "message": "Storm / Strong Wind risk is 54.89% (moderate).",
+      "risk_index_percent": 54.89
     }
   ],
   "predictions": {
@@ -80,23 +72,23 @@
     "top_zones": [],
     "risks": {
       "storm": {
-        "risk": "medium",
-        "risk_index_percent": 55.6
+        "risk": "moderate",
+        "risk_index_percent": 54.89
       },
       "drought": {
-        "risk": "medium",
-        "risk_index_percent": 42.9
+        "risk": "low",
+        "risk_index_percent": 43.05
       },
       "wildfire": {
-        "risk": "low",
-        "risk_index_percent": 16.1
+        "risk": "very_low",
+        "risk_index_percent": 17.16
       },
       "flood": {
-        "risk": "low",
+        "risk": "none",
         "risk_index_percent": 0.0
       },
       "heatwave": {
-        "risk": "low",
+        "risk": "none",
         "risk_index_percent": 0.0
       }
     }
@@ -152,59 +144,63 @@
   ],
   "status": {
     "working": true,
-    "notes": "Current elevated risks: drought, storm; sensors online: 5/5"
+    "notes": "Current elevated risks: storm; sensors online: 5/5"
   },
   "risks": [
     {
       "id": "storm",
       "label": "Storm / Strong Wind",
-      "risk": "medium",
-      "risk_index_percent": 55.6,
-      "score": 0.556,
+      "risk": "moderate",
+      "risk_index_percent": 54.89,
+      "score": 0.5489,
       "is_probability": false,
-      "message": "Storm / Strong Wind risk is 55.6% (medium)."
+      "message": "Storm / Strong Wind risk is 54.89% (moderate)."
     },
     {
       "id": "drought",
       "label": "Drought",
-      "risk": "medium",
-      "risk_index_percent": 42.9,
-      "score": 0.429,
+      "risk": "low",
+      "risk_index_percent": 43.05,
+      "score": 0.4305,
       "is_probability": false,
-      "message": "Drought risk is 42.9% (medium)."
+      "message": "Drought risk is 43.05% (low)."
     },
     {
       "id": "wildfire",
       "label": "Wildfire",
-      "risk": "low",
-      "risk_index_percent": 16.1,
-      "score": 0.161,
+      "risk": "very_low",
+      "risk_index_percent": 17.16,
+      "score": 0.1716,
       "is_probability": false,
-      "message": "Wildfire risk is 16.1% (low)."
+      "message": "Wildfire risk is 17.16% (very_low)."
     },
     {
       "id": "flood",
       "label": "Flood",
-      "risk": "low",
+      "risk": "none",
       "risk_index_percent": 0.0,
       "score": 0.0,
       "is_probability": false,
-      "message": "Flood risk is 0.0% (low)."
+      "message": "Flood risk is 0.0% (none)."
     },
     {
       "id": "heatwave",
       "label": "Heatwave",
-      "risk": "low",
+      "risk": "none",
       "risk_index_percent": 0.0,
       "score": 0.0,
       "is_probability": false,
-      "message": "Heatwave risk is 0.0% (low)."
+      "message": "Heatwave risk is 0.0% (none)."
     }
   ],
   "risk_counts": {
-    "low": 3,
-    "medium": 2,
-    "high": 0
+    "none": 2,
+    "extremely_low": 0,
+    "very_low": 1,
+    "low": 1,
+    "moderate": 1,
+    "high": 0,
+    "extreme": 0
   },
   "sensors": {
     "total": 5,
@@ -244,17 +240,17 @@
   "environment": {
     "available": true,
     "soil": {
-      "moisture_proxy": 0.4855652173913043,
+      "moisture_proxy": 0.4781739130434783,
       "status": "moderate"
     },
     "water_balance": {
       "precipitation_next_24h_mm": 0.0,
-      "evapotranspiration_24h_mm": 2.06,
-      "vapor_pressure_deficit_kpa": 0.7417391304347827,
-      "relative_humidity_percent": 53.78260869565217
+      "evapotranspiration_24h_mm": 2.17,
+      "vapor_pressure_deficit_kpa": 0.8095652173913044,
+      "relative_humidity_percent": 48.130434782608695
     },
     "storm_conditions": {
-      "wind_gust_max_ms": 21.38888888888889,
+      "wind_gust_max_ms": 21.11111111111111,
       "cape_max_jkg": 0
     }
   }

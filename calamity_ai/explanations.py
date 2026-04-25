@@ -11,7 +11,7 @@ def explain_score(
     thresholds: dict[str, float],
     factors: dict[str, Any],
 ) -> dict[str, object]:
-    percent = round(score * 100, 1)
+    percent = round(score * 100, 2)
     explanations = {
         "flood": _flood_explanation(score, risk, features, thresholds, factors),
         "drought": _drought_explanation(score, risk, features, thresholds, factors),
@@ -20,7 +20,7 @@ def explain_score(
         "wildfire": _wildfire_explanation(score, risk, features, thresholds, factors),
     }
     return {
-        "score": round(score, 3),
+        "score": round(score, 4),
         "risk_percent": percent,
         "risk_index_percent": percent,
         "is_probability": False,
@@ -31,9 +31,13 @@ def explain_score(
 
 def _risk_scale() -> dict[str, str]:
     return {
-        "low": "0-39.9%: low risk",
-        "medium": "40-69.9%: medium risk",
-        "high": "70-100%: high risk",
+        "none": "0-4.99%: no meaningful signal",
+        "extremely_low": "5-14.99%: extremely low risk",
+        "very_low": "15-29.99%: very low risk",
+        "low": "30-44.99%: low risk",
+        "moderate": "45-59.99%: moderate risk",
+        "high": "60-79.99%: high risk",
+        "extreme": "80-100%: extreme risk",
     }
 
 

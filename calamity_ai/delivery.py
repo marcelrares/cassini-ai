@@ -8,6 +8,7 @@ from typing import Any
 
 from .config import MonitorConfig
 from .geo import bbox, centroid
+from .scoring import ACTIVE_RISK_LEVELS
 
 
 def write_site_bundle(report: dict[str, object], config: MonitorConfig, output_dir: str | Path) -> dict[str, object]:
@@ -110,8 +111,9 @@ def _manifest(
                     "property": "max_risk_index",
                     "stops": [
                         {"lte": 39.9, "color": "#2e7d32", "label": "low"},
-                        {"lte": 69.9, "color": "#f9a825", "label": "medium"},
-                        {"lte": 100, "color": "#c62828", "label": "high"},
+                        {"lte": 59.9, "color": "#f9a825", "label": "moderate"},
+                        {"lte": 79.9, "color": "#ef6c00", "label": "high"},
+                        {"lte": 100, "color": "#c62828", "label": "extreme"},
                     ],
                 },
             },
@@ -323,7 +325,7 @@ def _events_geojson(config: MonitorConfig, report: dict[str, object], *, standar
     calamities = report.get("calamities")
     if isinstance(calamities, dict):
         for name, data in calamities.items():
-            if not isinstance(data, dict) or data.get("risk") not in {"medium", "high"}:
+            if not isinstance(data, dict) or data.get("risk") not in ACTIVE_RISK_LEVELS:
                 continue
             features.append(
                 {
@@ -423,7 +425,15 @@ def _risk_message(name: object, data: dict[str, object]) -> str:
 
 
 def _risk_counts(risks: list[dict[str, object]]) -> dict[str, int]:
-    counts = {"low": 0, "medium": 0, "high": 0}
+    counts = {
+        "none": 0,
+        "extremely_low": 0,
+        "very_low": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "extreme": 0,
+    }
     for risk in risks:
         label = str(risk.get("risk", "low"))
         if label in counts:
@@ -440,7 +450,7 @@ def _generated_at(report: dict[str, object]) -> str:
 
 def _dashboard_stats(risks: list[dict[str, object]], sensors: object) -> list[dict[str, object]]:
     highest = risks[0] if risks else {}
-    active_alerts = [risk for risk in risks if risk.get("risk") in {"medium", "high"}]
+    active_alerts = [risk for risk in risks if risk.get("risk") in ACTIVE_RISK_LEVELS]
     sensor_summary = _sensor_summary(sensors)
     return [
         {
@@ -502,7 +512,7 @@ def _dashboard_alerts(risks: list[dict[str, object]], sensors: object) -> list[d
             "risk_index_percent": risk.get("risk_index_percent"),
         }
         for risk in risks
-        if risk.get("risk") in {"medium", "high"}
+        if risk.get("risk") in ACTIVE_RISK_LEVELS
     ]
     sensor_summary = _sensor_summary(sensors)
     if sensor_summary["offline"] > 0:
@@ -510,7 +520,7 @@ def _dashboard_alerts(risks: list[dict[str, object]], sensors: object) -> list[d
             {
                 "id": "sensor-status",
                 "type": "sensor",
-                "severity": "medium",
+                "severity": "moderate",
                 "title": "Sensor status degraded",
                 "message": f"{sensor_summary['offline']} sensors offline or stale.",
             }

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-25T17:36:53.069556+00:00",
+  "generated_at": "2026-04-25T21:02:14.750249+00:00",
   "area": {
     "name": "Iasi_monitoring_zone",
     "bbox": [
@@ -61,14 +61,19 @@
             "label": "low"
           },
           {
-            "lte": 69.9,
+            "lte": 59.9,
             "color": "#f9a825",
-            "label": "medium"
+            "label": "moderate"
+          },
+          {
+            "lte": 79.9,
+            "color": "#ef6c00",
+            "label": "high"
           },
           {
             "lte": 100,
             "color": "#c62828",
-            "label": "high"
+            "label": "extreme"
           }
         ]
       }
@@ -91,6 +96,6 @@
   },
   "status": {
     "working": true,
-    "notes": "Current elevated risks: drought, storm; sensors online: 5/5"
+    "notes": "Current elevated risks: storm; sensors online: 5/5"
   }
 }

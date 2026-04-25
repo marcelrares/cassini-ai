@@ -59,27 +59,27 @@
       },
       "properties": {
         "name": "Iasi_monitoring_zone",
-        "max_risk_index": 55.6,
+        "max_risk_index": 54.89,
         "risks": {
           "flood": {
-            "risk": "low",
+            "risk": "none",
             "risk_index_percent": 0.0
           },
           "drought": {
-            "risk": "medium",
-            "risk_index_percent": 42.9
+            "risk": "low",
+            "risk_index_percent": 43.05
           },
           "storm": {
-            "risk": "medium",
-            "risk_index_percent": 55.6
+            "risk": "moderate",
+            "risk_index_percent": 54.89
           },
           "heatwave": {
-            "risk": "low",
+            "risk": "none",
             "risk_index_percent": 0.0
           },
           "wildfire": {
-            "risk": "low",
-            "risk_index_percent": 16.1
+            "risk": "very_low",
+            "risk_index_percent": 17.16
           }
         }
       }
