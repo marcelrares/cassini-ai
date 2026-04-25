@@ -1,0 +1,291 @@
+{
+  "type": "Coverage",
+  "domain": {
+    "type": "Domain",
+    "domainType": "PointSeries",
+    "axes": {
+      "x": {
+        "values": [
+          27.565
+        ]
+      },
+      "y": {
+        "values": [
+          47.147
+        ]
+      },
+      "t": {
+        "values": [
+          "2026-04-25T10:06:26.941118Z"
+        ]
+      }
+    },
+    "referencing": [
+      {
+        "coordinates": [
+          "x",
+          "y"
+        ],
+        "system": {
+          "type": "GeographicCRS",
+          "id": "http://www.opengis.net/def/crs/EPSG/0/4326"
+        }
+      },
+      {
+        "coordinates": [
+          "t"
+        ],
+        "system": {
+          "type": "TemporalRS",
+          "calendar": "Gregorian"
+        }
+      }
+    ]
+  },
+  "parameters": {
+    "precip_24h_m": {
+      "type": "Parameter",
+      "description": "precip_24h_m",
+      "unit": "m"
+    },
+    "temp_mean_24h_c": {
+      "type": "Parameter",
+      "description": "temp_mean_24h_c",
+      "unit": "Cel"
+    },
+    "temp_max_24h_c": {
+      "type": "Parameter",
+      "description": "temp_max_24h_c",
+      "unit": "Cel"
+    },
+    "wind_gust_max_ms": {
+      "type": "Parameter",
+      "description": "wind_gust_max_ms",
+      "unit": "m/s"
+    },
+    "cape_max_jkg": {
+      "type": "Parameter",
+      "description": "cape_max_jkg",
+      "unit": null
+    },
+    "temp_current_c": {
+      "type": "Parameter",
+      "description": "temp_current_c",
+      "unit": "Cel"
+    },
+    "temp_forecast_max_next_24h_c": {
+      "type": "Parameter",
+      "description": "temp_forecast_max_next_24h_c",
+      "unit": "Cel"
+    },
+    "soil_moisture_proxy": {
+      "type": "Parameter",
+      "description": "soil_moisture_proxy",
+      "unit": null
+    },
+    "relative_humidity_mean_percent": {
+      "type": "Parameter",
+      "description": "relative_humidity_mean_percent",
+      "unit": "%"
+    },
+    "evapotranspiration_24h_mm": {
+      "type": "Parameter",
+      "description": "evapotranspiration_24h_mm",
+      "unit": "mm"
+    },
+    "vapor_pressure_deficit_kpa": {
+      "type": "Parameter",
+      "description": "vapor_pressure_deficit_kpa",
+      "unit": "kPa"
+    }
+  },
+  "ranges": {
+    "precip_24h_m": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        0.0
+      ]
+    },
+    "temp_mean_24h_c": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        11.516
+      ]
+    },
+    "temp_max_24h_c": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        17.4
+      ]
+    },
+    "wind_gust_max_ms": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        24.5
+      ]
+    },
+    "cape_max_jkg": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        0
+      ]
+    },
+    "temp_current_c": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        17.4
+      ]
+    },
+    "temp_forecast_max_next_24h_c": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        20.5
+      ]
+    },
+    "soil_moisture_proxy": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        0.4905217391304348
+      ]
+    },
+    "relative_humidity_mean_percent": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        59.130434782608695
+      ]
+    },
+    "evapotranspiration_24h_mm": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        2.28
+      ]
+    },
+    "vapor_pressure_deficit_kpa": {
+      "type": "NdArray",
+      "dataType": "float",
+      "axisNames": [
+        "t",
+        "y",
+        "x"
+      ],
+      "shape": [
+        1,
+        1,
+        1
+      ],
+      "values": [
+        0.7843478260869565
+      ]
+    }
+  }
+}

@@ -19,6 +19,7 @@ class ZoneExposure:
     name: str
     center_latitude: float
     center_longitude: float
+    geometry: dict[str, object]
     elevation_m: float | None
     flood_exposure_index: float
     drought_exposure_index: float
@@ -47,7 +48,8 @@ def get_zone_analysis(
 ) -> ZoneAnalysis:
     rows = int(config.zones.get("rows", 3))
     cols = int(config.zones.get("cols", 3))
-    centers = _grid_centers(config.polygon, rows, cols)
+    cells = _grid_cells(config.polygon, rows, cols)
+    centers = [(cell["center_lon"], cell["center_lat"]) for cell in cells]
     elevations = _load_elevations(centers)
     osm_context = load_osm_context()
     min_elev = min((value for value in elevations if value is not None), default=None)
@@ -57,7 +59,9 @@ def get_zone_analysis(
     terrain_class = _terrain_class(context)
 
     zones: list[ZoneExposure] = []
-    for index, ((lon, lat), elevation) in enumerate(zip(centers, elevations), start=1):
+    for index, (cell, elevation) in enumerate(zip(cells, elevations), start=1):
+        lon = float(cell["center_lon"])
+        lat = float(cell["center_lat"])
         low_elevation_factor = 0.5
         high_elevation_factor = 0.5
         if elevation is not None and min_elev is not None and max_elev is not None and max_elev > min_elev:
@@ -104,6 +108,7 @@ def get_zone_analysis(
             name=_zone_name(config, index - 1, rows, cols),
             center_latitude=round(lat, 5),
             center_longitude=round(lon, 5),
+            geometry=cell["geometry"],
             elevation_m=None if elevation is None else round(elevation, 1),
             flood_exposure_index=round(flood_exposure * 100, 1),
             drought_exposure_index=round(drought_exposure * 100, 1),
@@ -139,15 +144,35 @@ def zone_analysis_to_dict(analysis: ZoneAnalysis) -> dict[str, object]:
     return asdict(analysis)
 
 
-def _grid_centers(polygon: list[list[float]], rows: int, cols: int) -> list[tuple[float, float]]:
+def _grid_cells(polygon: list[list[float]], rows: int, cols: int) -> list[dict[str, object]]:
     min_lon, min_lat, max_lon, max_lat = bbox(polygon)
-    centers = []
+    lon_step = (max_lon - min_lon) / cols
+    lat_step = (max_lat - min_lat) / rows
+    cells: list[dict[str, object]] = []
     for row in range(rows):
         for col in range(cols):
-            lon = min_lon + ((col + 0.5) / cols) * (max_lon - min_lon)
-            lat = max_lat - ((row + 0.5) / rows) * (max_lat - min_lat)
-            centers.append((lon, lat))
-    return centers
+            west = min_lon + (col * lon_step)
+            east = west + lon_step
+            north = max_lat - (row * lat_step)
+            south = north - lat_step
+            ring = [
+                [round(west, 6), round(north, 6)],
+                [round(east, 6), round(north, 6)],
+                [round(east, 6), round(south, 6)],
+                [round(west, 6), round(south, 6)],
+                [round(west, 6), round(north, 6)],
+            ]
+            cells.append(
+                {
+                    "center_lon": west + (lon_step / 2),
+                    "center_lat": south + (lat_step / 2),
+                    "geometry": {
+                        "type": "Polygon",
+                        "coordinates": [ring],
+                    },
+                }
+            )
+    return cells
 
 
 def _load_elevations(points: list[tuple[float, float]]) -> list[float | None]:
@@ -296,7 +321,7 @@ def _top_risks(flood: float, drought: float, wildfire: float) -> list[str]:
 
 def _zone_name(config: MonitorConfig, index: int, rows: int, cols: int) -> str:
     labels = config.zones.get("labels", [])
-    if isinstance(labels, list) and index < len(labels):
+    if rows == 3 and cols == 3 and isinstance(labels, list) and index < len(labels):
         return str(labels[index])
     row = index // cols
     col = index % cols

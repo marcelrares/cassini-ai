@@ -10,6 +10,7 @@ from typing import Any
 from calamity_ai.config import load_config
 from calamity_ai.copernicus import copernicus_to_dict, get_copernicus_summary
 from calamity_ai.context import environmental_context_to_dict, get_environmental_context
+from calamity_ai.delivery import write_site_bundle
 from calamity_ai.exporters import append_csv, append_jsonl
 from calamity_ai.forecast import get_open_meteo_predictions, predictions_to_dict
 from calamity_ai.resources import ensure_resources, resource_summary_to_dict
@@ -127,6 +128,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--jsonl-out", default="out/reports.jsonl")
     parser.add_argument("--csv-out", default="out/reports.csv")
     parser.add_argument("--log-out", default="out/monitor.log")
+    parser.add_argument("--site-out", default="out/site")
     parser.add_argument("--weather", default="data/weather_features.json")
     parser.add_argument("--provider", choices=["openmeteo", "local", "earthengine"], default="openmeteo")
     parser.add_argument("--no-copernicus", action="store_true", help="Skip Copernicus satellite catalogue checks")
@@ -154,6 +156,7 @@ def main() -> None:
     append_jsonl(args.jsonl_out, report)
     append_csv(args.csv_out, report)
     append_log(args.log_out, report)
+    write_site_bundle(report, load_config(args.config), args.site_out)
     if args.print_json:
         print(json.dumps(report, indent=2))
 

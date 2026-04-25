@@ -38,8 +38,8 @@
     "baseline_years": 10
   },
   "zones": {
-    "rows": 3,
-    "cols": 3,
+    "rows": 12,
+    "cols": 12,
     "labels": [
       "Rediu-Breazu / Copou hill sector",
       "Copou-Pacurari-Canta sector",

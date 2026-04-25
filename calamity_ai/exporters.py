@@ -47,6 +47,8 @@ def _add_weather_columns(row: dict[str, Any], weather: object) -> None:
         "temp_max_24h_c",
         "wind_gust_max_ms",
         "cape_max_jkg",
+        "temp_current_c",
+        "temp_forecast_max_next_24h_c",
         "soil_moisture_proxy",
         "relative_humidity_mean_percent",
         "evapotranspiration_24h_mm",

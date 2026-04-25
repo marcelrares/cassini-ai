@@ -136,8 +136,33 @@ Each run writes:
 - `out/reports.jsonl`: full append-only JSON report per line.
 - `out/reports.csv`: flattened report for spreadsheets.
 - `out/monitor.log`: compact text summary.
+- `out/site/manifest.json`: the frontend entrypoint that links all map-ready layers.
 
 The `out/` directory is ignored by git.
+
+## Site Data Pipeline
+
+The monitor also writes a site-ready data bundle under `out/site/`.
+
+```text
+sources -> standardized -> processing -> manifest -> site
+```
+
+Frontend code should load only:
+
+```text
+out/site/manifest.json
+```
+
+The manifest points to:
+
+- `standardized/satellite.stac.json`: curated satellite evidence in STAC-like JSON.
+- `standardized/weather.coverage.json`: weather values in a CoverageJSON-style structure.
+- `standardized/maps.geojson`: monitored area and map context.
+- `standardized/events.geojson`: elevated risks and system events for map icons.
+- `processing/predictions.geojson`: risk predictions ready for map coloring.
+
+Raw inputs are kept separately under `out/site/sources/` so the frontend does not need to understand provider-specific payloads.
 
 ## Scheduling
 

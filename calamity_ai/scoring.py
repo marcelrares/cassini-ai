@@ -64,6 +64,8 @@ class WeatherFeatures:
     temp_max_24h_c: float
     wind_gust_max_ms: float
     cape_max_jkg: float
+    temp_current_c: float | None = None
+    temp_forecast_max_next_24h_c: float | None = None
     soil_moisture_proxy: float | None = None
     relative_humidity_mean_percent: float | None = None
     evapotranspiration_24h_mm: float | None = None

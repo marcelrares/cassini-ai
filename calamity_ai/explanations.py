@@ -94,6 +94,9 @@ def _drought_explanation(
     soil_text = "unknown"
     if features.soil_moisture_proxy is not None:
         soil_text = f"{round(features.soil_moisture_proxy * 100, 1)}% of the wet reference"
+    current_temp_text = ""
+    if getattr(features, "temp_current_c", None) is not None:
+        current_temp_text = f" Current temperature is {_c(features.temp_current_c)} C."
     factor_notes = [
         _factor_note(
             "precipitation",
@@ -111,14 +114,21 @@ def _drought_explanation(
         "title": "Drought",
         "explanation": (
             f"Drought risk is {round(score * 100, 1)}% ({risk}) because expected precipitation is "
-            f"{precip_mm} mm/24h, mean temperature is {_c(features.temp_mean_24h_c)} C, and soil moisture is "
+            f"{precip_mm} mm/24h, observed mean temperature over the last 24 hours is {_c(features.temp_mean_24h_c)} C, and soil moisture is "
             f"{soil_text}. For drought, precipitation below {low_precip_mm} mm/24h and temperatures above "
             f"{_c(thresholds['drought_temp_hot_c'])} C increase risk. The score now uses previous years for the same seasonal window, "
-            f"so one dry forecast day is not enough by itself to create high drought risk. In this calculation: {', '.join(factor_notes)}."
+            f"so one dry forecast day is not enough by itself to create high drought risk.{current_temp_text} "
+            f"In this calculation: {', '.join(factor_notes)}."
         ),
         "input_values": {
             "precipitation_24h_mm": precip_mm,
             "temperature_mean_24h_c": _c(features.temp_mean_24h_c),
+            "temperature_current_c": None
+            if getattr(features, "temp_current_c", None) is None
+            else _c(features.temp_current_c),
+            "temperature_forecast_max_next_24h_c": None
+            if getattr(features, "temp_forecast_max_next_24h_c", None) is None
+            else _c(features.temp_forecast_max_next_24h_c),
             "soil_moisture_proxy_percent": None
             if features.soil_moisture_proxy is None
             else round(features.soil_moisture_proxy * 100, 1),
@@ -182,15 +192,25 @@ def _heatwave_explanation(
     features: Any,
     thresholds: dict[str, float],
 ) -> dict[str, object]:
+    forecast_max = getattr(features, "temp_forecast_max_next_24h_c", None)
+    forecast_text = ""
+    if forecast_max is not None:
+        forecast_text = f" The forecast maximum for the next 24 hours is {_c(forecast_max)} C."
     return {
         "title": "Heatwave",
         "explanation": (
-            f"Heatwave risk is {round(score * 100, 1)}% ({risk}) because the forecast maximum temperature is "
-            f"{_c(features.temp_max_24h_c)} C. Risk starts increasing above 30 C, and the high-risk reference threshold is "
+            f"Heatwave risk is {round(score * 100, 1)}% ({risk}) because the observed maximum temperature over the last 24 hours is "
+            f"{_c(features.temp_max_24h_c)} C.{forecast_text} Risk starts increasing above 30 C, and the high-risk reference threshold is "
             f"{_c(thresholds['heat_high_c'])} C."
         ),
         "input_values": {
             "temperature_max_24h_c": _c(features.temp_max_24h_c),
+            "temperature_current_c": None
+            if getattr(features, "temp_current_c", None) is None
+            else _c(features.temp_current_c),
+            "temperature_forecast_max_next_24h_c": None
+            if forecast_max is None
+            else _c(forecast_max),
         },
         "normal_limits": {
             "low": "below 30 C",
@@ -208,18 +228,28 @@ def _wildfire_explanation(
     thresholds: dict[str, float],
     factors: dict[str, Any],
 ) -> dict[str, object]:
+    current_temp = getattr(features, "temp_current_c", None)
+    current_temp_text = ""
+    if current_temp is not None:
+        current_temp_text = f" Current temperature is {_c(current_temp)} C."
     return {
         "title": "Wildfire",
         "explanation": (
             f"Spontaneous wildfire risk index is {round(score * 100, 1)}% ({risk}). This is not a probability; it is a normalized warning index. "
             f"The model now requires dry fuel conditions plus ignition weather, then uses wind mainly as a spread amplifier. It combines historical dryness, "
-            f"maximum temperature {_c(features.temp_max_24h_c)} C, and wind gusts {_ms(features.wind_gust_max_ms)} m/s. "
+            f"observed 24-hour maximum temperature {_c(features.temp_max_24h_c)} C, and wind gusts {_ms(features.wind_gust_max_ms)} m/s. "
             f"Risk rises sharply above {_c(thresholds['wildfire_temp_hot_c'])} C and above "
             f"{_ms(thresholds['wildfire_wind_high_ms'])} m/s. Historical dryness is compared with previous years for the same season, "
-            "so wind alone or one dry forecast day should not produce an excessive spontaneous-fire score."
+            f"so wind alone or one dry forecast day should not produce an excessive spontaneous-fire score.{current_temp_text}"
         ),
         "input_values": {
             "temperature_max_24h_c": _c(features.temp_max_24h_c),
+            "temperature_current_c": None
+            if current_temp is None
+            else _c(current_temp),
+            "temperature_forecast_max_next_24h_c": None
+            if getattr(features, "temp_forecast_max_next_24h_c", None) is None
+            else _c(features.temp_forecast_max_next_24h_c),
             "wind_gust_max_ms": _ms(features.wind_gust_max_ms),
             "soil_moisture_proxy_percent": None
             if features.soil_moisture_proxy is None

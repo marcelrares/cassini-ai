@@ -1,0 +1,92 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-04-25T10:06:26.941118Z",
+  "area": {
+    "name": "Iasi_monitoring_zone",
+    "bbox": [
+      27.43,
+      47.05,
+      27.75,
+      47.24
+    ],
+    "crs": "EPSG:4326"
+  },
+  "entrypoint": "manifest.json",
+  "layers": [
+    {
+      "id": "satellite",
+      "title": "Satellite evidence",
+      "type": "stac",
+      "role": "background",
+      "href": "standardized/satellite.stac.json",
+      "visible": true,
+      "z_index": 10
+    },
+    {
+      "id": "weather",
+      "title": "Weather coverage",
+      "type": "coveragejson",
+      "role": "overlay",
+      "href": "standardized/weather.coverage.json",
+      "visible": true,
+      "z_index": 20
+    },
+    {
+      "id": "maps",
+      "title": "Area and local context",
+      "type": "geojson",
+      "role": "reference",
+      "href": "standardized/maps.geojson",
+      "visible": true,
+      "z_index": 30
+    },
+    {
+      "id": "predictions",
+      "title": "Risk predictions",
+      "type": "geojson",
+      "role": "risk",
+      "href": "processing/predictions.geojson",
+      "visible": true,
+      "z_index": 40,
+      "style": {
+        "property": "max_risk_index",
+        "stops": [
+          {
+            "lte": 39.9,
+            "color": "#2e7d32",
+            "label": "low"
+          },
+          {
+            "lte": 69.9,
+            "color": "#f9a825",
+            "label": "medium"
+          },
+          {
+            "lte": 100,
+            "color": "#c62828",
+            "label": "high"
+          }
+        ]
+      }
+    },
+    {
+      "id": "events",
+      "title": "Events and system status",
+      "type": "geojson",
+      "role": "icons",
+      "href": "standardized/events.geojson",
+      "visible": true,
+      "z_index": 50
+    }
+  ],
+  "raw_sources": {
+    "satellite": "sources/satellite.raw.json",
+    "weather": "sources/weather.raw.json",
+    "maps": "sources/maps.raw.geojson",
+    "events": "sources/events.raw.geojson"
+  },
+  "status": {
+    "working": true,
+    "notes": "elevated risks: storm; Historical context: last 30 days rainfall: 84.2 mm; last 90 days rainfall: 135.1 mm; dry days under 1 mm rain: 15/30; reference evapotranspiration: 69.8 mm/30d; max historical gust: 20.8 m/s; Seasonal baseline from previous 10 years: 30-day rainfall normal 52.3 mm, current ratio 1.61; 90-day rainfall normal 125.4 mm, current ratio 1.08; dry-days normal 21.0, current ratio 0.71.; Elevation context: center is about 111.0 m, sampled range is 37.0-161.0 m, terrain class is steep. Steeper terrain can increase runoff speed and local flood response; flatter terrain can hold standing water longer.; Highest relative flood-exposure sectors, not probabilities: row 8-column 4 sector, row 9-column 4 sector, row 9-column 11 sector; Prediction summary: 2026-04-25: highest forecast indices are drought 28.6 (low), storm 17.9 (low), flood 12.8 (low)."
+  }
+}
