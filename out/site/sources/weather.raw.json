@@ -3,15 +3,15 @@
   "source_type": "weather",
   "data": {
     "precip_24h_m": 0.0,
-    "temp_mean_24h_c": 11.576,
-    "temp_max_24h_c": 17.9,
-    "wind_gust_max_ms": 22.61111111111111,
+    "temp_mean_24h_c": 13.364,
+    "temp_max_24h_c": 14.2,
+    "wind_gust_max_ms": 10.0,
     "cape_max_jkg": 0,
-    "temp_current_c": 17.9,
-    "temp_forecast_max_next_24h_c": 20.4,
-    "soil_moisture_proxy": 0.4789565217391304,
-    "relative_humidity_mean_percent": 57.78260869565217,
-    "evapotranspiration_24h_mm": 2.17,
-    "vapor_pressure_deficit_kpa": 0.7965217391304348
+    "temp_current_c": 13.4,
+    "temp_forecast_max_next_24h_c": 13.6,
+    "soil_moisture_proxy": 0.0,
+    "relative_humidity_mean_percent": 73.65217391304348,
+    "evapotranspiration_24h_mm": 1.65,
+    "vapor_pressure_deficit_kpa": 0.401304347826087
   }
 }

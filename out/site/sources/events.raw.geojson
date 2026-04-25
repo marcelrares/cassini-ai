@@ -1,23 +1,4 @@
 {
   "type": "FeatureCollection",
-  "features": [
-    {
-      "type": "Feature",
-      "id": "risk-storm",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          27.48,
-          47.160000000000004
-        ]
-      },
-      "properties": {
-        "event_type": "raw_risk_signal",
-        "risk": "storm",
-        "level": "medium",
-        "risk_index_percent": 58.8,
-        "title": "Storm / strong wind"
-      }
-    }
-  ]
+  "features": []
 }

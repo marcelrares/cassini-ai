@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-25T10:32:29.372203Z",
+  "generated_at": null,
   "area": {
-    "name": "da",
+    "name": "custom_selected_region",
     "bbox": [
-      27.4,
-      47.1,
-      27.6,
-      47.2
+      -26.1,
+      44.4,
+      -26.0,
+      44.5
     ],
     "crs": "EPSG:4326"
   },
@@ -90,7 +90,7 @@
     "events": "sources/events.raw.geojson"
   },
   "status": {
-    "working": true,
-    "notes": "elevated risks: storm; Historical context: last 30 days rainfall: 93.1 mm; last 90 days rainfall: 144.6 mm; dry days under 1 mm rain: 15/30; reference evapotranspiration: 71.2 mm/30d; max historical gust: 19.8 m/s; Seasonal baseline from previous 10 years: 30-day rainfall normal 46.2 mm, current ratio 2.01; 90-day rainfall normal 115.0 mm, current ratio 1.26; dry-days normal 22.5, current ratio 0.67.; Elevation context: center is about 52.0 m, sampled range is 52.0-169.0 m, terrain class is rolling. Steeper terrain can increase runoff speed and local flood response; flatter terrain can hold standing water longer.; Highest relative flood-exposure sectors, not probabilities: row 4-column 4 sector, row 7-column 10 sector, row 5-column 10 sector; Prediction summary: 2026-04-25: highest forecast indices are drought 28.6 (low), flood 20.1 (low), storm 13.3 (low)."
+    "working": null,
+    "notes": null
   }
 }
