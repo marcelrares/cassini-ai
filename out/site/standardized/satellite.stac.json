@@ -187,13 +187,27 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "MOD14A1.A2026097.h19v04.061.2026107140716",
-      "collection": "modis-terra-mod14a1",
+      "id": "S5P_NRTI_L2__CO_____20260425T113814_20260425T114314_44209_03_020901_20260425T121456",
+      "collection": "sentinel-5p-l2-co-nrti",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-07T00:00:00.000000Z",
-        "platform": "terra",
+        "datetime": "2026-04-25T11:38:09Z",
+        "platform": "sentinel-5p",
+        "eo:cloud_cover": null
+      },
+      "assets": {}
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S5P_NRTI_L2__CO_____20260425T095814_20260425T100314_44208_03_020901_20260425T120103",
+      "collection": "sentinel-5p-l2-co-nrti",
+      "geometry": null,
+      "bbox": null,
+      "properties": {
+        "datetime": "2026-04-25T09:58:09Z",
+        "platform": "sentinel-5p",
         "eo:cloud_cover": null
       },
       "assets": {}

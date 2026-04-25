@@ -206,6 +206,7 @@ def _dashboard_json(
         "resources": _resource_summary(report.get("resources")),
         "satellite_signals": _satellite_signals(weather),
         "environment": _environment_summary(weather),
+        "satellite_land_cover": _satellite_land_cover(report),
     }
 
 
@@ -596,6 +597,89 @@ def _soil_status(value: object) -> str | None:
     if moisture < 0.55:
         return "moderate"
     return "wet"
+
+
+def _satellite_land_cover(report: dict[str, object]) -> dict[str, object]:
+    copernicus = report.get("copernicus")
+    resources = report.get("resources")
+    satellite_collections = _satellite_land_cover_collections(copernicus)
+    fallback = _resource_land_cover_fallback(resources)
+    return {
+        "available": bool(satellite_collections),
+        "basis": "satellite_classified_raster" if satellite_collections else "not_available",
+        "percentages": _empty_land_cover_percentages(),
+        "crop_percentages": {},
+        "crop_detail_available": False,
+        "source": {
+            "provider": "Copernicus / CLMS",
+            "collections": satellite_collections,
+            "status": "ready" if satellite_collections else "missing_classified_raster",
+        },
+        "fallback": fallback,
+        "notes": (
+            "STAC product metadata is available, but exact forest/city/field/crop percentages require reading a classified land-cover "
+            "raster over the submitted area. Crop type percentages require a crop classification layer; they cannot be derived reliably "
+            "from Sentinel product metadata alone."
+        ),
+    }
+
+
+def _satellite_land_cover_collections(copernicus: object) -> list[str]:
+    if not isinstance(copernicus, dict):
+        return []
+    collections: list[str] = []
+    for collection in copernicus.get("auxiliary", []):
+        if not isinstance(collection, dict):
+            continue
+        name = str(collection.get("collection", ""))
+        lower_name = name.lower()
+        count = int(collection.get("count", 0) or 0)
+        if count > 0 and any(token in lower_name for token in ["lc", "landcover", "land-cover", "worldcover", "crop"]):
+            collections.append(name)
+    return collections
+
+
+def _resource_land_cover_fallback(resources: object) -> dict[str, object]:
+    if not isinstance(resources, dict):
+        return {"available": False}
+    total = sum(
+        int(resources.get(key, 0) or 0)
+        for key in [
+            "urban_landuse_features",
+            "forest_or_green_features",
+            "agriculture_features",
+            "water_body_features",
+        ]
+    )
+    if total <= 0:
+        return {"available": False}
+    percentages = {
+        "urban_percent": _percent(resources.get("urban_landuse_features"), total),
+        "forest_or_green_percent": _percent(resources.get("forest_or_green_features"), total),
+        "agriculture_percent": _percent(resources.get("agriculture_features"), total),
+        "water_percent": _percent(resources.get("water_body_features"), total),
+    }
+    return {
+        "available": True,
+        "basis": "osm_feature_count_proxy",
+        "percentages": percentages,
+        "note": "Fallback only: useful for display context, not a satellite-derived area measurement.",
+    }
+
+
+def _empty_land_cover_percentages() -> dict[str, object]:
+    return {
+        "forest_percent": None,
+        "urban_percent": None,
+        "field_plain_percent": None,
+        "agriculture_percent": None,
+        "water_percent": None,
+        "wetland_percent": None,
+    }
+
+
+def _percent(value: object, total: int) -> float:
+    return round((int(value or 0) * 100) / total, 1) if total else 0.0
 
 
 def _sensor_summary(sensors: object) -> dict[str, object]:

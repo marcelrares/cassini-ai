@@ -3,11 +3,11 @@
   "source_type": "weather",
   "data": {
     "precip_24h_m": 0.0,
-    "temp_mean_24h_c": 12.9,
+    "temp_mean_24h_c": 12.86,
     "temp_max_24h_c": 19.8,
     "wind_gust_max_ms": 21.11111111111111,
     "cape_max_jkg": 0,
-    "temp_current_c": 12.2,
+    "temp_current_c": 11.2,
     "temp_forecast_max_next_24h_c": 21.6,
     "soil_moisture_proxy": 0.4781739130434783,
     "relative_humidity_mean_percent": 48.130434782608695,

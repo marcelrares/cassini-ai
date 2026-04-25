@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-25T21:02:14.750249+00:00",
+  "generated_at": "2026-04-25T21:42:19.378832+00:00",
   "title": "Calamity Intelligence Dashboard",
   "subtitle": "Iasi_monitoring_zone risk monitoring",
   "area": {
@@ -44,7 +44,7 @@
     }
   ],
   "weather": {
-    "temperature_current_c": 12.2,
+    "temperature_current_c": 11.2,
     "temperature_max_last_24h_c": 19.8,
     "temperature_forecast_max_next_24h_c": 21.6,
     "precipitation_next_24h_mm": 0.0,
@@ -253,5 +253,36 @@
       "wind_gust_max_ms": 21.11111111111111,
       "cape_max_jkg": 0
     }
+  },
+  "satellite_land_cover": {
+    "available": false,
+    "basis": "not_available",
+    "percentages": {
+      "forest_percent": null,
+      "urban_percent": null,
+      "field_plain_percent": null,
+      "agriculture_percent": null,
+      "water_percent": null,
+      "wetland_percent": null
+    },
+    "crop_percentages": {},
+    "crop_detail_available": false,
+    "source": {
+      "provider": "Copernicus / CLMS",
+      "collections": [],
+      "status": "missing_classified_raster"
+    },
+    "fallback": {
+      "available": true,
+      "basis": "osm_feature_count_proxy",
+      "percentages": {
+        "urban_percent": 23.8,
+        "forest_or_green_percent": 43.5,
+        "agriculture_percent": 20.8,
+        "water_percent": 11.9
+      },
+      "note": "Fallback only: useful for display context, not a satellite-derived area measurement."
+    },
+    "notes": "STAC product metadata is available, but exact forest/city/field/crop percentages require reading a classified land-cover raster over the submitted area. Crop type percentages require a crop classification layer; they cannot be derived reliably from Sentinel product metadata alone."
   }
 }
