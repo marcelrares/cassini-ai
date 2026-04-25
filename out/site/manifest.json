@@ -1,20 +1,20 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-25T13:07:56.497323Z",
+  "generated_at": "2026-04-25T17:33:31.105264+00:00",
   "area": {
-    "name": "sofia",
+    "name": "Iasi_monitoring_zone",
     "bbox": [
-      23.2,
-      42.62,
-      23.45,
-      42.78
+      27.43,
+      47.05,
+      27.75,
+      47.24
     ],
     "crs": "EPSG:4326"
   },
   "entrypoint": "manifest.json",
   "dashboard": {
     "href": "dashboard.json",
-    "description": "Compact dashboard payload for stats, weather, alerts, predictions, and map widgets."
+    "description": "Compact dashboard payload for current risks, weather, sensors, and map widgets."
   },
   "layers": [
     {
@@ -91,6 +91,6 @@
   },
   "status": {
     "working": true,
-    "notes": "water detection: 0.55; soil moisture anomaly: +0.26; FRP signal: 0.50; burned area: 0.0%; LST anomaly: +0.36; vegetation anomaly: -0.10; Historical context: last 30 days rainfall: 44.5 mm; last 90 days rainfall: 123.7 mm; dry days under 1 mm rain: 20/30; reference evapotranspiration: 81.4 mm/30d; max historical gust: 17.1 m/s; Seasonal baseline from previous 10 years: 30-day rainfall normal 51.8 mm, current ratio 0.86; 90-day rainfall normal 149.9 mm, current ratio 0.83; dry-days normal 20.6, current ratio 0.97.; Elevation context: center is about 550.0 m, sampled range is 548.0-958.0 m, terrain class is steep. Steeper terrain can increase runoff speed and local flood response; flatter terrain can hold standing water longer.; Highest relative flood-exposure sectors, not probabilities: row 1-column 1 sector, row 1-column 2 sector, row 1-column 3 sector; Prediction summary: 2026-04-25: highest forecast indices are drought 33.5 (low), storm 28.9 (low), wildfire 8.2 (low)."
+    "notes": "Current elevated risks: drought, storm; sensors online: 5/5"
   }
 }

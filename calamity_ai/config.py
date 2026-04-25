@@ -15,7 +15,6 @@ class MonitorConfig:
     sensor_health: dict[str, float]
     copernicus: dict[str, object]
     context: dict[str, object]
-    zones: dict[str, object]
 
     def with_area(self, area_name: str, polygon: list[list[float]]) -> "MonitorConfig":
         return MonitorConfig(
@@ -26,7 +25,6 @@ class MonitorConfig:
             sensor_health=self.sensor_health,
             copernicus=self.copernicus,
             context=self.context,
-            zones=self.zones,
         )
 
 
@@ -41,5 +39,4 @@ def load_config(path: str | Path) -> MonitorConfig:
         sensor_health={k: float(v) for k, v in raw["sensor_health"].items()},
         copernicus=raw.get("copernicus", {}),
         context=raw.get("context", {}),
-        zones=raw.get("zones", {}),
     )

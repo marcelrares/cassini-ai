@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import math
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -67,7 +68,7 @@ def _manifest(
         "entrypoint": "manifest.json",
         "dashboard": {
             "href": _relative(base, files["dashboard"]),
-            "description": "Compact dashboard payload for stats, weather, alerts, predictions, and map widgets.",
+            "description": "Compact dashboard payload for current risks, weather, sensors, and map widgets.",
         },
         "layers": [
             {
@@ -162,62 +163,26 @@ def _dashboard_json(
     calamities = report.get("calamities") if isinstance(report.get("calamities"), dict) else {}
     weather = report.get("weather") if isinstance(report.get("weather"), dict) else {}
     sensors = report.get("sensors") if isinstance(report.get("sensors"), dict) else {}
-    predictions = _prediction_summary(report)
+    risks = _risks(calamities)
+    risk_counts = _risk_counts(risks)
+    min_lon, min_lat, max_lon, max_lat = bbox(config.polygon)
     return {
         "schema_version": "1.0",
-        "generated_at": report.get("timestamp"),
+        "generated_at": _generated_at(report),
         "title": "Calamity Intelligence Dashboard",
         "subtitle": f"{config.area_name} risk monitoring",
         "area": {
             "name": config.area_name,
-            "bbox": list(bbox(config.polygon)),
+            "bbox": [min_lon, min_lat, max_lon, max_lat],
             "total_monitored_hectares": _area_hectares(config.polygon),
         },
-        "stats": [
-            {
-                "id": "max-risk",
-                "label": "Max risk",
-                "value": round(max(_risk_percent_values(calamities), default=0), 1),
-                "unit": "%",
-                "status": _max_risk_label(calamities),
-            },
-            {
-                "id": "active-alerts",
-                "label": "Active alerts",
-                "value": len(_active_alerts(calamities, sensors)),
-                "unit": "",
-                "status": "active" if _active_alerts(calamities, sensors) else "clear",
-            },
-            {
-                "id": "sensors-online",
-                "label": "Sensors online",
-                "value": sensors.get("online", 0),
-                "unit": f"/{sensors.get('total', 0)}",
-                "status": "working" if sensors.get("working") else "degraded",
-            },
-            {
-                "id": "prediction-zones",
-                "label": "Prediction zones",
-                "value": predictions["zone_count"],
-                "unit": "",
-                "status": "ready",
-            },
-        ],
-        "weather": {
-            "temperature_current_c": weather.get("temp_current_c"),
-            "temperature_max_last_24h_c": weather.get("temp_max_24h_c"),
-            "temperature_forecast_max_next_24h_c": weather.get("temp_forecast_max_next_24h_c"),
-            "precipitation_next_24h_mm": _meters_to_mm(weather.get("precip_24h_m")),
-            "wind_gust_max_ms": weather.get("wind_gust_max_ms"),
-            "relative_humidity_percent": weather.get("relative_humidity_mean_percent"),
-            "soil_moisture_proxy": weather.get("soil_moisture_proxy"),
-            "vapor_pressure_deficit_kpa": weather.get("vapor_pressure_deficit_kpa"),
-        },
-        "alerts": _active_alerts(calamities, sensors),
-        "predictions": predictions,
+        "stats": _dashboard_stats(risks, sensors),
+        "weather": _dashboard_weather(weather),
+        "alerts": _dashboard_alerts(risks, sensors),
+        "predictions": _dashboard_predictions(risks),
         "map": {
             "center": list(centroid(config.polygon)),
-            "bbox": list(bbox(config.polygon)),
+            "bbox": [min_lon, min_lat, max_lon, max_lat],
             "layers": {
                 "predictions": _relative(base, files["processing_predictions"]),
                 "events": _relative(base, files["standardized_events"]),
@@ -226,12 +191,18 @@ def _dashboard_json(
                 "satellite": _relative(base, files["standardized_satellite"]),
             },
         },
-        "fields": _dashboard_fields(report),
+        "fields": [],
         "data_sources": _dashboard_sources(report),
         "status": {
             "working": report.get("working"),
             "notes": report.get("notes"),
         },
+        "risks": risks,
+        "risk_counts": risk_counts,
+        "sensors": _sensor_summary(sensors),
+        "terrain": _terrain_summary(report.get("context")),
+        "resources": _resource_summary(report.get("resources")),
+        "satellite_signals": _satellite_signals(weather),
     }
 
 
@@ -386,11 +357,6 @@ def _events_geojson(config: MonitorConfig, report: dict[str, object], *, standar
 
 
 def _predictions_geojson(config: MonitorConfig, report: dict[str, object]) -> dict[str, object]:
-    zone_analysis = report.get("zone_analysis")
-    if isinstance(zone_analysis, dict) and isinstance(zone_analysis.get("zones"), list):
-        features = [_zone_prediction_feature(zone) for zone in zone_analysis["zones"] if isinstance(zone, dict)]
-        return {"type": "FeatureCollection", "features": features}
-
     min_lon, min_lat, max_lon, max_lat = bbox(config.polygon)
     calamities = report.get("calamities") if isinstance(report.get("calamities"), dict) else {}
     risk_values = [
@@ -423,87 +389,204 @@ def _predictions_geojson(config: MonitorConfig, report: dict[str, object]) -> di
     }
 
 
-def _prediction_summary(report: dict[str, object]) -> dict[str, object]:
-    zone_analysis = report.get("zone_analysis")
-    if isinstance(zone_analysis, dict) and isinstance(zone_analysis.get("zones"), list):
-        zones = [zone for zone in zone_analysis["zones"] if isinstance(zone, dict)]
-        top_zones = sorted(
-            zones,
-            key=lambda zone: max(
-                float(zone.get("flood_exposure_index", 0)),
-                float(zone.get("drought_exposure_index", 0)),
-                float(zone.get("wildfire_exposure_index", 0)),
-            ),
-            reverse=True,
-        )[:5]
-        return {
-            "type": "zone_grid",
-            "zone_count": len(zones),
-            "indices_are_probabilities": zone_analysis.get("indices_are_probabilities", False),
-            "top_zones": [
-                {
-                    "id": zone.get("zone_id"),
-                    "name": zone.get("name"),
-                    "max_risk_index": max(
-                        float(zone.get("flood_exposure_index", 0)),
-                        float(zone.get("drought_exposure_index", 0)),
-                        float(zone.get("wildfire_exposure_index", 0)),
-                    ),
-                    "flood_exposure_index": zone.get("flood_exposure_index"),
-                    "drought_exposure_index": zone.get("drought_exposure_index"),
-                    "wildfire_exposure_index": zone.get("wildfire_exposure_index"),
-                    "most_relevant_risks": zone.get("most_relevant_risks", []),
-                }
-                for zone in top_zones
-            ],
-            "explanation": zone_analysis.get("explanation"),
-        }
+def _risks(calamities: object) -> list[dict[str, object]]:
+    if not isinstance(calamities, dict):
+        return []
+    risks = []
+    for name, data in calamities.items():
+        if not isinstance(data, dict):
+            continue
+        risks.append(
+            {
+                "id": str(name),
+                "label": str(data.get("title", name)).title(),
+                "risk": data.get("risk"),
+                "risk_index_percent": data.get("risk_index_percent", data.get("risk_percent")),
+                "score": data.get("score"),
+                "is_probability": data.get("is_probability", False),
+                "message": _risk_message(name, data),
+            }
+        )
+    return sorted(
+        risks,
+        key=lambda item: float(item.get("risk_index_percent") or 0),
+        reverse=True,
+    )
 
-    calamities = report.get("calamities") if isinstance(report.get("calamities"), dict) else {}
+
+def _risk_message(name: object, data: dict[str, object]) -> str:
+    label = str(data.get("title", name)).title()
+    value = data.get("risk_index_percent", data.get("risk_percent", 0))
+    risk = data.get("risk", "unknown")
+    return f"{label} risk is {value}% ({risk})."
+
+
+def _risk_counts(risks: list[dict[str, object]]) -> dict[str, int]:
+    counts = {"low": 0, "medium": 0, "high": 0}
+    for risk in risks:
+        label = str(risk.get("risk", "low"))
+        if label in counts:
+            counts[label] += 1
+    return counts
+
+
+def _generated_at(report: dict[str, object]) -> str:
+    value = report.get("timestamp") or report.get("generated_at")
+    if value:
+        return str(value)
+    return datetime.now(timezone.utc).isoformat()
+
+
+def _dashboard_stats(risks: list[dict[str, object]], sensors: object) -> list[dict[str, object]]:
+    highest = risks[0] if risks else {}
+    active_alerts = [risk for risk in risks if risk.get("risk") in {"medium", "high"}]
+    sensor_summary = _sensor_summary(sensors)
+    return [
+        {
+            "id": "max-risk",
+            "label": "Max risk",
+            "value": highest.get("risk_index_percent", 0),
+            "unit": "%",
+            "status": f"{highest.get('id')}:{highest.get('risk')}" if highest else "unknown",
+        },
+        {
+            "id": "active-alerts",
+            "label": "Active alerts",
+            "value": len(active_alerts),
+            "unit": "",
+            "status": "active" if active_alerts else "clear",
+        },
+        {
+            "id": "sensors-online",
+            "label": "Sensors online",
+            "value": sensor_summary["online"],
+            "unit": f"/{sensor_summary['total']}",
+            "status": "working" if sensor_summary["working"] else "degraded",
+        },
+        {
+            "id": "prediction-zones",
+            "label": "Prediction zones",
+            "value": 1,
+            "unit": "",
+            "status": "ready",
+        },
+    ]
+
+
+def _dashboard_weather(weather: object) -> dict[str, object]:
+    if not isinstance(weather, dict):
+        return {}
+    return {
+        "temperature_current_c": weather.get("temp_current_c"),
+        "temperature_max_last_24h_c": weather.get("temp_max_24h_c"),
+        "temperature_forecast_max_next_24h_c": weather.get("temp_forecast_max_next_24h_c"),
+        "precipitation_next_24h_mm": _meters_to_mm(weather.get("precip_24h_m")),
+        "wind_gust_max_ms": weather.get("wind_gust_max_ms"),
+        "relative_humidity_percent": weather.get("relative_humidity_mean_percent"),
+        "soil_moisture_proxy": weather.get("soil_moisture_proxy"),
+        "vapor_pressure_deficit_kpa": weather.get("vapor_pressure_deficit_kpa"),
+        "evapotranspiration_24h_mm": weather.get("evapotranspiration_24h_mm"),
+        "cape_max_jkg": weather.get("cape_max_jkg"),
+    }
+
+
+def _dashboard_alerts(risks: list[dict[str, object]], sensors: object) -> list[dict[str, object]]:
+    alerts = [
+        {
+            "id": f"risk-{risk['id']}",
+            "type": "risk",
+            "severity": risk.get("risk"),
+            "title": risk.get("label"),
+            "message": risk.get("message"),
+            "risk_index_percent": risk.get("risk_index_percent"),
+        }
+        for risk in risks
+        if risk.get("risk") in {"medium", "high"}
+    ]
+    sensor_summary = _sensor_summary(sensors)
+    if sensor_summary["offline"] > 0:
+        alerts.append(
+            {
+                "id": "sensor-status",
+                "type": "sensor",
+                "severity": "medium",
+                "title": "Sensor status degraded",
+                "message": f"{sensor_summary['offline']} sensors offline or stale.",
+            }
+        )
+    return alerts
+
+
+def _dashboard_predictions(risks: list[dict[str, object]]) -> dict[str, object]:
     return {
         "type": "area_summary",
         "zone_count": 1,
         "indices_are_probabilities": False,
         "top_zones": [],
         "risks": {
-            name: {
-                "risk": data.get("risk"),
-                "risk_index_percent": data.get("risk_index_percent"),
+            str(risk["id"]): {
+                "risk": risk.get("risk"),
+                "risk_index_percent": risk.get("risk_index_percent"),
             }
-            for name, data in calamities.items()
-            if isinstance(data, dict)
+            for risk in risks
         },
     }
 
 
-def _dashboard_fields(report: dict[str, object]) -> list[dict[str, object]]:
-    zone_analysis = report.get("zone_analysis")
-    if not isinstance(zone_analysis, dict) or not isinstance(zone_analysis.get("zones"), list):
-        return []
-    fields = []
-    for zone in zone_analysis["zones"]:
-        if not isinstance(zone, dict):
-            continue
-        fields.append(
-            {
-                "id": zone.get("zone_id"),
-                "name": zone.get("name"),
-                "area": None,
-                "center": [zone.get("center_longitude"), zone.get("center_latitude")],
-                "risk": {
-                    "flood": zone.get("flood_exposure_index"),
-                    "drought": zone.get("drought_exposure_index"),
-                    "wildfire": zone.get("wildfire_exposure_index"),
-                    "max": max(
-                        float(zone.get("flood_exposure_index", 0)),
-                        float(zone.get("drought_exposure_index", 0)),
-                        float(zone.get("wildfire_exposure_index", 0)),
-                    ),
-                },
-                "geometry": zone.get("geometry"),
-            }
-        )
-    return fields
+def _satellite_signals(weather: object) -> dict[str, object]:
+    if not isinstance(weather, dict):
+        return {"available": False, "signals": []}
+    labels = {
+        "satellite_water_index": "Water detection",
+        "satellite_soil_moisture_anomaly": "Soil moisture anomaly",
+        "satellite_fire_radiative_power": "Fire radiative power",
+        "satellite_burned_area_fraction": "Burned area",
+        "satellite_land_surface_temp_anomaly": "Land surface temperature anomaly",
+        "satellite_ndvi_anomaly": "Vegetation anomaly",
+        "satellite_optical_quality": "Optical quality",
+        "satellite_radar_confidence": "Radar confidence",
+    }
+    signals = [
+        {"id": key, "label": label, "value": weather.get(key)}
+        for key, label in labels.items()
+        if weather.get(key) is not None
+    ]
+    return {"available": bool(signals), "signals": signals}
+
+
+def _sensor_summary(sensors: object) -> dict[str, object]:
+    if not isinstance(sensors, dict):
+        return {"total": 0, "online": 0, "offline": 0, "stale": 0, "working": False, "online_ratio": 0}
+    total = int(sensors.get("total", 0) or 0)
+    online = int(sensors.get("online", 0) or 0)
+    return {
+        "total": total,
+        "online": online,
+        "offline": int(sensors.get("offline", 0) or 0),
+        "stale": int(sensors.get("stale", 0) or 0),
+        "working": bool(sensors.get("working")),
+        "online_ratio": round(online / total, 2) if total else 0,
+    }
+
+
+def _terrain_summary(context: object) -> dict[str, object]:
+    if not isinstance(context, dict):
+        return {"available": False}
+    elevation = context.get("elevation") if isinstance(context.get("elevation"), dict) else {}
+    return {
+        "available": bool(elevation),
+        "center_elevation_m": elevation.get("center_elevation_m"),
+        "min_elevation_m": elevation.get("min_elevation_m"),
+        "max_elevation_m": elevation.get("max_elevation_m"),
+        "elevation_range_m": elevation.get("elevation_range_m"),
+        "terrain_class": elevation.get("terrain_class"),
+    }
+
+
+def _resource_summary(resources: object) -> dict[str, object]:
+    if not isinstance(resources, dict):
+        return {"available": False}
+    return {"available": True, **resources}
 
 
 def _dashboard_sources(report: dict[str, object]) -> list[dict[str, object]]:
@@ -536,67 +619,9 @@ def _dashboard_sources(report: dict[str, object]) -> list[dict[str, object]]:
                 "id": "sensors",
                 "label": "Local sensor inventory",
                 "status": "ready" if sensors.get("working") else "degraded",
-                "online": sensors.get("online"),
-                "total": sensors.get("total"),
             }
         )
     return sources
-
-
-def _active_alerts(calamities: object, sensors: object) -> list[dict[str, object]]:
-    alerts = []
-    if isinstance(calamities, dict):
-        for name, data in calamities.items():
-            if not isinstance(data, dict) or data.get("risk") not in {"medium", "high"}:
-                continue
-            alerts.append(
-                {
-                    "id": f"risk-{name}",
-                    "type": "risk",
-                    "severity": data.get("risk"),
-                    "title": data.get("title", name),
-                    "message": data.get("explanation"),
-                    "risk_index_percent": data.get("risk_index_percent"),
-                }
-            )
-    if isinstance(sensors, dict) and int(sensors.get("offline", 0) or 0) > 0:
-        alerts.append(
-            {
-                "id": "sensor-status",
-                "type": "sensor",
-                "severity": "medium",
-                "title": "Sensor status degraded",
-                "message": f"{sensors.get('offline')} sensors offline or stale",
-            }
-        )
-    return alerts
-
-
-def _risk_percent_values(calamities: object) -> list[float]:
-    if not isinstance(calamities, dict):
-        return []
-    return [
-        float(data.get("risk_index_percent", 0))
-        for data in calamities.values()
-        if isinstance(data, dict)
-    ]
-
-
-def _max_risk_label(calamities: object) -> str:
-    if not isinstance(calamities, dict):
-        return "unknown"
-    ordered = sorted(
-        (
-            (str(name), float(data.get("risk_index_percent", 0)), str(data.get("risk", "unknown")))
-            for name, data in calamities.items()
-            if isinstance(data, dict)
-        ),
-        key=lambda item: item[1],
-        reverse=True,
-    )
-    if not ordered:
-        return "unknown"
-    return f"{ordered[0][0]}:{ordered[0][2]}"
 
 
 def _collection_count(collection: object) -> int:
@@ -624,30 +649,6 @@ def _area_hectares(polygon: list[list[float]]) -> float:
         next_point = points[(index + 1) % len(points)]
         area_km2 += (point[0] * next_point[1]) - (next_point[0] * point[1])
     return round(abs(area_km2) * 50, 1)
-
-
-def _zone_prediction_feature(zone: dict[str, object]) -> dict[str, object]:
-    lon = float(zone["center_longitude"])
-    lat = float(zone["center_latitude"])
-    flood = float(zone.get("flood_exposure_index", 0))
-    drought = float(zone.get("drought_exposure_index", 0))
-    wildfire = float(zone.get("wildfire_exposure_index", 0))
-    return {
-        "type": "Feature",
-        "id": zone.get("zone_id"),
-        "geometry": zone.get("geometry") or {"type": "Point", "coordinates": [lon, lat]},
-        "properties": {
-            "name": zone.get("name"),
-            "center_longitude": lon,
-            "center_latitude": lat,
-            "flood_exposure_index": flood,
-            "drought_exposure_index": drought,
-            "wildfire_exposure_index": wildfire,
-            "max_risk_index": max(flood, drought, wildfire),
-            "most_relevant_risks": zone.get("most_relevant_risks", []),
-            "explanation": zone.get("explanation"),
-        },
-    }
 
 
 def _weather_unit(key: str) -> str | None:

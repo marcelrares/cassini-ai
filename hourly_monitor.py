@@ -4,9 +4,9 @@ import argparse
 import json
 
 import logging  # Added for logger
-import os
 
 
+from dataclasses import asdict, is_dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -15,8 +15,8 @@ from calamity_ai.config import load_config
 from calamity_ai.copernicus import copernicus_to_dict, get_copernicus_summary
 from calamity_ai.context import environmental_context_to_dict, get_environmental_context
 from calamity_ai.delivery import write_site_bundle
-from calamity_ai.exporters import append_csv, append_jsonl
 from calamity_ai.forecast import get_open_meteo_predictions, predictions_to_dict
+from calamity_ai.geo import bbox as polygon_bbox, centroid
 from calamity_ai.resources import ensure_resources, resource_summary_to_dict
 from calamity_ai.scoring import score_calamities
 from calamity_ai.sensors import summarize_sensors
@@ -26,7 +26,6 @@ from calamity_ai.weather import (
     get_local_weather_features,
     get_open_meteo_weather_features,
 )
-from calamity_ai.zones import get_zone_analysis, zone_analysis_to_dict
 
 
 logger = logging.getLogger(__name__)  # Added logger definition
@@ -36,6 +35,16 @@ def get_risk_value(calamity_data: dict | float) -> float:
     if isinstance(calamity_data, dict):
         return calamity_data.get('risk_index_percent', 0.0)
     return float(calamity_data) if isinstance(calamity_data, (int, float)) else 0.0
+
+
+def _to_plain_dict(value: Any) -> dict[str, Any]:
+    if value is None:
+        return {}
+    if isinstance(value, dict):
+        return value
+    if is_dataclass(value):
+        return asdict(value)
+    return {}
 
 def build_report(args: argparse.Namespace) -> dict[str, object]:
     config = load_runtime_config(args)
@@ -53,13 +62,13 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
     # Get weather features
     try:
         if args.demo:
-            features = demo_weather_features(now)
+            features = demo_weather_features()
         elif args.provider == "local":
-            features = get_local_weather_features(config)
+            features = get_local_weather_features(args.weather)
         elif args.provider == "openmeteo":
             features = get_open_meteo_weather_features(config)
         else:
-            features = get_earth_engine_weather_features(config)
+            raise ValueError(f"Unsupported weather provider: {args.provider}")
     except Exception as e:
         logger.error(f"Weather features error: {e}")
         features = None
@@ -102,37 +111,6 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
         logger.warning(f"Features to dict error: {e}")
         features = {}
     
-    # Zone analysis (single zone for whole surface)
-    zone_analysis = None
-    if context and not args.no_zones:
-        try:
-            from shapely.geometry import Polygon
-            bbox = getattr(config, 'bbox', [0, 0, 0, 0])  # Default bbox if missing
-            if len(bbox) != 4:
-                raise ValueError("Invalid bbox")
-            whole_polygon = Polygon([
-                (bbox[0], bbox[1]), (bbox[2], bbox[1]), (bbox[2], bbox[3]), (bbox[0], bbox[3]), (bbox[0], bbox[1])
-            ])
-            zone_analysis = {
-                "type": "single_zone",
-                "zone_count": 1,
-                "zones": [{
-                    "id": "whole_surface",
-                    "name": "Entire monitored area",
-                    "area": whole_polygon.area,
-                    "center": [(bbox[0] + bbox[2]) / 2, (bbox[1] + bbox[3]) / 2],
-                    "risk": {k: get_risk_value(v) for k, v in calamities.items()},
-                    "geometry": {
-                        "type": "Polygon",
-                        "coordinates": [[
-                            [bbox[0], bbox[1]], [bbox[2], bbox[1]], [bbox[2], bbox[3]], [bbox[0], bbox[3]], [bbox[0], bbox[1]]
-                        ]]
-                    }
-                }]
-            }
-        except Exception as e:
-            logger.warning(f"Zone analysis error: {e}")
-    
     # Predictions
     predictions = None
     if context and not args.no_predictions:
@@ -154,26 +132,45 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
     # Extract risk stats safely
     risk_values = [get_risk_value(v) for v in calamities.values()] if calamities else []
     max_risk = max(risk_values) if risk_values else 0.0
+    max_risk_name = max(calamities, key=lambda name: get_risk_value(calamities[name])) if calamities else "none"
+    max_risk_level = calamities.get(max_risk_name, {}).get("risk", "low") if calamities else "low"
     active_alerts = len([v for v in risk_values if v > 30])
+    min_lon, min_lat, max_lon, max_lat = polygon_bbox(config.polygon)
+    center_lon, center_lat = centroid(config.polygon)
+    sensors_payload = _to_plain_dict(sensors)
+    elevated_risks = [k for k, v in calamities.items() if get_risk_value(v) > 40]
+    notes = (
+        f"Current elevated risks: {', '.join(elevated_risks) if elevated_risks else 'none'}; "
+        f"sensors online: {sensors_payload.get('online', 0)}/{sensors_payload.get('total', 0)}"
+    )
     
     # Build return dict with safe access
     return {
         "schema_version": "1.0",
+        "timestamp": now.isoformat(),
         "generated_at": now.isoformat(),
         "title": "Calamity Intelligence Dashboard",
         "subtitle": f"{getattr(config, 'area_name', 'Unknown')} risk monitoring",
         "area": {
             "name": getattr(config, 'area_name', 'Unknown'),
-            "bbox": getattr(config, 'bbox', [0, 0, 0, 0]),
-            "total_monitored_hectares": getattr(config, 'total_monitored_hectares', 0),
+            "bbox": [min_lon, min_lat, max_lon, max_lat],
+            "center": [center_lon, center_lat],
         },
+        "calamities": calamities,
+        "sensors": sensors_payload,
+        "context": context,
+        "copernicus": copernicus,
+        "resources": resource_summary,
+        "forecast": predictions,
+        "working": bool(sensors_payload.get("working", True)),
+        "notes": notes,
         "stats": [
             {
                 "id": "max-risk",
                 "label": "Max risk",
                 "value": max_risk,
                 "unit": "%",
-                "status": "drought:medium" if max_risk > 40 else "low",
+                "status": f"{max_risk_name}:{max_risk_level}" if calamities else "low",
             },
             {
                 "id": "active-alerts",
@@ -185,13 +182,13 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
             {
                 "id": "sensors-online",
                 "label": "Sensors online",
-                "value": getattr(sensors, 'online', 0) if sensors else 0,
-                "unit": f"/{getattr(sensors, 'total', 0) if sensors else 0}",
-                "status": "working",
+                "value": sensors_payload.get("online", 0),
+                "unit": f"/{sensors_payload.get('total', 0)}",
+                "status": "working" if sensors_payload.get("working") else "degraded",
             },
             {
-                "id": "prediction-zones",
-                "label": "Prediction zones",
+                "id": "risk-area",
+                "label": "Risk area",
                 "value": 1,
                 "unit": "",
                 "status": "ready",
@@ -210,10 +207,10 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
             for k, v in calamities.items() if get_risk_value(v) > 0
         ] if calamities else [],
         "predictions": {
-            "type": "single_zone",
-            "zone_count": 1,
+            "type": "area_summary",
+            "area_count": 1,
             "indices_are_probabilities": False,
-            "top_zones": [
+            "areas": [
                 {
                     "id": "whole_surface",
                     "name": "Entire monitored area",
@@ -222,12 +219,11 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
                     "most_relevant_risks": [k for k, v in calamities.items() if get_risk_value(v) == max_risk] if calamities else [],
                 }
             ],
-            "explanation": "Zone values are relative exposure indices for the entire monitored area, not probabilities and not official warning polygons.",
+            "explanation": "Risk values are relative exposure indices for the entire monitored area, not probabilities and not official warning polygons.",
         },
         "map": {
-            "center": [(bbox[0] + bbox[2]) / 2 if (bbox := getattr(config, 'bbox', [0, 0, 0, 0])) and len(bbox) == 4 else 0, 
-                      (bbox[1] + bbox[3]) / 2 if bbox and len(bbox) == 4 else 0],
-            "bbox": getattr(config, 'bbox', [0, 0, 0, 0]),
+            "center": [center_lon, center_lat],
+            "bbox": [min_lon, min_lat, max_lon, max_lat],
             "layers": {
                 "predictions": "processing/predictions.geojson",
                 "events": "standardized/events.geojson",
@@ -236,7 +232,7 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
                 "satellite": "standardized/satellite.stac.json"
             }
         },
-        "fields": zone_analysis["zones"] if zone_analysis else [],
+        "fields": [],
         "data_sources": [
             {
                 "id": "weather",
@@ -251,26 +247,26 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
             {
                 "id": "sentinel-1",
                 "label": "Sentinel-1 radar",
-                "status": "ready",
-                "products": 5
+                "status": "ready" if isinstance(copernicus, dict) and copernicus.get("sentinel1", {}).get("count", 0) else "empty",
+                "products": copernicus.get("sentinel1", {}).get("count", 0) if isinstance(copernicus, dict) else 0
             },
             {
                 "id": "sentinel-2",
                 "label": "Sentinel-2 optical",
-                "status": "empty",
-                "products": 0
+                "status": "ready" if isinstance(copernicus, dict) and copernicus.get("sentinel2", {}).get("count", 0) else "empty",
+                "products": copernicus.get("sentinel2", {}).get("count", 0) if isinstance(copernicus, dict) else 0
             },
             {
                 "id": "sensors",
                 "label": "Local sensor inventory",
-                "status": "ready",
-                "online": getattr(sensors, 'online', 0) if sensors else 0,
-                "total": getattr(sensors, 'total', 0) if sensors else 0
+                "status": "ready" if sensors_payload.get("working") else "degraded",
+                "online": sensors_payload.get("online", 0),
+                "total": sensors_payload.get("total", 0)
             }
         ],
         "status": {
-            "working": True,
-            "notes": f"Elevated risks: {', '.join([k for k, v in calamities.items() if get_risk_value(v) > 40])}; Historical context: last 30 days rainfall: {context.get('rainfall_30d', 'N/A') if context else 'N/A'} mm; ... (synthesize notes for whole area)"
+            "working": bool(sensors_payload.get("working", True)),
+            "notes": notes
         }
     }
 
@@ -306,9 +302,6 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Hourly AI-style calamity risk monitor")
     parser.add_argument("--config", default="config/monitor_config.json")
     parser.add_argument("--sensors", default="data/sensors.csv")
-    parser.add_argument("--jsonl-out", default="out/reports.jsonl")
-    parser.add_argument("--csv-out", default="out/reports.csv")
-    parser.add_argument("--log-out", default="out/monitor.log")
     parser.add_argument("--site-out", default="out/site")
     parser.add_argument("--weather", default="data/weather_features.json")
     parser.add_argument(
@@ -322,7 +315,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--provider", choices=["openmeteo", "local"], default="openmeteo")
     parser.add_argument("--no-copernicus", action="store_true", help="Skip Copernicus satellite catalogue checks")
     parser.add_argument("--no-context", action="store_true", help="Skip historical weather and elevation context")
-    parser.add_argument("--no-zones", action="store_true", help="Skip local zone exposure ranking")
     parser.add_argument("--no-predictions", action="store_true", help="Skip multi-day forecast predictions")
     parser.add_argument("--no-resources", action="store_true", help="Skip OSM resource cache loading")
     parser.add_argument("--update-resources", action="store_true", help="Refresh cached OSM boundary and context resources")
@@ -345,61 +337,11 @@ def main() -> None:
     
     report = build_report(args)
     
-    # 1. Standard persistence
-    append_jsonl(args.jsonl_out, report)
-    append_csv(args.csv_out, report)
-    append_log(args.log_out, report)
-
-    # 2. Prepare the Site Output Directory
-    # Ensure the directory exists first
-    os.makedirs(args.site_out, exist_ok=True)
-    
-    # 3. EMPTY dashboard.json specifically
-    dashboard_path = os.path.join(args.site_out, "dashboard.json")
-    if os.path.exists(dashboard_path):
-        os.remove(dashboard_path)
-        # Optional: create a fresh empty file immediately if write_site_bundle 
-        # expects the file to exist (unlikely, but safe)
-        # open(dashboard_path, 'w').close()
-
-    # 4. Populate with new info
+    Path(args.site_out).mkdir(parents=True, exist_ok=True)
     write_site_bundle(report, load_runtime_config(args), args.site_out)
     
     if args.print_json:
         print(json.dumps(report, indent=2))
-def append_log(path: str, report: dict[str, Any]) -> None:
-    target = Path(path)
-    target.parent.mkdir(parents=True, exist_ok=True)
-    with target.open("a", encoding="utf-8") as handle:
-        handle.write(_log_line(report) + "\n")
-
-
-def _log_line(report: dict[str, Any]) -> str:
-    calamities = report.get("calamities", {})
-    risk_parts = []
-    if isinstance(calamities, dict):
-        for name in ["flood", "drought", "wildfire", "storm", "heatwave"]:
-            data = calamities.get(name, {})
-            if isinstance(data, dict):
-                value = data.get("risk_index_percent", data.get("risk_percent", "?"))
-                risk = data.get("risk", "?")
-                risk_parts.append(f"{name}={value}({risk})")
-    sensors = report.get("sensors", {})
-    sensor_text = ""
-    if isinstance(sensors, dict):
-        sensor_text = (
-            f" sensors={sensors.get('online', '?')}/{sensors.get('total', '?')}"
-            f" online working={sensors.get('working', '?')}"
-        )
-    notes = str(report.get("notes", ""))
-    if len(notes) > 500:
-        notes = notes[:497] + "..."
-    return (
-        f"{report.get('timestamp', '')} area={report.get('area', '')} "
-        + " ".join(risk_parts)
-        + sensor_text
-        + f" notes=\"{notes}\"" 
-    )
 
 def _bbox_to_polygon(values: list[float]) -> list[list[float]]:
     lon1, lat1, lon2, lat2 = values

@@ -5,12 +5,40 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S1D_IW_GRDH_1SDV_20260425T042950_20260425T043015_002498_004204_43E2_COG",
+      "id": "S1A_IW_GRDH_1SDV_20260425T042108_20260425T042133_064231_0815E2_22BD_COG",
       "collection": "sentinel-1-grd",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-25T04:29:50.856919Z",
+        "datetime": "2026-04-25T04:21:08.474478Z",
+        "platform": "sentinel-1a",
+        "eo:cloud_cover": null
+      },
+      "assets": {}
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S1A_IW_GRDH_1SDV_20260421T160123_20260421T160148_064180_0813FF_C0D5_COG",
+      "collection": "sentinel-1-grd",
+      "geometry": null,
+      "bbox": null,
+      "properties": {
+        "datetime": "2026-04-21T16:01:23.652994Z",
+        "platform": "sentinel-1a",
+        "eo:cloud_cover": null
+      },
+      "assets": {}
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S1D_IW_GRDH_1SDV_20260420T042006_20260420T042031_002425_003FB0_FF7C_COG",
+      "collection": "sentinel-1-grd",
+      "geometry": null,
+      "bbox": null,
+      "properties": {
+        "datetime": "2026-04-20T04:20:06.201108Z",
         "platform": "sentinel-1d",
         "eo:cloud_cover": null
       },
@@ -19,12 +47,12 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S1A_IW_GRDH_1SDV_20260424T162506_20260424T162531_064224_081595_10EB_COG",
+      "id": "S1A_IW_GRDH_1SDV_20260420T041259_20260420T041324_064158_08132E_5F54_COG",
       "collection": "sentinel-1-grd",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-24T16:25:06.109675Z",
+        "datetime": "2026-04-20T04:12:59.519898Z",
         "platform": "sentinel-1a",
         "eo:cloud_cover": null
       },
@@ -33,26 +61,12 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S1A_IW_GRDH_1SDV_20260424T162441_20260424T162506_064224_081595_5E30_COG",
+      "id": "S1C_IW_GRDH_1SDV_20260419T041956_20260419T042021_007280_00EC24_E4F7_COG",
       "collection": "sentinel-1-grd",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-24T16:24:41.109702Z",
-        "platform": "sentinel-1a",
-        "eo:cloud_cover": null
-      },
-      "assets": {}
-    },
-    {
-      "type": "Feature",
-      "stac_version": "1.0.0",
-      "id": "S1C_IW_GRDH_1SDV_20260424T042938_20260424T043003_007353_00EEA9_A9B9_COG",
-      "collection": "sentinel-1-grd",
-      "geometry": null,
-      "bbox": null,
-      "properties": {
-        "datetime": "2026-04-24T04:29:38.780664Z",
+        "datetime": "2026-04-19T04:19:56.172790Z",
         "platform": "sentinel-1c",
         "eo:cloud_cover": null
       },
@@ -61,84 +75,28 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S1D_IW_GRDH_1SDV_20260419T162403_20260419T162428_002418_003F75_DC16_COG",
-      "collection": "sentinel-1-grd",
-      "geometry": null,
-      "bbox": null,
-      "properties": {
-        "datetime": "2026-04-19T16:24:03.054247Z",
-        "platform": "sentinel-1d",
-        "eo:cloud_cover": null
-      },
-      "assets": {}
-    },
-    {
-      "type": "Feature",
-      "stac_version": "1.0.0",
-      "id": "S2A_MSIL2A_20260424T092051_N0512_R093_T34TGN_20260424T150013",
+      "id": "S2C_MSIL2A_20260419T090551_N0512_R050_T35TNN_20260419T130200",
       "collection": "sentinel-2-l2a",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-24T09:20:51.024000Z",
-        "platform": "sentinel-2a",
-        "eo:cloud_cover": 16.94
-      },
-      "assets": {}
-    },
-    {
-      "type": "Feature",
-      "stac_version": "1.0.0",
-      "id": "S2A_MSIL2A_20260424T092051_N0512_R093_T34TFN_20260424T150013",
-      "collection": "sentinel-2-l2a",
-      "geometry": null,
-      "bbox": null,
-      "properties": {
-        "datetime": "2026-04-24T09:20:51.024000Z",
-        "platform": "sentinel-2a",
-        "eo:cloud_cover": 3.17
-      },
-      "assets": {}
-    },
-    {
-      "type": "Feature",
-      "stac_version": "1.0.0",
-      "id": "S2B_MSIL2A_20260417T092029_N0512_R093_T34TGN_20260417T114424",
-      "collection": "sentinel-2-l2a",
-      "geometry": null,
-      "bbox": null,
-      "properties": {
-        "datetime": "2026-04-17T09:20:29.025000Z",
-        "platform": "sentinel-2b",
-        "eo:cloud_cover": 14.79
-      },
-      "assets": {}
-    },
-    {
-      "type": "Feature",
-      "stac_version": "1.0.0",
-      "id": "S2B_MSIL2A_20260417T092029_N0512_R093_T34TFN_20260417T114424",
-      "collection": "sentinel-2-l2a",
-      "geometry": null,
-      "bbox": null,
-      "properties": {
-        "datetime": "2026-04-17T09:20:29.025000Z",
-        "platform": "sentinel-2b",
-        "eo:cloud_cover": 9.01
-      },
-      "assets": {}
-    },
-    {
-      "type": "Feature",
-      "stac_version": "1.0.0",
-      "id": "S2C_MSIL2A_20260412T092031_N0512_R093_T34TGN_20260412T125918",
-      "collection": "sentinel-2-l2a",
-      "geometry": null,
-      "bbox": null,
-      "properties": {
-        "datetime": "2026-04-12T09:20:31.025000Z",
+        "datetime": "2026-04-19T09:05:51.025000Z",
         "platform": "sentinel-2c",
-        "eo:cloud_cover": 12.84
+        "eo:cloud_cover": 29.04
+      },
+      "assets": {}
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "S2B_MSIL2A_20260414T090549_N0512_R050_T35TNN_20260414T113431",
+      "collection": "sentinel-2-l2a",
+      "geometry": null,
+      "bbox": null,
+      "properties": {
+        "datetime": "2026-04-14T09:05:49.024000Z",
+        "platform": "sentinel-2b",
+        "eo:cloud_cover": 30.48
       },
       "assets": {}
     },
@@ -159,14 +117,14 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S3A_SL_2_LST____20260424T202943_20260424T203243_20260424T230607_0179_138_328_0540_PS1_O_NR_005",
+      "id": "S3B_SL_2_LST____20260425T080458_20260425T080758_20260425T103633_0179_119_192_2160_ESA_O_NR_005",
       "collection": "sentinel-3-sl-2-lst-nrt",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-24T20:29:42.661193Z",
-        "platform": "sentinel-3a",
-        "eo:cloud_cover": 7.37
+        "datetime": "2026-04-25T08:04:57.644022Z",
+        "platform": "sentinel-3b",
+        "eo:cloud_cover": 31.28
       },
       "assets": {}
     },
@@ -187,14 +145,14 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S3A_SL_2_FRP____20260424T202837_20260424T203337_20260424T225159_0299_138_328______MAR_O_NR_003",
+      "id": "S3B_SL_2_FRP____20260425T080402_20260425T080902_20260425T100936_0299_119_192______MAR_O_NR_003",
       "collection": "sentinel-3-sl-2-frp-nrt",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-24T20:28:36.754773Z",
-        "platform": "sentinel-3a",
-        "eo:cloud_cover": 20.04
+        "datetime": "2026-04-25T08:04:02.019347Z",
+        "platform": "sentinel-3b",
+        "eo:cloud_cover": 39.94
       },
       "assets": {}
     },
@@ -215,12 +173,12 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S5P_NRTI_L2__AER_AI_20260424T115814_20260424T120314_44195_03_020901_20260424T123318",
+      "id": "S5P_NRTI_L2__AER_AI_20260425T095814_20260425T100314_44208_03_020901_20260425T120104",
       "collection": "sentinel-5p-l2-aer-ai-nrti",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-24T11:58:08Z",
+        "datetime": "2026-04-25T09:58:09Z",
         "platform": "sentinel-5p",
         "eo:cloud_cover": null
       },
@@ -243,13 +201,27 @@
     {
       "type": "Feature",
       "stac_version": "1.0.0",
-      "id": "S5P_NRTI_L2__CO_____20260424T115814_20260424T120314_44195_03_020901_20260424T123313",
+      "id": "S5P_NRTI_L2__CO_____20260425T095814_20260425T100314_44208_03_020901_20260425T120103",
       "collection": "sentinel-5p-l2-co-nrti",
       "geometry": null,
       "bbox": null,
       "properties": {
-        "datetime": "2026-04-24T11:58:08Z",
+        "datetime": "2026-04-25T09:58:09Z",
         "platform": "sentinel-5p",
+        "eo:cloud_cover": null
+      },
+      "assets": {}
+    },
+    {
+      "type": "Feature",
+      "stac_version": "1.0.0",
+      "id": "MOD14A1.A2026097.h19v04.061.2026107140716",
+      "collection": "modis-terra-mod14a1",
+      "geometry": null,
+      "bbox": null,
+      "properties": {
+        "datetime": "2026-04-07T00:00:00.000000Z",
+        "platform": "terra",
         "eo:cloud_cover": null
       },
       "assets": {}

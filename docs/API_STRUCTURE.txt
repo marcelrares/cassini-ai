@@ -27,7 +27,6 @@ Important CLI options:
 - `--demo`: use bundled demo weather values.
 - `--no-context`: skip historical weather and elevation context.
 - `--no-copernicus`: skip Copernicus satellite catalogue checks.
-- `--no-zones`: skip zone exposure ranking.
 - `--no-predictions`: skip multi-day predictions.
 - `--prediction-days`: number of Open-Meteo daily prediction rows.
 - `--update-resources`: refresh cached OSM/Nominatim resource files.
@@ -53,10 +52,6 @@ calamity_ai/context.py
   get_environmental_context(config, now) -> EnvironmentalContext
   environmental_context_to_dict(context) -> dict
 
-calamity_ai/zones.py
-  get_zone_analysis(config, features, calamities, context) -> ZoneAnalysis
-  zone_analysis_to_dict(analysis) -> dict
-
 calamity_ai/forecast.py
   get_open_meteo_predictions(config, context, days=5) -> MultiDayPrediction
   predictions_to_dict(predictions) -> dict
@@ -71,10 +66,6 @@ calamity_ai/copernicus.py
 calamity_ai/resources.py
   ensure_resources(config, update=False) -> ResourceSummary
   resource_summary_to_dict(summary) -> dict
-
-calamity_ai/exporters.py
-  append_jsonl(path, report)
-  append_csv(path, report)
 ```
 
 ## Configuration Contract
@@ -101,7 +92,6 @@ sensor_health:
   min_online_ratio: number
   stale_after_minutes: number
 context: object
-zones: object
 copernicus: object
 ```
 
@@ -157,7 +147,6 @@ Nullable local weather fields:
   "notes": "text",
   "copernicus": {},
   "context": {},
-  "zone_analysis": {},
   "predictions": {},
   "resources": {}
 }
@@ -177,7 +166,6 @@ Conditionally present:
 
 - `copernicus`: omitted when `--no-copernicus` is used or the check is skipped.
 - `context`: omitted when `--no-context` is used.
-- `zone_analysis`: omitted when context is unavailable or `--no-zones` is used.
 - `predictions`: omitted unless provider is `openmeteo`, context is enabled, and predictions are enabled.
 - `resources`: omitted when `--no-resources` is used.
 
@@ -225,12 +213,13 @@ official alert and not an event probability.
 
 ## Persistence Outputs
 
-Default file outputs:
+Default site outputs:
 
 ```text
-out/reports.jsonl  append-only full JSON report per line
-out/reports.csv    flattened spreadsheet-friendly rows
-out/monitor.log    compact human-readable log line
+out/site/manifest.json    frontend entrypoint
+out/site/dashboard.json   compact dashboard payload
+out/site/standardized/*   map-ready evidence layers
+out/site/processing/*     map-ready prediction layers
 ```
 
 ## Suggested Future HTTP API Wrapper
@@ -249,11 +238,11 @@ POST /reports
   Runs build_report(...) and returns the generated report.
 
 GET  /reports/latest
-  Returns the latest row from out/reports.jsonl.
+  Returns the latest generated dashboard payload.
 
 GET  /reports/history
   Query: limit, since, hazard.
-  Returns previous JSONL reports.
+  Requires a database or external storage because append-only local reports are no longer written.
 
 POST /weather/score
   Body: WeatherFeatures JSON.

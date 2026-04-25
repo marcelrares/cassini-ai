@@ -1,6 +1,6 @@
 # cassini-ai
 
-Cassini AI is a Python calamity monitoring starter for the Iasi area. It builds an hourly JSON/CSV/log report with weather-driven warning indices for flood, drought, storm or strong wind, heatwave, and wildfire exposure.
+Cassini AI is a Python calamity monitoring starter for the Iasi area. It builds a site-ready dashboard data bundle with weather-driven warning indices for flood, drought, storm or strong wind, heatwave, and wildfire exposure.
 
 The scores are warning indices, not official alerts and not event probabilities. Use them as decision-support signals that should be calibrated against local historical events and official warning criteria before production use.
 
@@ -10,9 +10,9 @@ The scores are warning indices, not official alerts and not event probabilities.
 - Reads weather from Open-Meteo by default.
 - Can run fully offline with bundled demo weather values.
 - Optionally checks Copernicus Data Space STAC products for satellite evidence.
-- Optionally loads historical weather, seasonal baselines, elevation, and local zone exposure.
+- Optionally loads historical weather, seasonal baselines, and elevation context.
 - Summarizes sensor health from `data/sensors.csv`.
-- Writes reports to `out/reports.jsonl`, `out/reports.csv`, and `out/monitor.log`.
+- Writes the frontend data bundle under `out/site/`.
 
 ## Project Layout
 
@@ -20,7 +20,7 @@ The scores are warning indices, not official alerts and not event probabilities.
 .
 |-- hourly_monitor.py              # CLI entry point
 |-- calamity_ai/                   # Monitoring package
-|-- config/monitor_config.json     # Area, thresholds, providers, zone labels
+|-- config/monitor_config.json     # Area, thresholds, and providers
 |-- data/sensors.csv               # Example sensor inventory
 |-- data/weather_features.json     # Offline local weather sample
 |-- data/resources/                # Cached OSM/Nominatim context
@@ -32,7 +32,6 @@ The scores are warning indices, not official alerts and not event probabilities.
 
 - Python 3.10 or newer.
 - Internet access for the normal Open-Meteo, Copernicus, elevation, and resource refresh paths.
-- No Google account is required for the default Open-Meteo run.
 
 Install optional dependencies:
 
@@ -54,7 +53,7 @@ Run the default online monitor:
 python hourly_monitor.py
 ```
 
-Reports are appended under `out/`.
+Site-ready output is written under `out/site/`.
 
 ## Common Commands
 
@@ -97,7 +96,6 @@ Edit `config/monitor_config.json` to change:
 - `thresholds`: risk model reference thresholds.
 - `sensor_health`: minimum online ratio and stale sensor age.
 - `context`: historical lookback and baseline years.
-- `zones`: grid size and human-readable sector labels.
 - `copernicus`: STAC URL, lookback period, limits, and auxiliary collections.
 
 ## Data Inputs
@@ -114,12 +112,7 @@ sensor_id,type,latitude,longitude,status,last_seen_utc
 
 ## Outputs
 
-Each run writes:
-
-- `out/reports.jsonl`: full append-only JSON report per line.
-- `out/reports.csv`: flattened report for spreadsheets.
-- `out/monitor.log`: compact text summary.
-- `out/site/manifest.json`: the frontend entrypoint that links all map-ready layers.
+Each run writes `out/site/manifest.json`, the frontend entrypoint that links the dashboard payload and map-ready layers.
 
 The `out/` directory is ignored by git.
 
@@ -139,7 +132,7 @@ out/site/manifest.json
 
 The manifest points to:
 
-- `dashboard.json`: compact payload for dashboard cards, weather widgets, alerts, prediction panels, and map component links.
+- `dashboard.json`: compact payload for dashboard cards, risk overview, sensor status, weather widgets, alerts, prediction panels, and map component links.
 - `standardized/satellite.stac.json`: curated satellite evidence in STAC-like JSON.
 - `standardized/weather.coverage.json`: weather values in a CoverageJSON-style structure.
 - `standardized/maps.geojson`: monitored area and map context.
@@ -153,7 +146,7 @@ Raw inputs are kept separately under `out/site/sources/` so the frontend does no
 Linux cron example:
 
 ```cron
-0 * * * * /usr/bin/python3 /path/to/cassini-ai/hourly_monitor.py >> /path/to/cassini-ai/out/monitor.log 2>&1
+0 * * * * /usr/bin/python3 /path/to/cassini-ai/hourly_monitor.py
 ```
 
 Windows Task Scheduler action:
@@ -168,4 +161,4 @@ python C:\path\to\cassini-ai\hourly_monitor.py
 - Validate model output against official weather and emergency alerts.
 - Replace demo sensors with real sensor feeds.
 - Keep cached resources fresh with `--update-resources` when the monitored area changes.
-- Treat zone exposure values as relative sector rankings, not official hazard polygons.
+- Treat risk values as decision-support indices, not official hazard polygons.

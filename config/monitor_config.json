@@ -34,21 +34,6 @@
     "recent_lookback_days": 90,
     "baseline_years": 10
   },
-  "zones": {
-    "rows": 12,
-    "cols": 12,
-    "labels": [
-      "Rediu-Breazu / Copou hill sector",
-      "Copou-Pacurari-Canta sector",
-      "Tatarasi-Aeroport northern ridge sector",
-      "Valea Lupului-Miroslava west sector",
-      "Bahlui low corridor / city center sector",
-      "Tatarasi-Socola-Holboca east sector",
-      "Galata-Miroslava south-west sector",
-      "Nicolina-CUG-Frumoasa south sector",
-      "Bucium-Tomesti south-east hill sector"
-    ]
-  },
   "copernicus": {
     "stac_url": "https://stac.dataspace.copernicus.eu/v1/search",
     "lookback_days": 14,
