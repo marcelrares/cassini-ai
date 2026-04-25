@@ -2,16 +2,16 @@
   "stage": "sources",
   "source_type": "weather",
   "data": {
-    "precip_24h_m": 0.026,
-    "temp_mean_24h_c": 28.4,
-    "temp_max_24h_c": 34.2,
-    "wind_gust_max_ms": 14.5,
-    "cape_max_jkg": 1100,
-    "temp_current_c": 27.6,
-    "temp_forecast_max_next_24h_c": 34.2,
-    "soil_moisture_proxy": 0.31,
-    "relative_humidity_mean_percent": 36.0,
-    "evapotranspiration_24h_mm": 4.8,
-    "vapor_pressure_deficit_kpa": 1.9
+    "precip_24h_m": 0.0,
+    "temp_mean_24h_c": 11.576,
+    "temp_max_24h_c": 17.9,
+    "wind_gust_max_ms": 22.61111111111111,
+    "cape_max_jkg": 0,
+    "temp_current_c": 17.9,
+    "temp_forecast_max_next_24h_c": 20.4,
+    "soil_moisture_proxy": 0.4789565217391304,
+    "relative_humidity_mean_percent": 57.78260869565217,
+    "evapotranspiration_24h_mm": 2.17,
+    "vapor_pressure_deficit_kpa": 0.7965217391304348
   }
 }

@@ -3,85 +3,6168 @@
   "features": [
     {
       "type": "Feature",
-      "id": "aoi-risk",
-      "bbox": [
-        27.43,
-        47.05,
-        27.75,
-        47.24
-      ],
+      "id": "Z1",
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
             [
-              27.43,
-              47.17
-            ],
-            [
-              27.48,
-              47.23
-            ],
-            [
-              27.61,
-              47.24
-            ],
-            [
-              27.72,
+              27.4,
               47.2
             ],
             [
-              27.75,
-              47.14
+              27.416667,
+              47.2
             ],
             [
-              27.7,
-              47.08
+              27.416667,
+              47.191667
             ],
             [
-              27.6,
-              47.05
+              27.4,
+              47.191667
             ],
             [
-              27.5,
-              47.07
-            ],
-            [
-              27.43,
-              47.12
-            ],
-            [
-              27.43,
-              47.17
+              27.4,
+              47.2
             ]
           ]
         ]
       },
       "properties": {
-        "name": "Iasi_monitoring_zone",
-        "max_risk_index": 53.1,
-        "risks": {
-          "flood": {
-            "risk": "low",
-            "risk_index_percent": 33.8
-          },
-          "drought": {
-            "risk": "medium",
-            "risk_index_percent": 49.0
-          },
-          "storm": {
-            "risk": "medium",
-            "risk_index_percent": 53.1
-          },
-          "heatwave": {
-            "risk": "medium",
-            "risk_index_percent": 52.5
-          },
-          "wildfire": {
-            "risk": "medium",
-            "risk_index_percent": 41.9
-          }
-        }
+        "name": "row 1-column 1 sector",
+        "center_longitude": 27.40833,
+        "center_latitude": 47.19583,
+        "flood_exposure_index": 18.7,
+        "drought_exposure_index": 24.3,
+        "wildfire_exposure_index": 7.1,
+        "max_risk_index": 24.3,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.7, drought 24.3, wildfire 7.1. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.82, vegetation proxy 0.0, agriculture proxy 0.32."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z2",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.416667,
+              47.2
+            ],
+            [
+              27.433333,
+              47.2
+            ],
+            [
+              27.433333,
+              47.191667
+            ],
+            [
+              27.416667,
+              47.191667
+            ],
+            [
+              27.416667,
+              47.2
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 1-column 2 sector",
+        "center_longitude": 27.425,
+        "center_latitude": 47.19583,
+        "flood_exposure_index": 18.0,
+        "drought_exposure_index": 23.9,
+        "wildfire_exposure_index": 7.2,
+        "max_risk_index": 23.9,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.0, drought 23.9, wildfire 7.2. OSM resource factors: water proximity 0.06, urban/impervious proxy 0.2, vegetation proxy 0.1, agriculture proxy 0.13."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z3",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.433333,
+              47.2
+            ],
+            [
+              27.45,
+              47.2
+            ],
+            [
+              27.45,
+              47.191667
+            ],
+            [
+              27.433333,
+              47.191667
+            ],
+            [
+              27.433333,
+              47.2
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 1-column 3 sector",
+        "center_longitude": 27.44167,
+        "center_latitude": 47.19583,
+        "flood_exposure_index": 18.6,
+        "drought_exposure_index": 24.8,
+        "wildfire_exposure_index": 7.3,
+        "max_risk_index": 24.8,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.6, drought 24.8, wildfire 7.3. OSM resource factors: water proximity 0.32, urban/impervious proxy 0.0, vegetation proxy 0.05, agriculture proxy 0.53."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z4",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.45,
+              47.2
+            ],
+            [
+              27.466667,
+              47.2
+            ],
+            [
+              27.466667,
+              47.191667
+            ],
+            [
+              27.45,
+              47.191667
+            ],
+            [
+              27.45,
+              47.2
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 1-column 4 sector",
+        "center_longitude": 27.45833,
+        "center_latitude": 47.19583,
+        "flood_exposure_index": 20.0,
+        "drought_exposure_index": 25.5,
+        "wildfire_exposure_index": 8.0,
+        "max_risk_index": 25.5,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.0, drought 25.5, wildfire 8.0. OSM resource factors: water proximity 0.63, urban/impervious proxy 0.2, vegetation proxy 0.4, agriculture proxy 0.84."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z5",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.466667,
+              47.2
+            ],
+            [
+              27.483333,
+              47.2
+            ],
+            [
+              27.483333,
+              47.191667
+            ],
+            [
+              27.466667,
+              47.191667
+            ],
+            [
+              27.466667,
+              47.2
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 1-column 5 sector",
+        "center_longitude": 27.475,
+        "center_latitude": 47.19583,
+        "flood_exposure_index": 18.5,
+        "drought_exposure_index": 24.6,
+        "wildfire_exposure_index": 7.6,
+        "max_risk_index": 24.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.5, drought 24.6, wildfire 7.6. OSM resource factors: water proximity 0.31, urban/impervious proxy 0.0, vegetation proxy 0.26, agriculture proxy 0.42."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z6",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.483333,
+              47.2
+            ],
+            [
+              27.5,
+              47.2
+            ],
+            [
+              27.5,
+              47.191667
+            ],
+            [
+              27.483333,
+              47.191667
+            ],
+            [
+              27.483333,
+              47.2
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 1-column 6 sector",
+        "center_longitude": 27.49167,
+        "center_latitude": 47.19583,
+        "flood_exposure_index": 19.6,
+        "drought_exposure_index": 25.2,
+        "wildfire_exposure_index": 8.5,
+        "max_risk_index": 25.2,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.6, drought 25.2, wildfire 8.5. OSM resource factors: water proximity 0.6, urban/impervious proxy 0.0, vegetation proxy 0.8, agriculture proxy 0.7."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z7",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.5,
+              47.2
+            ],
+            [
+              27.516667,
+              47.2
+            ],
+            [
+              27.516667,
+              47.191667
+            ],
+            [
+              27.5,
+              47.191667
+            ],
+            [
+              27.5,
+              47.2
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 1-column 7 sector",
+        "center_longitude": 27.50833,
+        "center_latitude": 47.19583,
+        "flood_exposure_index": 18.3,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 7.7,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.3, drought 24.7, wildfire 7.7. OSM resource factors: water proximity 0.23, urban/impervious proxy 0.0, vegetation proxy 0.32, agriculture proxy 0.48."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z8",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.516667,
+              47.2
+            ],
+            [
+              27.533333,
+              47.2
+            ],
+            [
+              27.533333,
+              47.191667
+            ],
+            [
+              27.516667,
+              47.191667
+            ],
+            [
+              27.516667,
+              47.2
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 1-column 8 sector",
+        "center_longitude": 27.525,
+        "center_latitude": 47.19583,
+        "flood_exposure_index": 20.8,
+        "drought_exposure_index": 24.5,
+        "wildfire_exposure_index": 8.4,
+        "max_risk_index": 24.5,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.8, drought 24.5, wildfire 8.4. OSM resource factors: water proximity 0.7, urban/impervious proxy 0.53, vegetation proxy 0.91, agriculture proxy 0.4."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z9",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.533333,
+              47.2
+            ],
+            [
+              27.55,
+              47.2
+            ],
+            [
+              27.55,
+              47.191667
+            ],
+            [
+              27.533333,
+              47.191667
+            ],
+            [
+              27.533333,
+              47.2
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 1-column 9 sector",
+        "center_longitude": 27.54167,
+        "center_latitude": 47.19583,
+        "flood_exposure_index": 18.4,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 7.6,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.4, drought 24.7, wildfire 7.6. OSM resource factors: water proximity 0.02, urban/impervious proxy 0.56, vegetation proxy 0.27, agriculture proxy 0.49."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z10",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.55,
+              47.2
+            ],
+            [
+              27.566667,
+              47.2
+            ],
+            [
+              27.566667,
+              47.191667
+            ],
+            [
+              27.55,
+              47.191667
+            ],
+            [
+              27.55,
+              47.2
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 1-column 10 sector",
+        "center_longitude": 27.55833,
+        "center_latitude": 47.19583,
+        "flood_exposure_index": 19.5,
+        "drought_exposure_index": 24.1,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 24.1,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.5, drought 24.1, wildfire 8.3. OSM resource factors: water proximity 0.57, urban/impervious proxy 0.0, vegetation proxy 0.9, agriculture proxy 0.22."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z11",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.566667,
+              47.2
+            ],
+            [
+              27.583333,
+              47.2
+            ],
+            [
+              27.583333,
+              47.191667
+            ],
+            [
+              27.566667,
+              47.191667
+            ],
+            [
+              27.566667,
+              47.2
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 1-column 11 sector",
+        "center_longitude": 27.575,
+        "center_latitude": 47.19583,
+        "flood_exposure_index": 19.5,
+        "drought_exposure_index": 25.3,
+        "wildfire_exposure_index": 8.5,
+        "max_risk_index": 25.3,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.5, drought 25.3, wildfire 8.5. OSM resource factors: water proximity 0.58, urban/impervious proxy 0.0, vegetation proxy 0.78, agriculture proxy 0.74."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z12",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.583333,
+              47.2
+            ],
+            [
+              27.6,
+              47.2
+            ],
+            [
+              27.6,
+              47.191667
+            ],
+            [
+              27.583333,
+              47.191667
+            ],
+            [
+              27.583333,
+              47.2
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 1-column 12 sector",
+        "center_longitude": 27.59167,
+        "center_latitude": 47.19583,
+        "flood_exposure_index": 19.7,
+        "drought_exposure_index": 25.9,
+        "wildfire_exposure_index": 8.4,
+        "max_risk_index": 25.9,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.7, drought 25.9, wildfire 8.4. OSM resource factors: water proximity 0.62, urban/impervious proxy 0.0, vegetation proxy 0.63, agriculture proxy 0.97."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z13",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.4,
+              47.191667
+            ],
+            [
+              27.416667,
+              47.191667
+            ],
+            [
+              27.416667,
+              47.183333
+            ],
+            [
+              27.4,
+              47.183333
+            ],
+            [
+              27.4,
+              47.191667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 2-column 1 sector",
+        "center_longitude": 27.40833,
+        "center_latitude": 47.1875,
+        "flood_exposure_index": 17.4,
+        "drought_exposure_index": 25.4,
+        "wildfire_exposure_index": 7.4,
+        "max_risk_index": 25.4,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.4, drought 25.4, wildfire 7.4. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.77."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z14",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.416667,
+              47.191667
+            ],
+            [
+              27.433333,
+              47.191667
+            ],
+            [
+              27.433333,
+              47.183333
+            ],
+            [
+              27.416667,
+              47.183333
+            ],
+            [
+              27.416667,
+              47.191667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 2-column 2 sector",
+        "center_longitude": 27.425,
+        "center_latitude": 47.1875,
+        "flood_exposure_index": 19.3,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 7.2,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.3, drought 24.7, wildfire 7.2. OSM resource factors: water proximity 0.27, urban/impervious proxy 0.54, vegetation proxy 0.0, agriculture proxy 0.49."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z15",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.433333,
+              47.191667
+            ],
+            [
+              27.45,
+              47.191667
+            ],
+            [
+              27.45,
+              47.183333
+            ],
+            [
+              27.433333,
+              47.183333
+            ],
+            [
+              27.433333,
+              47.191667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 2-column 3 sector",
+        "center_longitude": 27.44167,
+        "center_latitude": 47.1875,
+        "flood_exposure_index": 20.8,
+        "drought_exposure_index": 25.0,
+        "wildfire_exposure_index": 8.0,
+        "max_risk_index": 25.0,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.8, drought 25.0, wildfire 8.0. OSM resource factors: water proximity 0.63, urban/impervious proxy 0.67, vegetation proxy 0.51, agriculture proxy 0.61."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z16",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.45,
+              47.191667
+            ],
+            [
+              27.466667,
+              47.191667
+            ],
+            [
+              27.466667,
+              47.183333
+            ],
+            [
+              27.45,
+              47.183333
+            ],
+            [
+              27.45,
+              47.191667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 2-column 4 sector",
+        "center_longitude": 27.45833,
+        "center_latitude": 47.1875,
+        "flood_exposure_index": 21.4,
+        "drought_exposure_index": 24.8,
+        "wildfire_exposure_index": 8.0,
+        "max_risk_index": 24.8,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.4, drought 24.8, wildfire 8.0. OSM resource factors: water proximity 0.73, urban/impervious proxy 0.8, vegetation proxy 0.53, agriculture proxy 0.53."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z17",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.466667,
+              47.191667
+            ],
+            [
+              27.483333,
+              47.191667
+            ],
+            [
+              27.483333,
+              47.183333
+            ],
+            [
+              27.466667,
+              47.183333
+            ],
+            [
+              27.466667,
+              47.191667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 2-column 5 sector",
+        "center_longitude": 27.475,
+        "center_latitude": 47.1875,
+        "flood_exposure_index": 19.6,
+        "drought_exposure_index": 25.3,
+        "wildfire_exposure_index": 7.7,
+        "max_risk_index": 25.3,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.6, drought 25.3, wildfire 7.7. OSM resource factors: water proximity 0.48, urban/impervious proxy 0.28, vegetation proxy 0.25, agriculture proxy 0.75."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z18",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.483333,
+              47.191667
+            ],
+            [
+              27.5,
+              47.191667
+            ],
+            [
+              27.5,
+              47.183333
+            ],
+            [
+              27.483333,
+              47.183333
+            ],
+            [
+              27.483333,
+              47.191667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 2-column 6 sector",
+        "center_longitude": 27.49167,
+        "center_latitude": 47.1875,
+        "flood_exposure_index": 19.8,
+        "drought_exposure_index": 25.3,
+        "wildfire_exposure_index": 8.5,
+        "max_risk_index": 25.3,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.8, drought 25.3, wildfire 8.5. OSM resource factors: water proximity 0.65, urban/impervious proxy 0.0, vegetation proxy 0.81, agriculture proxy 0.72."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z19",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.5,
+              47.191667
+            ],
+            [
+              27.516667,
+              47.191667
+            ],
+            [
+              27.516667,
+              47.183333
+            ],
+            [
+              27.5,
+              47.183333
+            ],
+            [
+              27.5,
+              47.191667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 2-column 7 sector",
+        "center_longitude": 27.50833,
+        "center_latitude": 47.1875,
+        "flood_exposure_index": 18.7,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 7.4,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.7, drought 24.7, wildfire 7.4. OSM resource factors: water proximity 0.24, urban/impervious proxy 0.23, vegetation proxy 0.11, agriculture proxy 0.5."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z20",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.516667,
+              47.191667
+            ],
+            [
+              27.533333,
+              47.191667
+            ],
+            [
+              27.533333,
+              47.183333
+            ],
+            [
+              27.516667,
+              47.183333
+            ],
+            [
+              27.516667,
+              47.191667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 2-column 8 sector",
+        "center_longitude": 27.525,
+        "center_latitude": 47.1875,
+        "flood_exposure_index": 20.6,
+        "drought_exposure_index": 25.3,
+        "wildfire_exposure_index": 8.0,
+        "max_risk_index": 25.3,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.6, drought 25.3, wildfire 8.0. OSM resource factors: water proximity 0.83, urban/impervious proxy 0.12, vegetation proxy 0.47, agriculture proxy 0.72."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z21",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.533333,
+              47.191667
+            ],
+            [
+              27.55,
+              47.191667
+            ],
+            [
+              27.55,
+              47.183333
+            ],
+            [
+              27.533333,
+              47.183333
+            ],
+            [
+              27.533333,
+              47.191667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 2-column 9 sector",
+        "center_longitude": 27.54167,
+        "center_latitude": 47.1875,
+        "flood_exposure_index": 19.3,
+        "drought_exposure_index": 25.8,
+        "wildfire_exposure_index": 7.5,
+        "max_risk_index": 25.8,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.3, drought 25.8, wildfire 7.5. OSM resource factors: water proximity 0.51, urban/impervious proxy 0.0, vegetation proxy 0.01, agriculture proxy 0.95."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z22",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.55,
+              47.191667
+            ],
+            [
+              27.566667,
+              47.191667
+            ],
+            [
+              27.566667,
+              47.183333
+            ],
+            [
+              27.55,
+              47.183333
+            ],
+            [
+              27.55,
+              47.191667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 2-column 10 sector",
+        "center_longitude": 27.55833,
+        "center_latitude": 47.1875,
+        "flood_exposure_index": 20.8,
+        "drought_exposure_index": 24.4,
+        "wildfire_exposure_index": 7.6,
+        "max_risk_index": 24.4,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.8, drought 24.4, wildfire 7.6. OSM resource factors: water proximity 0.74, urban/impervious proxy 0.46, vegetation proxy 0.3, agriculture proxy 0.37."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z23",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.566667,
+              47.191667
+            ],
+            [
+              27.583333,
+              47.191667
+            ],
+            [
+              27.583333,
+              47.183333
+            ],
+            [
+              27.566667,
+              47.183333
+            ],
+            [
+              27.566667,
+              47.191667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 2-column 11 sector",
+        "center_longitude": 27.575,
+        "center_latitude": 47.1875,
+        "flood_exposure_index": 18.9,
+        "drought_exposure_index": 24.4,
+        "wildfire_exposure_index": 8.4,
+        "max_risk_index": 24.4,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.9, drought 24.4, wildfire 8.4. OSM resource factors: water proximity 0.29, urban/impervious proxy 0.26, vegetation proxy 0.93, agriculture proxy 0.34."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z24",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.583333,
+              47.191667
+            ],
+            [
+              27.6,
+              47.191667
+            ],
+            [
+              27.6,
+              47.183333
+            ],
+            [
+              27.583333,
+              47.183333
+            ],
+            [
+              27.583333,
+              47.191667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 2-column 12 sector",
+        "center_longitude": 27.59167,
+        "center_latitude": 47.1875,
+        "flood_exposure_index": 19.9,
+        "drought_exposure_index": 25.0,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 25.0,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.9, drought 25.0, wildfire 8.2. OSM resource factors: water proximity 0.42, urban/impervious proxy 0.59, vegetation proxy 0.68, agriculture proxy 0.59."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z25",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.4,
+              47.183333
+            ],
+            [
+              27.416667,
+              47.183333
+            ],
+            [
+              27.416667,
+              47.175
+            ],
+            [
+              27.4,
+              47.175
+            ],
+            [
+              27.4,
+              47.183333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 3-column 1 sector",
+        "center_longitude": 27.40833,
+        "center_latitude": 47.17917,
+        "flood_exposure_index": 17.4,
+        "drought_exposure_index": 25.3,
+        "wildfire_exposure_index": 7.4,
+        "max_risk_index": 25.3,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.4, drought 25.3, wildfire 7.4. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.74."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z26",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.416667,
+              47.183333
+            ],
+            [
+              27.433333,
+              47.183333
+            ],
+            [
+              27.433333,
+              47.175
+            ],
+            [
+              27.416667,
+              47.175
+            ],
+            [
+              27.416667,
+              47.183333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 3-column 2 sector",
+        "center_longitude": 27.425,
+        "center_latitude": 47.17917,
+        "flood_exposure_index": 17.8,
+        "drought_exposure_index": 24.9,
+        "wildfire_exposure_index": 7.4,
+        "max_risk_index": 24.9,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.8, drought 24.9, wildfire 7.4. OSM resource factors: water proximity 0.1, urban/impervious proxy 0.0, vegetation proxy 0.05, agriculture proxy 0.57."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z27",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.433333,
+              47.183333
+            ],
+            [
+              27.45,
+              47.183333
+            ],
+            [
+              27.45,
+              47.175
+            ],
+            [
+              27.433333,
+              47.175
+            ],
+            [
+              27.433333,
+              47.183333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 3-column 3 sector",
+        "center_longitude": 27.44167,
+        "center_latitude": 47.17917,
+        "flood_exposure_index": 20.8,
+        "drought_exposure_index": 25.3,
+        "wildfire_exposure_index": 8.0,
+        "max_risk_index": 25.3,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.8, drought 25.3, wildfire 8.0. OSM resource factors: water proximity 0.83, urban/impervious proxy 0.21, vegetation proxy 0.43, agriculture proxy 0.73."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z28",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.45,
+              47.183333
+            ],
+            [
+              27.466667,
+              47.183333
+            ],
+            [
+              27.466667,
+              47.175
+            ],
+            [
+              27.45,
+              47.175
+            ],
+            [
+              27.45,
+              47.183333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 3-column 4 sector",
+        "center_longitude": 27.45833,
+        "center_latitude": 47.17917,
+        "flood_exposure_index": 20.3,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 7.8,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.3, drought 24.7, wildfire 7.8. OSM resource factors: water proximity 0.74, urban/impervious proxy 0.11, vegetation proxy 0.44, agriculture proxy 0.47."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z29",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.466667,
+              47.183333
+            ],
+            [
+              27.483333,
+              47.183333
+            ],
+            [
+              27.483333,
+              47.175
+            ],
+            [
+              27.466667,
+              47.175
+            ],
+            [
+              27.466667,
+              47.183333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 3-column 5 sector",
+        "center_longitude": 27.475,
+        "center_latitude": 47.17917,
+        "flood_exposure_index": 20.2,
+        "drought_exposure_index": 25.1,
+        "wildfire_exposure_index": 7.8,
+        "max_risk_index": 25.1,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.2, drought 25.1, wildfire 7.8. OSM resource factors: water proximity 0.43, urban/impervious proxy 0.74, vegetation proxy 0.37, agriculture proxy 0.65."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z30",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.483333,
+              47.183333
+            ],
+            [
+              27.5,
+              47.183333
+            ],
+            [
+              27.5,
+              47.175
+            ],
+            [
+              27.483333,
+              47.175
+            ],
+            [
+              27.483333,
+              47.183333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 3-column 6 sector",
+        "center_longitude": 27.49167,
+        "center_latitude": 47.17917,
+        "flood_exposure_index": 21.0,
+        "drought_exposure_index": 24.3,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 24.3,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.0, drought 24.3, wildfire 8.3. OSM resource factors: water proximity 0.76, urban/impervious proxy 0.53, vegetation proxy 0.81, agriculture proxy 0.3."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z31",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.5,
+              47.183333
+            ],
+            [
+              27.516667,
+              47.183333
+            ],
+            [
+              27.516667,
+              47.175
+            ],
+            [
+              27.5,
+              47.175
+            ],
+            [
+              27.5,
+              47.183333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 3-column 7 sector",
+        "center_longitude": 27.50833,
+        "center_latitude": 47.17917,
+        "flood_exposure_index": 19.5,
+        "drought_exposure_index": 24.0,
+        "wildfire_exposure_index": 7.8,
+        "max_risk_index": 24.0,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.5, drought 24.0, wildfire 7.8. OSM resource factors: water proximity 0.34, urban/impervious proxy 0.52, vegetation proxy 0.51, agriculture proxy 0.19."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z32",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.516667,
+              47.183333
+            ],
+            [
+              27.533333,
+              47.183333
+            ],
+            [
+              27.533333,
+              47.175
+            ],
+            [
+              27.516667,
+              47.175
+            ],
+            [
+              27.516667,
+              47.183333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 3-column 8 sector",
+        "center_longitude": 27.525,
+        "center_latitude": 47.17917,
+        "flood_exposure_index": 20.3,
+        "drought_exposure_index": 24.8,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 24.8,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.3, drought 24.8, wildfire 8.2. OSM resource factors: water proximity 0.61, urban/impervious proxy 0.4, vegetation proxy 0.66, agriculture proxy 0.53."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z33",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.533333,
+              47.183333
+            ],
+            [
+              27.55,
+              47.183333
+            ],
+            [
+              27.55,
+              47.175
+            ],
+            [
+              27.533333,
+              47.175
+            ],
+            [
+              27.533333,
+              47.183333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 3-column 9 sector",
+        "center_longitude": 27.54167,
+        "center_latitude": 47.17917,
+        "flood_exposure_index": 20.5,
+        "drought_exposure_index": 24.9,
+        "wildfire_exposure_index": 7.9,
+        "max_risk_index": 24.9,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.5, drought 24.9, wildfire 7.9. OSM resource factors: water proximity 0.51, urban/impervious proxy 0.78, vegetation proxy 0.47, agriculture proxy 0.58."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z34",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.55,
+              47.183333
+            ],
+            [
+              27.566667,
+              47.183333
+            ],
+            [
+              27.566667,
+              47.175
+            ],
+            [
+              27.55,
+              47.175
+            ],
+            [
+              27.55,
+              47.183333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 3-column 10 sector",
+        "center_longitude": 27.55833,
+        "center_latitude": 47.17917,
+        "flood_exposure_index": 20.5,
+        "drought_exposure_index": 24.2,
+        "wildfire_exposure_index": 7.5,
+        "max_risk_index": 24.2,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.5, drought 24.2, wildfire 7.5. OSM resource factors: water proximity 0.47, urban/impervious proxy 0.88, vegetation proxy 0.27, agriculture proxy 0.24."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z35",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.566667,
+              47.183333
+            ],
+            [
+              27.583333,
+              47.183333
+            ],
+            [
+              27.583333,
+              47.175
+            ],
+            [
+              27.566667,
+              47.175
+            ],
+            [
+              27.566667,
+              47.183333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 3-column 11 sector",
+        "center_longitude": 27.575,
+        "center_latitude": 47.17917,
+        "flood_exposure_index": 20.7,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.7, drought 23.6, wildfire 8.1. OSM resource factors: water proximity 0.59, urban/impervious proxy 0.7, vegetation proxy 0.82, agriculture proxy 0.0."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z36",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.583333,
+              47.183333
+            ],
+            [
+              27.6,
+              47.183333
+            ],
+            [
+              27.6,
+              47.175
+            ],
+            [
+              27.583333,
+              47.175
+            ],
+            [
+              27.583333,
+              47.183333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 3-column 12 sector",
+        "center_longitude": 27.59167,
+        "center_latitude": 47.17917,
+        "flood_exposure_index": 19.7,
+        "drought_exposure_index": 23.9,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 23.9,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.7, drought 23.9, wildfire 8.1. OSM resource factors: water proximity 0.54, urban/impervious proxy 0.2, vegetation proxy 0.77, agriculture proxy 0.13."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z37",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.4,
+              47.175
+            ],
+            [
+              27.416667,
+              47.175
+            ],
+            [
+              27.416667,
+              47.166667
+            ],
+            [
+              27.4,
+              47.166667
+            ],
+            [
+              27.4,
+              47.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 4-column 1 sector",
+        "center_longitude": 27.40833,
+        "center_latitude": 47.17083,
+        "flood_exposure_index": 17.4,
+        "drought_exposure_index": 24.2,
+        "wildfire_exposure_index": 7.2,
+        "max_risk_index": 24.2,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.4, drought 24.2, wildfire 7.2. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.0, vegetation proxy 0.06, agriculture proxy 0.29."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z38",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.416667,
+              47.175
+            ],
+            [
+              27.433333,
+              47.175
+            ],
+            [
+              27.433333,
+              47.166667
+            ],
+            [
+              27.416667,
+              47.166667
+            ],
+            [
+              27.416667,
+              47.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 4-column 2 sector",
+        "center_longitude": 27.425,
+        "center_latitude": 47.17083,
+        "flood_exposure_index": 17.9,
+        "drought_exposure_index": 25.3,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 25.3,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.9, drought 25.3, wildfire 8.3. OSM resource factors: water proximity 0.14, urban/impervious proxy 0.0, vegetation proxy 0.66, agriculture proxy 0.74."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z39",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.433333,
+              47.175
+            ],
+            [
+              27.45,
+              47.175
+            ],
+            [
+              27.45,
+              47.166667
+            ],
+            [
+              27.433333,
+              47.166667
+            ],
+            [
+              27.433333,
+              47.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 4-column 3 sector",
+        "center_longitude": 27.44167,
+        "center_latitude": 47.17083,
+        "flood_exposure_index": 19.7,
+        "drought_exposure_index": 25.1,
+        "wildfire_exposure_index": 7.5,
+        "max_risk_index": 25.1,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.7, drought 25.1, wildfire 7.5. OSM resource factors: water proximity 0.62, urban/impervious proxy 0.0, vegetation proxy 0.13, agriculture proxy 0.65."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z40",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.45,
+              47.175
+            ],
+            [
+              27.466667,
+              47.175
+            ],
+            [
+              27.466667,
+              47.166667
+            ],
+            [
+              27.45,
+              47.166667
+            ],
+            [
+              27.45,
+              47.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 4-column 4 sector",
+        "center_longitude": 27.45833,
+        "center_latitude": 47.17083,
+        "flood_exposure_index": 21.8,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 7.2,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.8, drought 24.7, wildfire 7.2. OSM resource factors: water proximity 0.96, urban/impervious proxy 0.56, vegetation proxy 0.0, agriculture proxy 0.46."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z41",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.466667,
+              47.175
+            ],
+            [
+              27.483333,
+              47.175
+            ],
+            [
+              27.483333,
+              47.166667
+            ],
+            [
+              27.466667,
+              47.166667
+            ],
+            [
+              27.466667,
+              47.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 4-column 5 sector",
+        "center_longitude": 27.475,
+        "center_latitude": 47.17083,
+        "flood_exposure_index": 20.4,
+        "drought_exposure_index": 25.5,
+        "wildfire_exposure_index": 7.8,
+        "max_risk_index": 25.5,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.4, drought 25.5, wildfire 7.8. OSM resource factors: water proximity 0.68, urban/impervious proxy 0.31, vegetation proxy 0.24, agriculture proxy 0.81."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z42",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.483333,
+              47.175
+            ],
+            [
+              27.5,
+              47.175
+            ],
+            [
+              27.5,
+              47.166667
+            ],
+            [
+              27.483333,
+              47.166667
+            ],
+            [
+              27.483333,
+              47.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 4-column 6 sector",
+        "center_longitude": 27.49167,
+        "center_latitude": 47.17083,
+        "flood_exposure_index": 21.1,
+        "drought_exposure_index": 24.4,
+        "wildfire_exposure_index": 8.0,
+        "max_risk_index": 24.4,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.1, drought 24.4, wildfire 8.0. OSM resource factors: water proximity 0.84, urban/impervious proxy 0.43, vegetation proxy 0.58, agriculture proxy 0.36."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z43",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.5,
+              47.175
+            ],
+            [
+              27.516667,
+              47.175
+            ],
+            [
+              27.516667,
+              47.166667
+            ],
+            [
+              27.5,
+              47.166667
+            ],
+            [
+              27.5,
+              47.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 4-column 7 sector",
+        "center_longitude": 27.50833,
+        "center_latitude": 47.17083,
+        "flood_exposure_index": 20.8,
+        "drought_exposure_index": 24.2,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 24.2,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.8, drought 24.2, wildfire 8.3. OSM resource factors: water proximity 0.73, urban/impervious proxy 0.49, vegetation proxy 0.88, agriculture proxy 0.28."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z44",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.516667,
+              47.175
+            ],
+            [
+              27.533333,
+              47.175
+            ],
+            [
+              27.533333,
+              47.166667
+            ],
+            [
+              27.516667,
+              47.166667
+            ],
+            [
+              27.516667,
+              47.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 4-column 8 sector",
+        "center_longitude": 27.525,
+        "center_latitude": 47.17083,
+        "flood_exposure_index": 20.1,
+        "drought_exposure_index": 24.2,
+        "wildfire_exposure_index": 8.0,
+        "max_risk_index": 24.2,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.1, drought 24.2, wildfire 8.0. OSM resource factors: water proximity 0.46, urban/impervious proxy 0.65, vegetation proxy 0.65, agriculture proxy 0.26."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z45",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.533333,
+              47.175
+            ],
+            [
+              27.55,
+              47.175
+            ],
+            [
+              27.55,
+              47.166667
+            ],
+            [
+              27.533333,
+              47.166667
+            ],
+            [
+              27.533333,
+              47.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 4-column 9 sector",
+        "center_longitude": 27.54167,
+        "center_latitude": 47.17083,
+        "flood_exposure_index": 21.4,
+        "drought_exposure_index": 23.9,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 23.9,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.4, drought 23.9, wildfire 8.1. OSM resource factors: water proximity 0.69, urban/impervious proxy 0.93, vegetation proxy 0.77, agriculture proxy 0.12."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z46",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.55,
+              47.175
+            ],
+            [
+              27.566667,
+              47.175
+            ],
+            [
+              27.566667,
+              47.166667
+            ],
+            [
+              27.55,
+              47.166667
+            ],
+            [
+              27.55,
+              47.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 4-column 10 sector",
+        "center_longitude": 27.55833,
+        "center_latitude": 47.17083,
+        "flood_exposure_index": 19.5,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.5, drought 23.6, wildfire 8.1. OSM resource factors: water proximity 0.18, urban/impervious proxy 0.88, vegetation proxy 0.83, agriculture proxy 0.0."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z47",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.566667,
+              47.175
+            ],
+            [
+              27.583333,
+              47.175
+            ],
+            [
+              27.583333,
+              47.166667
+            ],
+            [
+              27.566667,
+              47.166667
+            ],
+            [
+              27.566667,
+              47.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 4-column 11 sector",
+        "center_longitude": 27.575,
+        "center_latitude": 47.17083,
+        "flood_exposure_index": 19.4,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.4, drought 23.6, wildfire 8.2. OSM resource factors: water proximity 0.23, urban/impervious proxy 0.71, vegetation proxy 0.87, agriculture proxy 0.0."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z48",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.583333,
+              47.175
+            ],
+            [
+              27.6,
+              47.175
+            ],
+            [
+              27.6,
+              47.166667
+            ],
+            [
+              27.583333,
+              47.166667
+            ],
+            [
+              27.583333,
+              47.175
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 4-column 12 sector",
+        "center_longitude": 27.59167,
+        "center_latitude": 47.17083,
+        "flood_exposure_index": 20.7,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 7.8,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.7, drought 23.6, wildfire 7.8. OSM resource factors: water proximity 0.56, urban/impervious proxy 0.79, vegetation proxy 0.61, agriculture proxy 0.0."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z49",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.4,
+              47.166667
+            ],
+            [
+              27.416667,
+              47.166667
+            ],
+            [
+              27.416667,
+              47.158333
+            ],
+            [
+              27.4,
+              47.158333
+            ],
+            [
+              27.4,
+              47.166667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 5-column 1 sector",
+        "center_longitude": 27.40833,
+        "center_latitude": 47.1625,
+        "flood_exposure_index": 17.4,
+        "drought_exposure_index": 24.2,
+        "wildfire_exposure_index": 7.2,
+        "max_risk_index": 24.2,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.4, drought 24.2, wildfire 7.2. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.0, vegetation proxy 0.08, agriculture proxy 0.28."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z50",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.416667,
+              47.166667
+            ],
+            [
+              27.433333,
+              47.166667
+            ],
+            [
+              27.433333,
+              47.158333
+            ],
+            [
+              27.416667,
+              47.158333
+            ],
+            [
+              27.416667,
+              47.166667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 5-column 2 sector",
+        "center_longitude": 27.425,
+        "center_latitude": 47.1625,
+        "flood_exposure_index": 19.4,
+        "drought_exposure_index": 25.6,
+        "wildfire_exposure_index": 8.5,
+        "max_risk_index": 25.6,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.4, drought 25.6, wildfire 8.5. OSM resource factors: water proximity 0.53, urban/impervious proxy 0.0, vegetation proxy 0.72, agriculture proxy 0.88."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z51",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.433333,
+              47.166667
+            ],
+            [
+              27.45,
+              47.166667
+            ],
+            [
+              27.45,
+              47.158333
+            ],
+            [
+              27.433333,
+              47.158333
+            ],
+            [
+              27.433333,
+              47.166667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 5-column 3 sector",
+        "center_longitude": 27.44167,
+        "center_latitude": 47.1625,
+        "flood_exposure_index": 18.9,
+        "drought_exposure_index": 25.7,
+        "wildfire_exposure_index": 7.7,
+        "max_risk_index": 25.7,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.9, drought 25.7, wildfire 7.7. OSM resource factors: water proximity 0.41, urban/impervious proxy 0.0, vegetation proxy 0.15, agriculture proxy 0.89."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z52",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.45,
+              47.166667
+            ],
+            [
+              27.466667,
+              47.166667
+            ],
+            [
+              27.466667,
+              47.158333
+            ],
+            [
+              27.45,
+              47.158333
+            ],
+            [
+              27.45,
+              47.166667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 5-column 4 sector",
+        "center_longitude": 27.45833,
+        "center_latitude": 47.1625,
+        "flood_exposure_index": 20.4,
+        "drought_exposure_index": 25.4,
+        "wildfire_exposure_index": 7.8,
+        "max_risk_index": 25.4,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.4, drought 25.4, wildfire 7.8. OSM resource factors: water proximity 0.43, urban/impervious proxy 0.88, vegetation proxy 0.29, agriculture proxy 0.79."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z53",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.466667,
+              47.166667
+            ],
+            [
+              27.483333,
+              47.166667
+            ],
+            [
+              27.483333,
+              47.158333
+            ],
+            [
+              27.466667,
+              47.158333
+            ],
+            [
+              27.466667,
+              47.166667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 5-column 5 sector",
+        "center_longitude": 27.475,
+        "center_latitude": 47.1625,
+        "flood_exposure_index": 19.0,
+        "drought_exposure_index": 25.3,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 25.3,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.0, drought 25.3, wildfire 8.3. OSM resource factors: water proximity 0.45, urban/impervious proxy 0.0, vegetation proxy 0.67, agriculture proxy 0.73."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z54",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.483333,
+              47.166667
+            ],
+            [
+              27.5,
+              47.166667
+            ],
+            [
+              27.5,
+              47.158333
+            ],
+            [
+              27.483333,
+              47.158333
+            ],
+            [
+              27.483333,
+              47.166667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 5-column 6 sector",
+        "center_longitude": 27.49167,
+        "center_latitude": 47.1625,
+        "flood_exposure_index": 20.3,
+        "drought_exposure_index": 25.1,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 25.1,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.3, drought 25.1, wildfire 8.3. OSM resource factors: water proximity 0.76, urban/impervious proxy 0.11, vegetation proxy 0.72, agriculture proxy 0.66."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z55",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.5,
+              47.166667
+            ],
+            [
+              27.516667,
+              47.166667
+            ],
+            [
+              27.516667,
+              47.158333
+            ],
+            [
+              27.5,
+              47.158333
+            ],
+            [
+              27.5,
+              47.166667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 5-column 7 sector",
+        "center_longitude": 27.50833,
+        "center_latitude": 47.1625,
+        "flood_exposure_index": 19.6,
+        "drought_exposure_index": 25.0,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 25.0,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.6, drought 25.0, wildfire 8.3. OSM resource factors: water proximity 0.56, urban/impervious proxy 0.09, vegetation proxy 0.7, agriculture proxy 0.61."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z56",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.516667,
+              47.166667
+            ],
+            [
+              27.533333,
+              47.166667
+            ],
+            [
+              27.533333,
+              47.158333
+            ],
+            [
+              27.516667,
+              47.158333
+            ],
+            [
+              27.516667,
+              47.166667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 5-column 8 sector",
+        "center_longitude": 27.525,
+        "center_latitude": 47.1625,
+        "flood_exposure_index": 20.2,
+        "drought_exposure_index": 25.1,
+        "wildfire_exposure_index": 7.9,
+        "max_risk_index": 25.1,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.2, drought 25.1, wildfire 7.9. OSM resource factors: water proximity 0.76, urban/impervious proxy 0.0, vegetation proxy 0.44, agriculture proxy 0.66."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z57",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.533333,
+              47.166667
+            ],
+            [
+              27.55,
+              47.166667
+            ],
+            [
+              27.55,
+              47.158333
+            ],
+            [
+              27.533333,
+              47.158333
+            ],
+            [
+              27.533333,
+              47.166667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 5-column 9 sector",
+        "center_longitude": 27.54167,
+        "center_latitude": 47.1625,
+        "flood_exposure_index": 19.5,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.5, drought 24.7, wildfire 8.2. OSM resource factors: water proximity 0.51, urban/impervious proxy 0.14, vegetation proxy 0.68, agriculture proxy 0.47."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z58",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.55,
+              47.166667
+            ],
+            [
+              27.566667,
+              47.166667
+            ],
+            [
+              27.566667,
+              47.158333
+            ],
+            [
+              27.55,
+              47.158333
+            ],
+            [
+              27.55,
+              47.166667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 5-column 10 sector",
+        "center_longitude": 27.55833,
+        "center_latitude": 47.1625,
+        "flood_exposure_index": 21.7,
+        "drought_exposure_index": 24.3,
+        "wildfire_exposure_index": 7.9,
+        "max_risk_index": 24.3,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.7, drought 24.3, wildfire 7.9. OSM resource factors: water proximity 0.88, urban/impervious proxy 0.67, vegetation proxy 0.55, agriculture proxy 0.3."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z59",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.566667,
+              47.166667
+            ],
+            [
+              27.583333,
+              47.166667
+            ],
+            [
+              27.583333,
+              47.158333
+            ],
+            [
+              27.566667,
+              47.158333
+            ],
+            [
+              27.566667,
+              47.166667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 5-column 11 sector",
+        "center_longitude": 27.575,
+        "center_latitude": 47.1625,
+        "flood_exposure_index": 18.8,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.8, drought 23.6, wildfire 8.2. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.88, vegetation proxy 0.93, agriculture proxy 0.0."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z60",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.583333,
+              47.166667
+            ],
+            [
+              27.6,
+              47.166667
+            ],
+            [
+              27.6,
+              47.158333
+            ],
+            [
+              27.583333,
+              47.158333
+            ],
+            [
+              27.583333,
+              47.166667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 5-column 12 sector",
+        "center_longitude": 27.59167,
+        "center_latitude": 47.1625,
+        "flood_exposure_index": 18.5,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.5, drought 23.6, wildfire 8.2. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.67, vegetation proxy 0.91, agriculture proxy 0.0."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z61",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.4,
+              47.158333
+            ],
+            [
+              27.416667,
+              47.158333
+            ],
+            [
+              27.416667,
+              47.15
+            ],
+            [
+              27.4,
+              47.15
+            ],
+            [
+              27.4,
+              47.158333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 6-column 1 sector",
+        "center_longitude": 27.40833,
+        "center_latitude": 47.15417,
+        "flood_exposure_index": 17.4,
+        "drought_exposure_index": 23.8,
+        "wildfire_exposure_index": 7.0,
+        "max_risk_index": 23.8,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.4, drought 23.8, wildfire 7.0. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.11."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z62",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.416667,
+              47.158333
+            ],
+            [
+              27.433333,
+              47.158333
+            ],
+            [
+              27.433333,
+              47.15
+            ],
+            [
+              27.416667,
+              47.15
+            ],
+            [
+              27.416667,
+              47.158333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 6-column 2 sector",
+        "center_longitude": 27.425,
+        "center_latitude": 47.15417,
+        "flood_exposure_index": 18.5,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 7.4,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.5, drought 24.7, wildfire 7.4. OSM resource factors: water proximity 0.31, urban/impervious proxy 0.0, vegetation proxy 0.11, agriculture proxy 0.49."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z63",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.433333,
+              47.158333
+            ],
+            [
+              27.45,
+              47.158333
+            ],
+            [
+              27.45,
+              47.15
+            ],
+            [
+              27.433333,
+              47.15
+            ],
+            [
+              27.433333,
+              47.158333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 6-column 3 sector",
+        "center_longitude": 27.44167,
+        "center_latitude": 47.15417,
+        "flood_exposure_index": 19.9,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 7.5,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.9, drought 24.7, wildfire 7.5. OSM resource factors: water proximity 0.68, urban/impervious proxy 0.0, vegetation proxy 0.18, agriculture proxy 0.5."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z64",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.45,
+              47.158333
+            ],
+            [
+              27.466667,
+              47.158333
+            ],
+            [
+              27.466667,
+              47.15
+            ],
+            [
+              27.45,
+              47.15
+            ],
+            [
+              27.45,
+              47.158333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 6-column 4 sector",
+        "center_longitude": 27.45833,
+        "center_latitude": 47.15417,
+        "flood_exposure_index": 20.3,
+        "drought_exposure_index": 25.6,
+        "wildfire_exposure_index": 7.8,
+        "max_risk_index": 25.6,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.3, drought 25.6, wildfire 7.8. OSM resource factors: water proximity 0.78, urban/impervious proxy 0.0, vegetation proxy 0.26, agriculture proxy 0.84."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z65",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.466667,
+              47.158333
+            ],
+            [
+              27.483333,
+              47.158333
+            ],
+            [
+              27.483333,
+              47.15
+            ],
+            [
+              27.466667,
+              47.15
+            ],
+            [
+              27.466667,
+              47.158333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 6-column 5 sector",
+        "center_longitude": 27.475,
+        "center_latitude": 47.15417,
+        "flood_exposure_index": 18.9,
+        "drought_exposure_index": 25.8,
+        "wildfire_exposure_index": 8.4,
+        "max_risk_index": 25.8,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.9, drought 25.8, wildfire 8.4. OSM resource factors: water proximity 0.37, urban/impervious proxy 0.1, vegetation proxy 0.61, agriculture proxy 0.95."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z66",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.483333,
+              47.158333
+            ],
+            [
+              27.5,
+              47.158333
+            ],
+            [
+              27.5,
+              47.15
+            ],
+            [
+              27.483333,
+              47.15
+            ],
+            [
+              27.483333,
+              47.158333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 6-column 6 sector",
+        "center_longitude": 27.49167,
+        "center_latitude": 47.15417,
+        "flood_exposure_index": 20.8,
+        "drought_exposure_index": 25.0,
+        "wildfire_exposure_index": 8.6,
+        "max_risk_index": 25.0,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.8, drought 25.0, wildfire 8.6. OSM resource factors: water proximity 0.66, urban/impervious proxy 0.61, vegetation proxy 0.94, agriculture proxy 0.59."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z67",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.5,
+              47.158333
+            ],
+            [
+              27.516667,
+              47.158333
+            ],
+            [
+              27.516667,
+              47.15
+            ],
+            [
+              27.5,
+              47.15
+            ],
+            [
+              27.5,
+              47.158333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 6-column 7 sector",
+        "center_longitude": 27.50833,
+        "center_latitude": 47.15417,
+        "flood_exposure_index": 21.2,
+        "drought_exposure_index": 25.5,
+        "wildfire_exposure_index": 7.9,
+        "max_risk_index": 25.5,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.2, drought 25.5, wildfire 7.9. OSM resource factors: water proximity 0.75, urban/impervious proxy 0.68, vegetation proxy 0.33, agriculture proxy 0.84."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z68",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.516667,
+              47.158333
+            ],
+            [
+              27.533333,
+              47.158333
+            ],
+            [
+              27.533333,
+              47.15
+            ],
+            [
+              27.516667,
+              47.15
+            ],
+            [
+              27.516667,
+              47.158333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 6-column 8 sector",
+        "center_longitude": 27.525,
+        "center_latitude": 47.15417,
+        "flood_exposure_index": 18.7,
+        "drought_exposure_index": 25.4,
+        "wildfire_exposure_index": 8.7,
+        "max_risk_index": 25.4,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.7, drought 25.4, wildfire 8.7. OSM resource factors: water proximity 0.26, urban/impervious proxy 0.22, vegetation proxy 0.91, agriculture proxy 0.78."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z69",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.533333,
+              47.158333
+            ],
+            [
+              27.55,
+              47.158333
+            ],
+            [
+              27.55,
+              47.15
+            ],
+            [
+              27.533333,
+              47.15
+            ],
+            [
+              27.533333,
+              47.158333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 6-column 9 sector",
+        "center_longitude": 27.54167,
+        "center_latitude": 47.15417,
+        "flood_exposure_index": 19.2,
+        "drought_exposure_index": 25.6,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 25.6,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.2, drought 25.6, wildfire 8.3. OSM resource factors: water proximity 0.3, urban/impervious proxy 0.42, vegetation proxy 0.59, agriculture proxy 0.85."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z70",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.55,
+              47.158333
+            ],
+            [
+              27.566667,
+              47.158333
+            ],
+            [
+              27.566667,
+              47.15
+            ],
+            [
+              27.55,
+              47.15
+            ],
+            [
+              27.55,
+              47.158333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 6-column 10 sector",
+        "center_longitude": 27.55833,
+        "center_latitude": 47.15417,
+        "flood_exposure_index": 19.5,
+        "drought_exposure_index": 24.8,
+        "wildfire_exposure_index": 7.6,
+        "max_risk_index": 24.8,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.5, drought 24.8, wildfire 7.6. OSM resource factors: water proximity 0.41, urban/impervious proxy 0.39, vegetation proxy 0.23, agriculture proxy 0.51."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z71",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.566667,
+              47.158333
+            ],
+            [
+              27.583333,
+              47.158333
+            ],
+            [
+              27.583333,
+              47.15
+            ],
+            [
+              27.566667,
+              47.15
+            ],
+            [
+              27.566667,
+              47.158333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 6-column 11 sector",
+        "center_longitude": 27.575,
+        "center_latitude": 47.15417,
+        "flood_exposure_index": 20.0,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.0, drought 23.6, wildfire 8.1. OSM resource factors: water proximity 0.36, urban/impervious proxy 0.82, vegetation proxy 0.82, agriculture proxy 0.0."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z72",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.583333,
+              47.158333
+            ],
+            [
+              27.6,
+              47.158333
+            ],
+            [
+              27.6,
+              47.15
+            ],
+            [
+              27.583333,
+              47.15
+            ],
+            [
+              27.583333,
+              47.158333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 6-column 12 sector",
+        "center_longitude": 27.59167,
+        "center_latitude": 47.15417,
+        "flood_exposure_index": 18.8,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.8, drought 23.6, wildfire 8.3. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.83, vegetation proxy 0.98, agriculture proxy 0.0."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z73",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.4,
+              47.15
+            ],
+            [
+              27.416667,
+              47.15
+            ],
+            [
+              27.416667,
+              47.141667
+            ],
+            [
+              27.4,
+              47.141667
+            ],
+            [
+              27.4,
+              47.15
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 7-column 1 sector",
+        "center_longitude": 27.40833,
+        "center_latitude": 47.14583,
+        "flood_exposure_index": 17.4,
+        "drought_exposure_index": 23.7,
+        "wildfire_exposure_index": 7.0,
+        "max_risk_index": 23.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.4, drought 23.7, wildfire 7.0. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.07."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z74",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.416667,
+              47.15
+            ],
+            [
+              27.433333,
+              47.15
+            ],
+            [
+              27.433333,
+              47.141667
+            ],
+            [
+              27.416667,
+              47.141667
+            ],
+            [
+              27.416667,
+              47.15
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 7-column 2 sector",
+        "center_longitude": 27.425,
+        "center_latitude": 47.14583,
+        "flood_exposure_index": 17.9,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 7.3,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.9, drought 24.7, wildfire 7.3. OSM resource factors: water proximity 0.12, urban/impervious proxy 0.0, vegetation proxy 0.04, agriculture proxy 0.47."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z75",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.433333,
+              47.15
+            ],
+            [
+              27.45,
+              47.15
+            ],
+            [
+              27.45,
+              47.141667
+            ],
+            [
+              27.433333,
+              47.141667
+            ],
+            [
+              27.433333,
+              47.15
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 7-column 3 sector",
+        "center_longitude": 27.44167,
+        "center_latitude": 47.14583,
+        "flood_exposure_index": 20.0,
+        "drought_exposure_index": 24.8,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 24.8,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.0, drought 24.8, wildfire 8.3. OSM resource factors: water proximity 0.71, urban/impervious proxy 0.0, vegetation proxy 0.78, agriculture proxy 0.53."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z76",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.45,
+              47.15
+            ],
+            [
+              27.466667,
+              47.15
+            ],
+            [
+              27.466667,
+              47.141667
+            ],
+            [
+              27.45,
+              47.141667
+            ],
+            [
+              27.45,
+              47.15
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 7-column 4 sector",
+        "center_longitude": 27.45833,
+        "center_latitude": 47.14583,
+        "flood_exposure_index": 19.3,
+        "drought_exposure_index": 24.8,
+        "wildfire_exposure_index": 7.6,
+        "max_risk_index": 24.8,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.3, drought 24.8, wildfire 7.6. OSM resource factors: water proximity 0.43, urban/impervious proxy 0.18, vegetation proxy 0.22, agriculture proxy 0.52."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z77",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.466667,
+              47.15
+            ],
+            [
+              27.483333,
+              47.15
+            ],
+            [
+              27.483333,
+              47.141667
+            ],
+            [
+              27.466667,
+              47.141667
+            ],
+            [
+              27.466667,
+              47.15
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 7-column 5 sector",
+        "center_longitude": 27.475,
+        "center_latitude": 47.14583,
+        "flood_exposure_index": 18.8,
+        "drought_exposure_index": 25.4,
+        "wildfire_exposure_index": 8.5,
+        "max_risk_index": 25.4,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.8, drought 25.4, wildfire 8.5. OSM resource factors: water proximity 0.35, urban/impervious proxy 0.05, vegetation proxy 0.81, agriculture proxy 0.77."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z78",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.483333,
+              47.15
+            ],
+            [
+              27.5,
+              47.15
+            ],
+            [
+              27.5,
+              47.141667
+            ],
+            [
+              27.483333,
+              47.141667
+            ],
+            [
+              27.483333,
+              47.15
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 7-column 6 sector",
+        "center_longitude": 27.49167,
+        "center_latitude": 47.14583,
+        "flood_exposure_index": 19.5,
+        "drought_exposure_index": 25.0,
+        "wildfire_exposure_index": 8.4,
+        "max_risk_index": 25.0,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.5, drought 25.0, wildfire 8.4. OSM resource factors: water proximity 0.57, urban/impervious proxy 0.0, vegetation proxy 0.78, agriculture proxy 0.62."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z79",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.5,
+              47.15
+            ],
+            [
+              27.516667,
+              47.15
+            ],
+            [
+              27.516667,
+              47.141667
+            ],
+            [
+              27.5,
+              47.141667
+            ],
+            [
+              27.5,
+              47.15
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 7-column 7 sector",
+        "center_longitude": 27.50833,
+        "center_latitude": 47.14583,
+        "flood_exposure_index": 20.0,
+        "drought_exposure_index": 25.3,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 25.3,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.0, drought 25.3, wildfire 8.2. OSM resource factors: water proximity 0.48, urban/impervious proxy 0.53, vegetation proxy 0.57, agriculture proxy 0.75."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z80",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.516667,
+              47.15
+            ],
+            [
+              27.533333,
+              47.15
+            ],
+            [
+              27.533333,
+              47.141667
+            ],
+            [
+              27.516667,
+              47.141667
+            ],
+            [
+              27.516667,
+              47.15
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 7-column 8 sector",
+        "center_longitude": 27.525,
+        "center_latitude": 47.14583,
+        "flood_exposure_index": 19.1,
+        "drought_exposure_index": 25.3,
+        "wildfire_exposure_index": 8.6,
+        "max_risk_index": 25.3,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.1, drought 25.3, wildfire 8.6. OSM resource factors: water proximity 0.07, urban/impervious proxy 0.9, vegetation proxy 0.84, agriculture proxy 0.75."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z81",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.533333,
+              47.15
+            ],
+            [
+              27.55,
+              47.15
+            ],
+            [
+              27.55,
+              47.141667
+            ],
+            [
+              27.533333,
+              47.141667
+            ],
+            [
+              27.533333,
+              47.15
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 7-column 9 sector",
+        "center_longitude": 27.54167,
+        "center_latitude": 47.14583,
+        "flood_exposure_index": 17.5,
+        "drought_exposure_index": 25.4,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 25.4,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.5, drought 25.4, wildfire 8.2. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.02, vegetation proxy 0.56, agriculture proxy 0.76."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z82",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.55,
+              47.15
+            ],
+            [
+              27.566667,
+              47.15
+            ],
+            [
+              27.566667,
+              47.141667
+            ],
+            [
+              27.55,
+              47.141667
+            ],
+            [
+              27.55,
+              47.15
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 7-column 10 sector",
+        "center_longitude": 27.55833,
+        "center_latitude": 47.14583,
+        "flood_exposure_index": 21.8,
+        "drought_exposure_index": 25.0,
+        "wildfire_exposure_index": 7.5,
+        "max_risk_index": 25.0,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.8, drought 25.0, wildfire 7.5. OSM resource factors: water proximity 0.82, urban/impervious proxy 0.88, vegetation proxy 0.16, agriculture proxy 0.6."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z83",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.566667,
+              47.15
+            ],
+            [
+              27.583333,
+              47.15
+            ],
+            [
+              27.583333,
+              47.141667
+            ],
+            [
+              27.566667,
+              47.141667
+            ],
+            [
+              27.566667,
+              47.15
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 7-column 11 sector",
+        "center_longitude": 27.575,
+        "center_latitude": 47.14583,
+        "flood_exposure_index": 21.6,
+        "drought_exposure_index": 24.1,
+        "wildfire_exposure_index": 8.4,
+        "max_risk_index": 24.1,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.6, drought 24.1, wildfire 8.4. OSM resource factors: water proximity 0.89, urban/impervious proxy 0.57, vegetation proxy 0.94, agriculture proxy 0.23."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z84",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.583333,
+              47.15
+            ],
+            [
+              27.6,
+              47.15
+            ],
+            [
+              27.6,
+              47.141667
+            ],
+            [
+              27.583333,
+              47.141667
+            ],
+            [
+              27.583333,
+              47.15
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 7-column 12 sector",
+        "center_longitude": 27.59167,
+        "center_latitude": 47.14583,
+        "flood_exposure_index": 18.9,
+        "drought_exposure_index": 23.9,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 23.9,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.9, drought 23.9, wildfire 8.3. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.91, vegetation proxy 0.91, agriculture proxy 0.12."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z85",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.4,
+              47.141667
+            ],
+            [
+              27.416667,
+              47.141667
+            ],
+            [
+              27.416667,
+              47.133333
+            ],
+            [
+              27.4,
+              47.133333
+            ],
+            [
+              27.4,
+              47.141667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 8-column 1 sector",
+        "center_longitude": 27.40833,
+        "center_latitude": 47.1375,
+        "flood_exposure_index": 17.4,
+        "drought_exposure_index": 24.2,
+        "wildfire_exposure_index": 7.1,
+        "max_risk_index": 24.2,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.4, drought 24.2, wildfire 7.1. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.25."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z86",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.416667,
+              47.141667
+            ],
+            [
+              27.433333,
+              47.141667
+            ],
+            [
+              27.433333,
+              47.133333
+            ],
+            [
+              27.416667,
+              47.133333
+            ],
+            [
+              27.416667,
+              47.141667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 8-column 2 sector",
+        "center_longitude": 27.425,
+        "center_latitude": 47.1375,
+        "flood_exposure_index": 18.9,
+        "drought_exposure_index": 25.6,
+        "wildfire_exposure_index": 7.5,
+        "max_risk_index": 25.6,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.9, drought 25.6, wildfire 7.5. OSM resource factors: water proximity 0.42, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.85."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z87",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.433333,
+              47.141667
+            ],
+            [
+              27.45,
+              47.141667
+            ],
+            [
+              27.45,
+              47.133333
+            ],
+            [
+              27.433333,
+              47.133333
+            ],
+            [
+              27.433333,
+              47.141667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 8-column 3 sector",
+        "center_longitude": 27.44167,
+        "center_latitude": 47.1375,
+        "flood_exposure_index": 19.8,
+        "drought_exposure_index": 25.3,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 25.3,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.8, drought 25.3, wildfire 8.2. OSM resource factors: water proximity 0.66, urban/impervious proxy 0.0, vegetation proxy 0.58, agriculture proxy 0.72."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z88",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.45,
+              47.141667
+            ],
+            [
+              27.466667,
+              47.141667
+            ],
+            [
+              27.466667,
+              47.133333
+            ],
+            [
+              27.45,
+              47.133333
+            ],
+            [
+              27.45,
+              47.141667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 8-column 4 sector",
+        "center_longitude": 27.45833,
+        "center_latitude": 47.1375,
+        "flood_exposure_index": 18.7,
+        "drought_exposure_index": 24.9,
+        "wildfire_exposure_index": 7.5,
+        "max_risk_index": 24.9,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.7, drought 24.9, wildfire 7.5. OSM resource factors: water proximity 0.17, urban/impervious proxy 0.38, vegetation proxy 0.15, agriculture proxy 0.58."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z89",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.466667,
+              47.141667
+            ],
+            [
+              27.483333,
+              47.141667
+            ],
+            [
+              27.483333,
+              47.133333
+            ],
+            [
+              27.466667,
+              47.133333
+            ],
+            [
+              27.466667,
+              47.141667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 8-column 5 sector",
+        "center_longitude": 27.475,
+        "center_latitude": 47.1375,
+        "flood_exposure_index": 18.9,
+        "drought_exposure_index": 25.4,
+        "wildfire_exposure_index": 7.8,
+        "max_risk_index": 25.4,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.9, drought 25.4, wildfire 7.8. OSM resource factors: water proximity 0.32, urban/impervious proxy 0.22, vegetation proxy 0.28, agriculture proxy 0.76."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z90",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.483333,
+              47.141667
+            ],
+            [
+              27.5,
+              47.141667
+            ],
+            [
+              27.5,
+              47.133333
+            ],
+            [
+              27.483333,
+              47.133333
+            ],
+            [
+              27.483333,
+              47.141667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 8-column 6 sector",
+        "center_longitude": 27.49167,
+        "center_latitude": 47.1375,
+        "flood_exposure_index": 19.4,
+        "drought_exposure_index": 25.6,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 25.6,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.4, drought 25.6, wildfire 8.2. OSM resource factors: water proximity 0.34, urban/impervious proxy 0.5, vegetation proxy 0.5, agriculture proxy 0.86."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z91",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.5,
+              47.141667
+            ],
+            [
+              27.516667,
+              47.141667
+            ],
+            [
+              27.516667,
+              47.133333
+            ],
+            [
+              27.5,
+              47.133333
+            ],
+            [
+              27.5,
+              47.141667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 8-column 7 sector",
+        "center_longitude": 27.50833,
+        "center_latitude": 47.1375,
+        "flood_exposure_index": 19.4,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.4, drought 24.7, wildfire 8.1. OSM resource factors: water proximity 0.31, urban/impervious proxy 0.53, vegetation proxy 0.65, agriculture proxy 0.49."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z92",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.516667,
+              47.141667
+            ],
+            [
+              27.533333,
+              47.141667
+            ],
+            [
+              27.533333,
+              47.133333
+            ],
+            [
+              27.516667,
+              47.133333
+            ],
+            [
+              27.516667,
+              47.141667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 8-column 8 sector",
+        "center_longitude": 27.525,
+        "center_latitude": 47.1375,
+        "flood_exposure_index": 20.3,
+        "drought_exposure_index": 24.5,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 24.5,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.3, drought 24.5, wildfire 8.1. OSM resource factors: water proximity 0.78, urban/impervious proxy 0.03, vegetation proxy 0.64, agriculture proxy 0.41."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z93",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.533333,
+              47.141667
+            ],
+            [
+              27.55,
+              47.141667
+            ],
+            [
+              27.55,
+              47.133333
+            ],
+            [
+              27.533333,
+              47.133333
+            ],
+            [
+              27.533333,
+              47.141667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 8-column 9 sector",
+        "center_longitude": 27.54167,
+        "center_latitude": 47.1375,
+        "flood_exposure_index": 18.4,
+        "drought_exposure_index": 25.6,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 25.6,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.4, drought 25.6, wildfire 8.2. OSM resource factors: water proximity 0.1, urban/impervious proxy 0.36, vegetation proxy 0.55, agriculture proxy 0.85."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z94",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.55,
+              47.141667
+            ],
+            [
+              27.566667,
+              47.141667
+            ],
+            [
+              27.566667,
+              47.133333
+            ],
+            [
+              27.55,
+              47.133333
+            ],
+            [
+              27.55,
+              47.141667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 8-column 10 sector",
+        "center_longitude": 27.55833,
+        "center_latitude": 47.1375,
+        "flood_exposure_index": 18.9,
+        "drought_exposure_index": 25.7,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 25.7,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.9, drought 25.7, wildfire 8.3. OSM resource factors: water proximity 0.17, urban/impervious proxy 0.54, vegetation proxy 0.58, agriculture proxy 0.93."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z95",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.566667,
+              47.141667
+            ],
+            [
+              27.583333,
+              47.141667
+            ],
+            [
+              27.583333,
+              47.133333
+            ],
+            [
+              27.566667,
+              47.133333
+            ],
+            [
+              27.566667,
+              47.141667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 8-column 11 sector",
+        "center_longitude": 27.575,
+        "center_latitude": 47.1375,
+        "flood_exposure_index": 19.2,
+        "drought_exposure_index": 24.5,
+        "wildfire_exposure_index": 8.5,
+        "max_risk_index": 24.5,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.2, drought 24.5, wildfire 8.5. OSM resource factors: water proximity 0.27, urban/impervious proxy 0.5, vegetation proxy 0.96, agriculture proxy 0.38."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z96",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.583333,
+              47.141667
+            ],
+            [
+              27.6,
+              47.141667
+            ],
+            [
+              27.6,
+              47.133333
+            ],
+            [
+              27.583333,
+              47.133333
+            ],
+            [
+              27.583333,
+              47.141667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 8-column 12 sector",
+        "center_longitude": 27.59167,
+        "center_latitude": 47.1375,
+        "flood_exposure_index": 18.9,
+        "drought_exposure_index": 24.9,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 24.9,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.9, drought 24.9, wildfire 8.1. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.94, vegetation proxy 0.61, agriculture proxy 0.56."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z97",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.4,
+              47.133333
+            ],
+            [
+              27.416667,
+              47.133333
+            ],
+            [
+              27.416667,
+              47.125
+            ],
+            [
+              27.4,
+              47.125
+            ],
+            [
+              27.4,
+              47.133333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 9-column 1 sector",
+        "center_longitude": 27.40833,
+        "center_latitude": 47.12917,
+        "flood_exposure_index": 18.5,
+        "drought_exposure_index": 24.0,
+        "wildfire_exposure_index": 7.1,
+        "max_risk_index": 24.0,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.5, drought 24.0, wildfire 7.1. OSM resource factors: water proximity 0.29, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.19."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z98",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.416667,
+              47.133333
+            ],
+            [
+              27.433333,
+              47.133333
+            ],
+            [
+              27.433333,
+              47.125
+            ],
+            [
+              27.416667,
+              47.125
+            ],
+            [
+              27.416667,
+              47.133333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 9-column 2 sector",
+        "center_longitude": 27.425,
+        "center_latitude": 47.12917,
+        "flood_exposure_index": 19.2,
+        "drought_exposure_index": 25.1,
+        "wildfire_exposure_index": 7.3,
+        "max_risk_index": 25.1,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.2, drought 25.1, wildfire 7.3. OSM resource factors: water proximity 0.48, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.65."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z99",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.433333,
+              47.133333
+            ],
+            [
+              27.45,
+              47.133333
+            ],
+            [
+              27.45,
+              47.125
+            ],
+            [
+              27.433333,
+              47.125
+            ],
+            [
+              27.433333,
+              47.133333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 9-column 3 sector",
+        "center_longitude": 27.44167,
+        "center_latitude": 47.12917,
+        "flood_exposure_index": 18.9,
+        "drought_exposure_index": 24.5,
+        "wildfire_exposure_index": 7.2,
+        "max_risk_index": 24.5,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.9, drought 24.5, wildfire 7.2. OSM resource factors: water proximity 0.41, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.4."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z100",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.45,
+              47.133333
+            ],
+            [
+              27.466667,
+              47.133333
+            ],
+            [
+              27.466667,
+              47.125
+            ],
+            [
+              27.45,
+              47.125
+            ],
+            [
+              27.45,
+              47.133333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 9-column 4 sector",
+        "center_longitude": 27.45833,
+        "center_latitude": 47.12917,
+        "flood_exposure_index": 17.5,
+        "drought_exposure_index": 25.8,
+        "wildfire_exposure_index": 7.5,
+        "max_risk_index": 25.8,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.5, drought 25.8, wildfire 7.5. OSM resource factors: water proximity 0.04, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.94."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z101",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.466667,
+              47.133333
+            ],
+            [
+              27.483333,
+              47.133333
+            ],
+            [
+              27.483333,
+              47.125
+            ],
+            [
+              27.466667,
+              47.125
+            ],
+            [
+              27.466667,
+              47.133333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 9-column 5 sector",
+        "center_longitude": 27.475,
+        "center_latitude": 47.12917,
+        "flood_exposure_index": 18.9,
+        "drought_exposure_index": 25.4,
+        "wildfire_exposure_index": 7.4,
+        "max_risk_index": 25.4,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.9, drought 25.4, wildfire 7.4. OSM resource factors: water proximity 0.36, urban/impervious proxy 0.09, vegetation proxy 0.0, agriculture proxy 0.78."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z102",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.483333,
+              47.133333
+            ],
+            [
+              27.5,
+              47.133333
+            ],
+            [
+              27.5,
+              47.125
+            ],
+            [
+              27.483333,
+              47.125
+            ],
+            [
+              27.483333,
+              47.133333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 9-column 6 sector",
+        "center_longitude": 27.49167,
+        "center_latitude": 47.12917,
+        "flood_exposure_index": 20.0,
+        "drought_exposure_index": 24.9,
+        "wildfire_exposure_index": 7.9,
+        "max_risk_index": 24.9,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.0, drought 24.9, wildfire 7.9. OSM resource factors: water proximity 0.58, urban/impervious proxy 0.28, vegetation proxy 0.44, agriculture proxy 0.58."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z103",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.5,
+              47.133333
+            ],
+            [
+              27.516667,
+              47.133333
+            ],
+            [
+              27.516667,
+              47.125
+            ],
+            [
+              27.5,
+              47.125
+            ],
+            [
+              27.5,
+              47.133333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 9-column 7 sector",
+        "center_longitude": 27.50833,
+        "center_latitude": 47.12917,
+        "flood_exposure_index": 20.7,
+        "drought_exposure_index": 25.0,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 25.0,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.7, drought 25.0, wildfire 8.2. OSM resource factors: water proximity 0.92, urban/impervious proxy 0.0, vegetation proxy 0.64, agriculture proxy 0.59."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z104",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.516667,
+              47.133333
+            ],
+            [
+              27.533333,
+              47.133333
+            ],
+            [
+              27.533333,
+              47.125
+            ],
+            [
+              27.516667,
+              47.125
+            ],
+            [
+              27.516667,
+              47.133333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 9-column 8 sector",
+        "center_longitude": 27.525,
+        "center_latitude": 47.12917,
+        "flood_exposure_index": 21.0,
+        "drought_exposure_index": 24.5,
+        "wildfire_exposure_index": 7.7,
+        "max_risk_index": 24.5,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.0, drought 24.5, wildfire 7.7. OSM resource factors: water proximity 0.76, urban/impervious proxy 0.53, vegetation proxy 0.35, agriculture proxy 0.41."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z105",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.533333,
+              47.133333
+            ],
+            [
+              27.55,
+              47.133333
+            ],
+            [
+              27.55,
+              47.125
+            ],
+            [
+              27.533333,
+              47.125
+            ],
+            [
+              27.533333,
+              47.133333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 9-column 9 sector",
+        "center_longitude": 27.54167,
+        "center_latitude": 47.12917,
+        "flood_exposure_index": 18.3,
+        "drought_exposure_index": 24.5,
+        "wildfire_exposure_index": 7.7,
+        "max_risk_index": 24.5,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.3, drought 24.5, wildfire 7.7. OSM resource factors: water proximity 0.03, urban/impervious proxy 0.47, vegetation proxy 0.36, agriculture proxy 0.39."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z106",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.55,
+              47.133333
+            ],
+            [
+              27.566667,
+              47.133333
+            ],
+            [
+              27.566667,
+              47.125
+            ],
+            [
+              27.55,
+              47.125
+            ],
+            [
+              27.55,
+              47.133333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 9-column 10 sector",
+        "center_longitude": 27.55833,
+        "center_latitude": 47.12917,
+        "flood_exposure_index": 21.4,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 8.0,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.4, drought 24.7, wildfire 8.0. OSM resource factors: water proximity 0.93, urban/impervious proxy 0.36, vegetation proxy 0.57, agriculture proxy 0.47."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z107",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.566667,
+              47.133333
+            ],
+            [
+              27.583333,
+              47.133333
+            ],
+            [
+              27.583333,
+              47.125
+            ],
+            [
+              27.566667,
+              47.125
+            ],
+            [
+              27.566667,
+              47.133333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 9-column 11 sector",
+        "center_longitude": 27.575,
+        "center_latitude": 47.12917,
+        "flood_exposure_index": 19.3,
+        "drought_exposure_index": 24.9,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 24.9,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.3, drought 24.9, wildfire 8.2. OSM resource factors: water proximity 0.18, urban/impervious proxy 0.74, vegetation proxy 0.65, agriculture proxy 0.55."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z108",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.583333,
+              47.133333
+            ],
+            [
+              27.6,
+              47.133333
+            ],
+            [
+              27.6,
+              47.125
+            ],
+            [
+              27.583333,
+              47.125
+            ],
+            [
+              27.583333,
+              47.133333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 9-column 12 sector",
+        "center_longitude": 27.59167,
+        "center_latitude": 47.12917,
+        "flood_exposure_index": 19.6,
+        "drought_exposure_index": 25.5,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 25.5,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.6, drought 25.5, wildfire 8.3. OSM resource factors: water proximity 0.39, urban/impervious proxy 0.5, vegetation proxy 0.64, agriculture proxy 0.83."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z109",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.4,
+              47.125
+            ],
+            [
+              27.416667,
+              47.125
+            ],
+            [
+              27.416667,
+              47.116667
+            ],
+            [
+              27.4,
+              47.116667
+            ],
+            [
+              27.4,
+              47.125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 10-column 1 sector",
+        "center_longitude": 27.40833,
+        "center_latitude": 47.12083,
+        "flood_exposure_index": 18.6,
+        "drought_exposure_index": 24.2,
+        "wildfire_exposure_index": 7.1,
+        "max_risk_index": 24.2,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.6, drought 24.2, wildfire 7.1. OSM resource factors: water proximity 0.33, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.26."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z110",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.416667,
+              47.125
+            ],
+            [
+              27.433333,
+              47.125
+            ],
+            [
+              27.433333,
+              47.116667
+            ],
+            [
+              27.416667,
+              47.116667
+            ],
+            [
+              27.416667,
+              47.125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 10-column 2 sector",
+        "center_longitude": 27.425,
+        "center_latitude": 47.12083,
+        "flood_exposure_index": 20.1,
+        "drought_exposure_index": 25.5,
+        "wildfire_exposure_index": 7.5,
+        "max_risk_index": 25.5,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.1, drought 25.5, wildfire 7.5. OSM resource factors: water proximity 0.72, urban/impervious proxy 0.03, vegetation proxy 0.0, agriculture proxy 0.84."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z111",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.433333,
+              47.125
+            ],
+            [
+              27.45,
+              47.125
+            ],
+            [
+              27.45,
+              47.116667
+            ],
+            [
+              27.433333,
+              47.116667
+            ],
+            [
+              27.433333,
+              47.125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 10-column 3 sector",
+        "center_longitude": 27.44167,
+        "center_latitude": 47.12083,
+        "flood_exposure_index": 19.8,
+        "drought_exposure_index": 24.6,
+        "wildfire_exposure_index": 7.2,
+        "max_risk_index": 24.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.8, drought 24.6, wildfire 7.2. OSM resource factors: water proximity 0.61, urban/impervious proxy 0.09, vegetation proxy 0.0, agriculture proxy 0.46."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z112",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.45,
+              47.125
+            ],
+            [
+              27.466667,
+              47.125
+            ],
+            [
+              27.466667,
+              47.116667
+            ],
+            [
+              27.45,
+              47.116667
+            ],
+            [
+              27.45,
+              47.125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 10-column 4 sector",
+        "center_longitude": 27.45833,
+        "center_latitude": 47.12083,
+        "flood_exposure_index": 18.8,
+        "drought_exposure_index": 24.7,
+        "wildfire_exposure_index": 7.4,
+        "max_risk_index": 24.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.8, drought 24.7, wildfire 7.4. OSM resource factors: water proximity 0.39, urban/impervious proxy 0.0, vegetation proxy 0.14, agriculture proxy 0.5."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z113",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.466667,
+              47.125
+            ],
+            [
+              27.483333,
+              47.125
+            ],
+            [
+              27.483333,
+              47.116667
+            ],
+            [
+              27.466667,
+              47.116667
+            ],
+            [
+              27.466667,
+              47.125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 10-column 5 sector",
+        "center_longitude": 27.475,
+        "center_latitude": 47.12083,
+        "flood_exposure_index": 18.8,
+        "drought_exposure_index": 25.0,
+        "wildfire_exposure_index": 7.9,
+        "max_risk_index": 25.0,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.8, drought 25.0, wildfire 7.9. OSM resource factors: water proximity 0.39, urban/impervious proxy 0.0, vegetation proxy 0.44, agriculture proxy 0.63."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z114",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.483333,
+              47.125
+            ],
+            [
+              27.5,
+              47.125
+            ],
+            [
+              27.5,
+              47.116667
+            ],
+            [
+              27.483333,
+              47.116667
+            ],
+            [
+              27.483333,
+              47.125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 10-column 6 sector",
+        "center_longitude": 27.49167,
+        "center_latitude": 47.12083,
+        "flood_exposure_index": 19.0,
+        "drought_exposure_index": 25.2,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 25.2,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.0, drought 25.2, wildfire 8.1. OSM resource factors: water proximity 0.44, urban/impervious proxy 0.0, vegetation proxy 0.56, agriculture proxy 0.7."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z115",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.5,
+              47.125
+            ],
+            [
+              27.516667,
+              47.125
+            ],
+            [
+              27.516667,
+              47.116667
+            ],
+            [
+              27.5,
+              47.116667
+            ],
+            [
+              27.5,
+              47.125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 10-column 7 sector",
+        "center_longitude": 27.50833,
+        "center_latitude": 47.12083,
+        "flood_exposure_index": 18.6,
+        "drought_exposure_index": 25.5,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 25.5,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.6, drought 25.5, wildfire 8.1. OSM resource factors: water proximity 0.33, urban/impervious proxy 0.0, vegetation proxy 0.46, agriculture proxy 0.8."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z116",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.516667,
+              47.125
+            ],
+            [
+              27.533333,
+              47.125
+            ],
+            [
+              27.533333,
+              47.116667
+            ],
+            [
+              27.516667,
+              47.116667
+            ],
+            [
+              27.516667,
+              47.125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 10-column 8 sector",
+        "center_longitude": 27.525,
+        "center_latitude": 47.12083,
+        "flood_exposure_index": 21.6,
+        "drought_exposure_index": 24.8,
+        "wildfire_exposure_index": 8.5,
+        "max_risk_index": 24.8,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.6, drought 24.8, wildfire 8.5. OSM resource factors: water proximity 0.8, urban/impervious proxy 0.79, vegetation proxy 0.91, agriculture proxy 0.54."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z117",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.533333,
+              47.125
+            ],
+            [
+              27.55,
+              47.125
+            ],
+            [
+              27.55,
+              47.116667
+            ],
+            [
+              27.533333,
+              47.116667
+            ],
+            [
+              27.533333,
+              47.125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 10-column 9 sector",
+        "center_longitude": 27.54167,
+        "center_latitude": 47.12083,
+        "flood_exposure_index": 19.8,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 7.9,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.8, drought 23.6, wildfire 7.9. OSM resource factors: water proximity 0.54, urban/impervious proxy 0.29, vegetation proxy 0.65, agriculture proxy 0.0."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z118",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.55,
+              47.125
+            ],
+            [
+              27.566667,
+              47.125
+            ],
+            [
+              27.566667,
+              47.116667
+            ],
+            [
+              27.55,
+              47.116667
+            ],
+            [
+              27.55,
+              47.125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 10-column 10 sector",
+        "center_longitude": 27.55833,
+        "center_latitude": 47.12083,
+        "flood_exposure_index": 20.4,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.4, drought 23.6, wildfire 8.1. OSM resource factors: water proximity 0.52, urban/impervious proxy 0.67, vegetation proxy 0.84, agriculture proxy 0.01."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z119",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.566667,
+              47.125
+            ],
+            [
+              27.583333,
+              47.125
+            ],
+            [
+              27.583333,
+              47.116667
+            ],
+            [
+              27.566667,
+              47.116667
+            ],
+            [
+              27.566667,
+              47.125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 10-column 11 sector",
+        "center_longitude": 27.575,
+        "center_latitude": 47.12083,
+        "flood_exposure_index": 19.6,
+        "drought_exposure_index": 25.0,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 25.0,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.6, drought 25.0, wildfire 8.1. OSM resource factors: water proximity 0.28, urban/impervious proxy 0.73, vegetation proxy 0.6, agriculture proxy 0.59."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z120",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.583333,
+              47.125
+            ],
+            [
+              27.6,
+              47.125
+            ],
+            [
+              27.6,
+              47.116667
+            ],
+            [
+              27.583333,
+              47.116667
+            ],
+            [
+              27.583333,
+              47.125
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 10-column 12 sector",
+        "center_longitude": 27.59167,
+        "center_latitude": 47.12083,
+        "flood_exposure_index": 20.7,
+        "drought_exposure_index": 25.8,
+        "wildfire_exposure_index": 7.8,
+        "max_risk_index": 25.8,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.7, drought 25.8, wildfire 7.8. OSM resource factors: water proximity 0.73, urban/impervious proxy 0.39, vegetation proxy 0.18, agriculture proxy 0.96."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z121",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.4,
+              47.116667
+            ],
+            [
+              27.416667,
+              47.116667
+            ],
+            [
+              27.416667,
+              47.108333
+            ],
+            [
+              27.4,
+              47.108333
+            ],
+            [
+              27.4,
+              47.116667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 11-column 1 sector",
+        "center_longitude": 27.40833,
+        "center_latitude": 47.1125,
+        "flood_exposure_index": 17.4,
+        "drought_exposure_index": 23.7,
+        "wildfire_exposure_index": 7.0,
+        "max_risk_index": 23.7,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.4, drought 23.7, wildfire 7.0. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.06."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z122",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.416667,
+              47.116667
+            ],
+            [
+              27.433333,
+              47.116667
+            ],
+            [
+              27.433333,
+              47.108333
+            ],
+            [
+              27.416667,
+              47.108333
+            ],
+            [
+              27.416667,
+              47.116667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 11-column 2 sector",
+        "center_longitude": 27.425,
+        "center_latitude": 47.1125,
+        "flood_exposure_index": 18.8,
+        "drought_exposure_index": 24.5,
+        "wildfire_exposure_index": 7.2,
+        "max_risk_index": 24.5,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.8, drought 24.5, wildfire 7.2. OSM resource factors: water proximity 0.27, urban/impervious proxy 0.28, vegetation proxy 0.0, agriculture proxy 0.41."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z123",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.433333,
+              47.116667
+            ],
+            [
+              27.45,
+              47.116667
+            ],
+            [
+              27.45,
+              47.108333
+            ],
+            [
+              27.433333,
+              47.108333
+            ],
+            [
+              27.433333,
+              47.116667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 11-column 3 sector",
+        "center_longitude": 27.44167,
+        "center_latitude": 47.1125,
+        "flood_exposure_index": 20.3,
+        "drought_exposure_index": 24.1,
+        "wildfire_exposure_index": 7.1,
+        "max_risk_index": 24.1,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.3, drought 24.1, wildfire 7.1. OSM resource factors: water proximity 0.63, urban/impervious proxy 0.37, vegetation proxy 0.0, agriculture proxy 0.21."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z124",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.45,
+              47.116667
+            ],
+            [
+              27.466667,
+              47.116667
+            ],
+            [
+              27.466667,
+              47.108333
+            ],
+            [
+              27.45,
+              47.108333
+            ],
+            [
+              27.45,
+              47.116667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 11-column 4 sector",
+        "center_longitude": 27.45833,
+        "center_latitude": 47.1125,
+        "flood_exposure_index": 18.5,
+        "drought_exposure_index": 25.4,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 25.4,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.5, drought 25.4, wildfire 8.1. OSM resource factors: water proximity 0.3, urban/impervious proxy 0.0, vegetation proxy 0.47, agriculture proxy 0.78."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z125",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.466667,
+              47.116667
+            ],
+            [
+              27.483333,
+              47.116667
+            ],
+            [
+              27.483333,
+              47.108333
+            ],
+            [
+              27.466667,
+              47.108333
+            ],
+            [
+              27.466667,
+              47.116667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 11-column 5 sector",
+        "center_longitude": 27.475,
+        "center_latitude": 47.1125,
+        "flood_exposure_index": 20.7,
+        "drought_exposure_index": 25.7,
+        "wildfire_exposure_index": 8.8,
+        "max_risk_index": 25.7,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.7, drought 25.7, wildfire 8.8. OSM resource factors: water proximity 0.9, urban/impervious proxy 0.0, vegetation proxy 0.93, agriculture proxy 0.91."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z126",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.483333,
+              47.116667
+            ],
+            [
+              27.5,
+              47.116667
+            ],
+            [
+              27.5,
+              47.108333
+            ],
+            [
+              27.483333,
+              47.108333
+            ],
+            [
+              27.483333,
+              47.116667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 11-column 6 sector",
+        "center_longitude": 27.49167,
+        "center_latitude": 47.1125,
+        "flood_exposure_index": 21.5,
+        "drought_exposure_index": 25.9,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 25.9,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.5, drought 25.9, wildfire 8.2. OSM resource factors: water proximity 0.86, urban/impervious proxy 0.62, vegetation proxy 0.51, agriculture proxy 0.98."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z127",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.5,
+              47.116667
+            ],
+            [
+              27.516667,
+              47.116667
+            ],
+            [
+              27.516667,
+              47.108333
+            ],
+            [
+              27.5,
+              47.108333
+            ],
+            [
+              27.5,
+              47.116667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 11-column 7 sector",
+        "center_longitude": 27.50833,
+        "center_latitude": 47.1125,
+        "flood_exposure_index": 19.8,
+        "drought_exposure_index": 25.5,
+        "wildfire_exposure_index": 7.6,
+        "max_risk_index": 25.5,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.8, drought 25.5, wildfire 7.6. OSM resource factors: water proximity 0.5, urban/impervious proxy 0.33, vegetation proxy 0.13, agriculture proxy 0.83."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z128",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.516667,
+              47.116667
+            ],
+            [
+              27.533333,
+              47.116667
+            ],
+            [
+              27.533333,
+              47.108333
+            ],
+            [
+              27.516667,
+              47.108333
+            ],
+            [
+              27.516667,
+              47.116667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 11-column 8 sector",
+        "center_longitude": 27.525,
+        "center_latitude": 47.1125,
+        "flood_exposure_index": 20.3,
+        "drought_exposure_index": 25.4,
+        "wildfire_exposure_index": 8.4,
+        "max_risk_index": 25.4,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.3, drought 25.4, wildfire 8.4. OSM resource factors: water proximity 0.55, urban/impervious proxy 0.52, vegetation proxy 0.69, agriculture proxy 0.76."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z129",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.533333,
+              47.116667
+            ],
+            [
+              27.55,
+              47.116667
+            ],
+            [
+              27.55,
+              47.108333
+            ],
+            [
+              27.533333,
+              47.108333
+            ],
+            [
+              27.533333,
+              47.116667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 11-column 9 sector",
+        "center_longitude": 27.54167,
+        "center_latitude": 47.1125,
+        "flood_exposure_index": 19.8,
+        "drought_exposure_index": 24.0,
+        "wildfire_exposure_index": 8.1,
+        "max_risk_index": 24.0,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.8, drought 24.0, wildfire 8.1. OSM resource factors: water proximity 0.67, urban/impervious proxy 0.0, vegetation proxy 0.79, agriculture proxy 0.17."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z130",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.55,
+              47.116667
+            ],
+            [
+              27.566667,
+              47.116667
+            ],
+            [
+              27.566667,
+              47.108333
+            ],
+            [
+              27.55,
+              47.108333
+            ],
+            [
+              27.55,
+              47.116667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 11-column 10 sector",
+        "center_longitude": 27.55833,
+        "center_latitude": 47.1125,
+        "flood_exposure_index": 21.0,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 7.4,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 21.0, drought 23.6, wildfire 7.4. OSM resource factors: water proximity 0.82, urban/impervious proxy 0.38, vegetation proxy 0.35, agriculture proxy 0.0."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z131",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.566667,
+              47.116667
+            ],
+            [
+              27.583333,
+              47.116667
+            ],
+            [
+              27.583333,
+              47.108333
+            ],
+            [
+              27.566667,
+              47.108333
+            ],
+            [
+              27.566667,
+              47.116667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 11-column 11 sector",
+        "center_longitude": 27.575,
+        "center_latitude": 47.1125,
+        "flood_exposure_index": 19.0,
+        "drought_exposure_index": 24.2,
+        "wildfire_exposure_index": 7.7,
+        "max_risk_index": 24.2,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.0, drought 24.2, wildfire 7.7. OSM resource factors: water proximity 0.25, urban/impervious proxy 0.43, vegetation proxy 0.45, agriculture proxy 0.25."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z132",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.583333,
+              47.116667
+            ],
+            [
+              27.6,
+              47.116667
+            ],
+            [
+              27.6,
+              47.108333
+            ],
+            [
+              27.583333,
+              47.108333
+            ],
+            [
+              27.583333,
+              47.116667
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 11-column 12 sector",
+        "center_longitude": 27.59167,
+        "center_latitude": 47.1125,
+        "flood_exposure_index": 20.4,
+        "drought_exposure_index": 25.1,
+        "wildfire_exposure_index": 7.5,
+        "max_risk_index": 25.1,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.4, drought 25.1, wildfire 7.5. OSM resource factors: water proximity 0.56, urban/impervious proxy 0.61, vegetation proxy 0.1, agriculture proxy 0.66."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z133",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.4,
+              47.108333
+            ],
+            [
+              27.416667,
+              47.108333
+            ],
+            [
+              27.416667,
+              47.1
+            ],
+            [
+              27.4,
+              47.1
+            ],
+            [
+              27.4,
+              47.108333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 12-column 1 sector",
+        "center_longitude": 27.40833,
+        "center_latitude": 47.10417,
+        "flood_exposure_index": 17.4,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 7.0,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.4, drought 23.6, wildfire 7.0. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.0."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z134",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.416667,
+              47.108333
+            ],
+            [
+              27.433333,
+              47.108333
+            ],
+            [
+              27.433333,
+              47.1
+            ],
+            [
+              27.416667,
+              47.1
+            ],
+            [
+              27.416667,
+              47.108333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 12-column 2 sector",
+        "center_longitude": 27.425,
+        "center_latitude": 47.10417,
+        "flood_exposure_index": 17.4,
+        "drought_exposure_index": 23.6,
+        "wildfire_exposure_index": 7.0,
+        "max_risk_index": 23.6,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 17.4, drought 23.6, wildfire 7.0. OSM resource factors: water proximity 0.0, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.0."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z135",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.433333,
+              47.108333
+            ],
+            [
+              27.45,
+              47.108333
+            ],
+            [
+              27.45,
+              47.1
+            ],
+            [
+              27.433333,
+              47.1
+            ],
+            [
+              27.433333,
+              47.108333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 12-column 3 sector",
+        "center_longitude": 27.44167,
+        "center_latitude": 47.10417,
+        "flood_exposure_index": 19.0,
+        "drought_exposure_index": 23.9,
+        "wildfire_exposure_index": 7.0,
+        "max_risk_index": 23.9,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.0, drought 23.9, wildfire 7.0. OSM resource factors: water proximity 0.43, urban/impervious proxy 0.0, vegetation proxy 0.0, agriculture proxy 0.15."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z136",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.45,
+              47.108333
+            ],
+            [
+              27.466667,
+              47.108333
+            ],
+            [
+              27.466667,
+              47.1
+            ],
+            [
+              27.45,
+              47.1
+            ],
+            [
+              27.45,
+              47.108333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 12-column 4 sector",
+        "center_longitude": 27.45833,
+        "center_latitude": 47.10417,
+        "flood_exposure_index": 19.2,
+        "drought_exposure_index": 25.1,
+        "wildfire_exposure_index": 7.7,
+        "max_risk_index": 25.1,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.2, drought 25.1, wildfire 7.7. OSM resource factors: water proximity 0.51, urban/impervious proxy 0.0, vegetation proxy 0.24, agriculture proxy 0.65."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z137",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.466667,
+              47.108333
+            ],
+            [
+              27.483333,
+              47.108333
+            ],
+            [
+              27.483333,
+              47.1
+            ],
+            [
+              27.466667,
+              47.1
+            ],
+            [
+              27.466667,
+              47.108333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 12-column 5 sector",
+        "center_longitude": 27.475,
+        "center_latitude": 47.10417,
+        "flood_exposure_index": 18.1,
+        "drought_exposure_index": 25.5,
+        "wildfire_exposure_index": 8.2,
+        "max_risk_index": 25.5,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.1, drought 25.5, wildfire 8.2. OSM resource factors: water proximity 0.2, urban/impervious proxy 0.0, vegetation proxy 0.52, agriculture proxy 0.84."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z138",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.483333,
+              47.108333
+            ],
+            [
+              27.5,
+              47.108333
+            ],
+            [
+              27.5,
+              47.1
+            ],
+            [
+              27.483333,
+              47.1
+            ],
+            [
+              27.483333,
+              47.108333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 12-column 6 sector",
+        "center_longitude": 27.49167,
+        "center_latitude": 47.10417,
+        "flood_exposure_index": 20.4,
+        "drought_exposure_index": 24.9,
+        "wildfire_exposure_index": 7.8,
+        "max_risk_index": 24.9,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.4, drought 24.9, wildfire 7.8. OSM resource factors: water proximity 0.63, urban/impervious proxy 0.45, vegetation proxy 0.34, agriculture proxy 0.57."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z139",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.5,
+              47.108333
+            ],
+            [
+              27.516667,
+              47.108333
+            ],
+            [
+              27.516667,
+              47.1
+            ],
+            [
+              27.5,
+              47.1
+            ],
+            [
+              27.5,
+              47.108333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 12-column 7 sector",
+        "center_longitude": 27.50833,
+        "center_latitude": 47.10417,
+        "flood_exposure_index": 20.5,
+        "drought_exposure_index": 25.8,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 25.8,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.5, drought 25.8, wildfire 8.3. OSM resource factors: water proximity 0.58, urban/impervious proxy 0.63, vegetation proxy 0.61, agriculture proxy 0.93."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z140",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.516667,
+              47.108333
+            ],
+            [
+              27.533333,
+              47.108333
+            ],
+            [
+              27.533333,
+              47.1
+            ],
+            [
+              27.516667,
+              47.1
+            ],
+            [
+              27.516667,
+              47.108333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 12-column 8 sector",
+        "center_longitude": 27.525,
+        "center_latitude": 47.10417,
+        "flood_exposure_index": 20.7,
+        "drought_exposure_index": 25.0,
+        "wildfire_exposure_index": 8.0,
+        "max_risk_index": 25.0,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.7, drought 25.0, wildfire 8.0. OSM resource factors: water proximity 0.65, urban/impervious proxy 0.56, vegetation proxy 0.48, agriculture proxy 0.63."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z141",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.533333,
+              47.108333
+            ],
+            [
+              27.55,
+              47.108333
+            ],
+            [
+              27.55,
+              47.1
+            ],
+            [
+              27.533333,
+              47.1
+            ],
+            [
+              27.533333,
+              47.108333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 12-column 9 sector",
+        "center_longitude": 27.54167,
+        "center_latitude": 47.10417,
+        "flood_exposure_index": 19.0,
+        "drought_exposure_index": 24.3,
+        "wildfire_exposure_index": 7.5,
+        "max_risk_index": 24.3,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 19.0, drought 24.3, wildfire 7.5. OSM resource factors: water proximity 0.05, urban/impervious proxy 0.87, vegetation proxy 0.27, agriculture proxy 0.3."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z142",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.55,
+              47.108333
+            ],
+            [
+              27.566667,
+              47.108333
+            ],
+            [
+              27.566667,
+              47.1
+            ],
+            [
+              27.55,
+              47.1
+            ],
+            [
+              27.55,
+              47.108333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 12-column 10 sector",
+        "center_longitude": 27.55833,
+        "center_latitude": 47.10417,
+        "flood_exposure_index": 20.9,
+        "drought_exposure_index": 24.0,
+        "wildfire_exposure_index": 7.7,
+        "max_risk_index": 24.0,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.9, drought 24.0, wildfire 7.7. OSM resource factors: water proximity 0.65, urban/impervious proxy 0.68, vegetation proxy 0.44, agriculture proxy 0.18."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z143",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.566667,
+              47.108333
+            ],
+            [
+              27.583333,
+              47.108333
+            ],
+            [
+              27.583333,
+              47.1
+            ],
+            [
+              27.566667,
+              47.1
+            ],
+            [
+              27.566667,
+              47.108333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 12-column 11 sector",
+        "center_longitude": 27.575,
+        "center_latitude": 47.10417,
+        "flood_exposure_index": 20.3,
+        "drought_exposure_index": 24.5,
+        "wildfire_exposure_index": 8.4,
+        "max_risk_index": 24.5,
+        "most_relevant_risks": [],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 20.3, drought 24.5, wildfire 8.4. OSM resource factors: water proximity 0.71, urban/impervious proxy 0.22, vegetation proxy 0.91, agriculture proxy 0.38."
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "Z144",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              27.583333,
+              47.108333
+            ],
+            [
+              27.6,
+              47.108333
+            ],
+            [
+              27.6,
+              47.1
+            ],
+            [
+              27.583333,
+              47.1
+            ],
+            [
+              27.583333,
+              47.108333
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "row 12-column 12 sector",
+        "center_longitude": 27.59167,
+        "center_latitude": 47.10417,
+        "flood_exposure_index": 18.8,
+        "drought_exposure_index": 25.1,
+        "wildfire_exposure_index": 8.3,
+        "max_risk_index": 25.1,
+        "most_relevant_risks": [
+          "drought"
+        ],
+        "explanation": "This sector has unknown elevation. Low-elevation factor is 0.5 and high-ground/dryness factor is 0.5. These are relative exposure indices, not event probabilities: flood 18.8, drought 25.1, wildfire 8.3. OSM resource factors: water proximity 0.18, urban/impervious proxy 0.48, vegetation proxy 0.67, agriculture proxy 0.63."
       }
     }
   ]

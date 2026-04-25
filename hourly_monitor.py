@@ -27,7 +27,7 @@ from calamity_ai.zones import get_zone_analysis, zone_analysis_to_dict
 
 
 def build_report(args: argparse.Namespace) -> dict[str, object]:
-    config = load_config(args.config).with_project_id(args.project or os.getenv("EE_PROJECT_ID"))
+    config = load_runtime_config(args)
     now = datetime.now(timezone.utc)
     resource_summary = None
     if not args.no_resources:
@@ -121,6 +121,13 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
     return report
 
 
+def load_runtime_config(args: argparse.Namespace) -> object:
+    config = load_config(args.config).with_project_id(args.project or os.getenv("EE_PROJECT_ID"))
+    if args.bbox:
+        config = config.with_area(args.area_name or "custom_selected_region", _bbox_to_polygon(args.bbox))
+    return config
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Hourly AI-style calamity risk monitor")
     parser.add_argument("--config", default="config/monitor_config.json")
@@ -130,6 +137,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--log-out", default="out/monitor.log")
     parser.add_argument("--site-out", default="out/site")
     parser.add_argument("--weather", default="data/weather_features.json")
+    parser.add_argument(
+        "--bbox",
+        nargs=4,
+        type=float,
+        metavar=("LON1", "LAT1", "LON2", "LAT2"),
+        help="Analyze only the rectangle defined by two coordinate points.",
+    )
+    parser.add_argument("--area-name", help="Display name for --bbox selected region")
     parser.add_argument("--provider", choices=["openmeteo", "local", "earthengine"], default="openmeteo")
     parser.add_argument("--no-copernicus", action="store_true", help="Skip Copernicus satellite catalogue checks")
     parser.add_argument("--no-context", action="store_true", help="Skip historical weather and elevation context")
@@ -156,7 +171,7 @@ def main() -> None:
     append_jsonl(args.jsonl_out, report)
     append_csv(args.csv_out, report)
     append_log(args.log_out, report)
-    write_site_bundle(report, load_config(args.config), args.site_out)
+    write_site_bundle(report, load_runtime_config(args), args.site_out)
     if args.print_json:
         print(json.dumps(report, indent=2))
 
@@ -194,6 +209,21 @@ def _log_line(report: dict[str, Any]) -> str:
         + sensor_text
         + f" notes=\"{notes}\""
     )
+
+
+def _bbox_to_polygon(values: list[float]) -> list[list[float]]:
+    lon1, lat1, lon2, lat2 = values
+    west, east = sorted([lon1, lon2])
+    south, north = sorted([lat1, lat2])
+    if west == east or south == north:
+        raise ValueError("--bbox needs two different longitude/latitude points.")
+    return [
+        [west, north],
+        [east, north],
+        [east, south],
+        [west, south],
+        [west, north],
+    ]
 
 
 if __name__ == "__main__":

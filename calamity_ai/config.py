@@ -35,6 +35,21 @@ class MonitorConfig:
             zones=self.zones,
         )
 
+    def with_area(self, area_name: str, polygon: list[list[float]]) -> "MonitorConfig":
+        return MonitorConfig(
+            project_id=self.project_id,
+            area_name=area_name,
+            polygon=polygon,
+            dataset=self.dataset,
+            scale_m=self.scale_m,
+            forecast_window_hours=self.forecast_window_hours,
+            thresholds=self.thresholds,
+            sensor_health=self.sensor_health,
+            copernicus=self.copernicus,
+            context=self.context,
+            zones=self.zones,
+        )
+
 
 def load_config(path: str | Path) -> MonitorConfig:
     raw: dict[str, Any] = json.loads(Path(path).read_text(encoding="utf-8"))

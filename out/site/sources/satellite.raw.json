@@ -1,5 +1,208 @@
 {
   "stage": "sources",
   "source_type": "satellite",
-  "data": null
+  "data": {
+    "provider": "Copernicus Data Space STAC",
+    "lookback_days": 14,
+    "sentinel1": {
+      "collection": "sentinel-1-grd",
+      "count": 5,
+      "latest_datetime": "2026-04-25T04:21:08.474478Z",
+      "products": [
+        {
+          "id": "S1A_IW_GRDH_1SDV_20260425T042108_20260425T042133_064231_0815E2_22BD_COG",
+          "collection": "sentinel-1-grd",
+          "datetime": "2026-04-25T04:21:08.474478Z",
+          "platform": "sentinel-1a",
+          "cloud_cover": null
+        },
+        {
+          "id": "S1A_IW_GRDH_1SDV_20260421T160123_20260421T160148_064180_0813FF_C0D5_COG",
+          "collection": "sentinel-1-grd",
+          "datetime": "2026-04-21T16:01:23.652994Z",
+          "platform": "sentinel-1a",
+          "cloud_cover": null
+        },
+        {
+          "id": "S1D_IW_GRDH_1SDV_20260420T042006_20260420T042031_002425_003FB0_FF7C_COG",
+          "collection": "sentinel-1-grd",
+          "datetime": "2026-04-20T04:20:06.201108Z",
+          "platform": "sentinel-1d",
+          "cloud_cover": null
+        },
+        {
+          "id": "S1A_IW_GRDH_1SDV_20260420T041259_20260420T041324_064158_08132E_5F54_COG",
+          "collection": "sentinel-1-grd",
+          "datetime": "2026-04-20T04:12:59.519898Z",
+          "platform": "sentinel-1a",
+          "cloud_cover": null
+        },
+        {
+          "id": "S1C_IW_GRDH_1SDV_20260419T041956_20260419T042021_007280_00EC24_E4F7_COG",
+          "collection": "sentinel-1-grd",
+          "datetime": "2026-04-19T04:19:56.172790Z",
+          "platform": "sentinel-1c",
+          "cloud_cover": null
+        }
+      ]
+    },
+    "sentinel2": {
+      "collection": "sentinel-2-l2a",
+      "count": 2,
+      "latest_datetime": "2026-04-19T09:05:51.025000Z",
+      "products": [
+        {
+          "id": "S2C_MSIL2A_20260419T090551_N0512_R050_T35TNN_20260419T130200",
+          "collection": "sentinel-2-l2a",
+          "datetime": "2026-04-19T09:05:51.025000Z",
+          "platform": "sentinel-2c",
+          "cloud_cover": 29.04
+        },
+        {
+          "id": "S2B_MSIL2A_20260414T090549_N0512_R050_T35TNN_20260414T113431",
+          "collection": "sentinel-2-l2a",
+          "datetime": "2026-04-14T09:05:49.024000Z",
+          "platform": "sentinel-2b",
+          "cloud_cover": 30.48
+        }
+      ]
+    },
+    "auxiliary": [
+      {
+        "collection": "sentinel-3-sl-2-lst-nrt",
+        "count": 2,
+        "latest_datetime": "2026-04-24T19:54:03.041501Z",
+        "products": [
+          {
+            "id": "S3B_SL_2_LST____20260424T195403_20260424T195703_20260424T223734_0180_119_185_0720_ESA_O_NR_005",
+            "collection": "sentinel-3-sl-2-lst-nrt",
+            "datetime": "2026-04-24T19:54:03.041501Z",
+            "platform": "sentinel-3b",
+            "cloud_cover": 51.36
+          },
+          {
+            "id": "S3A_SL_2_LST____20260424T090948_20260424T091248_20260424T112842_0179_138_321_2160_PS1_O_NR_005",
+            "collection": "sentinel-3-sl-2-lst-nrt",
+            "datetime": "2026-04-24T09:09:48.097036Z",
+            "platform": "sentinel-3a",
+            "cloud_cover": 27.51
+          }
+        ]
+      },
+      {
+        "collection": "sentinel-3-sl-2-frp-nrt",
+        "count": 2,
+        "latest_datetime": "2026-04-25T08:04:02.019347Z",
+        "products": [
+          {
+            "id": "S3B_SL_2_FRP____20260425T080402_20260425T080902_20260425T100936_0299_119_192______MAR_O_NR_003",
+            "collection": "sentinel-3-sl-2-frp-nrt",
+            "datetime": "2026-04-25T08:04:02.019347Z",
+            "platform": "sentinel-3b",
+            "cloud_cover": 39.94
+          },
+          {
+            "id": "S3B_SL_2_FRP____20260424T195517_20260424T200040_20260424T221213_0323_119_185______MAR_O_NR_003",
+            "collection": "sentinel-3-sl-2-frp-nrt",
+            "datetime": "2026-04-24T19:55:16.732426Z",
+            "platform": "sentinel-3b",
+            "cloud_cover": 42.99
+          }
+        ]
+      },
+      {
+        "collection": "sentinel-5p-l2-aer-ai-nrti",
+        "count": 2,
+        "latest_datetime": "2026-04-24T11:58:08Z",
+        "products": [
+          {
+            "id": "S5P_NRTI_L2__AER_AI_20260424T115814_20260424T120314_44195_03_020901_20260424T123318",
+            "collection": "sentinel-5p-l2-aer-ai-nrti",
+            "datetime": "2026-04-24T11:58:08Z",
+            "platform": "sentinel-5p",
+            "cloud_cover": null
+          },
+          {
+            "id": "S5P_NRTI_L2__AER_AI_20260424T101814_20260424T102314_44194_03_020901_20260424T121958",
+            "collection": "sentinel-5p-l2-aer-ai-nrti",
+            "datetime": "2026-04-24T10:18:08Z",
+            "platform": "sentinel-5p",
+            "cloud_cover": null
+          }
+        ]
+      },
+      {
+        "collection": "sentinel-5p-l2-co-nrti",
+        "count": 2,
+        "latest_datetime": "2026-04-24T11:58:08Z",
+        "products": [
+          {
+            "id": "S5P_NRTI_L2__CO_____20260424T115814_20260424T120314_44195_03_020901_20260424T123313",
+            "collection": "sentinel-5p-l2-co-nrti",
+            "datetime": "2026-04-24T11:58:08Z",
+            "platform": "sentinel-5p",
+            "cloud_cover": null
+          },
+          {
+            "id": "S5P_NRTI_L2__CO_____20260424T101814_20260424T102314_44194_03_020901_20260424T121957",
+            "collection": "sentinel-5p-l2-co-nrti",
+            "datetime": "2026-04-24T10:18:08Z",
+            "platform": "sentinel-5p",
+            "cloud_cover": null
+          }
+        ]
+      },
+      {
+        "collection": "clms_swi_europe_1km_daily_v2_cog",
+        "count": 0,
+        "latest_datetime": null,
+        "products": []
+      },
+      {
+        "collection": "clms_ssm_europe_1km_daily_v1_cog",
+        "count": 0,
+        "latest_datetime": null,
+        "products": []
+      },
+      {
+        "collection": "clms_ndvi_global_300m_10daily_v3_cog",
+        "count": 0,
+        "latest_datetime": null,
+        "products": []
+      },
+      {
+        "collection": "clms_ba_global_300m_daily_v4_cog",
+        "count": 0,
+        "latest_datetime": null,
+        "products": []
+      },
+      {
+        "collection": "clms_wb_global_100m_monthly_v1_cog",
+        "count": 0,
+        "latest_datetime": null,
+        "products": []
+      },
+      {
+        "collection": "modis-terra-mod14a1",
+        "count": 0,
+        "latest_datetime": null,
+        "products": []
+      },
+      {
+        "collection": "modis-terraaqua-mcd64a1",
+        "count": 0,
+        "latest_datetime": null,
+        "products": []
+      },
+      {
+        "collection": "cop-dem-glo-30-dged-cog",
+        "count": 0,
+        "latest_datetime": null,
+        "products": []
+      }
+    ],
+    "flood_observation_ready": true,
+    "optical_observation_ready": true,
+    "evidence_explanation": "Sentinel-1 radar products found: 5; Sentinel-2 optical products found: 2; additional evidence collections found: sentinel-3-sl-2-lst-nrt, sentinel-3-sl-2-frp-nrt, sentinel-5p-l2-aer-ai-nrti, sentinel-5p-l2-co-nrti"
+  }
 }

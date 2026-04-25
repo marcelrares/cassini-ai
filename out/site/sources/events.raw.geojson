@@ -3,74 +3,20 @@
   "features": [
     {
       "type": "Feature",
-      "id": "risk-drought",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          27.565,
-          47.147
-        ]
-      },
-      "properties": {
-        "event_type": "raw_risk_signal",
-        "risk": "drought",
-        "level": "medium",
-        "risk_index_percent": 49.0,
-        "title": "Drought"
-      }
-    },
-    {
-      "type": "Feature",
       "id": "risk-storm",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          27.565,
-          47.147
+          27.48,
+          47.160000000000004
         ]
       },
       "properties": {
         "event_type": "raw_risk_signal",
         "risk": "storm",
         "level": "medium",
-        "risk_index_percent": 53.1,
+        "risk_index_percent": 58.8,
         "title": "Storm / strong wind"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "risk-heatwave",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          27.565,
-          47.147
-        ]
-      },
-      "properties": {
-        "event_type": "raw_risk_signal",
-        "risk": "heatwave",
-        "level": "medium",
-        "risk_index_percent": 52.5,
-        "title": "Heatwave"
-      }
-    },
-    {
-      "type": "Feature",
-      "id": "risk-wildfire",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          27.565,
-          47.147
-        ]
-      },
-      "properties": {
-        "event_type": "raw_risk_signal",
-        "risk": "wildfire",
-        "level": "medium",
-        "risk_index_percent": 41.9,
-        "title": "Wildfire"
       }
     }
   ]
