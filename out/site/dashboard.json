@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-04-25T10:14:25.723905Z",
+  "title": "Calamity Intelligence Dashboard",
+  "subtitle": "Iasi_monitoring_zone risk monitoring",
+  "area": {
+    "name": "Iasi_monitoring_zone",
+    "bbox": [
+      27.43,
+      47.05,
+      27.75,
+      47.24
+    ],
+    "total_monitored_hectares": 37838.5
+  },
+  "stats": [
+    {
+      "id": "max-risk",
+      "label": "Max risk",
+      "value": 53.1,
+      "unit": "%",
+      "status": "storm:medium"
+    },
+    {
+      "id": "active-alerts",
+      "label": "Active alerts",
+      "value": 4,
+      "unit": "",
+      "status": "active"
+    },
+    {
+      "id": "sensors-online",
+      "label": "Sensors online",
+      "value": 5,
+      "unit": "/5",
+      "status": "working"
+    },
+    {
+      "id": "prediction-zones",
+      "label": "Prediction zones",
+      "value": 1,
+      "unit": "",
+      "status": "ready"
+    }
+  ],
+  "weather": {
+    "temperature_current_c": 27.6,
+    "temperature_max_last_24h_c": 34.2,
+    "temperature_forecast_max_next_24h_c": 34.2,
+    "precipitation_next_24h_mm": 26.0,
+    "wind_gust_max_ms": 14.5,
+    "relative_humidity_percent": 36.0,
+    "soil_moisture_proxy": 0.31,
+    "vapor_pressure_deficit_kpa": 1.9
+  },
+  "alerts": [
+    {
+      "id": "risk-drought",
+      "type": "risk",
+      "severity": "medium",
+      "title": "Drought",
+      "message": "Drought risk is 49.0% (medium) because expected precipitation is 26.0 mm/24h, observed mean temperature over the last 24 hours is 28.4 C, and soil moisture is 31.0% of the wet reference. For drought, precipitation below 5.0 mm/24h and temperatures above 30.0 C increase risk. The score now uses previous years for the same seasonal window, so one dry forecast day is not enough by itself to create high drought risk. Current temperature is 27.6 C. In this calculation: precipitation reduces risk, temperature strongly increases risk, dry soil moderately increases risk, 30-day historical dryness moderately increases risk.",
+      "risk_index_percent": 49.0
+    },
+    {
+      "id": "risk-storm",
+      "type": "risk",
+      "severity": "medium",
+      "title": "Storm / strong wind",
+      "message": "Storm risk is 53.1% (medium) because maximum forecast gusts are 14.5 m/s and CAPE is 1100 J/kg. The high-risk wind reference is 25.0 m/s; CAPE above 2500 J/kg indicates strong convective instability.",
+      "risk_index_percent": 53.1
+    },
+    {
+      "id": "risk-heatwave",
+      "type": "risk",
+      "severity": "medium",
+      "title": "Heatwave",
+      "message": "Heatwave risk is 52.5% (medium) because the observed maximum temperature over the last 24 hours is 34.2 C. The forecast maximum for the next 24 hours is 34.2 C. Risk starts increasing above 30 C, and the high-risk reference threshold is 38.0 C.",
+      "risk_index_percent": 52.5
+    },
+    {
+      "id": "risk-wildfire",
+      "type": "risk",
+      "severity": "medium",
+      "title": "Wildfire",
+      "message": "Spontaneous wildfire risk index is 41.9% (medium). This is not a probability; it is a normalized warning index. The model now requires dry fuel conditions plus ignition weather, then uses wind mainly as a spread amplifier. It combines historical dryness, observed 24-hour maximum temperature 34.2 C, and wind gusts 14.5 m/s. Risk rises sharply above 32.0 C and above 12.0 m/s. Historical dryness is compared with previous years for the same season, so wind alone or one dry forecast day should not produce an excessive spontaneous-fire score. Current temperature is 27.6 C.",
+      "risk_index_percent": 41.9
+    }
+  ],
+  "predictions": {
+    "type": "area_summary",
+    "zone_count": 1,
+    "indices_are_probabilities": false,
+    "top_zones": [],
+    "risks": {
+      "flood": {
+        "risk": "low",
+        "risk_index_percent": 33.8
+      },
+      "drought": {
+        "risk": "medium",
+        "risk_index_percent": 49.0
+      },
+      "storm": {
+        "risk": "medium",
+        "risk_index_percent": 53.1
+      },
+      "heatwave": {
+        "risk": "medium",
+        "risk_index_percent": 52.5
+      },
+      "wildfire": {
+        "risk": "medium",
+        "risk_index_percent": 41.9
+      }
+    }
+  },
+  "map": {
+    "center": [
+      27.565,
+      47.147
+    ],
+    "bbox": [
+      27.43,
+      47.05,
+      27.75,
+      47.24
+    ],
+    "layers": {
+      "predictions": "processing/predictions.geojson",
+      "events": "standardized/events.geojson",
+      "maps": "standardized/maps.geojson",
+      "weather": "standardized/weather.coverage.json",
+      "satellite": "standardized/satellite.stac.json"
+    }
+  },
+  "fields": [],
+  "data_sources": [
+    {
+      "id": "weather",
+      "label": "Open-Meteo / weather provider",
+      "status": "ready"
+    },
+    {
+      "id": "risk-model",
+      "label": "Risk scoring model",
+      "status": "ready"
+    },
+    {
+      "id": "sensors",
+      "label": "Local sensor inventory",
+      "status": "ready",
+      "online": 5,
+      "total": 5
+    }
+  ],
+  "status": {
+    "working": true,
+    "notes": "elevated risks: drought, storm, heatwave, wildfire"
+  }
+}

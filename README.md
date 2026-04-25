@@ -156,6 +156,7 @@ out/site/manifest.json
 
 The manifest points to:
 
+- `dashboard.json`: compact payload for dashboard cards, weather widgets, alerts, prediction panels, and map component links.
 - `standardized/satellite.stac.json`: curated satellite evidence in STAC-like JSON.
 - `standardized/weather.coverage.json`: weather values in a CoverageJSON-style structure.
 - `standardized/maps.geojson`: monitored area and map context.

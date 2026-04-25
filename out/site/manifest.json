@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-25T10:06:26.941118Z",
+  "generated_at": "2026-04-25T10:14:25.723905Z",
   "area": {
     "name": "Iasi_monitoring_zone",
     "bbox": [
@@ -12,6 +12,10 @@
     "crs": "EPSG:4326"
   },
   "entrypoint": "manifest.json",
+  "dashboard": {
+    "href": "dashboard.json",
+    "description": "Compact dashboard payload for stats, weather, alerts, predictions, and map widgets."
+  },
   "layers": [
     {
       "id": "satellite",
@@ -87,6 +91,6 @@
   },
   "status": {
     "working": true,
-    "notes": "elevated risks: storm; Historical context: last 30 days rainfall: 84.2 mm; last 90 days rainfall: 135.1 mm; dry days under 1 mm rain: 15/30; reference evapotranspiration: 69.8 mm/30d; max historical gust: 20.8 m/s; Seasonal baseline from previous 10 years: 30-day rainfall normal 52.3 mm, current ratio 1.61; 90-day rainfall normal 125.4 mm, current ratio 1.08; dry-days normal 21.0, current ratio 0.71.; Elevation context: center is about 111.0 m, sampled range is 37.0-161.0 m, terrain class is steep. Steeper terrain can increase runoff speed and local flood response; flatter terrain can hold standing water longer.; Highest relative flood-exposure sectors, not probabilities: row 8-column 4 sector, row 9-column 4 sector, row 9-column 11 sector; Prediction summary: 2026-04-25: highest forecast indices are drought 28.6 (low), storm 17.9 (low), flood 12.8 (low)."
+    "notes": "elevated risks: drought, storm, heatwave, wildfire"
   }
 }
