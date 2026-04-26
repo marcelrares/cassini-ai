@@ -27,12 +27,15 @@ STEEP_TERRAIN_RUNOFF = 0.22
 FLOOD_FORECAST_WEIGHT = 0.65
 FLOOD_RECENT_WETNESS_WEIGHT = 0.25
 FLOOD_TERRAIN_RUNOFF_WEIGHT = 0.10
+FLOOD_RESOURCE_WATER_WEIGHT = 0.05
+FLOOD_RESOURCE_URBAN_WEIGHT = 0.03
 
 DROUGHT_PRECIP_WEIGHT = 0.15
 DROUGHT_HEAT_WEIGHT = 0.20
 DROUGHT_SOIL_WEIGHT = 0.25
 DROUGHT_HISTORY_WEIGHT = 0.30
 DROUGHT_EVAPOTRANSPIRATION_WEIGHT = 0.10
+DROUGHT_RESOURCE_AGRICULTURE_WEIGHT = 0.04
 
 STORM_WIND_WEIGHT = 0.65
 STORM_CAPE_WEIGHT = 0.35
@@ -44,6 +47,8 @@ WILDFIRE_EVAPOTRANSPIRATION_WEIGHT = 0.10
 WILDFIRE_FUEL_IGNITION_WEIGHT = 0.70
 WILDFIRE_WIND_SPREAD_WEIGHT = 0.20
 WILDFIRE_DROUGHT_HEAT_WEIGHT = 0.10
+WILDFIRE_RESOURCE_GREEN_WEIGHT = 0.06
+WILDFIRE_RESOURCE_AGRICULTURE_WEIGHT = 0.04
 
 # Satellite data weight modifiers (satellite confidence gates overall impact)
 SATELLITE_WEIGHT_SCALING = 0.25  # Max 25% weight from satellite data, rest from weather/context
@@ -113,8 +118,10 @@ def score_calamities(
     features: WeatherFeatures,
     thresholds: dict[str, float],
     context: Any | None = None,
+    resources: Any | None = None,
 ) -> dict[str, dict[str, object]]:
     factors = _historical_factors(context)
+    resource_factors = _resource_factors(resources)
     terrain_runoff = 0.0
     if factors["terrain_class"] == "rolling":
         terrain_runoff = ROLLING_TERRAIN_RUNOFF
@@ -140,6 +147,8 @@ def score_calamities(
         + (FLOOD_RECENT_WETNESS_WEIGHT * recent_wetness)
         + (FLOOD_TERRAIN_RUNOFF_WEIGHT * terrain_runoff)
         + (FLOOD_SATELLITE_WEIGHT * satellite_flood_boost)
+        + (FLOOD_RESOURCE_WATER_WEIGHT * resource_factors["water"])
+        + (FLOOD_RESOURCE_URBAN_WEIGHT * resource_factors["urban"])
     )
 
     # DROUGHT SCORING: precip deficit + heat + soil dryness + history + satellite moisture
@@ -170,6 +179,7 @@ def score_calamities(
         + (DROUGHT_HISTORY_WEIGHT * historical_dryness)
         + (DROUGHT_EVAPOTRANSPIRATION_WEIGHT * evapotranspiration_anomaly)
         + (DROUGHT_SATELLITE_WEIGHT * satellite_drought_boost)
+        + (DROUGHT_RESOURCE_AGRICULTURE_WEIGHT * resource_factors["agriculture"])
     )
 
     # STORM SCORING: wind + CAPE (minimal satellite impact)
@@ -228,6 +238,8 @@ def score_calamities(
         + (WILDFIRE_WIND_SPREAD_WEIGHT * wildfire_wind * fuel_dryness)
         + (WILDFIRE_DROUGHT_HEAT_WEIGHT * drought * wildfire_heat)
         + (WILDFIRE_SATELLITE_WEIGHT * satellite_wildfire_boost)
+        + (WILDFIRE_RESOURCE_GREEN_WEIGHT * resource_factors["green"])
+        + (WILDFIRE_RESOURCE_AGRICULTURE_WEIGHT * resource_factors["agriculture"])
     )
 
     raw_scores = {
@@ -241,6 +253,37 @@ def score_calamities(
         name: explain_score(name, score, label(score), features, thresholds, factors)
         for name, score in raw_scores.items()
     }
+
+
+def _resource_factors(resources: Any | None) -> dict[str, float]:
+    if resources is None:
+        return {"water": 0.0, "urban": 0.0, "green": 0.0, "agriculture": 0.0}
+    water_features = _resource_value(resources, "waterway_features") + _resource_value(
+        resources, "water_body_features"
+    )
+    return {
+        "water": _count_signal(water_features, 120.0),
+        "urban": _count_signal(_resource_value(resources, "urban_landuse_features"), 120.0),
+        "green": _count_signal(_resource_value(resources, "forest_or_green_features"), 180.0),
+        "agriculture": _count_signal(_resource_value(resources, "agriculture_features"), 140.0),
+    }
+
+
+def _resource_value(resources: Any, key: str) -> float:
+    if isinstance(resources, dict):
+        value = resources.get(key, 0.0)
+    else:
+        value = getattr(resources, key, 0.0)
+    try:
+        return max(0.0, float(value or 0.0))
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def _count_signal(value: float, saturation: float) -> float:
+    if saturation <= 0:
+        return 0.0
+    return clamp01(value / saturation)
 
 
 def _historical_factors(context: Any | None) -> dict[str, Any]:
@@ -258,13 +301,13 @@ def _historical_factors(context: Any | None) -> dict[str, Any]:
             "evapotranspiration_ratio": None,
             "evapotranspiration_90d_ratio": None,
         }
-    baseline = getattr(getattr(context, "history", None), "seasonal_baseline", None)
-    precipitation_ratio = getattr(baseline, "precipitation_30d_ratio", None)
-    precipitation_90d_ratio = getattr(baseline, "precipitation_90d_ratio", None)
-    dry_days_ratio = getattr(baseline, "dry_days_ratio", None)
-    dry_days_90d_ratio = getattr(baseline, "dry_days_90d_ratio", None)
-    et0_ratio = getattr(baseline, "evapotranspiration_ratio", None)
-    et0_90d_ratio = getattr(baseline, "evapotranspiration_90d_ratio", None)
+    baseline = _context_baseline(context)
+    precipitation_ratio = _context_value(baseline, "precipitation_30d_ratio")
+    precipitation_90d_ratio = _context_value(baseline, "precipitation_90d_ratio")
+    dry_days_ratio = _context_value(baseline, "dry_days_ratio")
+    dry_days_90d_ratio = _context_value(baseline, "dry_days_90d_ratio")
+    et0_ratio = _context_value(baseline, "evapotranspiration_ratio")
+    et0_90d_ratio = _context_value(baseline, "evapotranspiration_90d_ratio")
 
     rainfall_deficit = 0.5
     wetness = 0.0
@@ -297,13 +340,13 @@ def _historical_factors(context: Any | None) -> dict[str, Any]:
         + (DRY_DAYS_WEIGHT * dry_days_anomaly)
         + (LONG_DRY_DAYS_WEIGHT * dry_days_90d_anomaly)
     )
-    elevation = getattr(context, "elevation", None)
+    elevation = context.get("elevation") if isinstance(context, dict) else getattr(context, "elevation", None)
     return {
         "dryness_30d": dryness,
         "wetness_30d": clamp01((SHORT_WETNESS_WEIGHT * wetness) + (LONG_WETNESS_WEIGHT * long_wetness)),
         "evapotranspiration": et0_anomaly,
-        "terrain_class": getattr(elevation, "terrain_class", "unknown"),
-        "baseline_available": bool(getattr(baseline, "baseline_years", [])),
+        "terrain_class": _context_value(elevation, "terrain_class", "unknown"),
+        "baseline_available": bool(_context_value(baseline, "baseline_years", [])),
         "precipitation_30d_ratio": precipitation_ratio,
         "precipitation_90d_ratio": precipitation_90d_ratio,
         "dry_days_ratio": dry_days_ratio,
@@ -311,3 +354,16 @@ def _historical_factors(context: Any | None) -> dict[str, Any]:
         "evapotranspiration_ratio": et0_ratio,
         "evapotranspiration_90d_ratio": et0_90d_ratio,
     }
+
+
+def _context_baseline(context: Any) -> Any:
+    if isinstance(context, dict):
+        history = context.get("history")
+        return history.get("seasonal_baseline") if isinstance(history, dict) else None
+    return getattr(getattr(context, "history", None), "seasonal_baseline", None)
+
+
+def _context_value(source: Any, key: str, default: Any = None) -> Any:
+    if isinstance(source, dict):
+        return source.get(key, default)
+    return getattr(source, key, default)

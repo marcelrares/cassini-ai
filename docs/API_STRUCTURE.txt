@@ -22,14 +22,18 @@ Important CLI options:
 
 - `--config`: path to monitor configuration JSON. Default: `config/monitor_config.json`.
 - `--sensors`: path to sensor CSV. Default: `data/sensors.csv`.
-- `--provider`: weather provider, one of `openmeteo`, `local`.
-- `--weather`: local weather JSON path when `--provider local` is used.
 - `--demo`: use bundled demo weather values.
 - `--no-context`: skip historical weather and elevation context.
 - `--no-copernicus`: skip Copernicus satellite catalogue checks.
 - `--no-predictions`: skip multi-day predictions.
 - `--prediction-days`: number of Open-Meteo daily prediction rows.
-- `--update-resources`: refresh cached OSM/Nominatim resource files.
+- `--update-resources`: refresh cached OSM resource files for the submitted area.
+- `--land-cover`: optional classified satellite land-cover input (`.tif`, `.geojson`, `.json`, `.csv`).
+- `--land-cover-cache`: per-bbox cache directory for classified satellite land-cover files.
+- `--land-cover-keep-latest`: number of cached classified files to keep per analyzed bbox.
+- `--no-land-cover-download`: skip automatic Copernicus CLMS LCFM download when cache is empty.
+- `--land-cover-max-pixels`: maximum output pixels for one automatic Copernicus CLMS raster request.
+- `--land-cover-year`: Copernicus CLMS LCFM LCM-10 reference year to request. Defaults to the current UTC year.
 - `--print-json`: print the generated report to stdout.
 
 ## Core Python Modules
@@ -41,12 +45,14 @@ calamity_ai/config.py
 
 calamity_ai/weather.py
   demo_weather_features() -> WeatherFeatures
-  get_local_weather_features(path) -> WeatherFeatures
   get_open_meteo_weather_features(config) -> WeatherFeatures
   features_to_dict(features) -> dict
 
 calamity_ai/scoring.py
-  score_calamities(features, thresholds, context=None) -> dict
+  score_calamities(features, thresholds, context=None, resources=None) -> dict
+
+calamity_ai/calibration.py
+  calibrate_thresholds(config, thresholds) -> RegionalCalibration
 
 calamity_ai/context.py
   get_environmental_context(config, now) -> EnvironmentalContext
@@ -66,6 +72,9 @@ calamity_ai/copernicus.py
 calamity_ai/resources.py
   ensure_resources(config, update=False) -> ResourceSummary
   resource_summary_to_dict(summary) -> dict
+
+calamity_ai/land_cover.py
+  summarize_satellite_land_cover(config, source_path, resources) -> dict
 ```
 
 ## Configuration Contract
@@ -103,28 +112,8 @@ Sensor CSV: `data/sensors.csv`
 sensor_id,type,latitude,longitude,status,last_seen_utc
 ```
 
-Local weather JSON: `data/weather_features.json`
-
-```json
-{
-  "precip_24h_m": 0.026,
-  "temp_mean_24h_c": 28.4,
-  "temp_max_24h_c": 34.2,
-  "wind_gust_max_ms": 14.5,
-  "cape_max_jkg": 1100,
-  "soil_moisture_proxy": 0.31,
-  "relative_humidity_mean_percent": 36.0,
-  "evapotranspiration_24h_mm": 4.8,
-  "vapor_pressure_deficit_kpa": 1.9
-}
-```
-
-Nullable local weather fields:
-
-- `soil_moisture_proxy`
-- `relative_humidity_mean_percent`
-- `evapotranspiration_24h_mm`
-- `vapor_pressure_deficit_kpa`
+Weather is fetched from Open-Meteo for the configured polygon or runtime `--bbox`.
+`--demo` uses bundled in-code sample values for smoke tests only.
 
 ## Report Output Contract
 
@@ -148,7 +137,9 @@ Nullable local weather fields:
   "copernicus": {},
   "context": {},
   "predictions": {},
-  "resources": {}
+  "resources": {},
+  "regional_calibration": {},
+  "satellite_land_cover": {}
 }
 ```
 
@@ -168,6 +159,8 @@ Conditionally present:
 - `context`: omitted when `--no-context` is used.
 - `predictions`: omitted unless provider is `openmeteo`, context is enabled, and predictions are enabled.
 - `resources`: omitted when `--no-resources` is used.
+- `regional_calibration`: broad bbox-based threshold calibration used for scoring.
+- `satellite_land_cover`: final dashboard-safe land-cover/crop summary. When `--land-cover` is omitted, the monitor searches the newest supported Copernicus/classified file in the per-bbox land-cover cache, then requests a Copernicus CLMS LCFM LCM-10 raster through Sentinel Hub Process API when credentials are configured and the bbox fits `--land-cover-max-pixels`. Crop type percentages require a crop-specific classified layer/table.
 
 ## Calamity Score Contract
 

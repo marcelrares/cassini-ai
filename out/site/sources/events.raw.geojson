@@ -3,20 +3,20 @@
   "features": [
     {
       "type": "Feature",
-      "id": "risk-storm",
+      "id": "risk-drought",
       "geometry": {
         "type": "Point",
         "coordinates": [
-          27.565,
-          47.147
+          22.946,
+          48.098
         ]
       },
       "properties": {
         "event_type": "raw_risk_signal",
-        "risk": "storm",
+        "risk": "drought",
         "level": "moderate",
-        "risk_index_percent": 54.89,
-        "title": "Storm / strong wind"
+        "risk_index_percent": 51.94,
+        "title": "Drought"
       }
     }
   ]

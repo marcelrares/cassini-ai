@@ -1,25 +1,25 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-25T21:42:19.378832+00:00",
+  "generated_at": "2026-04-26T08:42:11.309440+00:00",
   "title": "Calamity Intelligence Dashboard",
-  "subtitle": "Iasi_monitoring_zone risk monitoring",
+  "subtitle": "custom_selected_region risk monitoring",
   "area": {
-    "name": "Iasi_monitoring_zone",
+    "name": "custom_selected_region",
     "bbox": [
-      27.43,
-      47.05,
-      27.75,
-      47.24
+      22.37,
+      47.9,
+      23.81,
+      48.23
     ],
-    "total_monitored_hectares": 37838.5
+    "total_monitored_hectares": 390635.2
   },
   "stats": [
     {
       "id": "max-risk",
       "label": "Max risk",
-      "value": 54.89,
+      "value": 51.94,
       "unit": "%",
-      "status": "storm:moderate"
+      "status": "drought:moderate"
     },
     {
       "id": "active-alerts",
@@ -44,25 +44,25 @@
     }
   ],
   "weather": {
-    "temperature_current_c": 11.2,
-    "temperature_max_last_24h_c": 19.8,
-    "temperature_forecast_max_next_24h_c": 21.6,
+    "temperature_current_c": 13.6,
+    "temperature_max_last_24h_c": 20.9,
+    "temperature_forecast_max_next_24h_c": 14.5,
     "precipitation_next_24h_mm": 0.0,
-    "wind_gust_max_ms": 21.11111111111111,
-    "relative_humidity_percent": 48.130434782608695,
-    "soil_moisture_proxy": 0.4781739130434783,
-    "vapor_pressure_deficit_kpa": 0.8095652173913044,
-    "evapotranspiration_24h_mm": 2.17,
+    "wind_gust_max_ms": 16.194444444444443,
+    "relative_humidity_percent": 38.130434782608695,
+    "soil_moisture_proxy": 0.3294782608695652,
+    "vapor_pressure_deficit_kpa": 0.7373913043478261,
+    "evapotranspiration_24h_mm": 1.6400000000000003,
     "cape_max_jkg": 0
   },
   "alerts": [
     {
-      "id": "risk-storm",
+      "id": "risk-drought",
       "type": "risk",
       "severity": "moderate",
-      "title": "Storm / Strong Wind",
-      "message": "Storm / Strong Wind risk is 54.89% (moderate).",
-      "risk_index_percent": 54.89
+      "title": "Drought",
+      "message": "Drought risk is 51.94% (moderate).",
+      "risk_index_percent": 51.94
     }
   ],
   "predictions": {
@@ -71,38 +71,38 @@
     "indices_are_probabilities": false,
     "top_zones": [],
     "risks": {
-      "storm": {
-        "risk": "moderate",
-        "risk_index_percent": 54.89
-      },
       "drought": {
+        "risk": "moderate",
+        "risk_index_percent": 51.94
+      },
+      "storm": {
         "risk": "low",
-        "risk_index_percent": 43.05
+        "risk_index_percent": 42.11
       },
       "wildfire": {
-        "risk": "very_low",
-        "risk_index_percent": 17.16
+        "risk": "low",
+        "risk_index_percent": 35.27
       },
       "flood": {
-        "risk": "none",
-        "risk_index_percent": 0.0
+        "risk": "very_low",
+        "risk_index_percent": 16.27
       },
       "heatwave": {
         "risk": "none",
-        "risk_index_percent": 0.0
+        "risk_index_percent": 3.6
       }
     }
   },
   "map": {
     "center": [
-      27.565,
-      47.147
+      22.946,
+      48.098
     ],
     "bbox": [
-      27.43,
-      47.05,
-      27.75,
-      47.24
+      22.37,
+      47.9,
+      23.81,
+      48.23
     ],
     "layers": {
       "predictions": "processing/predictions.geojson",
@@ -134,7 +134,7 @@
       "id": "sentinel-2",
       "label": "Sentinel-2 optical",
       "status": "ready",
-      "products": 2
+      "products": 5
     },
     {
       "id": "sensors",
@@ -144,60 +144,60 @@
   ],
   "status": {
     "working": true,
-    "notes": "Current elevated risks: storm; sensors online: 5/5"
+    "notes": "Current elevated risks: drought; sensors online: 5/5"
   },
   "risks": [
     {
-      "id": "storm",
-      "label": "Storm / Strong Wind",
-      "risk": "moderate",
-      "risk_index_percent": 54.89,
-      "score": 0.5489,
-      "is_probability": false,
-      "message": "Storm / Strong Wind risk is 54.89% (moderate)."
-    },
-    {
       "id": "drought",
       "label": "Drought",
-      "risk": "low",
-      "risk_index_percent": 43.05,
-      "score": 0.4305,
+      "risk": "moderate",
+      "risk_index_percent": 51.94,
+      "score": 0.5194,
       "is_probability": false,
-      "message": "Drought risk is 43.05% (low)."
+      "message": "Drought risk is 51.94% (moderate)."
+    },
+    {
+      "id": "storm",
+      "label": "Storm / Strong Wind",
+      "risk": "low",
+      "risk_index_percent": 42.11,
+      "score": 0.4211,
+      "is_probability": false,
+      "message": "Storm / Strong Wind risk is 42.11% (low)."
     },
     {
       "id": "wildfire",
       "label": "Wildfire",
-      "risk": "very_low",
-      "risk_index_percent": 17.16,
-      "score": 0.1716,
+      "risk": "low",
+      "risk_index_percent": 35.27,
+      "score": 0.3527,
       "is_probability": false,
-      "message": "Wildfire risk is 17.16% (very_low)."
+      "message": "Wildfire risk is 35.27% (low)."
     },
     {
       "id": "flood",
       "label": "Flood",
-      "risk": "none",
-      "risk_index_percent": 0.0,
-      "score": 0.0,
+      "risk": "very_low",
+      "risk_index_percent": 16.27,
+      "score": 0.1627,
       "is_probability": false,
-      "message": "Flood risk is 0.0% (none)."
+      "message": "Flood risk is 16.27% (very_low)."
     },
     {
       "id": "heatwave",
       "label": "Heatwave",
       "risk": "none",
-      "risk_index_percent": 0.0,
-      "score": 0.0,
+      "risk_index_percent": 3.6,
+      "score": 0.036,
       "is_probability": false,
-      "message": "Heatwave risk is 0.0% (none)."
+      "message": "Heatwave risk is 3.6% (none)."
     }
   ],
   "risk_counts": {
-    "none": 2,
+    "none": 1,
     "extremely_low": 0,
     "very_low": 1,
-    "low": 1,
+    "low": 2,
     "moderate": 1,
     "high": 0,
     "extreme": 0
@@ -212,77 +212,182 @@
   },
   "terrain": {
     "available": true,
-    "center_elevation_m": 111.0,
-    "min_elevation_m": 37.0,
-    "max_elevation_m": 161.0,
-    "elevation_range_m": 124.0,
+    "center_elevation_m": 129.0,
+    "min_elevation_m": 112.0,
+    "max_elevation_m": 887.0,
+    "elevation_range_m": 775.0,
     "terrain_class": "steep"
   },
   "resources": {
     "available": true,
-    "boundary_source": "OpenStreetMap/Nominatim cached boundary",
+    "boundary_source": "Configured area boundary",
     "osm_source": "OpenStreetMap/Overpass cached extract",
-    "waterway_features": 484,
-    "water_body_features": 125,
-    "urban_landuse_features": 251,
-    "forest_or_green_features": 459,
-    "agriculture_features": 219,
+    "waterway_features": 8815,
+    "water_body_features": 1360,
+    "urban_landuse_features": 3038,
+    "forest_or_green_features": 9641,
+    "agriculture_features": 10360,
+    "land_cover_percentages": {
+      "urban_percent": 20.2,
+      "forest_percent": 20.5,
+      "field_plain_percent": 15.9,
+      "agriculture_percent": 41.6,
+      "water_percent": 0.9,
+      "wetland_percent": 0.9
+    },
+    "land_cover_hectares": {
+      "urban_ha": 30096.2,
+      "forest_ha": 30451.6,
+      "field_plain_ha": 23651.5,
+      "agriculture_ha": 61979.5,
+      "water_ha": 1303.8,
+      "wetland_ha": 1357.5
+    },
+    "land_cover_basis": "osm_classified_area",
     "cached_files": [
-      "data\\resources\\iasi_boundary.geojson",
-      "data\\resources\\iasi_osm_context.json"
+      "data\\resources\\custom-selected-region-22-3700-47-9000-23-8100-48-2300\\boundary.geojson",
+      "data\\resources\\custom-selected-region-22-3700-47-9000-23-8100-48-2300\\osm_context.json"
     ],
-    "explanation": "Local resource cache adds hydrology, water bodies, urban/impervious proxies, vegetation/forest, and agriculture context. These features refine relative zone exposure; they are not official hazard maps."
+    "explanation": "Local resource cache adds hydrology, water bodies, urban/impervious proxies, vegetation/forest, and agriculture context. These features refine relative exposure; they are not official hazard maps."
   },
   "satellite_signals": {
-    "available": false,
-    "signals": []
+    "available": true,
+    "signals": [
+      {
+        "id": "satellite_water_index",
+        "label": "Water detection",
+        "value": 0.55
+      },
+      {
+        "id": "satellite_soil_moisture_anomaly",
+        "label": "Soil moisture anomaly",
+        "value": 0.26
+      },
+      {
+        "id": "satellite_fire_radiative_power",
+        "label": "Fire radiative power",
+        "value": 0.5
+      },
+      {
+        "id": "satellite_burned_area_fraction",
+        "label": "Burned area",
+        "value": 0.0
+      },
+      {
+        "id": "satellite_land_surface_temp_anomaly",
+        "label": "Land surface temperature anomaly",
+        "value": 0.36
+      },
+      {
+        "id": "satellite_ndvi_anomaly",
+        "label": "Vegetation anomaly",
+        "value": -0.1
+      },
+      {
+        "id": "satellite_optical_quality",
+        "label": "Optical quality",
+        "value": 0.73588
+      },
+      {
+        "id": "satellite_radar_confidence",
+        "label": "Radar confidence",
+        "value": 0.8999999999999999
+      }
+    ]
   },
   "environment": {
     "available": true,
     "soil": {
-      "moisture_proxy": 0.4781739130434783,
+      "moisture_proxy": 0.3294782608695652,
       "status": "moderate"
     },
     "water_balance": {
       "precipitation_next_24h_mm": 0.0,
-      "evapotranspiration_24h_mm": 2.17,
-      "vapor_pressure_deficit_kpa": 0.8095652173913044,
-      "relative_humidity_percent": 48.130434782608695
+      "evapotranspiration_24h_mm": 1.6400000000000003,
+      "vapor_pressure_deficit_kpa": 0.7373913043478261,
+      "relative_humidity_percent": 38.130434782608695
     },
     "storm_conditions": {
-      "wind_gust_max_ms": 21.11111111111111,
+      "wind_gust_max_ms": 16.194444444444443,
       "cape_max_jkg": 0
     }
   },
+  "regional_calibration": {
+    "available": true,
+    "region": "continental_europe",
+    "confidence": "regional_heuristic",
+    "thresholds": {
+      "flood_precip_high_m": 0.05,
+      "storm_wind_high_ms": 25.0,
+      "heat_high_c": 38.0,
+      "drought_precip_low_m": 0.005,
+      "drought_temp_hot_c": 30.0,
+      "wildfire_temp_hot_c": 32.0,
+      "wildfire_wind_high_ms": 12.0
+    },
+    "notes": "Thresholds adjusted from bbox location and broad climate region; calibrate with local observed events for production."
+  },
   "satellite_land_cover": {
-    "available": false,
-    "basis": "not_available",
+    "available": true,
+    "basis": "osm_classified_area_fallback",
+    "source": {
+      "provider": "Copernicus CLMS LCFM LCM-10",
+      "path": null,
+      "status": "credentials_missing"
+    },
     "percentages": {
-      "forest_percent": null,
-      "urban_percent": null,
-      "field_plain_percent": null,
-      "agriculture_percent": null,
-      "water_percent": null,
-      "wetland_percent": null
+      "urban_percent": 20.2,
+      "forest_percent": 20.5,
+      "field_plain_percent": 15.9,
+      "agriculture_percent": 41.6,
+      "water_percent": 0.9,
+      "wetland_percent": 0.9
+    },
+    "hectares": {
+      "urban_ha": 30096.2,
+      "forest_ha": 30451.6,
+      "field_plain_ha": 23651.5,
+      "agriculture_ha": 61979.5,
+      "water_ha": 1303.8,
+      "wetland_ha": 1357.5
     },
     "crop_percentages": {},
+    "crop_hectares": {},
     "crop_detail_available": false,
-    "source": {
-      "provider": "Copernicus / CLMS",
-      "collections": [],
-      "status": "missing_classified_raster"
-    },
     "fallback": {
       "available": true,
-      "basis": "osm_feature_count_proxy",
+      "basis": "osm_classified_area",
       "percentages": {
-        "urban_percent": 23.8,
-        "forest_or_green_percent": 43.5,
-        "agriculture_percent": 20.8,
-        "water_percent": 11.9
+        "urban_percent": 20.2,
+        "forest_percent": 20.5,
+        "field_plain_percent": 15.9,
+        "agriculture_percent": 41.6,
+        "water_percent": 0.9,
+        "wetland_percent": 0.9
       },
-      "note": "Fallback only: useful for display context, not a satellite-derived area measurement."
+      "hectares": {
+        "urban_ha": 30096.2,
+        "forest_ha": 30451.6,
+        "field_plain_ha": 23651.5,
+        "agriculture_ha": 61979.5,
+        "water_ha": 1303.8,
+        "wetland_ha": 1357.5
+      },
+      "note": "Fallback context from OSM, not satellite-classified land cover."
     },
-    "notes": "STAC product metadata is available, but exact forest/city/field/crop percentages require reading a classified land-cover raster over the submitted area. Crop type percentages require a crop classification layer; they cannot be derived reliably from Sentinel product metadata alone."
+    "notes": "Set CDSE_SH_CLIENT_ID/CDSE_SH_CLIENT_SECRET or SENTINELHUB_CLIENT_ID/SENTINELHUB_CLIENT_SECRET to download CLMS land-cover rasters. Using fallback land-cover percentages for dashboard display.",
+    "cache": {
+      "area_cache_dir": "data\\land_cover\\custom-selected-region-22-3700-47-9000-23-8100-48-2300",
+      "available_files": [],
+      "latest_file": null,
+      "download_manifest": "data\\land_cover\\custom-selected-region-22-3700-47-9000-23-8100-48-2300\\download_manifest.json",
+      "download_manifest_payload": {
+        "status": "credentials_missing",
+        "provider": "Copernicus CLMS LCFM LCM-10",
+        "collection_id": "828f6b20-8ffd-48f8-a1da-fefd271456db",
+        "reason": "Set CDSE_SH_CLIENT_ID/CDSE_SH_CLIENT_SECRET or SENTINELHUB_CLIENT_ID/SENTINELHUB_CLIENT_SECRET to download CLMS land-cover rasters."
+      }
+    },
+    "auto_selected_path": null
   }
 }

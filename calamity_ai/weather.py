@@ -3,7 +3,6 @@ from __future__ import annotations
 import json
 from dataclasses import asdict
 from datetime import datetime
-from pathlib import Path
 from statistics import mean
 from urllib.error import HTTPError
 from urllib.parse import urlencode
@@ -37,43 +36,6 @@ def demo_weather_features() -> WeatherFeatures:
         satellite_optical_quality=None,
         satellite_radar_confidence=None,
     )
-
-
-def get_local_weather_features(path: str | Path) -> WeatherFeatures:
-    raw = json.loads(Path(path).read_text(encoding="utf-8"))
-    return WeatherFeatures(
-        precip_24h_m=float(raw["precip_24h_m"]),
-        temp_mean_24h_c=float(raw["temp_mean_24h_c"]),
-        temp_max_24h_c=float(raw["temp_max_24h_c"]),
-        wind_gust_max_ms=float(raw["wind_gust_max_ms"]),
-        cape_max_jkg=float(raw.get("cape_max_jkg", 0)),
-        temp_current_c=None if raw.get("temp_current_c") is None else float(raw["temp_current_c"]),
-        temp_forecast_max_next_24h_c=None
-        if raw.get("temp_forecast_max_next_24h_c") is None
-        else float(raw["temp_forecast_max_next_24h_c"]),
-        soil_moisture_proxy=None
-        if raw.get("soil_moisture_proxy") is None
-        else float(raw["soil_moisture_proxy"]),
-        relative_humidity_mean_percent=None
-        if raw.get("relative_humidity_mean_percent") is None
-        else float(raw["relative_humidity_mean_percent"]),
-        evapotranspiration_24h_mm=None
-        if raw.get("evapotranspiration_24h_mm") is None
-        else float(raw["evapotranspiration_24h_mm"]),
-        vapor_pressure_deficit_kpa=None
-        if raw.get("vapor_pressure_deficit_kpa") is None
-        else float(raw["vapor_pressure_deficit_kpa"]),
-        # Satellite fields remain None (enriched later if available)
-        satellite_water_index=None,
-        satellite_soil_moisture_anomaly=None,
-        satellite_fire_radiative_power=None,
-        satellite_burned_area_fraction=None,
-        satellite_land_surface_temp_anomaly=None,
-        satellite_ndvi_anomaly=None,
-        satellite_optical_quality=None,
-        satellite_radar_confidence=None,
-    )
-
 
 def get_open_meteo_weather_features(config: MonitorConfig) -> WeatherFeatures:
     longitude, latitude = centroid(config.polygon)

@@ -206,6 +206,7 @@ def _dashboard_json(
         "resources": _resource_summary(report.get("resources")),
         "satellite_signals": _satellite_signals(weather),
         "environment": _environment_summary(weather),
+        "regional_calibration": _regional_calibration(report.get("regional_calibration")),
         "satellite_land_cover": _satellite_land_cover(report),
     }
 
@@ -600,6 +601,9 @@ def _soil_status(value: object) -> str | None:
 
 
 def _satellite_land_cover(report: dict[str, object]) -> dict[str, object]:
+    existing = report.get("satellite_land_cover")
+    if isinstance(existing, dict):
+        return existing
     copernicus = report.get("copernicus")
     resources = report.get("resources")
     satellite_collections = _satellite_land_cover_collections(copernicus)
@@ -680,6 +684,18 @@ def _empty_land_cover_percentages() -> dict[str, object]:
 
 def _percent(value: object, total: int) -> float:
     return round((int(value or 0) * 100) / total, 1) if total else 0.0
+
+
+def _regional_calibration(calibration: object) -> dict[str, object]:
+    if not isinstance(calibration, dict):
+        return {"available": False}
+    return {
+        "available": True,
+        "region": calibration.get("region"),
+        "confidence": calibration.get("confidence"),
+        "thresholds": calibration.get("thresholds", {}),
+        "notes": calibration.get("notes"),
+    }
 
 
 def _sensor_summary(sensors: object) -> dict[str, object]:

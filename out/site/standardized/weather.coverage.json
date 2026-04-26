@@ -6,17 +6,17 @@
     "axes": {
       "x": {
         "values": [
-          27.565
+          22.946
         ]
       },
       "y": {
         "values": [
-          47.147
+          48.098
         ]
       },
       "t": {
         "values": [
-          "2026-04-25T21:42:19.378832+00:00"
+          "2026-04-26T08:42:11.309440+00:00"
         ]
       }
     },
@@ -171,7 +171,7 @@
         1
       ],
       "values": [
-        12.86
+        13.799999999999999
       ]
     },
     "temp_max_24h_c": {
@@ -188,7 +188,7 @@
         1
       ],
       "values": [
-        19.8
+        20.9
       ]
     },
     "wind_gust_max_ms": {
@@ -205,7 +205,7 @@
         1
       ],
       "values": [
-        21.11111111111111
+        16.194444444444443
       ]
     },
     "cape_max_jkg": {
@@ -239,7 +239,7 @@
         1
       ],
       "values": [
-        11.2
+        13.6
       ]
     },
     "temp_forecast_max_next_24h_c": {
@@ -256,7 +256,7 @@
         1
       ],
       "values": [
-        21.6
+        14.5
       ]
     },
     "soil_moisture_proxy": {
@@ -273,7 +273,7 @@
         1
       ],
       "values": [
-        0.4781739130434783
+        0.3294782608695652
       ]
     },
     "relative_humidity_mean_percent": {
@@ -290,7 +290,7 @@
         1
       ],
       "values": [
-        48.130434782608695
+        38.130434782608695
       ]
     },
     "evapotranspiration_24h_mm": {
@@ -307,7 +307,7 @@
         1
       ],
       "values": [
-        2.17
+        1.6400000000000003
       ]
     },
     "vapor_pressure_deficit_kpa": {
@@ -324,7 +324,7 @@
         1
       ],
       "values": [
-        0.8095652173913044
+        0.7373913043478261
       ]
     },
     "satellite_water_index": {
@@ -341,7 +341,7 @@
         1
       ],
       "values": [
-        null
+        0.55
       ]
     },
     "satellite_soil_moisture_anomaly": {
@@ -358,7 +358,7 @@
         1
       ],
       "values": [
-        null
+        0.26
       ]
     },
     "satellite_fire_radiative_power": {
@@ -375,7 +375,7 @@
         1
       ],
       "values": [
-        null
+        0.5
       ]
     },
     "satellite_burned_area_fraction": {
@@ -392,7 +392,7 @@
         1
       ],
       "values": [
-        null
+        0.0
       ]
     },
     "satellite_land_surface_temp_anomaly": {
@@ -409,7 +409,7 @@
         1
       ],
       "values": [
-        null
+        0.36
       ]
     },
     "satellite_ndvi_anomaly": {
@@ -426,7 +426,7 @@
         1
       ],
       "values": [
-        null
+        -0.1
       ]
     },
     "satellite_optical_quality": {
@@ -443,7 +443,7 @@
         1
       ],
       "values": [
-        null
+        0.73588
       ]
     },
     "satellite_radar_confidence": {
@@ -460,7 +460,7 @@
         1
       ],
       "values": [
-        null
+        0.8999999999999999
       ]
     }
   }

@@ -1,13 +1,13 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-04-25T21:42:19.378832+00:00",
+  "generated_at": "2026-04-26T08:42:11.309440+00:00",
   "area": {
-    "name": "Iasi_monitoring_zone",
+    "name": "custom_selected_region",
     "bbox": [
-      27.43,
-      47.05,
-      27.75,
-      47.24
+      22.37,
+      47.9,
+      23.81,
+      48.23
     ],
     "crs": "EPSG:4326"
   },
@@ -96,6 +96,6 @@
   },
   "status": {
     "working": true,
-    "notes": "Current elevated risks: storm; sensors online: 5/5"
+    "notes": "Current elevated risks: drought; sensors online: 5/5"
   }
 }

@@ -5,3 +5,5 @@ venv/
 .env
 git
 out/
+data/resources/
+data/land_cover/

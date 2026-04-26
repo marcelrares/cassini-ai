@@ -9,50 +9,30 @@
         "coordinates": [
           [
             [
-              27.43,
-              47.17
+              22.37,
+              48.23
             ],
             [
-              27.48,
-              47.23
+              23.81,
+              48.23
             ],
             [
-              27.61,
-              47.24
+              23.81,
+              47.9
             ],
             [
-              27.72,
-              47.2
+              22.37,
+              47.9
             ],
             [
-              27.75,
-              47.14
-            ],
-            [
-              27.7,
-              47.08
-            ],
-            [
-              27.6,
-              47.05
-            ],
-            [
-              27.5,
-              47.07
-            ],
-            [
-              27.43,
-              47.12
-            ],
-            [
-              27.43,
-              47.17
+              22.37,
+              48.23
             ]
           ]
         ]
       },
       "properties": {
-        "name": "Iasi_monitoring_zone",
+        "name": "custom_selected_region",
         "kind": "area_of_interest",
         "crs": "EPSG:4326"
       }
@@ -63,18 +43,35 @@
       "geometry": null,
       "properties": {
         "kind": "resource_summary",
-        "boundary_source": "OpenStreetMap/Nominatim cached boundary",
+        "boundary_source": "Configured area boundary",
         "osm_source": "OpenStreetMap/Overpass cached extract",
-        "waterway_features": 484,
-        "water_body_features": 125,
-        "urban_landuse_features": 251,
-        "forest_or_green_features": 459,
-        "agriculture_features": 219,
+        "waterway_features": 8815,
+        "water_body_features": 1360,
+        "urban_landuse_features": 3038,
+        "forest_or_green_features": 9641,
+        "agriculture_features": 10360,
+        "land_cover_percentages": {
+          "urban_percent": 20.2,
+          "forest_percent": 20.5,
+          "field_plain_percent": 15.9,
+          "agriculture_percent": 41.6,
+          "water_percent": 0.9,
+          "wetland_percent": 0.9
+        },
+        "land_cover_hectares": {
+          "urban_ha": 30096.2,
+          "forest_ha": 30451.6,
+          "field_plain_ha": 23651.5,
+          "agriculture_ha": 61979.5,
+          "water_ha": 1303.8,
+          "wetland_ha": 1357.5
+        },
+        "land_cover_basis": "osm_classified_area",
         "cached_files": [
-          "data\\resources\\iasi_boundary.geojson",
-          "data\\resources\\iasi_osm_context.json"
+          "data\\resources\\custom-selected-region-22-3700-47-9000-23-8100-48-2300\\boundary.geojson",
+          "data\\resources\\custom-selected-region-22-3700-47-9000-23-8100-48-2300\\osm_context.json"
         ],
-        "explanation": "Local resource cache adds hydrology, water bodies, urban/impervious proxies, vegetation/forest, and agriculture context. These features refine relative zone exposure; they are not official hazard maps."
+        "explanation": "Local resource cache adds hydrology, water bodies, urban/impervious proxies, vegetation/forest, and agriculture context. These features refine relative exposure; they are not official hazard maps."
       }
     }
   ]

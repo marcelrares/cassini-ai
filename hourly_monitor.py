@@ -11,19 +11,20 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from calamity_ai.calibration import calibrate_thresholds
 from calamity_ai.config import load_config
 from calamity_ai.copernicus import copernicus_to_dict, get_copernicus_summary
 from calamity_ai.context import environmental_context_to_dict, get_environmental_context
 from calamity_ai.delivery import write_site_bundle
 from calamity_ai.forecast import get_open_meteo_predictions, predictions_to_dict
 from calamity_ai.geo import bbox as polygon_bbox, centroid
+from calamity_ai.land_cover import land_cover_cache_info, prepare_land_cover_source, summarize_satellite_land_cover
 from calamity_ai.resources import ensure_resources, resource_summary_to_dict
 from calamity_ai.scoring import ACTIVE_RISK_LEVELS, score_calamities
 from calamity_ai.sensors import summarize_sensors
 from calamity_ai.weather import (
     demo_weather_features,
     features_to_dict,
-    get_local_weather_features,
     get_open_meteo_weather_features,
 )
 
@@ -49,12 +50,13 @@ def _to_plain_dict(value: Any) -> dict[str, Any]:
 def build_report(args: argparse.Namespace) -> dict[str, object]:
     config = load_runtime_config(args)
     now = datetime.now(timezone.utc)
+    calibration = calibrate_thresholds(config, getattr(config, "thresholds", {}))
     
     # Load resources if not skipped
     resource_summary = None
     if not args.no_resources:
         try:
-            resource_summary = ensure_resources(config)
+            resource_summary = ensure_resources(config, update=args.update_resources)
             resource_summary = resource_summary_to_dict(resource_summary)
         except Exception as e:
             logger.warning(f"Resource loading error: {e}")
@@ -63,12 +65,8 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
     try:
         if args.demo:
             features = demo_weather_features()
-        elif args.provider == "local":
-            features = get_local_weather_features(args.weather)
-        elif args.provider == "openmeteo":
-            features = get_open_meteo_weather_features(config)
         else:
-            raise ValueError(f"Unsupported weather provider: {args.provider}")
+            features = get_open_meteo_weather_features(config)
     except Exception as e:
         logger.error(f"Weather features error: {e}")
         features = None
@@ -96,11 +94,27 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
         )
     except Exception as e:
         logger.warning(f"Sensor summary error: {e}")
+
+    # Copernicus satellite indices are useful for scoring, so enrich the weather
+    # features before score calculation and keep the metadata for dashboard output.
+    copernicus = None
+    if not args.no_copernicus:
+        try:
+            copernicus_summary = get_copernicus_summary(config, now=now)
+            features = _enrich_features_with_satellite(features, copernicus_summary)
+            copernicus = copernicus_to_dict(copernicus_summary)
+        except Exception as e:
+            logger.warning(f"Copernicus error: {e}")
     
     # Score calamities
     calamities = {}
     try:
-        calamities = score_calamities(features, getattr(config, 'thresholds', {}), context=context)
+        calamities = score_calamities(
+            features,
+            calibration.thresholds,
+            context=context,
+            resources=resource_summary,
+        )
     except Exception as e:
         logger.warning(f"Calamity scoring error: {e}")
     
@@ -120,14 +134,25 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
         except Exception as e:
             logger.warning(f"Predictions error: {e}")
     
-    # Copernicus
-    copernicus = None
-    if not args.no_copernicus:
-        try:
-            copernicus = get_copernicus_summary(config, now=now)
-            copernicus = copernicus_to_dict(copernicus)
-        except Exception as e:
-            logger.warning(f"Copernicus error: {e}")
+    land_cover_source = prepare_land_cover_source(
+        config,
+        args.land_cover,
+        cache_dir=args.land_cover_cache,
+        keep_latest=args.land_cover_keep_latest,
+        auto_download=not args.no_land_cover_download,
+        max_pixels=args.land_cover_max_pixels,
+        year=args.land_cover_year,
+    )
+    satellite_land_cover = summarize_satellite_land_cover(
+        config,
+        land_cover_source,
+        resource_summary if isinstance(resource_summary, dict) else None,
+    )
+    land_cover_cache = land_cover_cache_info(config, args.land_cover_cache)
+    if not land_cover_source and not satellite_land_cover.get("available"):
+        _apply_land_cover_cache_status(satellite_land_cover, land_cover_cache)
+    satellite_land_cover["cache"] = land_cover_cache
+    satellite_land_cover["auto_selected_path"] = land_cover_source
     
     # Extract risk stats safely
     risk_values = [get_risk_value(v) for v in calamities.values()] if calamities else []
@@ -161,6 +186,13 @@ def build_report(args: argparse.Namespace) -> dict[str, object]:
         "context": context,
         "copernicus": copernicus,
         "resources": resource_summary,
+        "regional_calibration": {
+            "region": calibration.region,
+            "confidence": calibration.confidence,
+            "thresholds": calibration.thresholds,
+            "notes": calibration.notes,
+        },
+        "satellite_land_cover": satellite_land_cover,
         "forecast": predictions,
         "working": bool(sensors_payload.get("working", True)),
         "notes": notes,
@@ -291,6 +323,44 @@ def _enrich_features_with_satellite(
     )
 
 
+def _apply_land_cover_cache_status(summary: dict[str, object], cache: dict[str, object]) -> None:
+    manifest = cache.get("download_manifest_payload")
+    if not isinstance(manifest, dict):
+        return
+    source = summary.get("source")
+    if not isinstance(source, dict):
+        source = {}
+        summary["source"] = source
+    source["provider"] = manifest.get("provider", "Copernicus CLMS LCFM LCM-10")
+    source["path"] = manifest.get("downloaded")
+    source["status"] = manifest.get("status", "not_available")
+    if manifest.get("reason"):
+        summary["notes"] = manifest["reason"]
+    elif manifest.get("error"):
+        summary["notes"] = manifest["error"]
+    _promote_land_cover_fallback(summary)
+
+
+def _promote_land_cover_fallback(summary: dict[str, object]) -> None:
+    fallback = summary.get("fallback")
+    if summary.get("available") or not isinstance(fallback, dict) or not fallback.get("available"):
+        return
+    percentages = fallback.get("percentages")
+    hectares = fallback.get("hectares")
+    if not isinstance(percentages, dict):
+        return
+    summary["available"] = True
+    summary["basis"] = f"{fallback.get('basis', 'fallback')}_fallback"
+    summary["percentages"] = percentages
+    if isinstance(hectares, dict):
+        summary["hectares"] = hectares
+    note = str(summary.get("notes") or "Primary Copernicus land-cover source is unavailable").rstrip(".")
+    summary["notes"] = (
+        f"{note}. "
+        "Using fallback land-cover percentages for dashboard display."
+    )
+
+
 def load_runtime_config(args: argparse.Namespace) -> object:
     config = load_config(args.config)
     if args.bbox:
@@ -303,7 +373,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--config", default="config/monitor_config.json")
     parser.add_argument("--sensors", default="data/sensors.csv")
     parser.add_argument("--site-out", default="out/site")
-    parser.add_argument("--weather", default="data/weather_features.json")
     parser.add_argument(
         "--bbox",
         nargs=4,
@@ -312,12 +381,42 @@ def parse_args() -> argparse.Namespace:
         help="Analyze only the rectangle defined by two coordinate points.",
     )
     parser.add_argument("--area-name", help="Display name for --bbox selected region")
-    parser.add_argument("--provider", choices=["openmeteo", "local"], default="openmeteo")
     parser.add_argument("--no-copernicus", action="store_true", help="Skip Copernicus satellite catalogue checks")
     parser.add_argument("--no-context", action="store_true", help="Skip historical weather and elevation context")
     parser.add_argument("--no-predictions", action="store_true", help="Skip multi-day forecast predictions")
     parser.add_argument("--no-resources", action="store_true", help="Skip OSM resource cache loading")
     parser.add_argument("--update-resources", action="store_true", help="Refresh cached OSM boundary and context resources")
+    parser.add_argument(
+        "--land-cover",
+        help="Optional classified satellite land-cover input for the analyzed area (.tif, .geojson, .json, or .csv).",
+    )
+    parser.add_argument(
+        "--land-cover-cache",
+        default="data/land_cover",
+        help="Directory where per-bbox classified land-cover files are cached and auto-discovered.",
+    )
+    parser.add_argument(
+        "--land-cover-keep-latest",
+        type=int,
+        default=2,
+        help="How many cached classified land-cover files to keep per analyzed bbox.",
+    )
+    parser.add_argument(
+        "--no-land-cover-download",
+        action="store_true",
+        help="Do not automatically download Copernicus CLMS LCFM land-cover raster when the per-bbox cache is empty.",
+    )
+    parser.add_argument(
+        "--land-cover-max-pixels",
+        type=int,
+        default=4_000_000,
+        help="Maximum output pixels for one automatic Copernicus CLMS land-cover raster request.",
+    )
+    parser.add_argument(
+        "--land-cover-year",
+        type=int,
+        help="Copernicus CLMS LCFM LCM-10 reference year to request. Defaults to the current UTC year.",
+    )
     parser.add_argument("--prediction-days", type=int, default=5)
     parser.add_argument("--demo", action="store_true", help="Run with bundled demo weather values")
     parser.add_argument("--print-json", action="store_true", help="Print the full JSON report to console")
